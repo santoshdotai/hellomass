@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SOUVENO VISION — Café Intelligence Demo</title>
+<link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">SV</div>
+    <div class="brand-text">
+      <div class="brand-name">SOUVENO VISION</div>
+      <div class="brand-tagline">See. Understand. Act. Measure.</div>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <button class="nav-btn active" data-view="live">Live Analysis</button>
+    <button class="nav-btn" data-view="events">Events</button>
+    <button class="nav-btn" data-view="insights">Insights</button>
+    <button class="nav-btn" data-view="config">Configuration</button>
+  </nav>
+  <div class="topbar-right">
+    <span id="demoBadge" class="badge badge-demo hidden">DEMO MODE</span>
+    <span id="deviceBadge" class="badge badge-device">Inference Device: —</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================= LIVE ANALYSIS VIEW ============================= -->
+  <section id="view-live" class="view active">
+
+    <!-- Upload / setup panel, shown until a session exists -->
+    <div id="setupPanel" class="setup-panel">
+      <div class="panel card">
+        <h2>Load a café video</h2>
+        <p class="muted">Supported formats: MP4, MOV, AVI, MKV — up to 1GB.</p>
+        <div id="dropzone" class="dropzone">
+          <div class="dropzone-icon">⬆</div>
+          <div>Drag &amp; drop a video, or click to browse</div>
+          <input id="fileInput" type="file" accept=".mp4,.mov,.avi,.mkv" hidden />
+        </div>
+        <div id="uploadProgress" class="hidden">Uploading…</div>
+        <div id="sessionInfo" class="session-info hidden"></div>
+
+        <div id="zoneStep" class="hidden">
+          <hr />
+          <h3>Define zones</h3>
+          <p class="muted">Draw COUNTER / QUEUE / DINING / PREP / PICKUP zones and an entrance line
+             over a frame from your video, or load the default café layout to get started fast.</p>
+          <div class="row-actions">
+            <button id="loadDefaultZonesBtn" class="btn secondary">Load Default Layout</button>
+            <button id="openZoneBuilderBtn" class="btn secondary">Draw Zones</button>
+          </div>
+          <div id="zoneSummary" class="zone-summary"></div>
+        </div>
+
+        <div id="startStep" class="hidden">
+          <hr />
+          <button id="startAnalysisBtn" class="btn primary big">START AI ANALYSIS</button>
+          <button id="resetDemoBtn" class="btn ghost">Reset Demo Data</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone builder overlay -->
+    <div id="zoneBuilderModal" class="modal hidden">
+      <div class="modal-content zone-builder-content">
+        <div class="modal-header">
+          <h2>Zone Builder</h2>
+          <button id="closeZoneBuilder" class="btn ghost">✕ Close</button>
+        </div>
+        <div class="zone-builder-body">
+          <div class="canvas-wrap">
+            <canvas id="zoneCanvas"></canvas>
+          </div>
+          <div class="zone-controls">
+            <label>Shape</label>
+            <select id="shapeType">
+              <option value="polygon">Polygon (zone area)</option>
+              <option value="line">Line (entrance / crossing)</option>
+            </select>
+            <label>Zone type</label>
+            <select id="zoneType"></select>
+            <label>Zone name</label>
+            <input id="zoneName" type="text" placeholder="e.g. Counter, Table 03" />
+            <div class="row-actions">
+              <button id="finishShapeBtn" class="btn secondary">Finish Shape (Enter)</button>
+              <button id="undoPointBtn" class="btn ghost">Undo Point</button>
+            </div>
+            <hr />
+            <div id="zoneList" class="zone-list"></div>
+            <div class="row-actions">
+              <button id="clearZonesBtn" class="btn ghost">Clear All</button>
+              <button id="saveZonesBtn" class="btn primary">Save Zones</button>
+            </div>
+            <p class="hint">Click to place polygon vertices, then "Finish Shape". Lines need exactly 2 points —
+              for an entrance line, the "enter" direction is whichever side is to your left as you walk from the
+              1st point clicked to the 2nd.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live analysis two-column layout -->
+    <div id="liveLayout" class="live-layout hidden">
+      <div class="video-panel">
+        <div class="panel-title">SOUVENO VISION — LIVE ANALYSIS</div>
+        <div class="video-frame-wrap">
+          <img id="videoFrame" alt="Live analysis feed" />
+          <div id="videoOverlayMsg" class="video-overlay-msg hidden"></div>
+        </div>
+        <div class="video-controls">
+          <button id="pauseBtn" class="btn secondary">Pause</button>
+          <button id="resumeBtn" class="btn secondary hidden">Resume</button>
+          <span id="videoTimeLabel" class="mono">00:00:00</span>
+          <span class="spacer"></span>
+          <button id="triggerSpillBtn" class="btn warn">Simulate Spill Event (Demo)</button>
+        </div>
+      </div>
+
+      <aside class="intel-panel">
+        <div class="panel card">
+          <h3>Live Status</h3>
+          <div id="liveStatus" class="kv-grid"></div>
+        </div>
+        <div class="panel card">
+          <h3>Business Metrics</h3>
+          <div id="businessMetrics" class="kv-grid"></div>
+        </div>
+        <div class="panel card">
+          <h3>Active Alerts</h3>
+          <div id="alertsList" class="alerts-list"><div class="muted small">No active alerts</div></div>
+        </div>
+        <div class="panel card">
+          <h3>Live Events</h3>
+          <div id="eventsFeed" class="events-feed"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================= EVENTS VIEW ============================= -->
+  <section id="view-events" class="view">
+    <div class="panel card">
+      <h2>Event Timeline</h2>
+      <p class="muted">Click an event to view its auto-generated clip (5s before / after).</p>
+      <table class="events-table">
+        <thead>
+          <tr><th>Time</th><th>Event</th><th>Zone</th><th>Severity</th><th>Duration</th><th>Clip</th></tr>
+        </thead>
+        <tbody id="eventsTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================= INSIGHTS VIEW ============================= -->
+  <section id="view-insights" class="view">
+    <div class="panel card">
+      <h2>SOUVENO AI Operations Summary</h2>
+      <div id="summaryStatus" class="muted">Finish an analysis run to generate a summary.</div>
+      <div id="summaryStatsGrid" class="stats-grid hidden"></div>
+      <pre id="summaryText" class="summary-text hidden"></pre>
+    </div>
+
+    <div class="panel card">
+      <h2>Cost Impact Estimator <span class="badge badge-demo">ILLUSTRATIVE ESTIMATE</span></h2>
+      <p class="muted">All figures below are illustrative estimates extrapolated from this recorded session —
+        not proven savings, and not connected to POS/payroll data.</p>
+      <form id="costForm" class="cost-form">
+        <label>Average staff hourly cost (₹)<input type="number" id="staffHourlyCost" value="250" /></label>
+        <label>Average order value (₹)<input type="number" id="averageOrderValue" value="180" /></label>
+        <label>Estimated monthly spillage/remakes (₹)<input type="number" id="estimatedSpillage" value="5000" /></label>
+        <label>Operating hours/day<input type="number" id="operatingHours" value="12" /></label>
+        <label>Working days/month<input type="number" id="workingDays" value="26" /></label>
+        <button type="submit" class="btn primary">Calculate Illustrative Impact</button>
+      </form>
+      <div id="costResult" class="cost-result hidden"></div>
+    </div>
+  </section>
+
+  <!-- ============================= CONFIGURATION VIEW ============================= -->
+  <section id="view-config" class="view">
+    <div class="panel card">
+      <h2>Model Manager</h2>
+      <div id="modelManager" class="kv-grid"></div>
+    </div>
+
+    <div class="panel card">
+      <h2>Rule Engine</h2>
+      <table class="events-table">
+        <thead><tr><th>Rule</th><th>Zone Type</th><th>Threshold (s)</th><th>Severity</th><th>Enabled</th></tr></thead>
+        <tbody id="rulesTableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="panel card">
+      <h2>Live / RTSP Camera (Stage 3 preview)</h2>
+      <p class="muted">Not required for the MP4 demo — the same pipeline will accept a live RTSP/NVR camera
+        once connected, with no architecture change.</p>
+      <form id="rtspForm" class="cost-form">
+        <label>Camera name<input type="text" id="cameraName" placeholder="Counter Camera" /></label>
+        <label>RTSP URL<input type="text" id="rtspUrl" placeholder="rtsp://192.168.1.50:554/stream1" /></label>
+        <label>Username<input type="text" id="rtspUser" /></label>
+        <label>Password<input type="password" id="rtspPass" /></label>
+        <button type="submit" class="btn secondary">Test Camera</button>
+      </form>
+      <div id="rtspResult" class="cost-result hidden"></div>
+    </div>
+
+    <div class="panel card">
+      <h2>Privacy</h2>
+      <p>SOUVENO VISION uses anonymous operational analytics. No facial recognition, no names, no biometric
+        identification — every tracked person is an anonymous ID (e.g. "Person #014") for the duration they
+        remain visible.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="/static/js/api.js"></script>
+<script src="/static/js/zonebuilder.js"></script>
+<script src="/static/js/live.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

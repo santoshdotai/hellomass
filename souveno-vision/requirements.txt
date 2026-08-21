@@ -1,0 +1,31 @@
+# SOUVENO VISION — Café Intelligence Demo
+# Core web framework
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20
+websockets==14.1
+
+# Data / validation
+pydantic==2.10.4
+pydantic-settings==2.7.0
+numpy==1.26.4
+pandas==2.2.3
+
+# Database
+sqlalchemy==2.0.36
+
+# Computer vision / AI
+opencv-python-headless==4.10.0.84
+ultralytics==8.3.55
+torch==2.5.1
+torchvision==0.20.1
+supervision==0.25.1
+
+# Utilities
+python-dotenv==1.0.1
+loguru==0.7.3
+requests==2.32.3
+
+# Testing
+pytest==8.3.4
+httpx==0.28.1
