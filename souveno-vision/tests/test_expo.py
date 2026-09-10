@@ -203,7 +203,7 @@ def test_proposals_compute_advance_and_travel():
     ev = next(e for e in list_events() if e["id"] == "elecrama-2027")
     ps = approvals.proposals_for_event(ev)
     kinds = [p["kind"] for p in ps]
-    assert kinds == ["stall_advance", "flight", "hotel"]
+    assert kinds == ["stall_advance", "flight", "hotel"]  # domestic: no visa
     adv = ps[0]
     assert adv["details"]["sqm"] == 12 and adv["details"]["total_inr"] == round(12 * 13000 * 1.18)
     assert adv["amount_inr"] == round(adv["details"]["total_inr"] * 0.5)
@@ -281,3 +281,18 @@ def test_flight_booking_window_policy():
     fp = next(p for p in approvals.proposals_for_event(ev) if p["kind"] == "flight")
     assert fp["details"]["booking_window"]["policy"].startswith("book >= 30 days")
     assert fp["deadline"] <= fp["details"]["booking_window"]["preferred_by"]
+
+
+def test_international_policy_and_visa():
+    from datetime import date
+    from backend.core.expo import approvals
+    w = approvals.flight_booking_window(date(2027, 5, 10), date(2026, 9, 10), international=True)
+    assert w["international"] and w["preferred_by"] == "2027-02-09" and w["latest_by"] == "2027-03-26" and w["status"] == "ideal"
+    w = approvals.flight_booking_window(date(2026, 11, 2), date(2026, 9, 10), international=True)  # 53 days: inside 90, above 45
+    assert w["status"] == "urgent"
+    ev = next(e for e in list_events() if e["id"] == "middle-east-energy-2027")
+    ps = approvals.proposals_for_event(ev)
+    assert [p["kind"] for p in ps] == ["stall_advance", "flight", "hotel", "visa"]
+    visa = ps[-1]
+    assert visa["amount_inr"] == 18000 and visa["details"]["country"] == "UAE" and visa["details"]["apply_by"] == "2027-04-19"
+    assert ps[1]["details"]["international"] is True

@@ -549,9 +549,9 @@ def list_approvals(status: Optional[str] = None, event_id: Optional[str] = None,
     items = [approval_engine.to_dict(r) for r in rows]
     for it in items:  # refresh the flight window against today's date
         if it["kind"] == "flight" and it["details"].get("depart"):
-            it["details"]["booking_window"] = approval_engine.flight_booking_window(datetime.fromisoformat(it["details"]["depart"]).date())
+            it["details"]["booking_window"] = approval_engine.flight_booking_window(datetime.fromisoformat(it["details"]["depart"]).date(), international=bool(it["details"].get("international")))
     return {"rails": {"razorpayx": bool(settings.razorpayx_key_id), "duffel": bool(settings.duffel_access_token), "auto_execute": settings.expo_auto_execute},
-            "policy": {"flights": "book >= 30 days before departure; >= 60 days when time permits"},
+            "policy": {"flights": "domestic: >= 30 days before, 60+ when possible; international: >= 45 days before, 90+ when possible; visas 21 days before"},
             "items": items}
 
 
@@ -632,6 +632,8 @@ def mark_done(approval_id: int, note: str = "", db: Session = Depends(get_db)):
         plan.flight_status = "booked"
     elif row.kind == "hotel":
         plan.hotel_status = "booked"
+    elif row.kind == "visa":
+        plan.notes = (plan.notes + "\n" if plan.notes else "") + f"Visa done ({note})"
     db.commit()
     db.refresh(row)
     return approval_engine.to_dict(row)

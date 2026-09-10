@@ -5,7 +5,8 @@
     "home_base": {
       "city": "Hyderabad",
       "airport": "HYD",
-      "venue_home": "HITEX Exhibition Centre, Madhapur"
+      "venue_home": "HITEX Exhibition Centre, Madhapur",
+      "travel_preference": "Founder prefers international (Gulf) trips; HYD-DXB is a 4-hour direct with 6+ daily flights, so Gulf geography scores 5/10 (cost) rather than 3."
     },
     "icp_segments": {
       "A": "Industrial components / fasteners / hardware",
@@ -34,6 +35,18 @@
       "demo_rate": 0.5,
       "paid_pilot_rate": 0.3,
       "source": "Barakah Systems validation report targets: >=30% of qualified demos accept a paid pilot"
+    },
+    "flight_policy": {
+      "domestic": {
+        "preferred_days": 60,
+        "latest_days": 30
+      },
+      "international": {
+        "preferred_days": 90,
+        "latest_days": 45
+      },
+      "visa_lead_days": 21,
+      "note": "book >= 30 days before departure (>= 45 international); 60/90 days when time permits"
     }
   },
   "events": [
@@ -453,7 +466,7 @@
         "icp_fit": 26,
         "footfall": 13,
         "decision_makers": 11,
-        "geography_cost": 3,
+        "geography_cost": 5,
         "competition_noise": 6,
         "timing_fit": 4
       },
@@ -532,7 +545,7 @@
         "icp_fit": 12,
         "footfall": 15,
         "decision_makers": 10,
-        "geography_cost": 3,
+        "geography_cost": 5,
         "competition_noise": 2,
         "timing_fit": 5
       },
@@ -710,7 +723,7 @@
         "icp_fit": 20,
         "footfall": 8,
         "decision_makers": 10,
-        "geography_cost": 3,
+        "geography_cost": 5,
         "competition_noise": 7,
         "timing_fit": 5
       },
@@ -1805,6 +1818,234 @@
         "org": "Indore Infoline",
         "how": "email; published rate ₹9,000/sqm + GST, MSME PMS subsidy"
       }
+    },
+    {
+      "id": "gulfood-manufacturing-2026",
+      "name": "Gulfood Manufacturing 2026",
+      "edition": "2026",
+      "category": "F&B processing, packaging, automation (Gulf)",
+      "icp": [
+        "C",
+        "E"
+      ],
+      "start": "2026-11-03",
+      "end": "2026-11-05",
+      "city": "Dubai",
+      "venue": "Dubai World Trade Centre",
+      "venue_area": "Trade Centre 2",
+      "organiser": "DWTC",
+      "website": "https://gulfoodmanufacturing.com/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 36000,
+          "exhibitors": 2500,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 36000,
+        "exhibitors": 2500
+      },
+      "score": {
+        "icp_fit": 26,
+        "footfall": 12,
+        "decision_makers": 11,
+        "geography_cost": 5,
+        "competition_noise": 7,
+        "timing_fit": 8
+      },
+      "why": "Packaging converters, processing-machinery makers and F&B distributors from the whole GCC and India; the Indian pavilion alone has 200+ exhibitors who quote on WhatsApp. First Gulf pilot hunting ground with no clash.",
+      "stall": {
+        "recommend": "visit 2 days; walk the packaging and India pavilions",
+        "hall_hint": "Sheikh Saeed halls (packaging) and the India pavilion",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 45000
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Trade Centre",
+            "area": "Trade Centre",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 0.5,
+            "why": "Walk to DWTC"
+          },
+          {
+            "name": "ibis One Central",
+            "area": "Trade Centre",
+            "tier": "budget",
+            "inr_night": [
+              6500,
+              9000
+            ],
+            "km_to_venue": 0.3,
+            "why": "Connected to the venue"
+          }
+        ]
+      },
+      "sources": [
+        "https://gulfoodmanufacturing.com/"
+      ]
+    },
+    {
+      "id": "middle-east-energy-2027",
+      "name": "Middle East Energy 2027",
+      "edition": "50th edition",
+      "category": "Electrical, power distribution, energy (Gulf)",
+      "icp": [
+        "B",
+        "A"
+      ],
+      "start": "2027-05-11",
+      "end": "2027-05-13",
+      "city": "Dubai",
+      "venue": "Dubai Exhibition Centre, Expo City",
+      "venue_area": "Expo City Dubai",
+      "organiser": "Informa Markets",
+      "website": "https://www.middleeast-energy.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 35000,
+          "exhibitors": 1900,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 35000,
+        "exhibitors": 1900
+      },
+      "score": {
+        "icp_fit": 36,
+        "footfall": 12,
+        "decision_makers": 13,
+        "geography_cost": 5,
+        "competition_noise": 8,
+        "timing_fit": 8
+      },
+      "why": "The Gulf's ELECRAMA: cable, switchgear and lighting distributors from UAE, Saudi, Africa and India. The Manikan Cables case study plus a WhatsApp quotation demo in Arabic/Hindi lands here. Best first Gulf stall.",
+      "stall": {
+        "recommend": "exhibit 9-12 sqm in the India pavilion (subsidised via EEPC/IEEMA) or a corner near the transmission & distribution hall entrance",
+        "hall_hint": "India pavilion or the T&D hall main aisle",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 48000
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Expo City",
+            "area": "Expo City",
+            "tier": "mid",
+            "inr_night": [
+              9000,
+              13000
+            ],
+            "km_to_venue": 0.3,
+            "why": "On site"
+          },
+          {
+            "name": "ibis Al Barsha",
+            "area": "Al Barsha",
+            "tier": "budget",
+            "inr_night": [
+              6000,
+              8500
+            ],
+            "km_to_venue": 20,
+            "why": "Metro Route 2020 to Expo City"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.middleeast-energy.com/en/home.html"
+      ]
+    },
+    {
+      "id": "big5-saudi-2027",
+      "name": "Big 5 Saudi 2027 (formerly Big 5 Construct Saudi)",
+      "edition": "2027",
+      "category": "Construction & building materials (Saudi)",
+      "icp": [
+        "B"
+      ],
+      "start": "2027-04-19",
+      "end": "2027-04-22",
+      "city": "Riyadh",
+      "venue": "Riyadh Front Exhibition & Conference Center",
+      "venue_area": "ROSHN Front",
+      "organiser": "dmg events",
+      "website": "https://www.big5constructsaudi.com/",
+      "mode": "visit",
+      "tentative": true,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 40000,
+          "exhibitors": 1400,
+          "note": "organiser figure; 2027 dates published inconsistently (22-25 Feb or 19-22 Apr) — confirm before booking"
+        }
+      ],
+      "expected": {
+        "visitors": 40000,
+        "exhibitors": 1400
+      },
+      "score": {
+        "icp_fit": 26,
+        "footfall": 12,
+        "decision_makers": 11,
+        "geography_cost": 3,
+        "competition_noise": 7,
+        "timing_fit": 5
+      },
+      "why": "Saudi building-material traders are the largest Gulf ICP pool, but a Saudi business visa, Arabic-first buyers and unconfirmed dates make this a 2027-28 option, not a 2026-27 priority.",
+      "stall": {
+        "recommend": "visit only once dates are confirmed",
+        "hall_hint": "n/a",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 55000
+      },
+      "travel": {
+        "airport": "RUH",
+        "flight_oneway_inr": [
+          18000,
+          28000
+        ],
+        "hotels": [
+          {
+            "name": "Novotel Riyadh Sahafa",
+            "area": "Al Sahafa",
+            "tier": "mid",
+            "inr_night": [
+              9000,
+              13000
+            ],
+            "km_to_venue": 8,
+            "why": "Business hotel near Riyadh Front"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.big5constructsaudi.com/"
+      ]
     }
   ]
 }

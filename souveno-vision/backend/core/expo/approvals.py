@@ -66,26 +66,67 @@ def stall_advance_proposal(ev: dict[str, Any], sqm: int | None = None, rate: int
     }
 
 
-FLIGHT_PREFERRED_DAYS = 60   # book here if time permits: lowest fares, best seats
-FLIGHT_LATEST_DAYS = 30      # hard rule: never later than this
+FLIGHT_PREFERRED_DAYS = 60   # domestic: book here if time permits (lowest fares)
+FLIGHT_LATEST_DAYS = 30      # domestic hard rule
+INTL_PREFERRED_DAYS = 90     # international: fares and visas both favour 90 days
+INTL_LATEST_DAYS = 45        # international hard rule (leaves 3 weeks for the visa)
+VISA_LEAD_DAYS = 21
+INTERNATIONAL_AIRPORTS = {"DXB", "DWC", "AUH", "SHJ", "DOH", "RUH", "JED", "DMM", "MCT", "BAH", "KWI", "SIN", "KUL", "BKK", "LHR", "FRA"}
+VISA_RULES = {  # Indian passport, business/visit; INR per person incl. service fees; lead time in working days
+    "DXB": {"country": "UAE", "type": "UAE 30-day tourist/business e-visa", "inr_per_person": 9000, "lead_days": 7, "note": "Sponsored by the airline or a UAE agent; passport valid 6 months; usually issued in 3-5 working days."},
+    "DWC": {"country": "UAE", "type": "UAE 30-day e-visa", "inr_per_person": 9000, "lead_days": 7, "note": "As DXB."},
+    "AUH": {"country": "UAE", "type": "UAE 30-day e-visa", "inr_per_person": 9000, "lead_days": 7, "note": "As DXB."},
+    "RUH": {"country": "Saudi Arabia", "type": "Saudi business visit e-visa (invitation from the organiser/host company)", "inr_per_person": 14000, "lead_days": 14, "note": "Needs an organiser invitation letter; apply 4-6 weeks out."},
+    "JED": {"country": "Saudi Arabia", "type": "Saudi business visit e-visa", "inr_per_person": 14000, "lead_days": 14, "note": "As RUH."},
+    "DOH": {"country": "Qatar", "type": "Qatar Hayya / visa on arrival for Indian passport (check current rule)", "inr_per_person": 3000, "lead_days": 5, "note": "Confirm current entry rule 6 weeks out."},
+}
 
 
-def flight_booking_window(depart: date, today: date | None = None) -> dict[str, Any]:
-    """Policy: book at least 30 days before departure; 60+ days when possible."""
+def is_international(airport: str | None) -> bool:
+    return bool(airport) and airport.upper() in INTERNATIONAL_AIRPORTS
+
+
+def flight_booking_window(depart: date, today: date | None = None, international: bool = False) -> dict[str, Any]:
+    """Policy: domestic — book >= 30 days before departure, 60+ when possible.
+    International — book >= 45 days before, 90+ when possible (fares + visa)."""
     today = today or date.today()
-    preferred = depart - timedelta(days=FLIGHT_PREFERRED_DAYS)
-    latest = depart - timedelta(days=FLIGHT_LATEST_DAYS)
+    pref_days, late_days = (INTL_PREFERRED_DAYS, INTL_LATEST_DAYS) if international else (FLIGHT_PREFERRED_DAYS, FLIGHT_LATEST_DAYS)
+    preferred = depart - timedelta(days=pref_days)
+    latest = depart - timedelta(days=late_days)
     days_left = (depart - today).days
-    if days_left >= FLIGHT_PREFERRED_DAYS:
-        status, advice = "ideal", f"Book by {preferred.isoformat()} for the lowest fares (60+ days out)."
-    elif days_left >= FLIGHT_LATEST_DAYS:
-        status, advice = "urgent", f"Inside the 60-day window; book now, hard deadline {latest.isoformat()} (30 days before)."
+    if days_left >= pref_days:
+        status, advice = "ideal", f"Book by {preferred.isoformat()} for the lowest fares ({pref_days}+ days out)."
+    elif days_left >= late_days:
+        status, advice = "urgent", f"Inside the {pref_days}-day window; book now, hard deadline {latest.isoformat()} ({late_days} days before)."
     elif days_left > 0:
-        status, advice = "late", f"Past the 30-day rule ({latest.isoformat()}); book immediately, fares rise daily."
+        status, advice = "late", f"Past the {late_days}-day rule ({latest.isoformat()}); book immediately, fares rise daily."
     else:
         status, advice = "past", "Departure date has passed."
     return {"preferred_by": preferred.isoformat(), "latest_by": latest.isoformat(), "days_to_departure": days_left,
-            "status": status, "advice": advice, "policy": "book >= 30 days before departure; >= 60 days when time permits"}
+            "status": status, "advice": advice, "international": international,
+            "policy": (f"international: book >= {INTL_LATEST_DAYS} days before departure; >= {INTL_PREFERRED_DAYS} days when time permits"
+                       if international else "book >= 30 days before departure; >= 60 days when time permits")}
+
+
+def visa_proposal(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any] | None:
+    airport = (ev.get("travel") or {}).get("airport")
+    rule = VISA_RULES.get((airport or "").upper())
+    if not rule:
+        return None
+    tp = planner.travel_plan(ev, travellers)
+    depart = date.fromisoformat(tp["outbound"]["date"])
+    apply_by = depart - timedelta(days=VISA_LEAD_DAYS)
+    return {
+        "kind": "visa",
+        "title": f"{rule['type']} x{travellers} — {ev['name']}",
+        "amount_inr": rule["inr_per_person"] * travellers,
+        "payee": f"{rule['country']} visa (via airline / agent)",
+        "executor": "manual",
+        "deadline": _deadline(apply_by, min_days_ahead=2),
+        "details": {"country": rule["country"], "visa_type": rule["type"], "travellers": travellers, "apply_by": apply_by.isoformat(),
+                    "lead_days": rule["lead_days"], "depart": depart.isoformat(), "note": rule["note"],
+                    "documents": ["passport (6 months validity, 2 blank pages)", "photo 4.3x5.5 cm white background", "return ticket", "hotel booking", "organiser invitation / exhibitor badge confirmation"]},
+    }
 
 
 def flight_proposal(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any] | None:
@@ -95,7 +136,8 @@ def flight_proposal(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any] |
     lo, hi = ev["travel"]["flight_oneway_inr"]
     est = round((lo + hi) / 2 * 2 * travellers)
     depart = date.fromisoformat(tp["outbound"]["date"])
-    window = flight_booking_window(depart)
+    intl = is_international(ev["travel"].get("airport"))
+    window = flight_booking_window(depart, international=intl)
     # decide-by = the 60-day mark when still ahead, otherwise as soon as possible (2 days)
     deadline = _deadline(date.fromisoformat(window["preferred_by"]), min_days_ahead=2)
     if window["status"] in ("urgent", "late"):
@@ -109,6 +151,8 @@ def flight_proposal(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any] |
         "deadline": deadline,
         "details": {
             "booking_window": window,
+            "international": intl,
+            "passengers_note": "Automated ticketing needs DUFFEL_PASSENGERS_JSON (given_name, family_name, born_on, gender, phone, email" + (", passport number/expiry/nationality)" if intl else ")"),
             "origin": tp["outbound"]["route"].split(" -> ")[0], "destination": tp["outbound"]["route"].split(" -> ")[1],
             "depart": tp["outbound"]["date"], "return": tp["return"]["date"], "travellers": travellers,
             "fare_oneway_inr": [lo, hi], "cabin": "economy", "preference": "arrive evening before; return after 19:00",
@@ -144,7 +188,7 @@ def proposals_for_event(ev: dict[str, Any], mode: str | None = None) -> list[dic
     out = []
     if mode == "exhibit":
         out.append(stall_advance_proposal(ev))
-    for p in (flight_proposal(ev), hotel_proposal(ev)):
+    for p in (flight_proposal(ev), hotel_proposal(ev), visa_proposal(ev)):
         if p:
             out.append(p)
     return out
@@ -224,6 +268,11 @@ def _duffel_order(row: models.ExpoApproval, details: dict[str, Any]) -> dict[str
         return {"ok": False, "mode": "duffel", "reason": f"cheapest offer {offer['total_amount']} {offer['total_currency']} exceeds approved budget by >25%",
                 "offer_id": offer["id"]}
     passengers = details.get("passengers") or []
+    if not passengers and settings.duffel_passengers_json:
+        try:
+            passengers = json.loads(settings.duffel_passengers_json)[: len(pax)]
+        except json.JSONDecodeError:
+            passengers = []
     if len(passengers) != len(pax):
         return {"ok": False, "mode": "duffel", "reason": "passenger details (given_name, family_name, born_on, gender, phone, email) missing in details.passengers",
                 "offer_id": offer["id"], "offer_total": offer["total_amount"]}
@@ -241,6 +290,8 @@ def _manual_instruction(row: models.ExpoApproval, details: dict[str, Any]) -> st
         return f"Book via {details.get('links', {}).get('outbound', {}).get('google_flights', 'Google Flights')} within budget ₹{row.amount_inr:,}."
     if row.kind == "hotel":
         return f"Book {details.get('hotel', {}).get('name', 'the hotel')} {details.get('checkin')} → {details.get('checkout')} via {details.get('links', {}).get('google_hotels', '')}."
+    if row.kind == "visa":
+        return f"Apply for the {details.get('visa_type')} by {details.get('apply_by')} ({details.get('lead_days')} working days); {details.get('note', '')}"
     return f"Complete manually. Reference {row.approval_uid}."
 
 
