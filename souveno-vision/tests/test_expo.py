@@ -264,3 +264,20 @@ def test_custom_traced_layout_scores_and_penalises(client):
     assert worst["number"] == "H9-88" and "next to noisy machinery zone" in worst["cons"] and "back wall" in worst["cons"]
     assert client.get("/api/expo/floorplans/elecrama-2027.svg").headers["content-type"].startswith("image/svg")
     assert client.post("/api/expo/floorplans/score", json={"width": 10, "height": 10, "stalls": []}).status_code == 400
+
+
+def test_flight_booking_window_policy():
+    from datetime import date
+    from backend.core.expo.approvals import flight_booking_window
+    today = date(2026, 9, 10)
+    w = flight_booking_window(date(2027, 2, 19), today)  # ELECRAMA outbound
+    assert w["status"] == "ideal" and w["preferred_by"] == "2026-12-21" and w["latest_by"] == "2027-01-20"
+    w = flight_booking_window(date(2026, 10, 22), today)  # Hardware Fair outbound, 42 days out
+    assert w["status"] == "urgent"
+    w = flight_booking_window(date(2026, 9, 30), today)  # 20 days out
+    assert w["status"] == "late"
+    ev = next(e for e in list_events() if e["id"] == "elecrama-2027")
+    from backend.core.expo import approvals
+    fp = next(p for p in approvals.proposals_for_event(ev) if p["kind"] == "flight")
+    assert fp["details"]["booking_window"]["policy"].startswith("book >= 30 days")
+    assert fp["deadline"] <= fp["details"]["booking_window"]["preferred_by"]

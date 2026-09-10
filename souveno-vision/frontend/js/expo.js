@@ -258,17 +258,18 @@
   async function loadApprovals() {
     const d = await api('/api/expo/approvals');
     const r = d.rails;
-    $('#railsInfo').textContent = `Rails: RazorpayX ${r.razorpayx ? 'on' : 'off'} · Duffel flights ${r.duffel ? 'on' : 'off'} · auto-execute ${r.auto_execute ? 'on' : 'off'}`;
+    $('#railsInfo').textContent = `Rails: RazorpayX ${r.razorpayx ? 'on' : 'off'} · Duffel flights ${r.duffel ? 'on' : 'off'} · auto-execute ${r.auto_execute ? 'on' : 'off'} · Flight policy: ${d.policy.flights}`;
     const pending = d.items.filter((i) => i.status === 'proposed').length;
     $('#apBadge').textContent = pending; $('#apBadge').classList.toggle('hidden', !pending);
     const order = { proposed: 0, approved: 1, failed: 2, executed: 3, rejected: 4 };
-    const items = d.items.slice().sort((a, b) => order[a.status] - order[b.status] || (a.deadline || '').localeCompare(b.deadline || ''));
+    const urg = (i) => (i.kind === 'flight' && i.details.booking_window && i.details.booking_window.status !== 'ideal' && i.status === 'proposed') ? 0 : 1;
+    const items = d.items.slice().sort((a, b) => order[a.status] - order[b.status] || urg(a) - urg(b) || (a.deadline || '').localeCompare(b.deadline || ''));
     $('#approvalList').innerHTML = items.length ? items.map((i) => `<div class="ap ${i.status}" data-id="${i.id}">
         <div><div class="status muted">${i.status} · ${i.kind.replace('_', ' ')} · ${i.executor}${i.deadline ? ' · decide by ' + i.deadline.slice(0, 10) : ''}</div>
           <div class="amt">${inr(i.amount_inr)} <span class="muted" style="font-size:12px">to ${esc(i.payee)}</span></div>
           <div>${esc(i.title)}</div>
           <div class="meta">${i.kind === 'stall_advance' ? `${i.details.sqm} sqm × ${inr(i.details.rate_inr_sqm)} = ${inr(i.details.base_inr)} + 18% GST = ${inr(i.details.total_inr)} · advance 50% · balance ${inr(i.details.balance_inr)} · <i>${esc(i.details.rate_status || '')}</i>` : ''}
-          ${i.kind === 'flight' ? `${i.details.origin} → ${i.details.destination} ${i.details.depart} / back ${i.details.return} · ${i.details.travellers} pax · ${esc(i.details.preference)} · <a target="_blank" href="${i.details.links.outbound.google_flights}">search</a>` : ''}
+          ${i.kind === 'flight' ? `${i.details.origin} → ${i.details.destination} ${i.details.depart} / back ${i.details.return} · ${i.details.travellers} pax · ${esc(i.details.preference)} · <a target="_blank" href="${i.details.links.outbound.google_flights}">search</a>${i.details.booking_window ? `<br/><span class="pill ${i.details.booking_window.status === 'ideal' ? 'booked' : 'searching'}">${i.details.booking_window.status === 'ideal' ? '60-day window open' : i.details.booking_window.status === 'urgent' ? 'inside 60 days — book now' : 'past 30-day rule — book immediately'}</span> ${esc(i.details.booking_window.advice)} · ${i.details.booking_window.days_to_departure} days to departure` : ''}` : ''}
           ${i.kind === 'hotel' ? `${esc(i.details.hotel.name)} · ${i.details.checkin} → ${i.details.checkout} · ${inr(i.details.hotel.inr_night[0])}–${inr(i.details.hotel.inr_night[1])}/night · <a target="_blank" href="${i.details.links.google_hotels}">search</a>` : ''}</div>
           ${i.status !== 'proposed' && i.status !== 'rejected' ? `<div class="meta">${esc(i.execution.instruction || i.execution.reason || (i.execution.ok ? 'Executed ' + (i.execution.mode || '') : ''))}${i.execution.error ? ' · ' + esc(i.execution.error) : ''}</div>` : ''}
           ${i.notes ? `<div class="meta">Note: ${esc(i.notes)}</div>` : ''}

@@ -546,8 +546,13 @@ def list_approvals(status: Optional[str] = None, event_id: Optional[str] = None,
     if event_id:
         q = q.filter(models.ExpoApproval.event_id == event_id)
     rows = q.order_by(models.ExpoApproval.deadline.asc().nullslast(), models.ExpoApproval.proposed_at.desc()).all()
+    items = [approval_engine.to_dict(r) for r in rows]
+    for it in items:  # refresh the flight window against today's date
+        if it["kind"] == "flight" and it["details"].get("depart"):
+            it["details"]["booking_window"] = approval_engine.flight_booking_window(datetime.fromisoformat(it["details"]["depart"]).date())
     return {"rails": {"razorpayx": bool(settings.razorpayx_key_id), "duffel": bool(settings.duffel_access_token), "auto_execute": settings.expo_auto_execute},
-            "items": [approval_engine.to_dict(r) for r in rows]}
+            "policy": {"flights": "book >= 30 days before departure; >= 60 days when time permits"},
+            "items": items}
 
 
 @router.post("/approvals/propose", status_code=201)

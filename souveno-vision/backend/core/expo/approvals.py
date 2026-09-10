@@ -66,20 +66,49 @@ def stall_advance_proposal(ev: dict[str, Any], sqm: int | None = None, rate: int
     }
 
 
+FLIGHT_PREFERRED_DAYS = 60   # book here if time permits: lowest fares, best seats
+FLIGHT_LATEST_DAYS = 30      # hard rule: never later than this
+
+
+def flight_booking_window(depart: date, today: date | None = None) -> dict[str, Any]:
+    """Policy: book at least 30 days before departure; 60+ days when possible."""
+    today = today or date.today()
+    preferred = depart - timedelta(days=FLIGHT_PREFERRED_DAYS)
+    latest = depart - timedelta(days=FLIGHT_LATEST_DAYS)
+    days_left = (depart - today).days
+    if days_left >= FLIGHT_PREFERRED_DAYS:
+        status, advice = "ideal", f"Book by {preferred.isoformat()} for the lowest fares (60+ days out)."
+    elif days_left >= FLIGHT_LATEST_DAYS:
+        status, advice = "urgent", f"Inside the 60-day window; book now, hard deadline {latest.isoformat()} (30 days before)."
+    elif days_left > 0:
+        status, advice = "late", f"Past the 30-day rule ({latest.isoformat()}); book immediately, fares rise daily."
+    else:
+        status, advice = "past", "Departure date has passed."
+    return {"preferred_by": preferred.isoformat(), "latest_by": latest.isoformat(), "days_to_departure": days_left,
+            "status": status, "advice": advice, "policy": "book >= 30 days before departure; >= 60 days when time permits"}
+
+
 def flight_proposal(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any] | None:
     tp = planner.travel_plan(ev, travellers)
     if not tp.get("needs_travel"):
         return None
     lo, hi = ev["travel"]["flight_oneway_inr"]
     est = round((lo + hi) / 2 * 2 * travellers)
+    depart = date.fromisoformat(tp["outbound"]["date"])
+    window = flight_booking_window(depart)
+    # decide-by = the 60-day mark when still ahead, otherwise as soon as possible (2 days)
+    deadline = _deadline(date.fromisoformat(window["preferred_by"]), min_days_ahead=2)
+    if window["status"] in ("urgent", "late"):
+        deadline = _deadline(date.today(), min_days_ahead=1)
     return {
         "kind": "flight",
         "title": f"Flights {tp['outbound']['route']} {tp['outbound']['date']} / return {tp['return']['date']} x{travellers} — {ev['name']}",
         "amount_inr": est,
         "payee": "Airline (via Duffel)" if settings.duffel_access_token else "Airline / OTA",
         "executor": "duffel" if settings.duffel_access_token else "manual",
-        "deadline": _deadline(date.fromisoformat(tp["outbound"]["date"]) - timedelta(days=21)),
+        "deadline": deadline,
         "details": {
+            "booking_window": window,
             "origin": tp["outbound"]["route"].split(" -> ")[0], "destination": tp["outbound"]["route"].split(" -> ")[1],
             "depart": tp["outbound"]["date"], "return": tp["return"]["date"], "travellers": travellers,
             "fare_oneway_inr": [lo, hi], "cabin": "economy", "preference": "arrive evening before; return after 19:00",

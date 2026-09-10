@@ -283,6 +283,8 @@ approves or rejects. Approved items execute through whichever rail is configured
 
 `EXPO_AUTO_EXECUTE=true` runs the rail immediately on approval; otherwise tap **Execute now**.
 
+**Flight policy** (`flight_booking_window`): every flight is proposed with a booking window — preferred by 60 days before departure (lowest fares), hard deadline 30 days before. Inside 60 days the item is marked urgent and jumps to the top of Approvals; inside 30 days it is marked late. A calendar reminder is placed on the 60-day mark for each away show.
+
 ### Phone app
 
 `/expo` ships a web-app manifest and service worker. Open it in Chrome (Android) or Safari (iPhone) and use
