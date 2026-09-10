@@ -306,8 +306,7 @@ async def scan_card(event_id: str = Form(...), create_lead: bool = Form(True), t
     if image is not None:
         image_bytes = await image.read()
         media_type = image.content_type or media_type
-        card_dir = settings.data_dir / "expo" / "cards"
-        card_dir.mkdir(parents=True, exist_ok=True)
+        card_dir = settings.card_images_dir
         ext = ".png" if "png" in media_type else ".jpg"
         image_path = card_dir / f"{event_id}-{datetime.utcnow().strftime('%Y%m%d%H%M%S%f')}{ext}"
         image_path.write_bytes(image_bytes)

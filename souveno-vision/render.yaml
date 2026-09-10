@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: souveno-expo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-expo.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_MODE
+        value: expo
+      - key: DATABASE_URL
+        sync: false

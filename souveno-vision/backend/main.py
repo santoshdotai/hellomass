@@ -9,13 +9,20 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from loguru import logger
 
-from backend.api.routers import analysis, cameras, config_router, cost, events, expo, health, sessions, zones
+from backend.api.routers import expo
 from backend.db.database import init_db
 from config.settings import settings
 
 logger.remove()
 logger.add(sys.stderr, level=settings.log_level)
-logger.add(settings.logs_dir / "souveno_vision.log", rotation="10 MB", retention=5, level="DEBUG")
+try:
+    logger.add(settings.logs_dir / "souveno_vision.log", rotation="10 MB", retention=5, level="DEBUG")
+except OSError:  # read-only host (serverless)
+    pass
+
+EXPO_ONLY = settings.app_mode == "expo"
+if not EXPO_ONLY:
+    from backend.api.routers import analysis, cameras, config_router, cost, events, health, sessions, zones
 
 
 @asynccontextmanager
@@ -28,15 +35,20 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title=settings.app_name, description=settings.tagline, lifespan=lifespan)
 
-app.include_router(health.router)
-app.include_router(sessions.router)
-app.include_router(zones.router)
-app.include_router(analysis.router)
-app.include_router(analysis.ws_router)
-app.include_router(events.router)
-app.include_router(config_router.router)
-app.include_router(cost.router)
-app.include_router(cameras.router)
+if not EXPO_ONLY:
+    app.include_router(health.router)
+    app.include_router(sessions.router)
+    app.include_router(zones.router)
+    app.include_router(analysis.router)
+    app.include_router(analysis.ws_router)
+    app.include_router(events.router)
+    app.include_router(config_router.router)
+    app.include_router(cost.router)
+    app.include_router(cameras.router)
+else:
+    @app.get("/api/health")
+    def health_expo():
+        return {"status": "ok", "app": settings.app_name, "mode": "expo", "database": settings.database_url.split("://")[0]}
 app.include_router(expo.router)
 
 FRONTEND_DIR = settings.base_dir / "frontend"
@@ -45,6 +57,8 @@ app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
 
 @app.get("/")
 def index():
+    if EXPO_ONLY:
+        return FileResponse(str(FRONTEND_DIR / "expo.html"))
     return FileResponse(str(FRONTEND_DIR / "index.html"))
 
 

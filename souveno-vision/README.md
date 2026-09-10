@@ -297,3 +297,15 @@ aisle north, 3 m shell stalls numbered per row) with every stall scored 0-100 an
 registration, food court, washrooms, anchors, noisy zones, pillars, then the candidate stalls). Scoring:
 traffic 30, main/cross aisle 20, corner 20, anchor 10, amenities 10, minus back wall, dead-end, noisy zone
 and pillar penalties. The **Stall Picker** tab shows both and can save the best number to the event plan.
+
+### Free public URL (expo-only mode)
+
+Set `APP_MODE=expo` and the app serves only the Expo Agent (no OpenCV/YOLO), which fits free tiers:
+
+* **Vercel (free Hobby)** — `api/index.py` + `vercel.json` are the entrypoint. Vercel installs from
+  `requirements.txt`, so deploy with `requirements-expo.txt` copied over it (the file-tree deploy does this),
+  and set `DATABASE_URL` to your Supabase Postgres connection string (Vercel's disk is not persistent;
+  without it leads live in `/tmp` and vanish on cold start).
+* **Render free / Hugging Face Space / Railway** — `render.yaml` and `Dockerfile.expo` are ready; same two env vars.
+
+The full vision app still runs with `python run.py` and the original `requirements.txt`.
