@@ -296,3 +296,14 @@ def test_international_policy_and_visa():
     visa = ps[-1]
     assert visa["amount_inr"] == 18000 and visa["details"]["country"] == "UAE" and visa["details"]["apply_by"] == "2027-04-19"
     assert ps[1]["details"]["international"] is True
+
+
+def test_all_flights_depart_from_hyderabad():
+    from backend.core.expo import approvals
+    for e in list_events():
+        tp = planner.travel_plan(e)
+        if not tp.get("needs_travel"):
+            continue
+        assert tp["outbound"]["route"].startswith("HYD -> ") and tp["return"]["route"].endswith(" -> HYD")
+        fp = next(p for p in approvals.proposals_for_event(e) if p["kind"] == "flight")
+        assert fp["details"]["origin"] == "HYD"

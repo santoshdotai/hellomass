@@ -11,7 +11,7 @@ from urllib.parse import quote_plus
 from backend.core.expo.catalog import list_events, meta
 from backend.core.expo.scoring import evaluate
 
-HOME_AIRPORT = "HYD"
+HOME_AIRPORT = "HYD"  # RULE: every trip departs from and returns to Hyderabad; never route from another show's city
 
 SOUVENO_PROFILE = {
     "company": "Souveno AI",
@@ -68,6 +68,7 @@ def travel_plan(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any]:
     ret = end
     return {
         "needs_travel": True,
+        "departure_rule": f"All flights depart from and return to {HOME_AIRPORT} (Hyderabad).",
         "outbound": {"date": depart.isoformat(), "route": f"{HOME_AIRPORT} -> {airport}", "arrive_by": "evening", "links": flight_links(HOME_AIRPORT, airport, depart)},
         "return": {"date": ret.isoformat(), "route": f"{airport} -> {HOME_AIRPORT}", "depart_after": "19:00", "links": flight_links(airport, HOME_AIRPORT, ret)},
         "hotel": {"checkin": depart.isoformat(), "checkout": ret.isoformat(), "nights": (ret - depart).days,

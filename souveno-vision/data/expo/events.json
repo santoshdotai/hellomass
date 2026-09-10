@@ -6,7 +6,8 @@
       "city": "Hyderabad",
       "airport": "HYD",
       "venue_home": "HITEX Exhibition Centre, Madhapur",
-      "travel_preference": "Founder prefers international (Gulf) trips; HYD-DXB is a 4-hour direct with 6+ daily flights, so Gulf geography scores 5/10 (cost) rather than 3."
+      "travel_preference": "Founder prefers international (Gulf) trips; HYD-DXB is a 4-hour direct with 6+ daily flights, so Gulf geography scores 5/10 (cost) rather than 3.",
+      "departure_rule": "ALL flights depart from and return to Hyderabad (HYD). No multi-city routings from another show's city."
     },
     "icp_segments": {
       "A": "Industrial components / fasteners / hardware",
@@ -470,9 +471,9 @@
         "competition_noise": 6,
         "timing_fit": 4
       },
-      "why": "Gulf building-material traders quote on WhatsApp too, but the strategy docs say 'prove India first'. Clashes with EngiExpo Pune (23 Nov). Only worth it if 2 Gulf pilots are already in discussion.",
+      "why": "Gulf building-material traders quote on WhatsApp too, but the strategy docs say 'prove India first'. Clashes with EngiExpo Pune (23 Nov): fly PNQ → HYD on the 23rd night, then HYD → DXB on the 24th morning; attend 24-26 Nov. Only worth it if 2 Gulf pilots are already in discussion.",
       "stall": {
-        "recommend": "visit only, 2 days (24-25 Nov) via Pune-Dubai direct",
+        "recommend": "visit only, 24-26 Nov (fly HYD → DXB 24 Nov morning after returning from Pune)",
         "hall_hint": "Sheikh Saeed Halls for MEP/electrical; Za'abeel for building materials",
         "suggested_sqm": 0,
         "shell_rate_inr_sqm": 45000
