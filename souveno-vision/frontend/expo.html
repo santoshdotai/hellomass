@@ -31,6 +31,7 @@
     <button class="nav-btn" data-view="funnel">Live Funnel</button>
     <button class="nav-btn" data-view="leads">Leads &amp; Cards</button>
     <button class="nav-btn" data-view="collab">Collaborations</button>
+    <button class="nav-btn" data-view="stalls">Stall Picker</button>
     <button class="nav-btn" data-view="travel">Travel &amp; Booking</button>
     <button class="nav-btn" data-view="playbook">Playbook</button>
   </nav>
@@ -128,6 +129,28 @@
         <button class="btn secondary" id="newCollabBtn">+ Add</button>
       </div>
       <div id="collabTable"></div>
+    </div>
+  </section>
+
+  <section id="view-stalls" class="view">
+    <div class="cols-2">
+      <div class="panel card">
+        <div class="toolbar"><h3>Modelled hall &amp; best stalls</h3><label>Event <select id="fpEvent"></select></label></div>
+        <p class="muted">Until the organiser's plan arrives, this is a modelled layout of the venue's hall: entrance on the south wall, main aisle north, 3 m shell stalls numbered per row from the west. Darker = better. Scoring: traffic 30 · main/cross aisle 20 · corner 20 · anchor 10 · amenities 10 · penalties for back wall, dead-ends, noisy zones, pillars.</p>
+        <div id="fpSvg" class="fp-svg"></div>
+        <div id="fpTop"></div>
+      </div>
+      <div class="panel card">
+        <h3>Upload the organiser's floor plan and pick</h3>
+        <p class="muted">1) Load the plan image. 2) Choose a marker and click on the plan: entrance, registration, food court, washroom, anchor exhibitor, noisy zone, pillar. 3) Choose "stall" and click the candidate stalls (you'll be asked for the number and open sides). 4) Score.</p>
+        <input id="fpImage" type="file" accept="image/*" />
+        <div class="toolbar">
+          <label>Marker <select id="fpMarker"><option value="stall">stall</option><option value="entrance">entrance</option><option value="registration">registration</option><option value="food_court">food court</option><option value="washroom">washroom</option><option value="anchor">anchor exhibitor</option><option value="noisy">noisy zone</option><option value="pillar">pillar</option></select></label>
+          <button class="btn secondary" id="fpUndo">Undo</button><button class="btn secondary" id="fpClear">Clear</button><button class="btn primary" id="fpScore">Score my stalls</button>
+        </div>
+        <div class="canvas-wrap fp-wrap"><canvas id="fpCanvas" width="640" height="420"></canvas></div>
+        <div id="fpCustom"></div>
+      </div>
     </div>
   </section>
 

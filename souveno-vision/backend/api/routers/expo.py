@@ -14,6 +14,7 @@ from sqlalchemy.orm import Session
 
 from backend.core.expo import approvals as approval_engine
 from backend.core.expo import cards as card_engine
+from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
 from backend.core.expo.catalog import get_event, list_events, meta
 from backend.core.expo.playbook import DROP_REASONS, LEAD_STATUSES, playbook
@@ -630,3 +631,51 @@ def mark_done(approval_id: int, note: str = "", db: Session = Depends(get_db)):
     db.commit()
     db.refresh(row)
     return approval_engine.to_dict(row)
+
+
+# ---------------------------------------------------------------- stall layouts
+class LayoutIn(BaseModel):
+    name: str = "organiser floor plan"
+    width: float
+    height: float
+    units: str = "px"
+    entrances: list[list[float]] = []
+    registration: Optional[list[float]] = None
+    food_court: list[list[float]] = []
+    washrooms: list[list[float]] = []
+    anchors: list[dict[str, Any]] = []
+    noisy: list[list[float]] = []
+    pillars: list[list[float]] = []
+    aisles: list[dict[str, Any]] = []
+    stalls: list[dict[str, Any]]
+    top: int = 5
+
+
+@router.get("/floorplans/{event_id}.svg")
+def modelled_floorplan_svg(event_id: str, top: int = 5):
+    _require_event(event_id)
+    r = floorplan.recommend(event_id, top=top)
+    if not r:
+        raise HTTPException(404, "no venue model for this event yet")
+    return Response(r["svg"], media_type="image/svg+xml")
+
+
+@router.get("/floorplans/{event_id}")
+def modelled_floorplan(event_id: str, top: int = 5):
+    _require_event(event_id)
+    r = floorplan.recommend(event_id, top=top)
+    if not r:
+        raise HTTPException(404, "no venue model for this event yet")
+    return r
+
+
+@router.post("/floorplans/score")
+def score_floorplan(body: LayoutIn):
+    """Rank the stalls the user traced on the organiser's plan."""
+    if not body.stalls:
+        raise HTTPException(400, "trace at least one candidate stall")
+    lay = floorplan.layout_from_dict(body.model_dump())
+    ranked = floorplan.rank(lay)
+    d = floorplan.layout_to_dict(lay, ranked, body.top)
+    d["svg"] = floorplan.to_svg(lay, ranked, body.top)
+    return d

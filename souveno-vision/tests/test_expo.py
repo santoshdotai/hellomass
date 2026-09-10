@@ -234,3 +234,33 @@ def test_approval_flow_propose_approve_execute_manual(client):
     lst = client.get("/api/expo/approvals").json()
     assert lst["rails"] == {"razorpayx": False, "duffel": False, "auto_execute": False}
     assert any(i["status"] == "executed" for i in lst["items"])
+
+
+# ---------------------------------------------------------------- stall layouts
+def test_modelled_layout_ranks_main_aisle_corners_first():
+    from backend.core.expo import floorplan
+    r = floorplan.recommend("elecrama-2027")
+    assert r["modelled"] and r["stall_count"] > 200
+    best = r["top"][0]
+    assert best["open_sides"] >= 2 and best["score"] >= 75
+    assert any("main aisle" in p for p in best["pros"])
+    worst = r["avoid"][0]
+    assert worst["score"] < 20 and "back wall" in worst["cons"]
+    assert r["svg"].startswith("<svg") and best["number"] in r["svg"]
+
+
+def test_custom_traced_layout_scores_and_penalises(client):
+    body = {"width": 100, "height": 60, "units": "m", "entrances": [[50, 0]], "registration": [50, 2],
+            "food_court": [[92, 54]], "anchors": [{"name": "Polycab", "x": 60, "y": 15}], "noisy": [[20, 55]],
+            "stalls": [{"number": "H9-01", "x": 52, "y": 6, "open_sides": 2, "on_main_aisle": True},
+                       {"number": "H9-88", "x": 18, "y": 54, "open_sides": 1, "back_wall": True},
+                       {"number": "H9-40", "x": 70, "y": 30, "open_sides": 1}]}
+    r = client.post("/api/expo/floorplans/score", json=body)
+    assert r.status_code == 200
+    d = r.json()
+    assert not d["modelled"]
+    assert d["top"][0]["number"] == "H9-01" and d["top"][0]["score"] > d["top"][1]["score"]
+    worst = d["ranked"][-1]
+    assert worst["number"] == "H9-88" and "next to noisy machinery zone" in worst["cons"] and "back wall" in worst["cons"]
+    assert client.get("/api/expo/floorplans/elecrama-2027.svg").headers["content-type"].startswith("image/svg")
+    assert client.post("/api/expo/floorplans/score", json={"width": 10, "height": 10, "stalls": []}).status_code == 400

@@ -288,3 +288,12 @@ approves or rejects. Approved items execute through whichever rail is configured
 `/expo` ships a web-app manifest and service worker. Open it in Chrome (Android) or Safari (iPhone) and use
 **Add to Home Screen**; it opens full-screen, caches the shell for the expo floor, and shows the approvals
 badge. The public card page `/expo/card` is what the QR on your printed card points to.
+
+### Stall Picker
+
+`GET /api/expo/floorplans/{event_id}` returns a modelled layout of the venue's hall (entrance south, main
+aisle north, 3 m shell stalls numbered per row) with every stall scored 0-100 and an SVG heat map;
+`POST /api/expo/floorplans/score` ranks stalls you traced on the organiser's real plan (mark entrance,
+registration, food court, washrooms, anchors, noisy zones, pillars, then the candidate stalls). Scoring:
+traffic 30, main/cross aisle 20, corner 20, anchor 10, amenities 10, minus back wall, dead-end, noisy zone
+and pillar penalties. The **Stall Picker** tab shows both and can save the best number to the event plan.

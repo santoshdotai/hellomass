@@ -19,6 +19,7 @@
     $$('.view').forEach((v) => v.classList.toggle('active', v.id === 'view-' + b.dataset.view));
     if (b.dataset.view === 'funnel') loadFunnel();
     if (b.dataset.view === 'approvals') loadApprovals();
+    if (b.dataset.view === 'stalls') loadFloorplan();
     if (b.dataset.view === 'leads') loadLeads();
     if (b.dataset.view === 'collab') loadCollabs();
   }));
@@ -290,6 +291,54 @@
     }));
   }
   $('#proposeBtn').addEventListener('click', async () => { const r = await api('/api/expo/approvals/propose?horizon_days=90', { method: 'POST' }); alert(`${r.created.length} new proposals`); loadApprovals(); });
+
+  // ---------------------------------------------------------------- stall picker
+  const fp = { img: null, marks: [], stalls: [] };
+  function fpList(r, el) {
+    el.innerHTML = `<div class="fp-list"><b>Ask the organiser for, in this order:</b><ol>${r.top.map((t) => `<li><span class="n">${esc(t.number)}</span> · ${t.score}/100 · ${t.pros.join(', ')}${t.cons.length ? ' · <span class="muted">but ' + t.cons.join(', ') + '</span>' : ''}</li>`).join('')}</ol>
+      <b>Avoid:</b> ${r.avoid.map((t) => `<span class="n">${esc(t.number)}</span> (${t.score})`).join(', ')} <span class="muted">· ${r.stall_count} stalls scored · ${esc(r.note)}</span></div>`;
+  }
+  async function loadFloorplan() {
+    if (!$('#fpEvent').options.length) {
+      $('#fpEvent').innerHTML = state.catalog.events.slice().sort((a, b) => a.start.localeCompare(b.start)).map((e) => `<option value="${e.id}">${esc(e.name)} (${e.start})</option>`).join('');
+      const first = state.catalog.events.find((e) => e.mode === 'exhibit'); if (first) $('#fpEvent').value = first.id;
+    }
+    try {
+      const r = await api('/api/expo/floorplans/' + $('#fpEvent').value);
+      $('#fpSvg').innerHTML = r.svg; fpList(r, $('#fpTop'));
+    } catch (e) { $('#fpSvg').innerHTML = ''; $('#fpTop').innerHTML = `<div class="muted">${esc(e.message)}</div>`; }
+  }
+  $('#fpEvent').addEventListener('change', loadFloorplan);
+  const cv = $('#fpCanvas'), cx = cv.getContext('2d');
+  function fpDraw() {
+    cx.clearRect(0, 0, cv.width, cv.height);
+    if (fp.img) cx.drawImage(fp.img, 0, 0, cv.width, cv.height); else { cx.fillStyle = '#1b2438'; cx.fillRect(0, 0, cv.width, cv.height); cx.fillStyle = '#8b96b3'; cx.font = '14px sans-serif'; cx.fillText('Load the organiser floor plan image, then click to mark', 20, 40); }
+    const col = { entrance: '#25d366', registration: '#3ba7ff', food_court: '#f5a623', washroom: '#6c8fff', anchor: '#ff5b5b', noisy: '#c9a000', pillar: '#ffffff' };
+    fp.marks.forEach((m) => { cx.fillStyle = col[m.kind]; cx.beginPath(); cx.arc(m.x, m.y, 6, 0, 7); cx.fill(); cx.fillStyle = '#fff'; cx.font = '11px sans-serif'; cx.fillText(m.kind === 'anchor' ? 'anchor ' + m.name : m.kind, m.x + 8, m.y + 4); });
+    fp.stalls.forEach((s) => { cx.strokeStyle = '#3ba7ff'; cx.lineWidth = 2; cx.strokeRect(s.x - 10, s.y - 10, 20, 20); cx.fillStyle = '#3ba7ff'; cx.font = 'bold 11px sans-serif'; cx.fillText(s.number, s.x - 9, s.y - 13); });
+  }
+  fpDraw();
+  $('#fpImage').addEventListener('change', () => { const f = $('#fpImage').files[0]; if (!f) return; const img = new Image(); img.onload = () => { cv.width = Math.min(900, img.width); cv.height = Math.round(cv.width * img.height / img.width); fp.img = img; fp.marks = []; fp.stalls = []; fpDraw(); }; img.src = URL.createObjectURL(f); });
+  cv.addEventListener('click', (ev) => {
+    const r = cv.getBoundingClientRect(); const x = (ev.clientX - r.left) * cv.width / r.width, y = (ev.clientY - r.top) * cv.height / r.height;
+    const kind = $('#fpMarker').value;
+    if (kind === 'stall') { const number = prompt('Stall number as printed on the plan'); if (!number) return; const open = Number(prompt('Open sides (1 inline, 2 corner, 3 peninsula)', '2') || 1); const main = confirm('Is it on the MAIN aisle from the entrance? OK = yes'); fp.stalls.push({ number, x, y, open_sides: open, on_main_aisle: main }); }
+    else if (kind === 'anchor') { const name = prompt('Anchor exhibitor name') || 'anchor'; fp.marks.push({ kind, x, y, name }); }
+    else fp.marks.push({ kind, x, y });
+    fpDraw();
+  });
+  $('#fpUndo').addEventListener('click', () => { if (fp.stalls.length && (!fp.marks.length || fp.stalls.at(-1))) fp.stalls.pop(); else fp.marks.pop(); fpDraw(); });
+  $('#fpClear').addEventListener('click', () => { fp.marks = []; fp.stalls = []; fpDraw(); });
+  $('#fpScore').addEventListener('click', async () => {
+    const pick = (k) => fp.marks.filter((m) => m.kind === k).map((m) => [m.x, cv.height - m.y]);
+    const body = { name: 'organiser floor plan (' + $('#fpEvent').selectedOptions[0].text + ')', width: cv.width, height: cv.height, units: 'px',
+      entrances: pick('entrance'), registration: pick('registration')[0] || null, food_court: pick('food_court'), washrooms: pick('washroom'),
+      anchors: fp.marks.filter((m) => m.kind === 'anchor').map((m) => ({ name: m.name, x: m.x, y: cv.height - m.y })), noisy: pick('noisy'), pillars: pick('pillar'),
+      stalls: fp.stalls.map((s) => ({ number: s.number, x: s.x - 10, y: cv.height - s.y - 10, w: 20, h: 20, open_sides: s.open_sides, on_main_aisle: s.on_main_aisle })) };
+    try { const r = await api('/api/expo/floorplans/score', { method: 'POST', body: JSON.stringify(body) }); fpList(r, $('#fpCustom'));
+      const best = r.top[0]; if (best && confirm(`Best stall on your plan: ${best.number} (${best.score}/100). Save it as the stall request for this event?`)) { await api('/api/expo/plans/' + $('#fpEvent').value, { method: 'PUT', body: JSON.stringify({ stall_number: best.number, stall_status: 'enquired' }) }); loadCatalog(); }
+    } catch (e) { alert(e.message); }
+  });
 
   // ---------------------------------------------------------------- playbook
   function renderPlaybook() {

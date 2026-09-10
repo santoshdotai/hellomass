@@ -48,3 +48,8 @@ table.grid select, table.grid input { font-size: 12px; padding: 3px 5px; backgro
 .ap.approved { border-color: var(--warn); } .ap.executed { border-color: var(--accent-2); opacity: .8; } .ap.rejected { opacity: .45; } .ap.failed { border-color: var(--critical); }
 .ap .status { text-transform: uppercase; font-size: 10px; letter-spacing: .06em; }
 @media (max-width: 600px) { .ap { grid-template-columns: 1fr; } .ap .actions { flex-direction: row; flex-wrap: wrap; } .expo-main { padding: 12px 12px 60px; } .main-nav { overflow-x: auto; white-space: nowrap; } }
+
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; } @media (max-width: 1000px) { .cols-2 { grid-template-columns: 1fr; } }
+.fp-svg svg { width: 100%; height: auto; border-radius: 8px; }
+.fp-wrap { position: relative; background: #111; border-radius: 8px; overflow: auto; margin-top: 8px; } .fp-wrap canvas { display: block; max-width: 100%; cursor: crosshair; }
+.fp-list { font-size: 13px; margin-top: 8px; } .fp-list .n { font-weight: 700; font-family: ui-monospace, monospace; } .fp-list li { margin: 4px 0; }
