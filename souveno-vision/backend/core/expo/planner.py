@@ -30,7 +30,7 @@ SOUVENO_PROFILE = {
     "description": "Souveno builds Intelligent Business Operating Systems: Communication AI, Workflow AI and Vision AI that turn WhatsApp enquiries from manufacturers and distributors into quotations, orders and payments automatically.",
     "target_visitors": "Manufacturers, wholesalers and distributors with 20-300 WhatsApp quote requests a day",
     "stall_preference": "Corner stall, 9-12 sqm shell scheme, main aisle near entrance",
-    "gstin": "",
+    "gstin": "36BDNPP2011D2ZV",
     "address": "",
     "calendly": "https://calendly.com/souveno30",
 }
