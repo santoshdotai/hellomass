@@ -315,7 +315,7 @@ def test_all_flights_depart_from_hyderabad():
 def test_explain_gives_component_reasons_and_footfall():
     ev = next(e for e in list_events() if e["id"] == "big5-global-2026")
     x = scoring.explain(ev)
-    assert x["headline"].startswith("4.0 stars")  # Vision AI (sites, gates) lifts Big 5 from 26 to 32
+    assert x["headline"].startswith("3.5 stars = 71/100")  # Vision AI (sites, gates) lifts ICP from 26 to 32; total 71
     assert len(x["lines"]) == 6 and x["lines"][0].startswith("ICP fit 32/40") and "Vision AI" in x["lines"][0]
     assert "80,000 visitors" in x["footfall_expected"]
     hw = scoring.explain(next(e for e in list_events() if e["id"] == "hardware-fair-india-2026"))
