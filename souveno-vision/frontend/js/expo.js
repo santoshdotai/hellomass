@@ -261,11 +261,17 @@
     $('#railsInfo').textContent = `Rails: RazorpayX ${r.razorpayx ? 'on' : 'off'} · Duffel flights ${r.duffel ? 'on' : 'off'} · auto-execute ${r.auto_execute ? 'on' : 'off'} · Flight policy: ${d.policy.flights}`;
     const pending = d.items.filter((i) => i.status === 'proposed').length;
     $('#apBadge').textContent = pending; $('#apBadge').classList.toggle('hidden', !pending);
+    const evOf = (i) => state.catalog.events.find((e) => e.id === i.event_id) || null;
+    const starStrOf = (e) => e ? `${starStr(e.evaluation.stars)} ${e.evaluation.stars.toFixed(1)}` : '';
+    const stallVerdict = (e) => !e ? '' : (e.mode === 'exhibit' ? `<span class="pill exhibit">stall: YES — exhibit</span> ${esc(e.stall.recommend)}` : `<span class="pill visit">stall: NO — visit only</span> ${esc(e.stall.recommend)}`);
     const order = { proposed: 0, approved: 1, failed: 2, executed: 3, rejected: 4 };
+    const sortMode = $('#apSort') ? $('#apSort').value : 'urgency';
     const urg = (i) => (i.kind === 'flight' && i.details.booking_window && i.details.booking_window.status !== 'ideal' && i.status === 'proposed') ? 0 : 1;
-    const items = d.items.slice().sort((a, b) => order[a.status] - order[b.status] || urg(a) - urg(b) || (a.deadline || '').localeCompare(b.deadline || ''));
+    const stars = (i) => { const e = evOf(i); return e ? e.evaluation.stars : 0; };
+    const items = d.items.slice().sort((a, b) => order[a.status] - order[b.status] || (sortMode === 'priority' ? (stars(b) - stars(a)) : 0) || urg(a) - urg(b) || (a.deadline || '').localeCompare(b.deadline || ''));
     $('#approvalList').innerHTML = items.length ? items.map((i) => `<div class="ap ${i.status}" data-id="${i.id}">
         <div><div class="status muted">${i.status} · ${i.kind.replace('_', ' ')} · ${i.executor}${i.deadline ? ' · decide by ' + i.deadline.slice(0, 10) : ''}</div>
+          <div><span class="stars" title="Souveno priority">${starStrOf(evOf(i))}</span> <span class="meta">priority for Souveno</span> · ${stallVerdict(evOf(i))}</div>
           <div class="amt">${inr(i.amount_inr)} <span class="muted" style="font-size:12px">to ${esc(i.payee)}</span></div>
           <div>${esc(i.title)}</div>
           <div class="meta">${i.kind === 'stall_advance' ? `${i.details.sqm} sqm × ${inr(i.details.rate_inr_sqm)} = ${inr(i.details.base_inr)} + 18% GST = ${inr(i.details.total_inr)} · advance 50% · balance ${inr(i.details.balance_inr)} · <i>${esc(i.details.rate_status || '')}</i>` : ''}
@@ -292,6 +298,7 @@
       loadApprovals(); loadCatalog();
     }));
   }
+  $('#apSort').addEventListener('change', loadApprovals);
   $('#proposeBtn').addEventListener('click', async () => { const r = await api('/api/expo/approvals/propose?horizon_days=90', { method: 'POST' }); alert(`${r.created.length} new proposals`); loadApprovals(); });
 
   // ---------------------------------------------------------------- stall picker
