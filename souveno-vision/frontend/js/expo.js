@@ -18,6 +18,7 @@
     $$('#expoNav .nav-btn').forEach((x) => x.classList.toggle('active', x === b));
     $$('.view').forEach((v) => v.classList.toggle('active', v.id === 'view-' + b.dataset.view));
     if (b.dataset.view === 'funnel') loadFunnel();
+    if (b.dataset.view === 'approvals') loadApprovals();
     if (b.dataset.view === 'leads') loadLeads();
     if (b.dataset.view === 'collab') loadCollabs();
   }));
@@ -252,6 +253,44 @@
     loadCollabs();
   });
 
+  // ---------------------------------------------------------------- approvals
+  async function loadApprovals() {
+    const d = await api('/api/expo/approvals');
+    const r = d.rails;
+    $('#railsInfo').textContent = `Rails: RazorpayX ${r.razorpayx ? 'on' : 'off'} · Duffel flights ${r.duffel ? 'on' : 'off'} · auto-execute ${r.auto_execute ? 'on' : 'off'}`;
+    const pending = d.items.filter((i) => i.status === 'proposed').length;
+    $('#apBadge').textContent = pending; $('#apBadge').classList.toggle('hidden', !pending);
+    const order = { proposed: 0, approved: 1, failed: 2, executed: 3, rejected: 4 };
+    const items = d.items.slice().sort((a, b) => order[a.status] - order[b.status] || (a.deadline || '').localeCompare(b.deadline || ''));
+    $('#approvalList').innerHTML = items.length ? items.map((i) => `<div class="ap ${i.status}" data-id="${i.id}">
+        <div><div class="status muted">${i.status} · ${i.kind.replace('_', ' ')} · ${i.executor}${i.deadline ? ' · decide by ' + i.deadline.slice(0, 10) : ''}</div>
+          <div class="amt">${inr(i.amount_inr)} <span class="muted" style="font-size:12px">to ${esc(i.payee)}</span></div>
+          <div>${esc(i.title)}</div>
+          <div class="meta">${i.kind === 'stall_advance' ? `${i.details.sqm} sqm × ${inr(i.details.rate_inr_sqm)} = ${inr(i.details.base_inr)} + 18% GST = ${inr(i.details.total_inr)} · advance 50% · balance ${inr(i.details.balance_inr)} · <i>${esc(i.details.rate_status || '')}</i>` : ''}
+          ${i.kind === 'flight' ? `${i.details.origin} → ${i.details.destination} ${i.details.depart} / back ${i.details.return} · ${i.details.travellers} pax · ${esc(i.details.preference)} · <a target="_blank" href="${i.details.links.outbound.google_flights}">search</a>` : ''}
+          ${i.kind === 'hotel' ? `${esc(i.details.hotel.name)} · ${i.details.checkin} → ${i.details.checkout} · ${inr(i.details.hotel.inr_night[0])}–${inr(i.details.hotel.inr_night[1])}/night · <a target="_blank" href="${i.details.links.google_hotels}">search</a>` : ''}</div>
+          ${i.status !== 'proposed' && i.status !== 'rejected' ? `<div class="meta">${esc(i.execution.instruction || i.execution.reason || (i.execution.ok ? 'Executed ' + (i.execution.mode || '') : ''))}${i.execution.error ? ' · ' + esc(i.execution.error) : ''}</div>` : ''}
+          ${i.notes ? `<div class="meta">Note: ${esc(i.notes)}</div>` : ''}
+        </div>
+        <div class="actions">
+          ${i.status === 'proposed' ? `<button class="btn primary act" data-act="approve">Approve</button><button class="btn ghost act" data-act="edit">Edit amount</button><button class="btn ghost act" data-act="reject">Reject</button>` : ''}
+          ${i.status === 'approved' ? `<button class="btn secondary act" data-act="execute">Execute now</button><button class="btn primary act" data-act="done">Done (paid/booked)</button>` : ''}
+          ${i.status === 'failed' ? `<button class="btn secondary act" data-act="approve">Retry</button><button class="btn primary act" data-act="done">Done manually</button>` : ''}
+        </div></div>`).join('') : '<div class="muted">Nothing proposed yet. Tap "Propose bookings" or set an event to exhibit in its details.</div>';
+    $$('#approvalList .act').forEach((b) => b.addEventListener('click', async () => {
+      const id = b.closest('.ap').dataset.id, act = b.dataset.act;
+      try {
+        if (act === 'approve') { if (!confirm('Approve this booking? Money moves only through a configured rail, otherwise you get the payment instruction.')) return; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'approve', execute: true }) }); }
+        if (act === 'reject') { const notes = prompt('Reason (optional)') || ''; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'reject', notes }) }); }
+        if (act === 'edit') { const v = prompt('Corrected amount in INR (from the organiser rate card / actual fare)'); if (!v) return; await api(`/api/expo/approvals/${id}`, { method: 'PATCH', body: JSON.stringify({ amount_inr: Number(v), details: { rate_status: 'corrected by you' } }) }); }
+        if (act === 'execute') await api(`/api/expo/approvals/${id}/execute`, { method: 'POST' });
+        if (act === 'done') { const note = prompt('Reference / note (UTR, PNR, booking id)') || ''; await api(`/api/expo/approvals/${id}/mark-done?note=${encodeURIComponent(note)}`, { method: 'POST' }); }
+      } catch (e) { alert(e.message); }
+      loadApprovals(); loadCatalog();
+    }));
+  }
+  $('#proposeBtn').addEventListener('click', async () => { const r = await api('/api/expo/approvals/propose?horizon_days=90', { method: 'POST' }); alert(`${r.created.length} new proposals`); loadApprovals(); });
+
   // ---------------------------------------------------------------- playbook
   function renderPlaybook() {
     const p = state.playbook, li = (a) => a.map((x) => `<li>${esc(x)}</li>`).join('');
@@ -268,5 +307,6 @@
     renderPlaybook();
     await loadCatalog();
     renderQr();
+    api('/api/expo/approvals').then((d) => { const n = d.items.filter((i) => i.status === 'proposed').length; $('#apBadge').textContent = n; $('#apBadge').classList.toggle('hidden', !n); }).catch(() => {});
   })().catch((e) => { document.body.insertAdjacentHTML('afterbegin', `<div class="panel card" style="margin:20px">Failed to load: ${esc(e.message)}</div>`); });
 })();

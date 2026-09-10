@@ -4,6 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SOUVENO Expo Agent</title>
+<meta name="theme-color" content="#0f1420" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Souveno Expo" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/static/icon.svg" />
 <link rel="stylesheet" href="/static/css/styles.css" />
 <link rel="stylesheet" href="/static/css/expo.css" />
 </head>
@@ -19,6 +27,7 @@
   <nav class="main-nav" id="expoNav">
     <button class="nav-btn active" data-view="events">Events</button>
     <button class="nav-btn" data-view="itinerary">Itinerary</button>
+    <button class="nav-btn" data-view="approvals">Approvals <span id="apBadge" class="pill hidden"></span></button>
     <button class="nav-btn" data-view="funnel">Live Funnel</button>
     <button class="nav-btn" data-view="leads">Leads &amp; Cards</button>
     <button class="nav-btn" data-view="collab">Collaborations</button>
@@ -49,6 +58,18 @@
       <p class="muted">Every show gets at least one day. Clashing days go to the higher-scoring show, with a bonus for staying in the same city.</p>
       <div id="clashList" class="clash-list"></div>
       <div id="itinerary" class="itinerary"></div>
+    </div>
+  </section>
+
+  <section id="view-approvals" class="view">
+    <div class="panel card">
+      <div class="toolbar">
+        <h3>Bookings waiting for your tap</h3>
+        <button class="btn secondary" id="proposeBtn">Propose bookings due in 90 days</button>
+        <span id="railsInfo" class="hint"></span>
+      </div>
+      <p class="muted">The agent proposes each stall advance (50% of sqm × rate + 18% GST), flight and hotel with the amount worked out. Nothing is paid until you tap Approve. Approved items execute through RazorpayX or Duffel when those keys are set; otherwise you get the exact payment instruction and tap "Done" after paying.</p>
+      <div id="approvalList"></div>
     </div>
   </section>
 
@@ -127,5 +148,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="/static/js/expo.js"></script>
+<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(() => {});</script>
 </body>
 </html>

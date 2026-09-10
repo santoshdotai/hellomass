@@ -53,6 +53,16 @@ def expo_dashboard():
     return FileResponse(str(FRONTEND_DIR / "expo.html"))
 
 
+@app.get("/manifest.webmanifest")
+def manifest():
+    return FileResponse(str(FRONTEND_DIR / "manifest.webmanifest"), media_type="application/manifest+json")
+
+
+@app.get("/sw.js")
+def service_worker():
+    return FileResponse(str(FRONTEND_DIR / "sw.js"), media_type="application/javascript", headers={"Service-Worker-Allowed": "/"})
+
+
 @app.get("/expo/card")
 def expo_card():
     """Public page behind the QR on Souveno's business card: visitors leave

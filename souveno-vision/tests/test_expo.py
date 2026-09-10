@@ -195,3 +195,42 @@ def test_collaboration_crud(client):
 def test_autofill_script_is_javascript(client):
     r = client.get("/api/expo/profile/autofill.js", params={"event_id": "fastener-fair-india-2027"})
     assert r.status_code == 200 and "Souveno autofill" in r.text and "Exhibitor" in r.text
+
+
+# ---------------------------------------------------------------- approvals
+def test_proposals_compute_advance_and_travel():
+    from backend.core.expo import approvals
+    ev = next(e for e in list_events() if e["id"] == "elecrama-2027")
+    ps = approvals.proposals_for_event(ev)
+    kinds = [p["kind"] for p in ps]
+    assert kinds == ["stall_advance", "flight", "hotel"]
+    adv = ps[0]
+    assert adv["details"]["sqm"] == 12 and adv["details"]["total_inr"] == round(12 * 13000 * 1.18)
+    assert adv["amount_inr"] == round(adv["details"]["total_inr"] * 0.5)
+    assert adv["executor"] == "manual"  # no RazorpayX keys configured
+    home = next(e for e in list_events() if e["id"] == "acetech-hyderabad-2027")
+    assert [p["kind"] for p in approvals.proposals_for_event(home)] == ["stall_advance"]
+
+
+def test_approval_flow_propose_approve_execute_manual(client):
+    r = client.post("/api/expo/approvals/propose", params={"event_id": "engiexpo-pune-2026"})
+    assert r.status_code == 201
+    items = r.json()["created"]
+    assert {i["kind"] for i in items} == {"stall_advance", "flight", "hotel"}
+    # idempotent
+    assert client.post("/api/expo/approvals/propose", params={"event_id": "engiexpo-pune-2026"}).json()["created"] == []
+    stall = next(i for i in items if i["kind"] == "stall_advance")
+    # amount can be corrected once the rate card arrives
+    r = client.patch(f"/api/expo/approvals/{stall['id']}", json={"amount_inr": 60000, "details": {"rate_status": "organiser rate card"}})
+    assert r.json()["amount_inr"] == 60000
+    # reject the hotel, approve the stall (manual rail -> instruction, stays approved)
+    hotel = next(i for i in items if i["kind"] == "hotel")
+    assert client.post(f"/api/expo/approvals/{hotel['id']}/decide", json={"decision": "reject"}).json()["status"] == "rejected"
+    d = client.post(f"/api/expo/approvals/{stall['id']}/decide", json={"decision": "approve", "execute": True}).json()
+    assert d["status"] == "approved" and d["execution"]["mode"] == "manual" and "₹60,000" in d["execution"]["instruction"]
+    done = client.post(f"/api/expo/approvals/{stall['id']}/mark-done", params={"note": "NEFT done"}).json()
+    assert done["status"] == "executed"
+    assert client.get("/api/expo/plans/engiexpo-pune-2026").json()["stall_status"] == "booked"
+    lst = client.get("/api/expo/approvals").json()
+    assert lst["rails"] == {"razorpayx": False, "duffel": False, "auto_execute": False}
+    assert any(i["status"] == "executed" for i in lst["items"])

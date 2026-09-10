@@ -41,3 +41,10 @@ table.grid select, table.grid input { font-size: 12px; padding: 3px 5px; backgro
 .modal-box .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; } .modal-box label { display: flex; flex-direction: column; font-size: 11px; color: var(--text-muted); gap: 3px; }
 .detail-links a { margin-right: 10px; font-size: 12px; }
 .score-row { display: grid; grid-template-columns: 150px 1fr 50px; gap: 6px; font-size: 11px; align-items: center; }
+
+.ap { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; background: var(--bg-panel-2); display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; align-items: start; }
+.ap .amt { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ap .actions { display: flex; flex-direction: column; gap: 6px; min-width: 120px; }
+.ap.approved { border-color: var(--warn); } .ap.executed { border-color: var(--accent-2); opacity: .8; } .ap.rejected { opacity: .45; } .ap.failed { border-color: var(--critical); }
+.ap .status { text-transform: uppercase; font-size: 10px; letter-spacing: .06em; }
+@media (max-width: 600px) { .ap { grid-template-columns: 1fr; } .ap .actions { flex-direction: row; flex-wrap: wrap; } .expo-main { padding: 12px 12px 60px; } .main-nav { overflow-x: auto; white-space: nowrap; } }

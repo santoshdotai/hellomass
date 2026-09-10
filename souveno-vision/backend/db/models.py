@@ -251,3 +251,26 @@ class ExpoCardScan(Base):
     method = Column(String, default="regex")
     confidence = Column(Float, default=0.0)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class ExpoApproval(Base):
+    """A booking the agent proposes; money moves only after a human taps Approve."""
+    __tablename__ = "expo_approvals"
+
+    id = Column(Integer, primary_key=True)
+    approval_uid = Column(String, unique=True, default=lambda: gen_uid("APR"))
+    event_id = Column(String, index=True, nullable=False)
+    kind = Column(String, nullable=False)  # stall_advance | stall_balance | flight | hotel | registration
+    title = Column(String, default="")
+    amount_inr = Column(Integer, default=0)
+    currency = Column(String, default="INR")
+    payee = Column(String, default="")
+    details_json = Column(Text, default="{}")  # route/dates/rate/sqm/links/bank details
+    status = Column(String, default="proposed", index=True)  # proposed | approved | rejected | executed | failed
+    executor = Column(String, default="manual")  # manual | razorpayx | duffel | email
+    execution_json = Column(Text, default="{}")
+    deadline = Column(DateTime, nullable=True)
+    proposed_at = Column(DateTime, default=datetime.utcnow)
+    decided_at = Column(DateTime, nullable=True)
+    executed_at = Column(DateTime, nullable=True)
+    notes = Column(Text, default="")

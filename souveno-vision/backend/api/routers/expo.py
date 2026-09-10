@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
+from backend.core.expo import approvals as approval_engine
 from backend.core.expo import cards as card_engine
 from backend.core.expo import planner, scoring
 from backend.core.expo.catalog import get_event, list_events, meta
@@ -520,3 +521,112 @@ def dashboard(event_id: Optional[str] = Query(None), db: Session = Depends(get_d
         "expected": expected,
         "lost": lost,
     }
+
+
+# ---------------------------------------------------------------- approvals (propose -> one tap -> execute)
+class ApprovalDecision(BaseModel):
+    decision: str  # approve | reject
+    notes: str = ""
+    execute: Optional[bool] = None  # default: settings.expo_auto_execute
+
+
+class ApprovalEdit(BaseModel):
+    amount_inr: Optional[int] = None
+    payee: Optional[str] = None
+    executor: Optional[str] = None
+    details: Optional[dict[str, Any]] = None
+    notes: Optional[str] = None
+
+
+@router.get("/approvals")
+def list_approvals(status: Optional[str] = None, event_id: Optional[str] = None, db: Session = Depends(get_db)):
+    q = db.query(models.ExpoApproval)
+    if status:
+        q = q.filter(models.ExpoApproval.status == status)
+    if event_id:
+        q = q.filter(models.ExpoApproval.event_id == event_id)
+    rows = q.order_by(models.ExpoApproval.deadline.asc().nullslast(), models.ExpoApproval.proposed_at.desc()).all()
+    return {"rails": {"razorpayx": bool(settings.razorpayx_key_id), "duffel": bool(settings.duffel_access_token), "auto_execute": settings.expo_auto_execute},
+            "items": [approval_engine.to_dict(r) for r in rows]}
+
+
+@router.post("/approvals/propose", status_code=201)
+def propose_approvals(event_id: Optional[str] = None, horizon_days: int = 90, db: Session = Depends(get_db)):
+    if event_id:
+        created = approval_engine.propose(db, _require_event(event_id))
+    else:
+        created = approval_engine.propose_all(db, horizon_days=horizon_days)
+    return {"created": [approval_engine.to_dict(r) for r in created]}
+
+
+@router.patch("/approvals/{approval_id}")
+def edit_approval(approval_id: int, body: ApprovalEdit, db: Session = Depends(get_db)):
+    row = db.get(models.ExpoApproval, approval_id)
+    if not row:
+        raise HTTPException(404, "approval not found")
+    if row.status not in ("proposed",):
+        raise HTTPException(400, "only proposed items can be edited")
+    for k in ("amount_inr", "payee", "executor", "notes"):
+        v = getattr(body, k)
+        if v is not None:
+            setattr(row, k, v)
+    if body.details is not None:
+        row.details_json = json.dumps({**json.loads(row.details_json or "{}"), **body.details})
+    db.commit()
+    db.refresh(row)
+    return approval_engine.to_dict(row)
+
+
+@router.post("/approvals/{approval_id}/decide")
+def decide_approval(approval_id: int, body: ApprovalDecision, db: Session = Depends(get_db)):
+    row = db.get(models.ExpoApproval, approval_id)
+    if not row:
+        raise HTTPException(404, "approval not found")
+    if body.decision not in ("approve", "reject"):
+        raise HTTPException(400, "decision must be approve or reject")
+    if row.status not in ("proposed", "failed"):
+        raise HTTPException(400, f"cannot decide an item in status {row.status}")
+    row.status = "approved" if body.decision == "approve" else "rejected"
+    row.decided_at = datetime.utcnow()
+    if body.notes:
+        row.notes = body.notes
+    db.commit()
+    run = settings.expo_auto_execute if body.execute is None else body.execute
+    if row.status == "approved" and run:
+        row = approval_engine.execute(db, row)
+    db.refresh(row)
+    return approval_engine.to_dict(row)
+
+
+@router.post("/approvals/{approval_id}/execute")
+def execute_approval(approval_id: int, db: Session = Depends(get_db)):
+    row = db.get(models.ExpoApproval, approval_id)
+    if not row:
+        raise HTTPException(404, "approval not found")
+    if row.status != "approved":
+        raise HTTPException(400, "only approved items can be executed")
+    return approval_engine.to_dict(approval_engine.execute(db, row))
+
+
+@router.post("/approvals/{approval_id}/mark-done")
+def mark_done(approval_id: int, note: str = "", db: Session = Depends(get_db)):
+    """Human completed a manual step (paid the advance, booked the ticket)."""
+    row = db.get(models.ExpoApproval, approval_id)
+    if not row:
+        raise HTTPException(404, "approval not found")
+    row.status = "executed"
+    row.executed_at = datetime.utcnow()
+    row.execution_json = json.dumps({"ok": True, "mode": "manual", "note": note})
+    plan = db.query(models.ExpoEventPlan).filter_by(event_id=row.event_id).first()
+    if not plan:
+        plan = models.ExpoEventPlan(event_id=row.event_id)
+        db.add(plan)
+    if row.kind in ("stall_advance", "stall_balance"):
+        plan.stall_status = "booked"
+    elif row.kind == "flight":
+        plan.flight_status = "booked"
+    elif row.kind == "hotel":
+        plan.hotel_status = "booked"
+    db.commit()
+    db.refresh(row)
+    return approval_engine.to_dict(row)

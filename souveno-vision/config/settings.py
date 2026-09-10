@@ -68,6 +68,14 @@ class Settings(BaseSettings):
     whatsapp_access_token: str = ""
     whatsapp_recipient_numbers: str = ""
 
+    # --- Expo Agent booking executors (all optional; approvals stay manual without them) ---
+    razorpayx_key_id: str = ""
+    razorpayx_key_secret: str = ""
+    razorpayx_account_number: str = ""  # your RazorpayX current-account number (debit source)
+    duffel_access_token: str = ""  # Duffel flights API; live token issues real tickets
+    expo_auto_execute: bool = False  # if True, approved items execute immediately via the configured rails
+    expo_public_url: str = ""  # e.g. https://expo.souveno.ai — used in approval notifications
+
     # --- RTSP / NVR (Stage 3) ---
     rtsp_default_username: str = ""
     rtsp_default_password: str = ""

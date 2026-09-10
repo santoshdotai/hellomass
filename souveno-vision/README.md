@@ -267,3 +267,24 @@ show catalogue in `data/expo/events.json` into:
 All ratings, footfall figures and budgets are the agent's estimates from public organiser figures and the
 Souveno strategy documents; edit `data/expo/events.json` to change them (scores recompute automatically).
 Tests: `pytest tests/test_expo.py` (runs without the vision stack).
+
+### Approvals: propose → one tap → execute
+
+The agent never spends money on its own. `POST /api/expo/approvals/propose` creates a proposal for every
+booking due within the horizon (stall advance = 50% of sqm × rate + 18% GST, flights from the fare range,
+hotel from the mid-tier pick). The **Approvals** tab (with a badge count) lists them on your phone; one tap
+approves or rejects. Approved items execute through whichever rail is configured in `.env`:
+
+| Rail | Settings | What happens |
+|---|---|---|
+| RazorpayX payouts | `RAZORPAYX_KEY_ID`, `RAZORPAYX_KEY_SECRET`, `RAZORPAYX_ACCOUNT_NUMBER`, plus the payee's `fund_account_id` in the proposal details | NEFT/IMPS payout to the organiser for the stall advance |
+| Duffel flights | `DUFFEL_ACCESS_TOKEN` (test token = sandbox orders, live token = real tickets), passenger details in the proposal | Searches the round trip, books the cheapest direct offer if within 125% of the approved amount |
+| none | — | You get the exact payment / booking instruction and tap **Done** with the UTR or PNR; the stall, flight or hotel status flips to booked |
+
+`EXPO_AUTO_EXECUTE=true` runs the rail immediately on approval; otherwise tap **Execute now**.
+
+### Phone app
+
+`/expo` ships a web-app manifest and service worker. Open it in Chrome (Android) or Safari (iPhone) and use
+**Add to Home Screen**; it opens full-screen, caches the shell for the expo floor, and shows the approvals
+badge. The public card page `/expo/card` is what the QR on your printed card points to.
