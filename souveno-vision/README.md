@@ -244,3 +244,26 @@ by default, so the local demo stays simple:
 - **Analysis is slower than real-time on CPU** — expected; the frame budget lets it fall behind
   smoothly rather than skip processing (no results are faked to keep up). Lower `INPUT_RESOLUTION`
   or raise `PROCESS_EVERY_N_FRAMES` in `.env` to speed it up.
+
+---
+
+## 9. Expo Agent (exhibition intelligence, travel desk, lead funnel)
+
+Open **http://localhost:8000/expo** after `python run.py`. The Expo Agent is a self-contained module
+(`backend/core/expo/`, `backend/api/routers/expo.py`, `frontend/expo.html`) that turns the researched
+show catalogue in `data/expo/events.json` into:
+
+| Capability | Where |
+|---|---|
+| 23 shows for 2026-27 scored 1-5 stars (ICP fit, footfall, decision-makers, geography, competition, timing) with client probability, expected leads/pilots and an illustrative budget | `GET /api/expo/events`, Events tab |
+| Attend-everything itinerary that resolves date clashes, plus an `.ics` feed with flight days | `GET /api/expo/itinerary`, `GET /api/expo/calendar.ics` |
+| Travel desk: pre-filled flight/hotel searches and hotel picks per venue, booking status per show | Travel tab, `PUT /api/expo/plans/{event_id}` |
+| Registration auto-fill: pre-written organiser-form answers and a bookmarklet that fills any exhibitor/visitor form | `GET /api/expo/events/{id}` → `registration_answers`, `GET /api/expo/profile/autofill.js` |
+| Visitor-card scanner (Anthropic vision if `LLM_API_KEY` is set, `pytesseract` if installed, regex parser otherwise) | `POST /api/expo/cards/scan`, `POST /api/expo/cards/parse` |
+| Card exchange: QR on your card opens `/expo/card`; the visitor leaves details and gets Souveno's vCard, WhatsApp and Calendly links | `POST /api/expo/exchange`, `GET /api/expo/profile/vcard` |
+| Live funnel: leads → qualified → demo → pilot → converted / not converted / left midway, with mandatory drop reasons, per-day capture, developments log, collaborations | `/api/expo/leads`, `/api/expo/collaborations`, `GET /api/expo/dashboard` |
+| Playbook: stall selection, favourable stall numbers, where to stand, how to get clients, checklist, 0-50 qualification scorecard | `GET /api/expo/playbook` |
+
+All ratings, footfall figures and budgets are the agent's estimates from public organiser figures and the
+Souveno strategy documents; edit `data/expo/events.json` to change them (scores recompute automatically).
+Tests: `pytest tests/test_expo.py` (runs without the vision stack).

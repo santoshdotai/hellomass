@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from loguru import logger
 
-from backend.api.routers import analysis, cameras, config_router, cost, events, health, sessions, zones
+from backend.api.routers import analysis, cameras, config_router, cost, events, expo, health, sessions, zones
 from backend.db.database import init_db
 from config.settings import settings
 
@@ -37,6 +37,7 @@ app.include_router(events.router)
 app.include_router(config_router.router)
 app.include_router(cost.router)
 app.include_router(cameras.router)
+app.include_router(expo.router)
 
 FRONTEND_DIR = settings.base_dir / "frontend"
 app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
@@ -45,3 +46,15 @@ app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
 @app.get("/")
 def index():
     return FileResponse(str(FRONTEND_DIR / "index.html"))
+
+
+@app.get("/expo")
+def expo_dashboard():
+    return FileResponse(str(FRONTEND_DIR / "expo.html"))
+
+
+@app.get("/expo/card")
+def expo_card():
+    """Public page behind the QR on Souveno's business card: visitors leave
+    their details and get Souveno's contact card back."""
+    return FileResponse(str(FRONTEND_DIR / "card.html"))

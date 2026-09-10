@@ -26,6 +26,10 @@ python-dotenv==1.0.1
 loguru==0.7.3
 requests==2.32.3
 
+# Optional: local OCR for the Expo Agent card scanner (needs the tesseract binary)
+# pytesseract==0.3.13
+# pillow==11.0.0
+
 # Testing
 pytest==8.3.4
 httpx==0.28.1
