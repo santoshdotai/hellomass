@@ -24,6 +24,7 @@ SOUVENO_PROFILE = {
     "designation": "Founder & CEO",
     "city": "Hyderabad",
     "state": "Telangana",
+    "pincode": "500016",
     "country": "India",
     "industry": "AI software / business automation",
     "products": "WhatsApp AI sales engine (enquiry -> stock -> GST quotation PDF -> payment), custom AI agents, agentic operating system, Vision AI",
@@ -31,7 +32,7 @@ SOUVENO_PROFILE = {
     "target_visitors": "Manufacturers, wholesalers and distributors with 20-300 WhatsApp quote requests a day",
     "stall_preference": "Corner stall, 9-12 sqm shell scheme, main aisle near entrance",
     "gstin": "36BDNPP2011D2ZV",
-    "address": "",
+    "address": "7-1-22/12, Flat 101, Krish Central, Leela Nagar, Ameerpet",
     "calendly": "https://calendly.com/souveno30",
 }
 
@@ -198,6 +199,7 @@ def registration_answers(ev: dict[str, Any], profile: dict[str, str] | None = No
         "country": p["country"],
         "gstin": p["gstin"],
         "address": p["address"],
+        "pincode": p.get("pincode", ""),
         "nature_of_business": "Software / IT — AI automation for manufacturers and distributors",
         "products_to_display": p["products"],
         "company_profile": p["description"],

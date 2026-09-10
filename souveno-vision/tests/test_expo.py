@@ -140,6 +140,8 @@ def test_event_detail_and_registration_answers(client):
     assert d["registration_answers"]["participation_type"] == "Exhibitor"
     assert d["registration_answers"]["company_name"] == "Souveno AI"
     assert d["registration_answers"]["gstin"] == "36BDNPP2011D2ZV"
+    assert d["registration_answers"]["address"].startswith("7-1-22/12")
+    assert d["registration_answers"]["pincode"] == "500016"
     assert client.get("/api/expo/events/nope").status_code == 404
 
 
