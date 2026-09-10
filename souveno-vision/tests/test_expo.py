@@ -56,6 +56,9 @@ def test_catalog_is_ranked_with_plastivision_and_elecrama_on_top():
     ranked = scoring.rank(list_events())
     top = {e["id"] for e in ranked[:2]}
     assert top == {"plastivision-2027", "elecrama-2027"}
+    ws = next(e for e in ranked if e["id"] == "waremat-2026")
+    assert ws["evaluation"]["lead_product"] == "vision_ai" and ws["evaluation"]["components"]["icp_fit"]["score"] == 38
+    assert next(e for e in ranked if e["id"] == "elecrama-2027")["evaluation"]["lead_product"] == "quote_desk"
     for e in ranked:
         assert 1.0 <= e["evaluation"]["stars"] <= 5.0
         assert e["evaluation"]["funnel"]["leads"][0] <= e["evaluation"]["funnel"]["leads"][1]
@@ -312,8 +315,8 @@ def test_all_flights_depart_from_hyderabad():
 def test_explain_gives_component_reasons_and_footfall():
     ev = next(e for e in list_events() if e["id"] == "big5-global-2026")
     x = scoring.explain(ev)
-    assert x["headline"].startswith("3.5 stars")
-    assert len(x["lines"]) == 6 and x["lines"][0].startswith("ICP fit 26/40")
+    assert x["headline"].startswith("4.0 stars")  # Vision AI (sites, gates) lifts Big 5 from 26 to 32
+    assert len(x["lines"]) == 6 and x["lines"][0].startswith("ICP fit 32/40") and "Vision AI" in x["lines"][0]
     assert "80,000 visitors" in x["footfall_expected"]
     hw = scoring.explain(next(e for e in list_events() if e["id"] == "hardware-fair-india-2026"))
     assert hw["headline"].startswith("4.0 stars") and "ICP fit 36/40" in hw["lines"][0]

@@ -16,10 +16,16 @@
       "D": "Auto parts / auto ancillary / job work",
       "E": "Machinery / equipment / fabrication",
       "P": "Pipes / HDPE / PVC / ducts (flagship live client vertical)",
-      "X": "Partners, investors, ecosystem (not buyers)"
+      "X": "Partners, investors, ecosystem (not buyers)",
+      "F": "Factories & plants: workforce attendance/performance, line activity, safety",
+      "W": "Warehouses, 3PL & distribution hubs: stock count, dispatch verification, vehicle gates",
+      "K": "Construction sites & developers: workforce, vehicle entry/exit, safety compliance",
+      "L": "Logistics yards, fleets, gate operations: vehicle entry/exit, dwell time",
+      "R": "Retail, cafés, showrooms: footfall, queue, staff activity",
+      "S": "Security system integrators & CCTV dealers: Vision AI channel partners"
     },
     "scoring": {
-      "icp_fit": "0-40  share of audience that is a quote-heavy B2B manufacturer/distributor",
+      "icp_fit": "0-40  the BETTER of quote-desk fit and vision_fit (Vision AI buyers); the card says which product to lead with",
       "footfall": "0-15  log-scaled realistic trade-visitor count",
       "decision_makers": "0-15  owner/director density on the floor",
       "geography_cost": "0-10  10 = Hyderabad home, 7 = domestic metro, 3 = Gulf",
@@ -48,6 +54,10 @@
       },
       "visa_lead_days": 21,
       "note": "book >= 30 days before departure (>= 45 international); 60/90 days when time permits"
+    },
+    "product_lines": {
+      "quote_desk": "WhatsApp AI quote desk: enquiry → stock → GST quotation PDF → payment (ICP segments A-E, P)",
+      "vision_ai": "Vision AI: camera-based employee attendance & performance reports, stock and dispatch counting, vehicle entry/exit logging, safety (segments F, W, K, L, R)"
     }
   },
   "events": [
@@ -86,7 +96,8 @@
         "decision_makers": 10,
         "geography_cost": 10,
         "competition_noise": 8,
-        "timing_fit": 9
+        "timing_fit": 9,
+        "vision_fit": 18
       },
       "why": "Packaging converters and paper traders quote on WhatsApp all day (size x material x qty). Home city, zero travel cost.",
       "stall": {
@@ -106,6 +117,9 @@
       "sources": [
         "https://papexpo.in/",
         "https://www.tradeindia.com/tradeshows/136003/papexpo-2026.html"
+      ],
+      "icp_vision": [
+        "F"
       ]
     },
     {
@@ -144,7 +158,8 @@
         "decision_makers": 9,
         "geography_cost": 10,
         "competition_noise": 8,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 38
       },
       "why": "Distributors and 3PL owners with stock-aware quoting pain. Cheap half-day visit.",
       "stall": {
@@ -163,6 +178,10 @@
       },
       "sources": [
         "https://hitex.co.in/"
+      ],
+      "icp_vision": [
+        "W",
+        "L"
       ]
     },
     {
@@ -201,7 +220,8 @@
         "decision_makers": 12,
         "geography_cost": 7,
         "competition_noise": 8,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 16
       },
       "why": "Hardware and fastener distributors from Delhi NCR, Ludhiana, Jalandhar and Rajkot in one hall: ICP segment A, the highest-priority cluster in the validation report.",
       "stall": {
@@ -254,6 +274,9 @@
       },
       "sources": [
         "https://hardwarefair-india.com/dates-and-opening-hours.html"
+      ],
+      "icp_vision": [
+        "W"
       ]
     },
     {
@@ -291,7 +314,8 @@
         "decision_makers": 8,
         "geography_cost": 7,
         "competition_noise": 3,
-        "timing_fit": 6
+        "timing_fit": 6,
+        "vision_fit": 14
       },
       "why": "Not a buyer show for Souveno. Go for ERP/Tally consultants, BSPs, investors and a possible speaking slot; skip if the Pune trip needs the budget.",
       "stall": {
@@ -333,6 +357,9 @@
       },
       "sources": [
         "https://www.bengalurutechsummit.com/"
+      ],
+      "icp_vision": [
+        "S"
       ]
     },
     {
@@ -372,7 +399,8 @@
         "decision_makers": 12,
         "geography_cost": 7,
         "competition_noise": 8,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 30
       },
       "why": "Pune-Chakan auto-ancillary and job-work owners are ICP segment D; exhibitors themselves are fastener and component makers (segment A). Free visitor registration keeps the crowd owner-heavy.",
       "stall": {
@@ -432,7 +460,10 @@
         "phone": "+91 96877 44488 (Ambalal Bhankardar) / +91 98796 15979 (Mahendra Parihar)",
         "org": "2way Advertising",
         "how": "email or online stall booking on engiexpo.com"
-      }
+      },
+      "icp_vision": [
+        "F"
+      ]
     },
     {
       "id": "big5-global-2026",
@@ -469,7 +500,8 @@
         "decision_makers": 11,
         "geography_cost": 5,
         "competition_noise": 6,
-        "timing_fit": 4
+        "timing_fit": 4,
+        "vision_fit": 32
       },
       "why": "Gulf building-material traders quote on WhatsApp too, but the strategy docs say 'prove India first'. Clashes with EngiExpo Pune (23 Nov): fly PNQ → HYD on the 23rd night, then HYD → DXB on the 24th morning; attend 24-26 Nov. Only worth it if 2 Gulf pilots are already in discussion.",
       "stall": {
@@ -511,6 +543,10 @@
       },
       "sources": [
         "https://www.big5global.com/"
+      ],
+      "icp_vision": [
+        "K",
+        "L"
       ]
     },
     {
@@ -548,7 +584,8 @@
         "decision_makers": 10,
         "geography_cost": 5,
         "competition_noise": 2,
-        "timing_fit": 5
+        "timing_fit": 5,
+        "vision_fit": 24
       },
       "why": "Huge but noisy; every WhatsApp SaaS competitor is on the floor. Useful only to meet Gulf BSPs, resellers and investors. Low priority.",
       "stall": {
@@ -590,6 +627,10 @@
       },
       "sources": [
         "https://www.gitex.com/"
+      ],
+      "icp_vision": [
+        "S",
+        "R"
       ]
     },
     {
@@ -629,7 +670,8 @@
         "decision_makers": 12,
         "geography_cost": 7,
         "competition_noise": 8,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 30
       },
       "why": "Ahmedabad-Rajkot is India's densest cluster of owner-run pipe, pump, fastener and machinery makers: segments A, E and P together. Gujarati owners run sales on WhatsApp voice notes, which is Souveno's demo.",
       "stall": {
@@ -689,7 +731,10 @@
         "phone": "+91 96877 44488 / +91 98796 15979",
         "org": "2way Advertising",
         "how": "email or online stall booking on engiexpo.com"
-      }
+      },
+      "icp_vision": [
+        "F"
+      ]
     },
     {
       "id": "gulf-print-pack-2027",
@@ -726,7 +771,8 @@
         "decision_makers": 10,
         "geography_cost": 5,
         "competition_noise": 7,
-        "timing_fit": 5
+        "timing_fit": 5,
+        "vision_fit": 18
       },
       "why": "Only if a Gulf packaging pilot is live by January. Otherwise a 2.5-star trip that costs a Plastivision stall.",
       "stall": {
@@ -757,6 +803,9 @@
       },
       "sources": [
         "https://www.labelsandlabeling.com/news/associations-events-awards/gulf-print-pack-announces-2027-dates"
+      ],
+      "icp_vision": [
+        "F"
       ]
     },
     {
@@ -796,7 +845,8 @@
         "decision_makers": 14,
         "geography_cost": 7,
         "competition_noise": 9,
-        "timing_fit": 10
+        "timing_fit": 10,
+        "vision_fit": 30
       },
       "why": "The single best show for Souveno: HDPE/PVC/DWC pipe and duct makers (your flagship live vertical, PSL Polymers and Main Stream Ducts) plus packaging converters, all owner-led, once every four years.",
       "stall": {
@@ -856,7 +906,11 @@
         "phone": "+91 22 6777 8853 / 93215 67920",
         "org": "AIPMA",
         "how": "email"
-      }
+      },
+      "icp_vision": [
+        "F",
+        "W"
+      ]
     },
     {
       "id": "acetech-hyderabad-2027",
@@ -893,7 +947,8 @@
         "decision_makers": 11,
         "geography_cost": 10,
         "competition_noise": 8,
-        "timing_fit": 7
+        "timing_fit": 7,
+        "vision_fit": 26
       },
       "why": "Tiles, sanitary, plumbing and electrical dealers (segment B) in your home city; no hotel, no flight. Clashes with Plastivision and IMTEX, so split days.",
       "stall": {
@@ -918,7 +973,10 @@
         "phone": "+91 97693 33987 (Ranjeet Patole)",
         "org": "ABEC Exhibitions",
         "how": "email"
-      }
+      },
+      "icp_vision": [
+        "K"
+      ]
     },
     {
       "id": "imtex-2027",
@@ -957,7 +1015,8 @@
         "decision_makers_note": "MDs of tool rooms and machine builders",
         "geography_cost": 7,
         "competition_noise": 8,
-        "timing_fit": 6
+        "timing_fit": 6,
+        "vision_fit": 34
       },
       "why": "Machinery makers (segment E) with 2-20 high-ticket RFQs a day; Digital Manufacturing pavilion is where they look for software. Visit the last 3 days after Plastivision and ACETECH.",
       "stall": {
@@ -999,6 +1058,9 @@
       },
       "sources": [
         "https://www.imtex.in/"
+      ],
+      "icp_vision": [
+        "F"
       ]
     },
     {
@@ -1037,7 +1099,8 @@
         "decision_makers": 11,
         "geography_cost": 5,
         "competition_noise": 8,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 30
       },
       "why": "Surat-Hazira engineering and textile-machinery owners; almost no SaaS vendors exhibit here. Flight connectivity from HYD is thin (check IndiGo direct, else via Ahmedabad).",
       "stall": {
@@ -1085,7 +1148,10 @@
         "phone": "+91 96877 44488 / +91 98796 15979",
         "org": "2way Advertising",
         "how": "email or online stall booking on engiexpo.com"
-      }
+      },
+      "icp_vision": [
+        "F"
+      ]
     },
     {
       "id": "elecrama-2027",
@@ -1123,7 +1189,8 @@
         "decision_makers": 15,
         "geography_cost": 6,
         "competition_noise": 9,
-        "timing_fit": 10
+        "timing_fit": 10,
+        "vision_fit": 28
       },
       "why": "Every electrical distributor and cable/switchgear dealer in India walks ELECRAMA (segment B). Your Manikan Cables implementation plan is the case study to show here. Once every 2 years.",
       "stall": {
@@ -1183,7 +1250,11 @@
         "phone": "",
         "org": "IEEMA",
         "how": "email + Exhibit Enquiry Form on elecrama.com"
-      }
+      },
+      "icp_vision": [
+        "F",
+        "W"
+      ]
     },
     {
       "id": "india-pharma-expo-2027",
@@ -1220,7 +1291,8 @@
         "decision_makers": 10,
         "geography_cost": 10,
         "competition_noise": 8,
-        "timing_fit": 7
+        "timing_fit": 7,
+        "vision_fit": 30
       },
       "why": "Pharma distributors and packaging suppliers in Genome Valley quote on WhatsApp; regulated pricing limits automation depth. Home-city visit, 1 day.",
       "stall": {
@@ -1239,6 +1311,10 @@
       },
       "sources": [
         "https://indiapharmaexpo.com/"
+      ],
+      "icp_vision": [
+        "F",
+        "W"
       ]
     },
     {
@@ -1276,7 +1352,8 @@
         "decision_makers": 8,
         "geography_cost": 7,
         "competition_noise": 3,
-        "timing_fit": 6
+        "timing_fit": 6,
+        "vision_fit": 12
       },
       "why": "Investor and government visibility, not customers. Take the 13-14 Mar days after Pharma Expo if fundraising is on.",
       "stall": {
@@ -1308,6 +1385,9 @@
       "sources": [
         "https://startupmahakumbh.co.in/",
         "https://dealroom.co/events/startup-mahakumbh-2027/"
+      ],
+      "icp_vision": [
+        "S"
       ]
     },
     {
@@ -1346,7 +1426,8 @@
         "decision_makers": 9,
         "geography_cost": 7,
         "competition_noise": 4,
-        "timing_fit": 7
+        "timing_fit": 7,
+        "vision_fit": 26
       },
       "why": "INDELXPO brings electronics component distributors (segment A-adjacent); Convergence brings BSPs and telecom partners. Two-in-one visit.",
       "stall": {
@@ -1378,6 +1459,10 @@
       "sources": [
         "https://www.convergenceindia.org/",
         "https://www.eoiparis.gov.in/page/trade-events-in-india/"
+      ],
+      "icp_vision": [
+        "S",
+        "R"
       ]
     },
     {
@@ -1416,7 +1501,8 @@
         "decision_makers": 11,
         "geography_cost": 7,
         "competition_noise": 7,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 34
       },
       "why": "System integrators and machine builders looking for Industry 4.0 software; good for the Vision AI and agentic OS story.",
       "stall": {
@@ -1447,6 +1533,10 @@
       },
       "sources": [
         "https://indiaautomationandroboticsexpo.com/"
+      ],
+      "icp_vision": [
+        "F",
+        "S"
       ]
     },
     {
@@ -1484,7 +1574,8 @@
         "decision_makers": 13,
         "geography_cost": 7,
         "competition_noise": 9,
-        "timing_fit": 9
+        "timing_fit": 9,
+        "vision_fit": 26
       },
       "why": "Pure segment A: every visitor is a fastener maker, importer or distributor with daily 'rate for 500 pcs?' messages. Small show, extremely dense.",
       "stall": {
@@ -1532,7 +1623,11 @@
         "phone": "RX India, DLF Cyber City, Gurugram",
         "org": "RX India",
         "how": "exhibit enquiry form on fastenerfairindia.com (use the bookmarklet)"
-      }
+      },
+      "icp_vision": [
+        "F",
+        "W"
+      ]
     },
     {
       "id": "automation-expo-2027",
@@ -1570,7 +1665,8 @@
         "decision_makers": 12,
         "geography_cost": 7,
         "competition_noise": 7,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 36
       },
       "why": "Asia's largest automation show; panel builders, instrumentation distributors and machine builders. Co-located week with Indexpo Mumbai: one trip, two shows.",
       "stall": {
@@ -1618,7 +1714,11 @@
         "phone": "",
         "org": "IED Communications",
         "how": "email or automationindiaexpo.com/exhibit"
-      }
+      },
+      "icp_vision": [
+        "F",
+        "S"
+      ]
     },
     {
       "id": "indexpo-mumbai-2027",
@@ -1656,7 +1756,8 @@
         "decision_makers": 11,
         "geography_cost": 7,
         "competition_noise": 8,
-        "timing_fit": 9
+        "timing_fit": 9,
+        "vision_fit": 30
       },
       "why": "Same organiser and audience profile as Indexpo Hyderabad, so your Sept-2026 lead data is the benchmark. Walk it during Automation Expo.",
       "stall": {
@@ -1675,6 +1776,9 @@
       },
       "sources": [
         "https://indexpo.co.in/mumbai-expo/"
+      ],
+      "icp_vision": [
+        "F"
       ]
     },
     {
@@ -1713,7 +1817,8 @@
         "decision_makers": 11,
         "geography_cost": 6,
         "competition_noise": 8,
-        "timing_fit": 7
+        "timing_fit": 7,
+        "vision_fit": 28
       },
       "why": "Rajasthan marble-machinery, stone and hardware traders; decide in June based on EngiExpo Ahmedabad/Surat conversion.",
       "stall": {
@@ -1755,6 +1860,9 @@
       },
       "sources": [
         "https://engiexpo.com/UpcomingExhibition"
+      ],
+      "icp_vision": [
+        "F"
       ]
     },
     {
@@ -1793,7 +1901,8 @@
         "decision_makers": 11,
         "geography_cost": 10,
         "competition_noise": 8,
-        "timing_fit": 9
+        "timing_fit": 9,
+        "vision_fit": 30
       },
       "why": "Your first expo (Sept 2026) as a visitor; 2027 is the year to exhibit at home with a year of case studies. Dates are the agent's projection until the organiser announces.",
       "stall": {
@@ -1818,7 +1927,10 @@
         "phone": "+91 90988 87755 / 0731-4093000",
         "org": "Indore Infoline",
         "how": "email; published rate ₹9,000/sqm + GST, MSME PMS subsidy"
-      }
+      },
+      "icp_vision": [
+        "F"
+      ]
     },
     {
       "id": "gulfood-manufacturing-2026",
@@ -1856,7 +1968,8 @@
         "decision_makers": 11,
         "geography_cost": 5,
         "competition_noise": 7,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 34
       },
       "why": "Packaging converters, processing-machinery makers and F&B distributors from the whole GCC and India; the Indian pavilion alone has 200+ exhibitors who quote on WhatsApp. First Gulf pilot hunting ground with no clash.",
       "stall": {
@@ -1898,6 +2011,10 @@
       },
       "sources": [
         "https://gulfoodmanufacturing.com/"
+      ],
+      "icp_vision": [
+        "F",
+        "W"
       ]
     },
     {
@@ -1936,7 +2053,8 @@
         "decision_makers": 13,
         "geography_cost": 5,
         "competition_noise": 8,
-        "timing_fit": 8
+        "timing_fit": 8,
+        "vision_fit": 26
       },
       "why": "The Gulf's ELECRAMA: cable, switchgear and lighting distributors from UAE, Saudi, Africa and India. The Manikan Cables case study plus a WhatsApp quotation demo in Arabic/Hindi lands here. Best first Gulf stall.",
       "stall": {
@@ -1978,6 +2096,9 @@
       },
       "sources": [
         "https://www.middleeast-energy.com/en/home.html"
+      ],
+      "icp_vision": [
+        "F"
       ]
     },
     {
@@ -2015,7 +2136,8 @@
         "decision_makers": 11,
         "geography_cost": 3,
         "competition_noise": 7,
-        "timing_fit": 5
+        "timing_fit": 5,
+        "vision_fit": 32
       },
       "why": "Saudi building-material traders are the largest Gulf ICP pool, but a Saudi business visa, Arabic-first buyers and unconfirmed dates make this a 2027-28 option, not a 2026-27 priority.",
       "stall": {
@@ -2046,6 +2168,254 @@
       },
       "sources": [
         "https://www.big5constructsaudi.com/"
+      ],
+      "icp_vision": [
+        "K",
+        "L"
+      ]
+    },
+    {
+      "id": "ifsec-india-2026",
+      "name": "IFSEC India 2026",
+      "edition": "2026",
+      "category": "Security, surveillance, CCTV, access control",
+      "icp": [
+        "S"
+      ],
+      "icp_vision": [
+        "S",
+        "F",
+        "K"
+      ],
+      "start": "2026-12-03",
+      "end": "2026-12-05",
+      "city": "New Delhi",
+      "venue": "Bharat Mandapam (Pragati Maidan)",
+      "venue_area": "ITO / Supreme Court metro",
+      "organiser": "Informa Markets India",
+      "website": "https://ifsecindia.com/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 16000,
+          "exhibitors": 350,
+          "note": "organiser: 350+ exhibitors, 14,000-18,000 professionals"
+        }
+      ],
+      "expected": {
+        "visitors": 16000,
+        "exhibitors": 350
+      },
+      "score": {
+        "icp_fit": 8,
+        "vision_fit": 34,
+        "footfall": 9,
+        "decision_makers": 11,
+        "geography_cost": 7,
+        "competition_noise": 5,
+        "timing_fit": 8
+      },
+      "why": "Every CCTV dealer and security system integrator in India walks IFSEC: they already own the cameras in factories, warehouses and sites. Souveno Vision AI rides on their installs; this is the channel-partner show for Vision AI, not a quote-desk show.",
+      "stall": {
+        "recommend": "visit; meet 40 system integrators and 5 camera OEM distributors; exhibit in 2027 once 3 SI partners are signed",
+        "hall_hint": "Video surveillance halls; look for Hikvision/CP Plus/Dahua distributor stands",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 12000
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Bloomrooms @ New Delhi Railway Station",
+            "area": "NDLS",
+            "tier": "budget",
+            "inr_night": [
+              3200,
+              4200
+            ],
+            "km_to_venue": 5,
+            "why": "Metro to Supreme Court station"
+          },
+          {
+            "name": "The Lalit New Delhi",
+            "area": "Barakhamba",
+            "tier": "premium",
+            "inr_night": [
+              9500,
+              13000
+            ],
+            "km_to_venue": 2.5,
+            "why": "Closest full-service hotel"
+          }
+        ]
+      },
+      "sources": [
+        "https://ifsecindia.com/"
+      ]
+    },
+    {
+      "id": "india-warehousing-show-2027",
+      "name": "India Warehousing Show 2027",
+      "edition": "2027",
+      "category": "Warehousing, logistics, material handling, supply chain",
+      "icp": [
+        "W",
+        "L"
+      ],
+      "icp_vision": [
+        "W",
+        "L"
+      ],
+      "start": "2027-06-24",
+      "end": "2027-06-26",
+      "city": "New Delhi",
+      "venue": "Yashobhoomi (IICC), Dwarka",
+      "venue_area": "Dwarka Sector 25 metro",
+      "organiser": "RX India",
+      "website": "https://www.indiawarehousingshow.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 15000,
+          "exhibitors": 300,
+          "note": "organiser: 15,000+ business visitors, 300+ exhibitors"
+        }
+      ],
+      "expected": {
+        "visitors": 15000,
+        "exhibitors": 300
+      },
+      "score": {
+        "icp_fit": 24,
+        "vision_fit": 38,
+        "footfall": 9,
+        "decision_makers": 12,
+        "geography_cost": 7,
+        "competition_noise": 8,
+        "timing_fit": 8
+      },
+      "why": "Warehouse and 3PL heads with exactly the Vision AI problems: stock count, dispatch verification, vehicle entry/exit at the gate, worker productivity. Distributors here also run WhatsApp quote desks, so both products sell.",
+      "stall": {
+        "recommend": "exhibit 9 sqm with a live gate-camera demo on a screen",
+        "hall_hint": "Warehouse automation / tech zone near the main entrance",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 12500
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Holiday Inn New Delhi International Airport",
+            "area": "Aerocity",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 6,
+            "why": "Metro Airport Line to Dwarka Sector 25 (Yashobhoomi)"
+          },
+          {
+            "name": "FabHotel Dwarka",
+            "area": "Dwarka",
+            "tier": "budget",
+            "inr_night": [
+              3200,
+              4500
+            ],
+            "km_to_venue": 4,
+            "why": "10-min auto to IICC"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.indiawarehousingshow.com/"
+      ]
+    },
+    {
+      "id": "intersec-dubai-2027",
+      "name": "Intersec Dubai 2027",
+      "edition": "28th edition",
+      "category": "Security, safety, surveillance (Gulf)",
+      "icp": [
+        "S"
+      ],
+      "icp_vision": [
+        "S",
+        "K",
+        "L"
+      ],
+      "start": "2027-01-12",
+      "end": "2027-01-14",
+      "city": "Dubai",
+      "venue": "Dubai World Trade Centre",
+      "venue_area": "Trade Centre 2",
+      "organiser": "Messe Frankfurt Middle East",
+      "website": "https://intersecglobal.ae.messefrankfurt.com/dubai/en.html",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 50000,
+          "exhibitors": 1400,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 50000,
+        "exhibitors": 1400
+      },
+      "score": {
+        "icp_fit": 6,
+        "vision_fit": 34,
+        "footfall": 12,
+        "decision_makers": 11,
+        "geography_cost": 5,
+        "competition_noise": 5,
+        "timing_fit": 8
+      },
+      "why": "The world's largest security show, same dates and venue as Gulf Print & Pack: one Dubai trip covers both. Gulf system integrators and facility-management companies buy video analytics for sites, warehouses and gates; Vision AI channel partners for the UAE.",
+      "stall": {
+        "recommend": "visit (shared trip with Gulf Print & Pack, 12-14 Jan); target 30 UAE system integrators",
+        "hall_hint": "Commercial & perimeter security halls; video analytics zone",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 50000
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Trade Centre",
+            "area": "Trade Centre",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 0.5,
+            "why": "Walk to DWTC; same hotel as Gulf Print & Pack"
+          }
+        ]
+      },
+      "sources": [
+        "https://intersecglobal.ae.messefrankfurt.com/dubai/en.html"
       ]
     }
   ]

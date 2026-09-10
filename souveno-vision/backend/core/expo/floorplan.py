@@ -187,12 +187,14 @@ MODEL_NOTE = "MODELLED layout from the venue's typical hall geometry and last ed
 
 VENUE_MODELS: dict[str, dict[str, Any]] = {
     "bec-nesco": dict(name="Bombay Exhibition Centre (NESCO) — Hall 1 (modelled)", hall_w=120, hall_h=70, anchors=[{"name": "large processing-machinery anchor", "x": 75, "y": 22}, {"name": "association pavilion", "x": 45, "y": 22}], food_corner="NE", washroom_corner="NW"),
+    "bharat-mandapam": dict(name="Bharat Mandapam — Hall 5 (modelled)", hall_w=100, hall_h=60, anchors=[{"name": "sponsor pavilion", "x": 62, "y": 20}], food_corner="NE", washroom_corner="SW"),
     "india-expo-mart": dict(name="India Expo Mart — Hall 9 (modelled)", hall_w=100, hall_h=60, anchors=[{"name": "switchgear major", "x": 62, "y": 20}, {"name": "cable major", "x": 38, "y": 20}], food_corner="NE", washroom_corner="SW"),
     "hitex": dict(name="HITEX — Hall 1 (modelled)", hall_w=100, hall_h=60, anchors=[{"name": "machine-tool anchor", "x": 62, "y": 20}, {"name": "sponsor pavilion", "x": 38, "y": 20}], food_corner="NE", washroom_corner="NW"),
     "gmdc-ground": dict(name="GMDC Ground, Ahmedabad — open-ground hangar (modelled)", hall_w=160, hall_h=90, entrance_x=60, anchors=[{"name": "machinery anchor", "x": 95, "y": 24}], food_corner="SE", washroom_corner="NW"),
     "piecc-moshi": dict(name="PIECC Moshi, Pune — main hall (modelled)", hall_w=120, hall_h=80, anchors=[{"name": "automation anchor", "x": 75, "y": 24}, {"name": "fastener pavilion", "x": 45, "y": 24}], food_corner="NE", washroom_corner="NW"),
     "vanita-vishram": dict(name="Vanita Vishram Ground, Surat — hangar (modelled)", hall_w=120, hall_h=70, anchors=[{"name": "textile-machinery anchor", "x": 75, "y": 22}], food_corner="SE", washroom_corner="NW"),
     "jecc": dict(name="JECC Sitapura, Jaipur — Hall A (modelled)", hall_w=100, hall_h=60, anchors=[{"name": "stone-machinery anchor", "x": 62, "y": 20}], food_corner="NE", washroom_corner="SW"),
+    "yashobhoomi": dict(name="Yashobhoomi IICC, Dwarka — Hall 1 (modelled)", hall_w=110, hall_h=70, anchors=[{"name": "racking/automation anchor", "x": 70, "y": 22}], food_corner="NE", washroom_corner="NW"),
     "biec": dict(name="BIEC Bengaluru — Hall 3 (modelled)", hall_w=110, hall_h=70, anchors=[{"name": "robotics anchor", "x": 70, "y": 22}], food_corner="NE", washroom_corner="NW"),
 }
 
@@ -201,6 +203,8 @@ EVENT_VENUE = {
     "elecrama-2027": "india-expo-mart",
     "acetech-hyderabad-2027": "hitex", "indexpo-hyderabad-2027": "hitex", "papexpo-2026": "hitex", "waremat-2026": "hitex", "india-pharma-expo-2027": "hitex",
     "engiexpo-ahmedabad-2026": "gmdc-ground", "engiexpo-pune-2026": "piecc-moshi", "engiexpo-surat-2027": "vanita-vishram", "engiexpo-jaipur-2027": "jecc",
+    "india-warehousing-show-2027": "yashobhoomi", "ifsec-india-2026": "bharat-mandapam", "hardware-fair-india-2026": "bharat-mandapam",
+    "startup-mahakumbh-2027": "bharat-mandapam", "convergence-india-2027": "bharat-mandapam",
     "india-automation-robotics-2027": "biec", "imtex-2027": "biec", "bts-2026": "biec",
 }
 

@@ -264,6 +264,8 @@ show catalogue in `data/expo/events.json` into:
 | Live funnel: leads → qualified → demo → pilot → converted / not converted / left midway, with mandatory drop reasons, per-day capture, developments log, collaborations | `/api/expo/leads`, `/api/expo/collaborations`, `GET /api/expo/dashboard` |
 | Playbook: stall selection, favourable stall numbers, where to stand, how to get clients, checklist, 0-50 qualification scorecard | `GET /api/expo/playbook` |
 
+Scoring covers Souveno's two product lines: each show carries a quote-desk ICP fit and a `vision_fit` (Vision AI: workforce, stock & dispatch, vehicle gates); the stars use the better of the two and the card says which product to lead with.
+
 All ratings, footfall figures and budgets are the agent's estimates from public organiser figures and the
 Souveno strategy documents; edit `data/expo/events.json` to change them (scores recompute automatically).
 Tests: `pytest tests/test_expo.py` (runs without the vision stack).

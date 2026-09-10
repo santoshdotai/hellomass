@@ -27,6 +27,17 @@ DROP_REASONS = [
     "Other",
 ]
 
+VISION_QUALIFICATION = [
+    {"key": "cameras_installed", "q": "IP cameras already installed (or budget to add)", "max": 5},
+    {"key": "headcount", "q": "50+ workers on the floor / site", "max": 5},
+    {"key": "gate_traffic", "q": "20+ vehicles a day through the gate", "max": 5},
+    {"key": "dispatch_pain", "q": "Dispatch / stock mismatches cost money monthly", "max": 5},
+    {"key": "manual_attendance", "q": "Attendance and performance tracked manually", "max": 5},
+    {"key": "decision_access", "q": "Plant head / owner on the call", "max": 5},
+    {"key": "connectivity", "q": "Internet at the site (or NVR access)", "max": 5},
+    {"key": "budget_urgency", "q": "Willing to pay for a site pilot this quarter", "max": 5},
+]
+
 QUALIFICATION_SCORECARD = [
     {"key": "whatsapp_primary", "q": "WhatsApp is the primary sales channel", "max": 5},
     {"key": "quote_volume", "q": "20+ quote requests a day", "max": 5},
@@ -68,11 +79,13 @@ HOW_TO_GET_CLIENTS = [
         "Publish the expo on Calendly (booth-meeting event type) and mail the exhibitor list 10 days before: 'We are at stall X; 10-minute WhatsApp quote demo'.",
         "Load the pre-filled registration answers from /api/expo/events/{id} into the organiser form (bookmarklet).",
         "Print 300 cards with the QR to /expo/card; every scan captures their details and gives them yours.",
-        "Prepare a 90-second script: 'How many rate enquiries reach your WhatsApp every day? Who answers them after 7pm?'",
+        "Prepare two 90-second scripts. Quote desk: 'How many rate enquiries reach your WhatsApp every day? Who answers them after 7pm?' Vision AI: 'How many people are on your floor and how many trucks pass your gate a day? Who checks that the dispatch matches the invoice?'",
+        "Vision AI demo kit: a 20-second clip from a client site on the phone -> attendance & activity report, dispatch count vs invoice, vehicle in/out log with timestamps. Show the report, not the camera.",
     ]},
     {"step": "During", "items": [
         "Target: 60 booths a day when visiting, 40 qualified cards a day when exhibiting.",
-        "Demo the messy voice note -> GST quotation PDF in under 60 seconds; do not open the dashboard first.",
+        "Demo the messy voice note -> GST quotation PDF in under 60 seconds; do not open the dashboard first. If the visitor runs a plant, warehouse or site, switch to the Vision AI clip -> report demo.",
+        "At security shows (IFSEC, Intersec) the buyer is the system integrator: pitch Vision AI as software that runs on the cameras they already install, revenue-share per site.",
         "Score every lead on the 10-question card (0-50); 35+ books a demo on the spot via Calendly.",
         "Log the outcome and the reason before you leave the stall; unlogged conversations do not exist.",
     ]},
@@ -98,6 +111,7 @@ def playbook() -> dict:
         "lead_statuses": LEAD_STATUSES,
         "drop_reasons": DROP_REASONS,
         "qualification_scorecard": QUALIFICATION_SCORECARD,
+        "vision_qualification": VISION_QUALIFICATION,
         "stall_selection": STALL_SELECTION,
         "how_to_get_clients": HOW_TO_GET_CLIENTS,
         "checklist": CHECKLIST,

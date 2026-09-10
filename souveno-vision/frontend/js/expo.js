@@ -56,7 +56,7 @@
       const ev = e.evaluation, f = ev.funnel, b = ev.budget, p = e.plan;
       return `<div class="event-card s${Math.floor(ev.stars)}" data-id="${e.id}">
         <div><span class="stars" title="${ev.total_score}/100">${starStr(ev.stars)}</span> <b>${ev.stars.toFixed(1)}</b>
-          <span class="pill ${e.mode}">${e.mode}</span>${e.tentative ? '<span class="pill tentative">dates TBA</span>' : ''}</div>
+          <span class="pill ${e.mode}">${e.mode}</span>${e.tentative ? '<span class="pill tentative">dates TBA</span>' : ''} <span class="pill" title="quote desk ${ev.quote_fit}/40 · Vision AI ${ev.vision_fit}/40">lead with: ${ev.lead_product === 'both' ? 'both products' : ev.lead_product === 'vision_ai' ? 'Vision AI' : 'WhatsApp quote desk'}</span></div>
         <h4>${esc(e.name)}</h4>
         <div class="meta">${e.start} → ${e.end} · ${esc(e.city)} · ${esc(e.venue)}</div>
         <div class="meta">${esc(e.category)} · ICP ${e.icp.join(', ')}</div>

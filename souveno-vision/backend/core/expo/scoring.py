@@ -23,8 +23,21 @@ COMPONENT_MAX = {
 }
 
 
+def effective_icp(score: dict[str, int]) -> int:
+    """Souveno sells two product lines; a show counts by the better fit."""
+    return min(40, max(int(score.get("icp_fit", 0)), int(score.get("vision_fit", 0))))
+
+
+def lead_product(score: dict[str, int]) -> str:
+    q, v = int(score.get("icp_fit", 0)), int(score.get("vision_fit", 0))
+    if abs(q - v) <= 4 and max(q, v) >= 24:
+        return "both"
+    return "vision_ai" if v > q else "quote_desk"
+
+
 def total_score(score: dict[str, int]) -> int:
-    return int(sum(min(score.get(k, 0), mx) for k, mx in COMPONENT_MAX.items()))
+    parts = {**score, "icp_fit": effective_icp(score)}
+    return int(sum(min(parts.get(k, 0), mx) for k, mx in COMPONENT_MAX.items()))
 
 
 def stars_from_total(total: int) -> float:
@@ -48,7 +61,7 @@ def funnel(ev: dict[str, Any], mode: str | None = None, assumptions: dict[str, f
     manufacturers on the floor are the buyers)."""
     a = assumptions or meta()["funnel_assumptions"]
     mode = mode or ev.get("mode", "visit")
-    icp_factor = min(ev["score"].get("icp_fit", 0), 40) / 40.0
+    icp_factor = effective_icp(ev["score"]) / 40.0
     days = event_days(ev)
     visitors = ev["expected"]["visitors"]
     exhibitors = ev["expected"]["exhibitors"]
@@ -138,10 +151,13 @@ def evaluate(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any]:
         "id": ev["id"],
         "name": ev["name"],
         "explain": explain(ev),
+        "lead_product": lead_product(ev["score"]),
+        "quote_fit": int(ev["score"].get("icp_fit", 0)),
+        "vision_fit": int(ev["score"].get("vision_fit", 0)),
         "total_score": total,
         "stars": st,
         "stars_label": f"{st:.1f} / 5",
-        "components": {k: {"score": ev["score"].get(k, 0), "max": mx} for k, mx in COMPONENT_MAX.items()},
+        "components": {k: {"score": (effective_icp(ev["score"]) if k == "icp_fit" else ev["score"].get(k, 0)), "max": mx} for k, mx in COMPONENT_MAX.items()},
         "funnel": fn,
         "funnel_alt": funnel(ev, mode="visit" if fn["mode"] == "exhibit" else "exhibit"),
         "budget": bd,
@@ -156,7 +172,10 @@ def rank(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 # ---------------------------------------------------------------- plain-language explanation
 SEGMENT_NAMES = {"A": "hardware/fastener makers", "B": "building-material & electrical dealers", "C": "packaging converters",
-                 "D": "auto-ancillary units", "E": "machinery builders", "P": "pipe & duct makers", "X": "ecosystem/investors"}
+                 "D": "auto-ancillary units", "E": "machinery builders", "P": "pipe & duct makers", "X": "ecosystem/investors",
+                 "F": "factories & plants", "W": "warehouses & 3PLs", "K": "construction sites & developers", "L": "logistics yards & gates",
+                 "R": "retail & showrooms", "S": "security system integrators"}
+PRODUCT_LABEL = {"quote_desk": "WhatsApp quote desk", "vision_ai": "Vision AI (workforce, stock & dispatch, vehicle gates)", "both": "both products"}
 
 
 def explain(ev: dict[str, Any]) -> dict[str, Any]:
@@ -166,16 +185,28 @@ def explain(ev: dict[str, Any]) -> dict[str, Any]:
     fh = ev["footfall_history"][0]
     exp = ev["expected"]
     segs = ", ".join(SEGMENT_NAMES.get(k, k) for k in ev["icp"])
+    vsegs = ", ".join(SEGMENT_NAMES.get(k, k) for k in ev.get("icp_vision", []))
     lines = []
-    v = sc["icp_fit"]
-    if v >= 36:
-        lines.append(f"ICP fit {v}/40 — almost everyone on this floor is a quote-heavy manufacturer or distributor ({segs}); Souveno's exact buyer.")
-    elif v >= 26:
-        lines.append(f"ICP fit {v}/40 — roughly two-thirds of the audience fits ({segs}); the rest are contractors, architects or consumers who do not run a WhatsApp quote desk.")
-    elif v >= 16:
-        lines.append(f"ICP fit {v}/40 — only a slice of the audience fits ({segs}); most visitors buy for their own use rather than resell on quotation.")
+    q, vv = int(sc.get("icp_fit", 0)), int(sc.get("vision_fit", 0))
+    lead = lead_product(sc)
+    v = effective_icp(sc)
+    if q >= 36:
+        qtxt = f"quote desk {q}/40: almost everyone here is a quote-heavy manufacturer or distributor ({segs})"
+    elif q >= 26:
+        qtxt = f"quote desk {q}/40: about two-thirds fit ({segs}); the rest do not run a WhatsApp quote desk"
+    elif q >= 16:
+        qtxt = f"quote desk {q}/40: only a slice fits ({segs})"
     else:
-        lines.append(f"ICP fit {v}/40 — the crowd is investors, IT companies, government and students, not businesses that quote on WhatsApp.")
+        qtxt = f"quote desk {q}/40: almost nobody here quotes on WhatsApp"
+    if vv >= 34:
+        vtxt = f"Vision AI {vv}/40: the floor is full of {vsegs or 'operations buyers'} who need attendance/performance, stock & dispatch or vehicle-gate tracking"
+    elif vv >= 26:
+        vtxt = f"Vision AI {vv}/40: a good share of {vsegs or 'operations buyers'} with cameras already on site"
+    elif vv >= 16:
+        vtxt = f"Vision AI {vv}/40: some plants/sites, but not the core crowd"
+    else:
+        vtxt = f"Vision AI {vv}/40: few camera-based operations buyers"
+    lines.append(f"ICP fit {v}/40 (best of the two products) — lead with {PRODUCT_LABEL[lead]}. {qtxt}; {vtxt}.")
     v = sc["footfall"]
     lines.append(f"Footfall {v}/15 — {fh['visitors']:,} visitors and {fh['exhibitors']:,} exhibitors in {fh['year']} ({fh['note']}); "
                  + ("a very large trade crowd." if v >= 13 else "a solid mid-size trade crowd." if v >= 10 else "a small, focused crowd." if v >= 7 else "a limited crowd."))
