@@ -137,6 +137,7 @@ def evaluate(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any]:
     return {
         "id": ev["id"],
         "name": ev["name"],
+        "explain": explain(ev),
         "total_score": total,
         "stars": st,
         "stars_label": f"{st:.1f} / 5",
@@ -151,3 +152,48 @@ def evaluate(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any]:
 def rank(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
     scored = [{**ev, "evaluation": evaluate(ev)} for ev in events]
     return sorted(scored, key=lambda e: (-e["evaluation"]["total_score"], e["start"]))
+
+
+# ---------------------------------------------------------------- plain-language explanation
+SEGMENT_NAMES = {"A": "hardware/fastener makers", "B": "building-material & electrical dealers", "C": "packaging converters",
+                 "D": "auto-ancillary units", "E": "machinery builders", "P": "pipe & duct makers", "X": "ecosystem/investors"}
+
+
+def explain(ev: dict[str, Any]) -> dict[str, Any]:
+    """Why this show scores what it does for Souveno — one line per component,
+    written from the same numbers the stars come from."""
+    sc = ev["score"]
+    fh = ev["footfall_history"][0]
+    exp = ev["expected"]
+    segs = ", ".join(SEGMENT_NAMES.get(k, k) for k in ev["icp"])
+    lines = []
+    v = sc["icp_fit"]
+    if v >= 36:
+        lines.append(f"ICP fit {v}/40 — almost everyone on this floor is a quote-heavy manufacturer or distributor ({segs}); Souveno's exact buyer.")
+    elif v >= 26:
+        lines.append(f"ICP fit {v}/40 — roughly two-thirds of the audience fits ({segs}); the rest are contractors, architects or consumers who do not run a WhatsApp quote desk.")
+    elif v >= 16:
+        lines.append(f"ICP fit {v}/40 — only a slice of the audience fits ({segs}); most visitors buy for their own use rather than resell on quotation.")
+    else:
+        lines.append(f"ICP fit {v}/40 — the crowd is investors, IT companies, government and students, not businesses that quote on WhatsApp.")
+    v = sc["footfall"]
+    lines.append(f"Footfall {v}/15 — {fh['visitors']:,} visitors and {fh['exhibitors']:,} exhibitors in {fh['year']} ({fh['note']}); "
+                 + ("a very large trade crowd." if v >= 13 else "a solid mid-size trade crowd." if v >= 10 else "a small, focused crowd." if v >= 7 else "a limited crowd."))
+    v = sc["decision_makers"]
+    lines.append(f"Decision makers {v}/15 — " + ("owners and directors walk this show themselves." if v >= 13 else "a mix of owners and purchase staff." if v >= 10 else "mostly delegates, staff and students; the owner rarely comes."))
+    v = sc["geography_cost"]
+    lines.append(f"Geography {v}/10 — " + ("home city, no flight or hotel." if v >= 10 else "one domestic flight and 3 hotel nights." if v >= 7 else "international or poorly connected: visa, 4-hour flight, ₹70k+ air fare for two." if v >= 5 else "long haul plus a visa that needs an invitation."))
+    v = sc["competition_noise"]
+    lines.append(f"Low competition {v}/10 — " + ("almost no WhatsApp/CRM SaaS vendor exhibits here; Souveno stands out." if v >= 8 else "a few automation vendors will be on the floor." if v >= 6 else "every WhatsApp automation and AI vendor exhibits here; the message gets lost."))
+    v = sc["timing_fit"]
+    lines.append(f"Timing {v}/10 — " + ("clean slot, no clash, fits the 90-day plan." if v >= 8 else "a minor clash or travel fatigue with a neighbouring show." if v >= 6 else "clashes with a higher-scoring show or sits in a low-priority period."))
+    total = total_score(sc)
+    st = stars_from_total(total)
+    growth = "" if exp["visitors"] == fh["visitors"] else f" (organiser projects growth from {fh['visitors']:,})"
+    return {
+        "headline": f"{st:.1f} stars = {total}/100 for Souveno",
+        "lines": lines,
+        "footfall_expected": f"Expected footfall next edition: {exp['visitors']:,} visitors · {exp['exhibitors']:,} exhibitors{growth}.",
+        "reach": (f"With a stall Souveno can realistically capture {funnel(ev, 'exhibit')['leads'][0]}-{funnel(ev, 'exhibit')['leads'][1]} leads; walking the floor {funnel(ev, 'visit')['leads'][0]}-{funnel(ev, 'visit')['leads'][1]}."),
+        "why": ev["why"],
+    }

@@ -307,3 +307,13 @@ def test_all_flights_depart_from_hyderabad():
         assert tp["outbound"]["route"].startswith("HYD -> ") and tp["return"]["route"].endswith(" -> HYD")
         fp = next(p for p in approvals.proposals_for_event(e) if p["kind"] == "flight")
         assert fp["details"]["origin"] == "HYD"
+
+
+def test_explain_gives_component_reasons_and_footfall():
+    ev = next(e for e in list_events() if e["id"] == "big5-global-2026")
+    x = scoring.explain(ev)
+    assert x["headline"].startswith("3.5 stars")
+    assert len(x["lines"]) == 6 and x["lines"][0].startswith("ICP fit 26/40")
+    assert "80,000 visitors" in x["footfall_expected"]
+    hw = scoring.explain(next(e for e in list_events() if e["id"] == "hardware-fair-india-2026"))
+    assert hw["headline"].startswith("4.0 stars") and "ICP fit 36/40" in hw["lines"][0]

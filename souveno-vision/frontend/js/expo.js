@@ -60,7 +60,7 @@
         <h4>${esc(e.name)}</h4>
         <div class="meta">${e.start} → ${e.end} · ${esc(e.city)} · ${esc(e.venue)}</div>
         <div class="meta">${esc(e.category)} · ICP ${e.icp.join(', ')}</div>
-        <div class="meta">Footfall (prev): ${e.footfall_history[0].visitors.toLocaleString('en-IN')} visitors · ${e.footfall_history[0].exhibitors} exhibitors</div>
+        <div class="whybox"><b>${esc(ev.explain.headline)}</b><ul>${ev.explain.lines.map((l) => `<li>${esc(l)}</li>`).join('')}</ul><div class="ff">${esc(ev.explain.footfall_expected)}</div><div class="ff">${esc(ev.explain.reach)}</div></div>
         <div class="bar-row"><span>Client probability</span><div class="bar"><i style="width:${f.client_probability_pct}%"></i></div><b>${f.client_probability_pct}%</b></div>
         <div class="meta">Leads ${f.leads[0]}–${f.leads[1]} · demos ${f.demos[0]}–${f.demos[1]} · paid pilots ${f.paid_pilots[0]}–${f.paid_pilots[1]}</div>
         <div class="meta">Budget ${inr(b.total_inr[0])}–${inr(b.total_inr[1])}${ev.cost_per_expected_client_inr ? ' · ' + inr(ev.cost_per_expected_client_inr) + ' per expected client' : ''}</div>

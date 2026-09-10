@@ -53,3 +53,6 @@ table.grid select, table.grid input { font-size: 12px; padding: 3px 5px; backgro
 .fp-svg svg { width: 100%; height: auto; border-radius: 8px; }
 .fp-wrap { position: relative; background: #111; border-radius: 8px; overflow: auto; margin-top: 8px; } .fp-wrap canvas { display: block; max-width: 100%; cursor: crosshair; }
 .fp-list { font-size: 13px; margin-top: 8px; } .fp-list .n { font-weight: 700; font-family: ui-monospace, monospace; } .fp-list li { margin: 4px 0; }
+
+.whybox { background: #fff; color: #1b2233; border-radius: 8px; padding: 10px 12px; font-size: 12px; line-height: 1.45; }
+.whybox b { color: #0f1420; } .whybox ul { margin: 6px 0; padding-left: 16px; } .whybox li { margin: 2px 0; } .whybox .ff { color: #3a4560; margin-top: 4px; font-weight: 600; }
