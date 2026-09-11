@@ -1,3 +1,3 @@
-// Where the Souveno Expo Agent API runs. Empty string = same origin (combined deploy).
-// For a separate deploy set it to the backend URL, e.g. 'https://souveno-expo-api.vercel.app'.
-window.EXPO_API_BASE = window.EXPO_API_BASE || '';
+// Where the Souveno Expo Agent API runs (backend live URL).
+// Leave '' for same-origin when the backend serves this folder via EXPO_FRONTEND_DIR.
+window.EXPO_API_BASE = window.EXPO_API_BASE || 'https://hellomass-pd54.vercel.app';
