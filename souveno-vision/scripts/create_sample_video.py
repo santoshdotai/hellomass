@@ -29,6 +29,7 @@ def main():
     out_dir = settings.data_dir / "sample_videos"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / "sample_pedestrians.avi"
+    demo_copy = settings.base_dir / "demo_assets" / "pedestrians_vtest.avi"
 
     if out_path.exists():
         print(f"Sample video already present: {out_path}")
@@ -37,6 +38,13 @@ def main():
     print(f"Downloading sample test video from {SAMPLE_URL} ...")
     urlretrieve(SAMPLE_URL, out_path)
     print(f"Saved to {out_path} ({out_path.stat().st_size / 1e6:.1f} MB)")
+    try:
+        import shutil
+        demo_copy.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(out_path, demo_copy)
+        print(f"Copied to {demo_copy} for the Souveno Vision Intelligence 'Recorded Demo' button")
+    except OSError as exc:
+        print(f"Could not copy into demo_assets/: {exc}")
     print("\nUpload this file from the SOUVENO VISION home screen to test the full pipeline, "
           "or drop your own café MP4 in for a real demo.")
 

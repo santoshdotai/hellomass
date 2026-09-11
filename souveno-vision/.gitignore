@@ -2,11 +2,32 @@ __pycache__/
 *.pyc
 .pytest_cache/
 venv/
+.venv/
 .env
-data/souveno_vision.db
+config/local.yaml
+# legacy café demo data
+data/souveno_vision.db*
 data/expo/cards/
 uploads/
 outputs/
-logs/
 screenshots/
+# Souveno Vision Intelligence runtime data
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/*.corrupt-*.db
+data/evidence/snapshots/*
+data/evidence/clips/*
+!data/evidence/snapshots/.gitkeep
+!data/evidence/clips/.gitkeep
+data/uploads/
+data/sample_videos/
+logs/*
+!logs/.gitkeep
 models/*.pt
+models/**/*.pt
+models/**/*.onnx
+demo_assets/*.mp4
+demo_assets/*.avi
+demo_assets/*.mov
+demo_assets/*.mkv

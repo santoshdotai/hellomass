@@ -1,227 +1,244 @@
-# SOUVENO VISION — Café Intelligence Demo
+# SOUVENO AI — Souveno Vision Intelligence
 
-**See. Understand. Act. Measure.**
+**Existing Cameras. Operational Intelligence.**
 
-SOUVENO VISION turns a recorded café video into operational business intelligence: anonymous
-person/object detection and tracking, zone-based business events (queues, idle staff, table
-turnover, pickup delays), live metrics, and an end-of-video AI operations summary — all running
-locally on your machine, no cloud required.
+An intelligence layer for existing CCTV infrastructure: the camera provides video; Souveno converts
+it into operational events, alerts, evidence and management insights — anonymous person detection
+and tracking, occupancy / entry / exit counts, virtual lines, restricted zones, dwell-time alerts,
+after-hours detection, an event timeline with snapshots and clips, acknowledgement workflow, a local
+dashboard, health page, camera audit tool and an optional webhook — all **offline, on-premise**.
 
-> **Privacy by design:** anonymous tracking IDs only (e.g. "Person #014"). No facial recognition,
-> no names, no biometric identification.
+> **Scope of this build:** a single/few-stream proof of concept to validate use cases before hardware
+> sizing. It does **not** process 348 cameras simultaneously. Inputs implemented: **laptop webcam**,
+> **local video file (MP4/AVI/MOV)**, **RTSP camera / NVR channel**. Production integration may also
+> use ONVIF discovery, the NVR/VMS API or a manufacturer SDK — those connectors are reserved in the
+> code but not built here (`src/sources/factory.py`).
+>
+> **Privacy:** anonymous, camera-local tracking IDs (`Person 12`). No facial recognition, no employee
+> names. See `docs/PRIVACY_AND_SECURITY.md`. **Licensing:** the demo detector is AGPL-3.0 — see
+> `LICENSING.md` before any commercial deployment.
 
-This is a **prototype (V0.1)** built for pre-recorded MP4/MOV/AVI/MKV video. The architecture is
-deliberately layered (see [Architecture](#architecture)) so that upgrading to live RTSP/NVR camera
-feeds later is a configuration change, not a rewrite.
+Documentation: [DEMO_GUIDE](docs/DEMO_GUIDE.md) · [CAMERA_AUDIT](docs/CAMERA_AUDIT.md) ·
+[PRODUCTION_ARCHITECTURE](docs/PRODUCTION_ARCHITECTURE.md) · [PRIVACY_AND_SECURITY](docs/PRIVACY_AND_SECURITY.md) ·
+[CLIENT_PILOT_PLAN](docs/CLIENT_PILOT_PLAN.md) · [LICENSING](LICENSING.md)
 
 ---
 
-## 1. Installation (beginner-friendly, step by step)
+## 1. Requirements
 
-You need **Python 3.11+**. Everything else is installed automatically.
+* **Windows 10/11** (64-bit), macOS or Linux. Instructions below are for Windows; macOS/Linux differ only in the venv activation line.
+* **Python 3.10 or 3.11** (3.11 recommended; 3.12+ not tested). Install from https://www.python.org/downloads/windows/ and tick **“Add python.exe to PATH”**.
+* ~6 GB free disk for the Python environment (PyTorch), 8 GB RAM, any recent laptop CPU. An NVIDIA GPU with CUDA is optional.
+* A webcam (for the live demo) and/or a video file and/or an RTSP camera reachable on the network.
+* Internet **once** for `pip install` and the model download; the app then runs fully offline.
 
-```bash
-# 1. Clone / open this folder, then create an isolated Python environment
-python -m venv venv
+## 2. Installation (Windows, step by step)
 
-# 2. Activate it
-source venv/bin/activate        # macOS / Linux
-venv\Scripts\activate           # Windows
+Open **PowerShell** (Start → type `PowerShell`), then:
 
-# 3. Install dependencies (this also installs PyTorch — first run can take a few minutes)
+```powershell
+cd path\to\hellomass\souveno-vision
+
+# 1. create and activate an isolated Python environment
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+#   if PowerShell refuses to run the script once:
+#   Set-ExecutionPolicy -Scope CurrentUser RemoteSigned   (answer Y), then re-run the Activate line
+
+# 2. install dependencies
+python -m pip install --upgrade pip
+# CPU-only laptops (recommended — smaller download, ~1 GB):
+pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
+# NVIDIA GPU laptops instead: skip the CPU line and run only
+#   pip install -r requirements.txt        (pulls the CUDA build of PyTorch, ~3 GB)
 
-# 4. (Optional but recommended) pre-download the vision model so the first video you
-#    analyse doesn't pause to download it
+# 3. model preparation — downloads yolo11n.pt (~6 MB) into models\object_detection\
 python scripts/download_models.py
 
-# 5. Run the app
-python run.py
-```
-
-Then open **http://localhost:8000** in your browser.
-
-### Don't have a café video handy?
-
-```bash
+# 4. optional recorded demo clip (OpenCV's Apache-2.0 pedestrian sample, ~8 MB) -> demo_assets\
 python scripts/create_sample_video.py
+
+# 5. configuration (optional)
+copy .env.example .env      # then edit .env for RTSP credentials — never commit it
 ```
 
-This downloads a small (~8MB), freely-licensed pedestrian test clip (OpenCV's own `vtest.avi`,
-BSD-3 licensed) into `data/sample_videos/`. It's real people walking — not café footage — but it's
-enough to prove the whole pipeline (detection → tracking → zones → events → metrics → AI summary)
-works end to end. Upload it from the home screen like any other video. For a real demo, upload your
-own recorded café footage instead.
+`python scripts/download_models.py` is the only step that needs the model download; the app also
+downloads the weights automatically the first time a source starts if the file is missing.
 
----
+## 3. Running the application
 
-## 2. GPU configuration
-
-SOUVENO VISION auto-detects an NVIDIA GPU (CUDA) via PyTorch and falls back to CPU automatically —
-nothing to configure. The active device is shown in the top-right badge ("Inference Device: NVIDIA
-GPU" or "Inference Device: CPU") and in **Configuration → Model Manager**.
-
-To force CPU even if a GPU is present, set in `.env`:
-
-```
-USE_GPU=false
+```powershell
+.\.venv\Scripts\Activate.ps1
+python app.py
 ```
 
-CPU-only machines will still run the full demo — YOLO11n is small enough for near-real-time
-analysis on a modern laptop CPU, though a GPU will be noticeably faster on longer/higher-resolution
-video.
+The dashboard opens at **http://127.0.0.1:8501** (the terminal prints the URL; add `--no-browser`
+to suppress the auto-open). Useful flags:
 
----
-
-## 3. Using the app
-
-1. **Upload a video** — drag & drop an MP4/MOV/AVI/MKV onto the home screen. SOUVENO VISION
-   validates the file, reads its FPS/resolution/duration, and creates an analysis session.
-2. **Define zones** — click **Draw Zones** to open the zone builder over a frame of your video, and
-   draw `COUNTER_ZONE`, `QUEUE_ZONE`, `DINING_ZONE`, `PREP_ZONE`, `PICKUP_ZONE`, `ENTRANCE_LINE`,
-   and/or individual `TABLE` polygons. Click to place vertices, **Finish Shape** (or Enter) to close
-   a polygon (lines need exactly 2 points), then **Save Zones**. Prefer to skip this step? Click
-   **Load Default Layout** for a ready-made café floor plan.
-3. **Start AI Analysis** — click the big **START AI ANALYSIS** button. The left panel shows your
-   video being analysed live, with bounding boxes, anonymous track IDs, zone outlines, dwell timers,
-   and movement trails drawn directly on the frame. The right panel updates live: people/zone
-   counts, queue length, table status, active alerts, and a scrolling event feed.
-4. **Watch business events fire** — queue warnings, potential idle-staff detection in the prep
-   zone, table clearing delays, potential pickup delays, and (if you click **Simulate Spill Event**)
-   an experimental spill event, all appear as alert cards and timeline entries in real time.
-5. **When the video ends**, switch to the **Insights** tab for the SOUVENO AI operations summary
-   (deterministic statistics + a plain-English interpretation) and the illustrative **Cost Impact
-   Estimator**.
-6. **Events tab** lists every recorded event with a **VIEW CLIP** button — SOUVENO VISION generates
-   a short MP4 clip (5s before/after) from the original recording on first request.
-7. **Reset Demo Data** on the home screen clears all events/metrics for the current session so you
-   can re-run the analysis cleanly.
-
-### A note on "watching" the video
-
-The left panel is not the raw uploaded file playing back — it is the actual frame-by-frame AI
-output, streamed live over a WebSocket as SOUVENO VISION processes your recording. This is what
-lets it show live overlays and metrics in sync, and it's exactly the mechanism that would later
-consume a live RTSP camera instead of a file, unchanged.
-
----
-
-## 4. Architecture
-
-```
-VIDEO SOURCE → DETECTOR → TRACKER → ZONE ENGINE → ACTIVITY ENGINE
-   → RULE ENGINE → EVENT ENGINE → METRICS → AI REASONING → DASHBOARD / ALERTS
+```powershell
+python app.py --source webcam                 # start the webcam immediately
+python app.py --source file --path demo_assets\my_factory.mp4
+python app.py --source rtsp                   # URL + credentials from .env (SOUVENO_RTSP_*)
+python app.py --device cpu --port 9000
 ```
 
-| Layer | File | Responsibility |
-|---|---|---|
-| Video Source | `backend/core/video_source.py` | `FileVideoSource` (V0.1), `RTSPVideoSource`, `NVRVideoSource`, `WebcamVideoSource` — swappable, same interface |
-| Detector | `backend/core/detector.py` | Ultralytics YOLO11 (person/chair/table/cup/bottle/bowl/…), CPU/GPU auto |
-| Tracker | `backend/core/tracker.py` | ByteTrack / BoT-SORT (config-switchable), persistent anonymous track IDs |
-| Zone Engine | `backend/core/zones.py` | Normalized-coordinate polygon/line membership, dwell time, entrance line crossing |
-| Activity Engine | `backend/core/activity.py` | Motion/idle detection from centroid displacement (pose model plug-in point for later) |
-| Table Tracker | `backend/core/tables.py` | OCCUPIED / VACATED / CLEARING_DELAY / AVAILABLE state machine |
-| Rule Engine | `backend/core/rules.py` | Configurable thresholds → event *intents* (pure, unit-tested) |
-| Event Engine | `backend/core/events.py` | Persists events/alerts, builds the timeline (the only layer touching the DB) |
-| Metrics | `backend/core/metrics.py` | Live status + business metrics + session aggregates |
-| Spill Detector | `backend/core/spill.py` | Experimental — manual demo trigger today, real model plug-in point |
-| AI Summary | `backend/core/ai_summary.py` | Deterministic stats + rule-based summary, or LLM summary if `LLM_API_KEY` is set |
-| Notifications | `backend/core/notifications.py` | Console today; WhatsApp Cloud API client ready for Stage 6 |
-| Pipeline | `backend/core/pipeline.py` | Orchestrates every layer above per frame, draws all overlays |
+**Stop the application safely:** press `Ctrl+C` once in the PowerShell window. The capture thread,
+clip writers and database are closed cleanly; wait for the prompt to return before closing the window.
 
-The **video upload → RTSP camera** upgrade path (Stage 2/3 of the original brief) touches exactly
-one line: swap `FileVideoSource(path)` for `RTSPVideoSource(url, user, pass)` in
-`backend/api/routers/analysis.py`. Everything downstream is already source-agnostic. A **Test
-Camera** flow already exists at `POST /api/cameras/test` / Configuration tab.
+### Dashboard tour
 
-### Why this isn't literally a `<video>` tag
+| View | What it shows |
+|---|---|
+| **Dashboard** | Live/recorded video with boxes, `Person N` IDs, confidence, zones, virtual line with direction arrow, counts; KPI cards (occupancy, entries, exits, active alerts, restricted-zone violations today, average dwell, camera health, total events today); latest event cards with snapshot, Acknowledge / Dismiss / Resolve |
+| **Demo Mode** | Large buttons: Start Webcam Demo · Start Recorded Factory Demo · Connect RTSP · Reset Counts · Enable Restricted Zone · Trigger/Verify Dwell Alert · Open Event History · Fullscreen; big counters and live event feed |
+| **Event History** | Date / source / type / severity / status / text filters, snapshot preview, clip link, acknowledge, CSV export |
+| **Settings** | Source (webcam index, video file upload/select with loop, RTSP URL + separate username/password, main/substream, TCP/UDP); confidence, analytics FPS, CPU/CUDA; zone & line editor (add, drag, remove, reset, save per camera); rules (enable, severity, threshold, cooldown, schedule, evidence, notify); working hours; occupancy & dwell thresholds; evidence retention & clips; webhook |
+| **Camera Audit** | Probe one source and get an A/B/C/D suitability class with notes |
+| **Health** | Capture/inference FPS, latency, skipped frames, reconnections, last frame time, detector/tracker/database/evidence status, disk space, CPU/GPU mode, webhook deliveries, recent errors, health log |
+| **Privacy** | The privacy & integration position, links to docs and to the legacy café demo |
 
-A native `<video>` element can't show frame-synchronized AI overlays. Instead the backend decodes,
-analyses, and burns overlays onto each frame, then streams it to the browser as JPEG frames over a
-WebSocket alongside the JSON metrics/events for that same frame — the standard approach for
-CV-annotated live video, and the same approach a live camera feed would use.
+## 4. The three demos
 
----
+### 4.1 Webcam demo
+Demo Mode → **Start Webcam Demo** (index 0 by default; change it in Settings → Video source →
+“Detect webcams”). Press **Enable Restricted Zone** to apply the demo layout (restricted area right,
+entry line centre, work area left), then adjust in Settings → Zone editor. Follow `docs/DEMO_GUIDE.md`.
 
-## 5. What's honestly experimental
+### 4.2 MP4 / recorded demo
+Drop a file into `demo_assets\` (or upload it in Settings → Video source → Video file) and press
+**Start Recorded Factory Demo**. Files loop by default so the presentation never ends mid-scene.
+Event timestamps carry both the wall-clock time and the playback position (`media_time`). If no
+file exists the app falls back to the built-in **synthetic factory scene** (clearly labelled).
 
-- **Spill / wastage detection** is explicitly labelled "Experimental / Demo Spill Detection" in the
-  UI. No generic COCO-trained model can reliably see liquid spills, so V0.1 ships a manual demo
-  trigger (Configuration → simulate) behind the same `SpillDetector` interface a real trained model
-  (custom YOLO checkpoint, segmentation, VLM, or anomaly detector) will plug into later —
-  set `SPILL_MODEL_PATH` in `.env` once you have one.
-- **Staff vs. customer role** is a zone-dominance heuristic (prep/counter zones lean "staff", dining
-  leans "customer") unless manually overridden — there is no uniform/clothing classification yet.
-- **Table clearing delay** cannot distinguish "nobody has bussed this table" from "nobody has sat
-  down here yet after it was cleaned" — it only knows people stopped overlapping the table polygon.
-- Every AI-inferred business event uses "**potential**" in its name/label (potential idle staff,
-  potential abandonment, potential clearing delay) because intent and cause can't be known from
-  video alone.
-- The **Cost Impact Estimator** always labels its numbers "ILLUSTRATIVE ESTIMATE" — they are
-  extrapolated from one recorded session, not proven savings, and are not connected to POS/payroll.
+### 4.3 RTSP demo
+1. **VLC pre-check (strongly recommended):** VLC → Media → Open Network Stream → paste the URL, e.g.
+   `rtsp://192.168.1.50:554/Streaming/Channels/102` (Hikvision substream) or
+   `rtsp://192.168.1.60:554/cam/realmonitor?channel=1&subtype=1` (Dahua substream). If VLC cannot
+   play it, Souveno cannot either — fix URL / credentials / network first.
+2. Put the URL and credentials in `.env` (`SOUVENO_RTSP_URL`, `SOUVENO_RTSP_USERNAME`,
+   `SOUVENO_RTSP_PASSWORD`) **or** type them in Demo Mode → **Connect RTSP** (kept in memory only).
+3. Prefer the **substream** (640–1280 px, 8–15 fps) and **TCP** transport. Credentials are masked
+   in every log line (`rtsp://***:***@host/...`) and never stored in the database.
+4. If the camera drops, the app shows *Disconnected — reconnecting* and retries with exponential
+   back-off (1 s → 30 s) without freezing the dashboard; a `camera_disconnected` /
+   `camera_reconnected` event is recorded.
 
----
+**Windows Firewall:** outbound RTSP (TCP 554, or the port in your URL) must be allowed; Windows
+normally allows outbound traffic. If the camera is on a different VLAN, ask IT to route it to the
+laptop. If you bind the dashboard to the LAN (`--host 0.0.0.0`), Windows will ask to allow
+`python.exe` inbound on the chosen port — only do this on a trusted network; the dashboard has no login.
 
-## 6. Demo Mode
+## 5. Where things are stored
 
-`DEMO_MODE=true` (default) shortens every threshold so a short recorded clip still produces a full
-range of events:
+| What | Where |
+|---|---|
+| Events, zones, rules, settings, acknowledgements, health log | `data\souveno_vision_intelligence.db` (SQLite) |
+| Snapshots | `data\evidence\snapshots\` |
+| Evidence clips (MP4, or AVI if the MP4 encoder is unavailable) | `data\evidence\clips\` |
+| Uploaded videos | `data\uploads\` |
+| Logs (rotating text + JSON-lines, credentials redacted) | `logs\souveno_vision_intelligence.log` / `.jsonl` |
+| Model weights | `models\object_detection\yolo11n.pt` |
+| Configuration | `config\default.yaml` (defaults), `config\local.yaml` (your overrides, git-ignored), `.env` (secrets) |
+| Legacy café demo data | `data\souveno_vision.db`, `uploads\`, `outputs\`, `screenshots\` |
 
-| Rule | Demo | Production |
-|---|---|---|
-| Idle staff | 25s | 10 min |
-| Table clearing delay | 30s | 10 min |
-| Pickup delay | 25s | 5 min |
-| Queue warning / critical | 4 / 7 people | 4 / 7 people |
+Evidence older than the retention setting (default 14 days) or above the storage cap (2 GB) is
+deleted automatically every 30 minutes.
 
-Set `DEMO_MODE=false` in `.env` for production-realistic thresholds. Current thresholds are visible
-at **Configuration → Rule Engine**.
+## 6. CPU versus CUDA
 
----
+* Default `model.device: auto` uses CUDA when PyTorch reports it, otherwise CPU. The top bar shows
+  **CPU** or **CUDA GPU**; the Health page shows the GPU name.
+* Force a mode in Settings → Detection device, with `SOUVENO_MODEL__DEVICE=cpu|cuda` in `.env`, or `python app.py --device cpu`.
+* CPU laptops: YOLO11n at 640 px runs at roughly 8–12 fps on a modern quad-core; the default
+  analytics rate is 8 fps (Settings → Analytics FPS). Lower it to 4–6 on slower machines.
+* CUDA: install the CUDA build of PyTorch (plain `pip install -r requirements.txt` on Windows pulls
+  it) and an up-to-date NVIDIA driver. Check with `python -c "import torch; print(torch.cuda.is_available())"`.
 
-## 7. Running tests
+## 7. Troubleshooting
 
-```bash
-pytest
+**Camera access**
+* *Webcam could not be opened / no image:* close Teams, Zoom, browser tabs using the camera; check
+  Windows Settings → Privacy & security → Camera → “Let desktop apps access your camera”; try index 1.
+* *RTSP not reachable:* test in VLC; check port, path, credentials (special characters are handled
+  when typed into the separate username/password fields), VLAN routing, firewall.
+* *Connected but no frames:* wrong channel path, or an H.265 stream the bundled decoder cannot
+  handle — switch the substream to H.264 in the camera/NVR settings.
+
+**Missing codecs**
+* *Could not decode video file:* re-encode to H.264 MP4 (HandBrake / VLC → Convert). MKV/MOV work when
+  the bundled FFmpeg supports the codec; AVI with old codecs may not.
+* *Clips saved as .avi:* the MP4 (`mp4v`) writer was unavailable; Motion-JPEG AVI is used instead and still plays in VLC.
+
+**AI**
+* *Top bar shows `opencv-hog (fallback)`:* PyTorch/Ultralytics failed to import — re-run the pip
+  install steps in an activated venv; the HOG fallback keeps the demo alive with lower accuracy.
+* *First start is slow:* the model is loaded (and downloaded once); wait ~10–20 s.
+* *Too many / too few detections:* adjust the confidence slider (0.35–0.5 typical).
+
+**General**
+* Dashboard not loading: make sure `python app.py` is still running; try `http://127.0.0.1:8501` (not `localhost` if IPv6 is odd on the machine).
+* Port already in use: `python app.py --port 9000`.
+* Reset everything: stop the app, delete `data\souveno_vision_intelligence.db` and the `data\evidence\*` files.
+
+## 8. Configuration
+
+All settings live in `config/default.yaml` (source, model, device, confidence, analytics FPS, frame
+size, tracking, zone/line analytics, business hours, rule thresholds, cooldowns, evidence, retention,
+database, logging, webhook). Override without editing it via `config/local.yaml`, environment
+variables `SOUVENO_<SECTION>__<KEY>` (e.g. `SOUVENO_MODEL__CONFIDENCE=0.5`), or the Settings page
+(persisted in the database). Credentials only ever come from `.env` or runtime input.
+
+## 9. Tests
+
+```powershell
+python -m pytest
 ```
 
-Covers zone geometry, line crossing, dwell calculations, idle/queue/table rule logic, event
-creation & closing, database round-trips, and the API health endpoint.
+Covers geometry (point-in-polygon, polygon validation), directional line crossing and jitter
+debouncing, dwell calculation, occupancy hysteresis, rule cooldowns / thresholds / schedules /
+after-hours / camera disconnect, event creation with evidence and acknowledgement audit, SQLite
+repositories and corruption recovery, RTSP credential redaction (URLs, logs, repr), source
+disconnection and reconnection with a mock camera, webhook delivery with retries, configuration
+overrides, a deterministic synthetic end-to-end pipeline run, and the HTTP API. The original café
+demo tests are kept under `tests/legacy/`.
 
----
-
-## 8. Project layout
+## 10. Project layout
 
 ```
 souveno-vision/
-├── backend/
-│   ├── core/          # detection/tracking/zones/activity/rules/events/metrics/pipeline
-│   ├── db/             # SQLAlchemy models + CRUD (SQLite by default)
-│   ├── api/routers/    # FastAPI routes + the live-analysis WebSocket
-│   ├── services/       # clip + screenshot generation
-│   └── schemas/        # Pydantic request/response models
-├── frontend/            # Plain HTML/CSS/JS dashboard (no build step)
-├── models/              # Downloaded YOLO weights (object_detection/pose/segmentation/custom)
-├── config/               # Central settings, model registry, rule thresholds
-├── data/                 # SQLite DB + sample test videos
-├── uploads/              # Uploaded videos
-├── outputs/event_clips/  # Auto-generated event clips
-├── screenshots/          # Alert screenshots
-├── tests/                 # pytest suite
-├── scripts/                # download_models.py / create_sample_video.py / reset_demo.py
-├── requirements.txt
-├── .env.example
-└── run.py
+├── app.py                    launcher (uvicorn)              ├── config/default.yaml   all defaults
+├── src/                                                       ├── .env.example          secrets template
+│   ├── sources/   base.py webcam.py video_file.py rtsp.py synthetic.py factory.py
+│   ├── inference/ detector.py (Ultralytics / ONNX / HOG / ground-truth) preprocess.py
+│   ├── tracking/  tracker.py (ByteTrack via supervision, simple IoU)
+│   ├── analytics/ geometry.py zones.py line_crossing.py occupancy.py dwell.py spatial.py
+│   ├── rules/     models.py engine.py
+│   ├── events/    service.py evidence.py webhook.py
+│   ├── storage/   database.py migrations.py repositories.py
+│   ├── monitoring/ health.py logging_config.py camera_audit.py
+│   ├── security/  redaction.py
+│   ├── utils/     config.py time_utils.py
+│   ├── ui/        dashboard.py api.py components.py overlay.py static/ (HTML/CSS/JS)
+│   └── pipeline.py           orchestrator (capture thread → analytics thread → state)
+├── data/  evidence/{snapshots,clips}  uploads/   ├── logs/          ├── demo_assets/
+├── docs/  DEMO_GUIDE CAMERA_AUDIT PRODUCTION_ARCHITECTURE PRIVACY_AND_SECURITY CLIENT_PILOT_PLAN
+├── tests/ test_geometry test_line_crossing test_dwell test_rules test_redaction test_database
+│          test_events test_sources test_webhook test_config test_pipeline_synthetic test_api  legacy/
+├── backend/ frontend/ config/settings.py …   the original café demo (unchanged), served at /cafe
+└── LICENSING.md  requirements.txt  pytest.ini
 ```
 
----
+## 11. Legacy café demo
 
-## 9. Expo Agent
+The original SOUVENO VISION café intelligence prototype (queue, idle staff, table turnover, pickup
+delay, spill simulation, AI summary, cost estimator) is preserved unchanged. It is served by the
+same process at **http://127.0.0.1:8501/cafe** (its API stays at `/api/sessions`, `/api/zones`,
+`/api/events`, `/api/config`, `/api/cost`, `/api/cameras`, `/api/health`, `/ws/analysis/…`) and can
+still be started on its own with `python run.py` (port 8000). Its settings come from `.env`
+(`DEMO_MODE`, `USE_GPU`, …) as before; its tests are in `tests/legacy/`.
 
-The Souveno Expo Agent (29-show catalogue, scoring, approvals, subsidies, finance, funds, voice) now lives in two
-standalone apps at the repository root and on their own branches:
+## 12. Expo Agent
 
-* `expo-backend/` — FastAPI + SQLAlchemy API (`/api/expo/*`), branch `expo-backend`
-* `expo-frontend/` — static dashboard, card page and the phone command-center template, branch `expo-frontend`
-
-See `expo-backend/README.md` and `expo-frontend/README.md`.
+The Souveno Expo Agent lives in `../expo-backend` and `../expo-frontend` (own READMEs); it is not
+part of this application.

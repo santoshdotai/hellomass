@@ -1,0 +1,119 @@
+# Souveno Vision Intelligence — default configuration.
+#
+# Every value here can be overridden by:
+#   1. config/local.yaml            (optional, git-ignored, same structure)
+#   2. environment variables         SOUVENO_<SECTION>__<KEY>  e.g. SOUVENO_MODEL__CONFIDENCE=0.5
+#   3. the dashboard Settings page   (persisted in the SQLite application_settings table)
+#
+# Never put camera credentials in this file. Use the environment variables
+# SOUVENO_RTSP_URL / SOUVENO_RTSP_USERNAME / SOUVENO_RTSP_PASSWORD (see .env.example)
+# or type them into the dashboard at runtime (kept in memory only).
+
+app:
+  name: "Souveno Vision Intelligence"
+  brand: "SOUVENO AI"
+  tagline: "Existing Cameras. Operational Intelligence."
+  host: "127.0.0.1"
+  port: 8501
+  timezone: "local"            # "local" or an IANA zone such as "Asia/Kolkata"
+  autostart_source: false      # start the configured source automatically at boot
+  demo_mode: true              # shorter thresholds + demo screen controls
+
+source:
+  type: "synthetic"            # webcam | file | rtsp | synthetic
+  name: "Demo Camera"
+  webcam_index: 0
+  video_path: ""               # local MP4/AVI/MOV for type=file (empty = use demo_assets)
+  loop: true                   # replay recorded files for demonstrations
+  rtsp:
+    url_env: "SOUVENO_RTSP_URL"            # env var that holds the main-stream URL
+    substream_url_env: "SOUVENO_RTSP_SUBSTREAM_URL"
+    username_env: "SOUVENO_RTSP_USERNAME"
+    password_env: "SOUVENO_RTSP_PASSWORD"
+    stream_profile: "main"     # main | sub   (substreams are usually the right choice for analytics)
+    transport: "tcp"           # tcp | udp
+    open_timeout_seconds: 8
+    read_timeout_seconds: 8
+  reconnect:
+    initial_delay_seconds: 1.0
+    max_delay_seconds: 30.0
+    multiplier: 2.0
+    stale_after_seconds: 3.0       # no frame for this long => DEGRADED
+    disconnected_after_seconds: 8.0  # no frame for this long => DISCONNECTED + reconnect
+
+processing:
+  analytics_fps: 8             # inference rate; video fps is independent
+  analysis_max_width: 960      # frames are downscaled (aspect preserved) before inference
+  evidence_max_width: 1280     # evidence snapshots/clips are saved at up to this width
+  stream_max_width: 1280       # dashboard stream width
+  stream_jpeg_quality: 72
+
+model:
+  backend: "auto"              # auto | ultralytics | onnx | hog | groundtruth
+  weights: "yolo11n.pt"        # Ultralytics weights (AGPL-3.0 — see LICENSING.md) or an .onnx file
+  confidence: 0.40
+  iou: 0.50
+  image_size: 640
+  device: "auto"               # auto | cpu | cuda | cuda:0
+  classes: [0]                 # COCO class 0 = person
+
+tracking:
+  backend: "auto"              # auto | bytetrack | simple
+  track_timeout_seconds: 2.0   # drop a track after this long unseen
+  min_hits: 2                  # frames before a track is shown/counted
+  trail_enabled: false
+  trail_length: 30
+
+analytics:
+  line_debounce_seconds: 1.5   # ignore repeat crossings by the same track within this window
+  line_side_margin: 0.004      # normalised distance a point must be from the line to count as a side
+  zone_enter_frames: 2         # consecutive frames inside before "entered"
+  zone_exit_frames: 3          # consecutive frames outside before "exited"
+  min_polygon_area: 0.001      # normalised area; smaller polygons are rejected
+
+business_hours:
+  start: "08:00"
+  end: "18:00"
+  days: [0, 1, 2, 3, 4, 5]     # 0=Monday ... 6=Sunday
+
+rules:
+  restricted_zone_intrusion: {enabled: true,  severity: high,     cooldown_seconds: 20,  evidence: true, notify: true}
+  dwell_time_exceeded:       {enabled: true,  severity: medium,   cooldown_seconds: 30,  evidence: true, notify: true,  threshold_seconds: 10}
+  line_crossed_in:           {enabled: true,  severity: low,      cooldown_seconds: 0,   evidence: false, notify: false}
+  line_crossed_out:          {enabled: true,  severity: low,      cooldown_seconds: 0,   evidence: false, notify: false}
+  occupancy_threshold:       {enabled: true,  severity: medium,   cooldown_seconds: 60,  evidence: true, notify: true,  threshold: 5}
+  after_hours_person:        {enabled: true,  severity: high,     cooldown_seconds: 120, evidence: true, notify: true}
+  camera_disconnected:       {enabled: true,  severity: critical, cooldown_seconds: 30,  evidence: false, notify: true}
+  camera_reconnected:        {enabled: true,  severity: low,      cooldown_seconds: 0,   evidence: false, notify: true}
+
+evidence:
+  directory: "data/evidence"
+  pre_event_seconds: 4
+  post_event_seconds: 4
+  clip_enabled: true
+  max_concurrent_clips: 2
+  max_clips_per_minute: 6
+  retention_days: 14
+  max_storage_mb: 2048
+  cleanup_interval_minutes: 30
+
+database:
+  path: "data/souveno_vision_intelligence.db"
+
+logging:
+  level: "INFO"
+  directory: "logs"
+  rotation: "10 MB"
+  retention: 7
+
+webhook:
+  enabled: false
+  url: ""
+  timeout_seconds: 5
+  max_retries: 3
+  backoff_seconds: 2.0
+  auth_header_env: "SOUVENO_WEBHOOK_AUTH"   # optional "Authorization" header value from env
+
+demo:
+  recorded_video: ""           # explicit path; empty = first video found in demo_assets/
+  dwell_verify_threshold_seconds: 6
