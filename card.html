@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Souveno AI — let's exchange cards</title>
+<style>
+  :root { --bg: #0f1420; --panel: #161d2e; --border: #2a3550; --text: #e7ecf7; --muted: #8b96b3; --accent: #3ba7ff; --green: #25d366; }
+  body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--text); padding: 20px 16px 40px; }
+  .card { max-width: 480px; margin: 0 auto; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+  h1 { font-size: 20px; margin: 0 0 4px; } .tag { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+  .who { font-size: 15px; line-height: 1.5; } .who b { display: block; font-size: 17px; }
+  .btns { display: grid; gap: 8px; margin: 16px 0; } .btn { display: block; text-align: center; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 600; border: 1px solid var(--border); color: var(--text); background: #1b2438; }
+  .btn.wa { background: var(--green); color: #06280f; border-color: var(--green); } .btn.primary { background: var(--accent); color: #06192b; border-color: var(--accent); }
+  label { display: block; font-size: 12px; color: var(--muted); margin-top: 10px; } input, textarea { width: 100%; box-sizing: border-box; margin-top: 4px; padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: #1b2438; color: var(--text); font: inherit; }
+  .ok { background: rgba(37,211,102,.15); border: 1px solid var(--green); padding: 12px; border-radius: 10px; margin-top: 12px; } .hidden { display: none; } .muted { color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Souveno AI</h1>
+  <div class="tag">Your best salesperson now lives on WhatsApp.</div>
+  <div class="who" id="who">Loading…</div>
+  <div class="btns">
+    <a class="btn wa" id="waBtn" href="#" target="_blank">Message us on WhatsApp</a>
+    <a class="btn" href="/api/expo/profile/vcard">Save our contact (vCard)</a>
+    <a class="btn" id="calBtn" href="https://calendly.com/souveno30/meet-souveno-at-the-expo-15-min-stall-demo" target="_blank">Book a 15-min stall demo</a>
+  </div>
+  <form id="f">
+    <b>Leave your card with us</b>
+    <label>Your name <input name="name" required /></label>
+    <label>Company <input name="company" /></label>
+    <label>Designation <input name="designation" /></label>
+    <label>WhatsApp number <input name="phone" type="tel" /></label>
+    <label>Email <input name="email" type="email" /></label>
+    <label>How many rate/quote enquiries reach your WhatsApp per day? <input name="quote_requests_per_day" type="number" min="0" /></label>
+    <label>Anything specific you want to automate? <textarea name="message" rows="2"></textarea></label>
+    <input type="hidden" name="event_id" id="eventId" value="walk-in" />
+    <div class="btns"><button class="btn primary" type="submit">Share my details</button></div>
+    <div class="muted">We use this only to follow up about your enquiry-to-quotation workflow.</div>
+  </form>
+  <div id="done" class="ok hidden">Thank you — we have your card. Our contact is saved above; we will WhatsApp you a demo quotation from your own product list.</div>
+</div>
+<script src="config.js"></script>
+<script>
+(async function () {
+  const q = new URLSearchParams(location.search);
+  document.getElementById('eventId').value = q.get('event') || 'walk-in';
+  try {
+    const p = await (await fetch((window.EXPO_API_BASE||'') + '/api/expo/profile')).json();
+    document.getElementById('who').innerHTML = `<b>${p.contact_name}</b>${p.designation}<br/>${p.phone} · ${p.email}<br/><a href="${p.website}" style="color:#3ba7ff">${p.website.replace('https://','')}</a> · ${p.city}<br/><span class="muted">${p.description}</span>`;
+    document.getElementById('waBtn').href = 'https://wa.me/' + p.phone.replace(/[^\d]/g, '') + '?text=' + encodeURIComponent('Hi Souveno, we met at the expo. Please send me a demo quotation.');
+    if (p.calendly) document.getElementById('calBtn').href = p.calendly.includes('meet-souveno') ? p.calendly : 'https://calendly.com/souveno30/meet-souveno-at-the-expo-15-min-stall-demo';
+  } catch (e) { document.getElementById('who').textContent = 'Souveno AI · souveno.ai'; }
+  document.getElementById('f').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const body = Object.fromEntries(new FormData(e.target).entries());
+    body.quote_requests_per_day = Number(body.quote_requests_per_day || 0);
+    const r = await fetch((window.EXPO_API_BASE||'') + '/api/expo/exchange', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (r.ok) { e.target.classList.add('hidden'); document.getElementById('done').classList.remove('hidden'); }
+    else alert('Please add at least a name and phone number.');
+  });
+})();
+</script>
+</body>
+</html>

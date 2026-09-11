@@ -1,0 +1,14 @@
+{
+  "name": "Souveno Expo Agent",
+  "short_name": "Souveno Expo",
+  "start_url": "./",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f1420",
+  "theme_color": "#0f1420",
+  "description": "Expo intelligence, approvals, lead capture and card exchange for Souveno AI.",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"},
+    {"src": "icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable"}
+  ]
+}

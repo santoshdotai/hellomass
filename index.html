@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SOUVENO Expo Agent</title>
+<meta name="theme-color" content="#0f1420" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Souveno Expo" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icon.svg" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/expo.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">SX</div>
+    <div class="brand-text">
+      <div class="brand-name">SOUVENO EXPO AGENT</div>
+      <div class="brand-tagline">Pick. Book. Meet. Convert. Measure.</div>
+    </div>
+  </div>
+  <nav class="main-nav" id="expoNav">
+    <button class="nav-btn active" data-view="events">Events</button>
+    <button class="nav-btn" data-view="itinerary">Itinerary</button>
+    <button class="nav-btn" data-view="approvals">Approvals <span id="apBadge" class="pill hidden"></span></button>
+    <button class="nav-btn" data-view="funnel">Live Funnel</button>
+    <button class="nav-btn" data-view="leads">Leads &amp; Cards</button>
+    <button class="nav-btn" data-view="collab">Collaborations</button>
+    <button class="nav-btn" data-view="stalls">Stall Picker</button>
+    <button class="nav-btn" data-view="travel">Travel &amp; Booking</button>
+    <button class="nav-btn" data-view="finance">Finance / P&amp;L</button>
+    <button class="nav-btn" data-view="funds">💰 Funds &amp; pavilions</button>
+    <button class="nav-btn" data-view="settings">⚙ Settings &amp; connections</button>
+    <button class="nav-btn" data-view="playbook">Playbook</button>
+  </nav>
+  <div class="topbar-right">
+    <a class="badge badge-device" href="dashboard/souveno-expo-command-center.html">Phone dashboard</a>
+    <a class="badge badge-demo" href="/api/expo/calendar.ics">Download .ics</a>
+  </div>
+  <button class="btn ghost" id="micBtn" title="Voice: say e.g. book tickets to ELECRAMA, when is Plastivision, what is coming in 2 months">🎤 Voice</button><span id="micSay" class="hint"></span>
+</header>
+
+<main class="expo-main">
+  <section class="kpi-row" id="kpiRow"></section>
+
+  <section id="view-events" class="view active">
+    <div class="toolbar">
+      <label>Sort <select id="sortEvents"><option value="score">by stars</option><option value="date">by date</option><option value="cost">by cost per client</option></select></label>
+      <label>Mode <select id="filterMode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label> <span id="evViews"></span>
+      <span class="muted">Stars, client probability and budgets are the agent's estimates from organiser figures and Souveno's own funnel assumptions.</span>
+    </div>
+    <div id="eventGrid" class="event-grid"></div>
+  </section>
+
+  <section id="view-itinerary" class="view">
+    <div class="panel card">
+      <h2>Attend-everything itinerary</h2>
+      <p class="muted">Every show gets at least one day. Clashing days go to the higher-scoring show, with a bonus for staying in the same city.</p>
+      <div id="clashList" class="clash-list"></div>
+      <div id="itinerary" class="itinerary"></div>
+    </div>
+  </section>
+
+  <section id="view-approvals" class="view">
+    <div class="panel card">
+      <div class="toolbar">
+        <h3>Bookings waiting for your tap</h3>
+        <button class="btn secondary" id="proposeBtn">Propose bookings due in 90 days</button>
+        <label>Sort <select id="apSort"><option value="urgency">by urgency</option><option value="priority">by Souveno priority (stars)</option></select></label>
+        <div class="seg" id="modeSegAp"><button data-m="manual">MANUAL — I pay &amp; book</button><button data-m="automate">AUTOMATE — agent books</button></div>
+        <span id="apViews"></span>
+        <span id="railsInfo" class="hint"></span>
+      </div>
+      <p class="muted">The agent proposes each stall advance (50% of sqm × rate + 18% GST), flight and hotel with the amount worked out. Nothing is paid until you tap Approve. Approved items execute through RazorpayX or Duffel when those keys are set; otherwise you get the exact payment instruction and tap "Done" after paying.</p>
+      <div id="approvalList"></div>
+    </div>
+  </section>
+
+  <section id="view-funnel" class="view">
+    <div class="toolbar">
+      <label>Event <select id="funnelEvent"><option value="">All events</option></select></label>
+      <button class="btn secondary" id="refreshFunnel">Refresh</button>
+    </div>
+    <div class="funnel-grid">
+      <div class="panel card"><h3>Funnel</h3><div id="funnelBars"></div></div>
+      <div class="panel card" id="actualsPanel"></div>
+      <div class="panel card"><h3>Why not converted / left midway</h3><div id="reasonBars"></div></div>
+      <div class="panel card"><h3>Leads per day</h3><div id="perDay"></div></div>
+      <div class="panel card"><h3>Expected vs actual</h3><div id="expectedBox"></div></div>
+      <div class="panel card wide"><h3>Developments (latest interactions)</h3><div id="developments"></div></div>
+    </div>
+  </section>
+
+  <section id="view-leads" class="view">
+    <div class="leads-layout">
+      <div class="panel card">
+        <h3>Scan a visitor card</h3>
+        <label>Event <select id="scanEvent"></select></label>
+        <input id="cardImage" type="file" accept="image/*" capture="environment" />
+        <textarea id="cardText" rows="6" placeholder="…or paste / type the card text (name, company, phone, email)"></textarea>
+        <div class="row-actions">
+          <button class="btn primary" id="scanBtn">Extract &amp; save lead</button>
+          <span id="scanStatus" class="hint"></span>
+        </div>
+        <pre id="scanResult" class="scan-result hidden"></pre>
+        <hr />
+        <h3>Give them our card</h3>
+        <p class="muted">Visitors scan this QR, leave their details, and receive Souveno's vCard, WhatsApp and Calendly links.</p>
+        <div id="qr" class="qr"></div>
+        <div class="hint" id="qrUrl"></div>
+        <div class="row-actions">
+          <a class="btn secondary" href="/api/expo/profile/vcard">Download our vCard</a>
+          <button class="btn secondary" id="copyBookmarklet">Copy form auto-filler</button>
+        </div>
+      </div>
+      <div class="panel card">
+        <div class="toolbar">
+          <input id="leadSearch" placeholder="Search name / company / phone" />
+          <select id="leadEvent"><option value="">All events</option></select>
+          <select id="leadStatus"><option value="">All statuses</option></select>
+          <button class="btn secondary" id="newLeadBtn">+ Manual lead</button>
+        </div>
+        <div id="leadTable" class="lead-table"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-collab" class="view">
+    <div class="panel card">
+      <div class="toolbar">
+        <h3>Possible collaborations</h3>
+        <button class="btn secondary" id="newCollabBtn">+ Add</button>
+      </div>
+      <div id="collabTable"></div>
+    </div>
+  </section>
+
+  <section id="view-stalls" class="view">
+    <div class="cols-2">
+      <div class="panel card">
+        <div class="toolbar"><h3>Modelled hall &amp; best stalls</h3><label>Event <select id="fpEvent"></select></label></div>
+        <p class="muted">Until the organiser's plan arrives, this is a modelled layout of the venue's hall: entrance on the south wall, main aisle north, 3 m shell stalls numbered per row from the west. Darker = better. Scoring: traffic 30 · main/cross aisle 20 · corner 20 · anchor 10 · amenities 10 · penalties for back wall, dead-ends, noisy zones, pillars.</p>
+        <div id="fpSvg" class="fp-svg"></div>
+        <div id="fpTop"></div>
+      </div>
+      <div class="panel card">
+        <h3>Upload the organiser's floor plan and pick</h3>
+        <p class="muted">1) Load the plan image. 2) Choose a marker and click on the plan: entrance, registration, food court, washroom, anchor exhibitor, noisy zone, pillar. 3) Choose "stall" and click the candidate stalls (you'll be asked for the number and open sides). 4) Score.</p>
+        <input id="fpImage" type="file" accept="image/*" />
+        <div class="toolbar">
+          <label>Marker <select id="fpMarker"><option value="stall">stall</option><option value="entrance">entrance</option><option value="registration">registration</option><option value="food_court">food court</option><option value="washroom">washroom</option><option value="anchor">anchor exhibitor</option><option value="noisy">noisy zone</option><option value="pillar">pillar</option></select></label>
+          <button class="btn secondary" id="fpUndo">Undo</button><button class="btn secondary" id="fpClear">Clear</button><button class="btn primary" id="fpScore">Score my stalls</button>
+        </div>
+        <div class="canvas-wrap fp-wrap"><canvas id="fpCanvas" width="640" height="420"></canvas></div>
+        <div id="fpCustom"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-funds" class="view">
+    <div class="panel"><div class="hint" id="fundsCo"></div>
+      <div class="toolbar"><label>Region <select id="fundRegion"><option value="india">India</option><option value="world">Rest of the world</option><option value="all">All</option></select></label> <span class="hint" id="fundSum"></span></div>
+      <div id="funds"></div></div>
+    <div class="panel"><h3>Indian pavilions around the world</h3><div class="hint" id="pavNote"></div><div id="pavilions"></div></div>
+  </section>
+  <section id="view-settings" class="view">
+    <div class="panel"><h3>Booking mode</h3><div class="seg" id="modeSeg"><button data-m="manual">MANUAL — I pay &amp; book</button><button data-m="automate">AUTOMATE — agent books</button></div><p class="hint" id="modeInfo"></p></div>
+    <div class="panel"><h3>Connections</h3><div id="connections"></div></div>
+  </section>
+  <section id="view-finance" class="view">
+    <div class="panel">
+      <div class="toolbar"><label>Show everything starting <select id="finHorizon"></select></label> <span id="finViews"></span> <span class="hint" id="finWindow"></span></div>
+      <div id="finance"></div>
+    </div>
+  </section>
+  <section id="view-travel" class="view">
+    <div class="panel card">
+      <h2>Travel &amp; booking desk</h2>
+      <p class="muted">The agent cannot pay for tickets. Every row opens a pre-filled search; mark the status here once booked so the dashboard tracks it.</p>
+      <div id="travellersPanel" class="panel"></div>
+      <div id="travelTable"></div>
+    </div>
+  </section>
+
+  <section id="view-playbook" class="view">
+    <div id="playbook" class="playbook"></div>
+  </section>
+</main>
+
+<div id="modal" class="modal hidden"><div class="modal-box" id="modalBox"></div></div>
+
+<script src="config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="js/expo.js"></script>
+<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(() => {});</script>
+</body>
+</html>
