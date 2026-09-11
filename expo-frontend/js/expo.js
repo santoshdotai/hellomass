@@ -43,6 +43,7 @@
   $$('#expoNav .nav-btn').forEach((b) => b.addEventListener('click', () => {
     $$('#expoNav .nav-btn').forEach((x) => x.classList.toggle('active', x === b));
     $$('.view').forEach((v) => v.classList.toggle('active', v.id === 'view-' + b.dataset.view));
+    if (b.dataset.view === 'overview') loadOverview();
     if (b.dataset.view === 'funnel') { loadFunnel(); loadActuals(); }
     if (b.dataset.view === 'approvals') loadApprovals();
     if (b.dataset.view === 'travel') loadTravellers();
@@ -85,6 +86,7 @@
     VIEW_RENDER.events = renderEvents;
     const vb = $('#evViews'); if (vb) vb.innerHTML = viewBar('events', ['cards', 'list', 'kanban'], 'cards');
     const view = viewOf('events', 'cards');
+    $('#eventGrid').classList.toggle('event-grid', view === 'cards');
     if (view !== 'cards') {
       const stage = (e) => { const p = e.plan || {}; if (p.stall_status === 'booked' || p.flight_status === 'booked') return 'Booked'; if (p.stall_status === 'enquired' || p.flight_status === 'searching' || p.hotel_status === 'searching') return 'In progress'; return 'Not started'; };
       const mini = (e) => `<div class="kcard">${evLink(e.id, e.name)}<b>${starStr(e.evaluation.stars)} ${e.evaluation.stars.toFixed(1)} · ${e.mode}</b><span class="muted">${e.start} · ${esc(e.city)}</span><br><span class="muted">${e.evaluation.lead_product === 'vision_ai' ? 'Vision AI' : e.evaluation.lead_product === 'both' ? 'both' : 'quote desk'} · clients ${e.evaluation.funnel.paid_pilots[0]}–${e.evaluation.funnel.paid_pilots[1]}</span>${e.plan && e.plan.stall_number ? `<br><span class="muted">stall ${esc(e.plan.stall_number)}</span>` : ''}</div>`;
@@ -536,6 +538,91 @@
     } catch (e) { alert(e.message); }
   });
 
+
+  // ---------------------------------------------------------------- overview / homepage with live metrics
+  const OV = { nx: null, liveNow: null, syncedAt: null, ok: true };
+  const daysAway = (s) => { const t = new Date(); t.setHours(0, 0, 0, 0); return Math.round((new Date(s + 'T00:00:00') - t) / 86400000); };
+  const rngI = (r) => Array.isArray(r) ? `${inr(r[0])} – ${inr(r[1])}` : inr(r);
+  function animNum(el, to, fmt) { const from = Number(el.dataset.n || 0); el.dataset.n = to; if (!isFinite(to) || from === to) { el.textContent = fmt(to); return; } const t0 = performance.now(), dur = 650; const step = (t) => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmt(Math.round(from + (to - from) * e)); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
+  function spark(vals) { if (!vals.length) return ''; const w = 72, h = 26, mx = Math.max(1, ...vals); const pts = vals.map((v, i) => [(i / (vals.length - 1 || 1)) * w, h - 2 - (v / mx) * (h - 4)]); const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' '); return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><path d="${d} L${w} ${h} L0 ${h} Z" fill="rgba(99,102,241,.12)"/><path d="${d}" fill="none" stroke="#6366F1" stroke-width="1.6" stroke-linecap="round"/></svg>`; }
+  function countdown(nx) { if (!nx) return '—'; const t = new Date(nx.start + 'T09:00:00') - Date.now(); if (t <= 0) return 'now'; const d = Math.floor(t / 86400000), h = Math.floor(t % 86400000 / 3600000), m = Math.floor(t % 3600000 / 60000); return d > 0 ? `${d}<small>d</small> ${String(h).padStart(2, '0')}<small>h</small> ${String(m).padStart(2, '0')}<small>m</small>` : `${h}<small>h</small> ${String(m).padStart(2, '0')}<small>m</small>`; }
+  function tickLive() {
+    const c = $('#liveClock'); if (c) c.textContent = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Kolkata' }) + ' IST';
+    const sy = $('#liveSync'); if (sy) { const ago = OV.syncedAt ? Math.max(0, Math.round((Date.now() - OV.syncedAt) / 1000)) : null; sy.textContent = ago == null ? '' : ago < 5 ? '· synced just now' : ago < 60 ? `· synced ${ago}s ago` : `· synced ${Math.round(ago / 60)} min ago`; }
+    const n = $('#liveHome .lt[data-id="next"] .n'); if (n && !OV.liveNow && OV.nx) { const v = countdown(OV.nx); if (n.innerHTML !== v) n.innerHTML = v; }
+  }
+  setInterval(tickLive, 1000);
+  setInterval(() => { if (document.visibilityState === 'visible' && $('#view-overview').classList.contains('active')) loadOverview(); }, 60000);
+  async function loadOverview() {
+    const host = $('#liveHome'); if (!host) return;
+    let cat, ap, dash, fin, funds, subs;
+    try {
+      [cat, ap, dash, fin, funds, subs] = await Promise.all([api('/api/expo/events'), api('/api/expo/approvals'), api('/api/expo/dashboard'), api('/api/expo/finance?horizon=12m'), api('/api/expo/funds?region=all').catch(() => ({ items: [] })), api('/api/expo/subsidies').catch(() => ({ deadlines: [] }))]);
+      OV.ok = true; OV.syncedAt = Date.now(); state.catalog = cat;
+    } catch (e) { OV.ok = false; const h = $('.live-head', host); if (h) { h.className = 'live-head off'; h.querySelector('b').textContent = 'OFFLINE · ' + e.message; } else host.innerHTML = `<div class="live-head off"><span class="ldot"></span><b>OFFLINE · ${esc(e.message)}</b></div>`; return; }
+    const evs = cat.events, d = daysAway, today = new Date().toISOString().slice(0, 10), weekAgo = new Date(Date.now() - 6 * 86400000).toISOString().slice(0, 10);
+    const up = evs.filter((e) => d(e.end) >= 0).sort((a, b) => a.start.localeCompare(b.start)); const nx = up.find((e) => d(e.start) <= 0) || up[0]; const liveNow = up.find((e) => d(e.start) <= 0 && d(e.end) >= 0);
+    const items = ap.items || [], pend = items.filter((i) => i.status === 'proposed'), appr = items.filter((i) => i.status === 'approved'), done = items.filter((i) => i.status === 'executed'); const sum = (a) => a.reduce((x, y) => x + (y.amount_inr || 0), 0);
+    const perDay = Object.fromEntries((dash.leads_per_day || []).map((r) => [r.date, r.count])); const leadsToday = perDay[today] || 0; const leadsWeek = Object.entries(perDay).filter(([k]) => k >= weekAgo).reduce((x, [, v]) => x + v, 0);
+    const days = []; for (let i = 13; i >= 0; i--) days.push(perDay[new Date(Date.now() - i * 86400000).toISOString().slice(0, 10)] || 0);
+    const exh = evs.filter((e) => e.mode === 'exhibit' && d(e.end) >= 0); const stallsBooked = exh.filter((e) => (e.plan || {}).stall_status === 'booked' || items.some((i) => i.event_id === e.id && (i.kind === 'stall' || i.kind === 'stall_advance') && i.status === 'executed')).length;
+    const trips = evs.filter((e) => e.travel_plan && e.travel_plan.needs_travel && d(e.travel_plan.outbound.date) >= 0); const fl = trips.filter((e) => (e.plan || {}).flight_status === 'booked' || items.some((i) => i.event_id === e.id && i.kind === 'flight' && i.status === 'executed')).length; const ht = trips.filter((e) => (e.plan || {}).hotel_status === 'booked' || items.some((i) => i.event_id === e.id && i.kind === 'hotel' && i.status === 'executed')).length;
+    const subDue = []; evs.forEach((e) => ((e.subsidy_info || {}).schemes || []).forEach((s) => { if (s.key === 'pms' && s.days_to_apply != null && s.days_to_apply <= 14 && d(e.start) >= 0) subDue.push(e); }));
+    const fundsOpen = (funds.items || []).filter((f) => f.fit >= 5 && !['applied', 'awarded'].includes(f.status_app || 'not_applied')).length;
+    const flightsLate = pend.filter((i) => i.kind === 'flight' && (i.details || {}).booking_window && i.details.booking_window.status !== 'ideal').length;
+    const tt = fin.totals.all; const seasonDone = evs.filter((e) => d(e.end) < 0).length; const pct = evs.length ? Math.round(100 * seasonDone / evs.length) : 0;
+    const tiles = [
+      { id: 'next', cls: 'acc', html: liveNow ? 'LIVE' : countdown(nx), l: liveNow ? 'happening now' : 'next show starts in', s: nx ? esc(nx.name) + ' · ' + esc(nx.city) : 'nothing scheduled', ev: (nx || {}).id },
+      { id: 'leads', cls: leadsToday ? 'good' : '', n: leadsToday, l: 'leads captured today', s: `${leadsWeek} this week · ${dash.leads_generated} total`, go: 'funnel', extra: spark(days) },
+      { id: 'wait', cls: pend.length ? (flightsLate ? 'bad' : 'warn') : 'good', n: pend.length, l: 'bookings awaiting your tap', s: inr(sum(pend)) + (flightsLate ? ` · ${flightsLate} flight(s) inside window` : ' queued'), go: 'approvals' },
+      { id: 'paid', n: sum(done), fmt: inr, l: 'paid so far', s: `${inr(sum(appr))} approved, still to pay`, go: 'approvals' },
+      { id: 'stalls', cls: exh.length && stallsBooked === exh.length ? 'good' : '', n: stallsBooked, suf: ` / ${exh.length}`, l: 'stalls booked', s: `${exh.length - stallsBooked} organisers still to close`, go: 'events', bar: exh.length ? stallsBooked / exh.length : 0 },
+      { id: 'flights', n: fl, suf: ` / ${trips.length}`, l: 'flights booked (ex-HYD)', s: `${ht} / ${trips.length} hotels booked`, go: 'travel', bar: trips.length ? fl / trips.length : 0 },
+      { id: 'sub', cls: subDue.length ? 'bad' : 'good', n: subDue.length, l: 'PMS subsidy filings due', s: subDue.length ? 'apply ≤14 days: ' + subDue.slice(0, 2).map((e) => esc(e.name.split(' ').slice(0, 2).join(' '))).join(', ') : 'no filing inside 14 days', go: 'events' },
+      { id: 'funds', cls: fundsOpen ? 'warn' : 'good', n: fundsOpen, l: 'top-fit funds not yet applied', s: 'India + world programmes, fit 5/5', go: 'funds' },
+      { id: 'pl', cls: 'acc', n: tt.pl_inr[0], fmt: inr, l: 'expected P&L, 12 months (low)', s: `up to ${inr(tt.pl_inr[1])} · ${tt.conversions[0]}–${tt.conversions[1]} clients`, go: 'finance' },
+      { id: 'pipe', n: dash.pilots + dash.converted, l: 'pilots + clients won', s: `${dash.demos} demos · ${dash.conversion_rate_pct}% conversion`, go: 'funnel' },
+      { id: 'season', n: pct, suf: '%', l: 'season 2026-27 done', s: `${seasonDone} of ${evs.length} shows behind us`, go: 'itinerary', bar: pct / 100 },
+    ];
+    if (!host.dataset.built) {
+      host.innerHTML = `<div class="live-head"><span class="ldot"></span><b>LIVE · ${esc((API_BASE || location.origin).replace(/^https?:\/\//, ''))}</b><span id="liveSync"></span><span class="clock" id="liveClock"></span></div><div class="live-tiles">${tiles.map((t) => `<div class="lt" data-id="${t.id}"><div class="v"><span class="n"></span><small class="suf"></small></div><div class="l"></div><div class="s"></div><div class="x"></div></div>`).join('')}</div>`;
+      host.dataset.built = '1';
+      $$('.lt', host).forEach((el) => el.addEventListener('click', () => { if (el.dataset.ev) { goToEvent(el.dataset.ev); return; } const b = $(`.nav-btn[data-view="${el.dataset.go}"]`); if (b) b.click(); }));
+    }
+    const head = $('.live-head', host); head.className = 'live-head'; head.querySelector('b').textContent = 'LIVE · ' + (API_BASE || location.origin).replace(/^https?:\/\//, '');
+    tiles.forEach((t) => { const el = host.querySelector(`.lt[data-id="${t.id}"]`); if (!el) return; el.className = 'lt ' + (t.cls || ''); if (t.ev) el.dataset.ev = t.ev; if (t.go) el.dataset.go = t.go; const n = el.querySelector('.n'); el.querySelector('.v').classList.toggle('money', t.fmt === inr);
+      if (t.html != null) { if (n.innerHTML !== t.html) n.innerHTML = t.html; } else { const prev = n.dataset.n; animNum(n, t.n, t.fmt || ((x) => x.toLocaleString('en-IN'))); if (prev != null && Number(prev) !== t.n) { el.classList.add('bump'); setTimeout(() => el.classList.remove('bump'), 600); } }
+      el.querySelector('.suf').textContent = t.suf || ''; el.querySelector('.l').textContent = t.l; el.querySelector('.s').innerHTML = t.s; el.querySelector('.x').innerHTML = (t.extra || '') + (t.bar != null ? `<div class="bar"><i style="width:${Math.round(t.bar * 100)}%"></i></div>` : ''); });
+    OV.nx = nx; OV.liveNow = liveNow; tickLive();
+    // attention
+    const att = [];
+    pend.filter((i) => i.kind === 'flight' && (i.details || {}).booking_window && i.details.booking_window.status !== 'ideal').forEach((i) => att.push({ lvl: i.details.booking_window.status === 'late' ? 'bad' : 'warn', t: `Flight for ${i.event_name} is ${i.details.booking_window.status === 'late' ? 'past the hard deadline' : 'inside the booking window'} — approve now`, go: 'approvals' }));
+    appr.forEach((i) => att.push({ lvl: 'warn', t: `Approved but not yet paid/booked: ${i.title} (${inr(i.amount_inr || 0)})`, go: 'approvals' }));
+    exh.forEach((e) => { ((e.subsidy_info || {}).schemes || []).filter((s) => s.key === 'pms' && s.days_to_apply != null && s.days_to_apply <= 14).forEach((s) => att.push({ lvl: s.days_to_apply < 0 ? 'bad' : 'warn', t: `PMS subsidy for ${e.name}: apply ${s.days_to_apply < 0 ? 'immediately (window passed ' + (-s.days_to_apply) + ' days ago)' : 'by ' + s.apply_by + ' (' + s.days_to_apply + ' days)'}`, ev: e.id }));
+      if (d(e.start) <= 60 && (e.plan || {}).stall_status === 'not_started') att.push({ lvl: d(e.start) <= 30 ? 'bad' : 'warn', t: `${e.name} starts in ${d(e.start)} days and the stall is not booked`, ev: e.id });
+      if (e.tentative && d(e.start) <= 120) att.push({ lvl: 'warn', t: `${e.name}: dates are tentative — confirm with the organiser`, ev: e.id }); });
+    trips.filter((e) => d(e.start) <= 45).forEach((e) => { const p = e.plan || {}; if (p.flight_status !== 'booked' && !items.some((i) => i.event_id === e.id && i.kind === 'flight' && i.status === 'executed')) att.push({ lvl: d(e.start) <= 30 ? 'bad' : 'warn', t: `${e.name} in ${d(e.start)} days: flights not booked`, ev: e.id }); if (p.hotel_status !== 'booked' && !items.some((i) => i.event_id === e.id && i.kind === 'hotel' && i.status === 'executed')) att.push({ lvl: 'warn', t: `${e.name}: hotel not booked`, ev: e.id }); });
+    (funds.items || []).filter((f) => f.days_to_deadline != null && f.days_to_deadline >= 0 && f.days_to_deadline <= 30 && !['applied', 'awarded'].includes(f.status_app || '')).forEach((f) => att.push({ lvl: 'warn', t: `${f.name}: deadline ${f.deadline} (${f.days_to_deadline} days) — not applied`, go: 'funds' }));
+    (cat.clashes || []).forEach((c) => att.push({ lvl: 'info', t: `Date clash: ${evName(c.a)} ↔ ${evName(c.b)} (${c.overlap_start} → ${c.overlap_end})`, go: 'itinerary' }));
+    const order = { bad: 0, warn: 1, info: 2 }; att.sort((a, b) => order[a.lvl] - order[b.lvl]);
+    const goA = (a) => a.ev ? evLink(a.ev, a.t) : `<a class="golink2" data-go="${a.go}" href="#">${esc(a.t)}</a>`;
+    $('#ovAttention').innerHTML = `<div class="panel attn"><h3>Needs your attention <span class="pill">${att.length}</span></h3>${att.length ? `<ul>${att.slice(0, 12).map((a) => `<li class="${a.lvl}"><span class="dot"></span>${goA(a)}</li>`).join('')}</ul>${att.length > 12 ? `<div class="muted">+${att.length - 12} more</div>` : ''}` : '<div class="muted">Nothing urgent. Everything is inside its window.</div>'}</div>`;
+    // timeline
+    const tl = []; evs.forEach((e) => { if (d(e.end) >= 0 && d(e.start) <= 30) tl.push({ date: e.start, k: '🎪', t: `${e.name} (${e.mode}, ${e.city})`, ev: e.id }); const tp = e.travel_plan; if (tp && tp.needs_travel) { if (d(tp.outbound.date) >= 0 && d(tp.outbound.date) <= 30) tl.push({ date: tp.outbound.date, k: '✈️', t: `Fly ${tp.outbound.route} for ${e.name.split(' ').slice(0, 2).join(' ')}`, ev: e.id }); if (d(tp.return.date) >= 0 && d(tp.return.date) <= 30) tl.push({ date: tp.return.date, k: '✈️', t: `Return ${tp.return.route}`, ev: e.id }); } });
+    (subs.deadlines || []).filter((x) => x.days_left <= 30).forEach((x) => tl.push({ date: x.date, k: '💰', t: `${x.what} — ${x.event}`, ev: x.event_id }));
+    pend.filter((i) => i.deadline && d(i.deadline.slice(0, 10)) >= 0 && d(i.deadline.slice(0, 10)) <= 30).forEach((i) => tl.push({ date: i.deadline.slice(0, 10), k: '✅', t: `Decide: ${i.title}`, go: 'approvals' }));
+    (funds.items || []).filter((f) => f.days_to_deadline != null && f.days_to_deadline >= 0 && f.days_to_deadline <= 30).forEach((f) => tl.push({ date: f.deadline, k: '🏦', t: `Deadline: ${f.name}`, go: 'funds' }));
+    tl.sort((a, b) => a.date.localeCompare(b.date));
+    $('#ovTimeline').className = ''; $('#ovTimeline').innerHTML = tl.length ? `<div class="tlist">${tl.map((i) => `<div class="tli"><span class="tld">${i.date.slice(5)}</span><span>${i.k}</span><span>${goA(i)}</span></div>`).join('')}</div>` : '<div class="muted">Nothing scheduled in the next 30 days.</div>';
+    // money
+    const season = evs.reduce((x, e) => [x[0] + e.evaluation.budget.total_inr[0], x[1] + e.evaluation.budget.total_inr[1]], [0, 0]); const sub = evs.reduce((x, e) => { const r = (e.subsidy_info || {}).estimated_refund_inr || [0, 0]; return [x[0] + r[0], x[1] + r[1]]; }, [0, 0]);
+    $('#ovMoney').className = ''; $('#ovMoney').innerHTML = `<div class="mrow"><span>Paid so far</span><b>${inr(sum(done))}</b></div><div class="mrow"><span>Approved, to pay</span><b>${inr(sum(appr))}</b></div><div class="mrow"><span>Waiting for your tap</span><b>${inr(sum(pend))}</b></div><div class="mrow"><span>Season budget (${evs.length} shows)</span><b>${rngI(season)}</b></div><div class="mrow"><span>Subsidy money back (est.)</span><b class="good">${rngI(sub)}</b></div><div class="mrow"><span>Expected revenue, 12 months</span><b>${rngI(tt.revenue_inr)}</b></div><div class="mrow"><span>Expected P&amp;L, 12 months</span><b class="good">${rngI(tt.pl_inr)}</b></div><div class="mrow"><span>Expected clients</span><b>${tt.conversions[0]}–${tt.conversions[1]}</b></div><div class="muted">Payment mode: ${ap.payment_mode}. Paid = approvals marked Done.</div>`;
+    // bets + pipeline
+    $('#ovBets').className = ''; $('#ovBets').innerHTML = `<ol class="bets">${(fin.best_bets || []).map((b) => `<li>${evLink(b.id, b.name)}<br><span class="muted">${b.mode} · ${b.lead_product === 'vision_ai' ? 'Vision AI' : b.lead_product === 'both' ? 'both products' : 'quote desk'} · P&amp;L ${rngI(b.pl_inr)}</span></li>`).join('')}</ol>`;
+    const sts = state.playbook ? state.playbook.lead_statuses : []; $('#ovPipeline').className = ''; $('#ovPipeline').innerHTML = `<div class="mrow"><span>Leads captured</span><b>${dash.leads_generated}</b></div>${sts.map((s) => `<div class="mrow"><span>${s.label}</span><b>${(dash.by_status || {})[s.key] || 0}</b></div>`).join('')}<div class="mrow"><span>Partners / collaborations</span><b>${(dash.collaborations || []).length}</b></div>`;
+    $$('#view-overview [data-go]').forEach((a) => a.addEventListener('click', (ev) => { ev.preventDefault(); const b = $(`.nav-btn[data-view="${a.dataset.go}"]`); if (b) b.click(); }));
+  }
+
   // ---------------------------------------------------------------- playbook
   function renderPlaybook() {
     const p = state.playbook, li = (a) => a.map((x) => `<li>${esc(x)}</li>`).join('');
@@ -552,6 +639,7 @@
     renderPlaybook();
     await loadCatalog();
     renderQr();
+    loadOverview().catch(() => {});
     api('/api/expo/approvals').then((d) => { const n = d.items.filter((i) => i.status === 'proposed').length; $('#apBadge').textContent = n; $('#apBadge').classList.toggle('hidden', !n); }).catch(() => {});
   })().catch((e) => { document.body.insertAdjacentHTML('afterbegin', `<div class="panel card" style="margin:20px">Failed to load: ${esc(e.message)}</div>`); });
 })();
