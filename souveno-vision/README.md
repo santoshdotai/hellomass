@@ -270,20 +270,32 @@ All ratings, footfall figures and budgets are the agent's estimates from public 
 Souveno strategy documents; edit `data/expo/events.json` to change them (scores recompute automatically).
 Tests: `pytest tests/test_expo.py` (runs without the vision stack).
 
-### Approvals: propose → one tap → execute
+### Approvals: propose → one tap → you pay (manual mode, the default)
 
 The agent never spends money on its own. `POST /api/expo/approvals/propose` creates a proposal for every
 booking due within the horizon (stall advance = 50% of sqm × rate + 18% GST, flights from the fare range,
-hotel from the mid-tier pick). The **Approvals** tab (with a badge count) lists them on your phone; one tap
-approves or rejects. Approved items execute through whichever rail is configured in `.env`:
+hotel from the mid-tier pick). The **Approvals** tab (with a badge count) lists them on your phone.
+
+`EXPO_PAYMENT_MODE=manual` (default, and what Souveno runs today) means no card, bank key or payout API is
+stored anywhere. The flow is:
+
+1. **Approve** (or Edit amount / Reject). Nothing is charged.
+2. The card turns into a numbered **checklist**: ask the organiser for the proforma invoice, pay by NEFT/UPI
+   from the Souveno company bank app with the approval reference in the remarks, or open the flight/hotel
+   search links and pay on the airline or hotel site with the company card using the Souveno email.
+3. Tap **Done** and enter the UTR / PNR / confirmation number. The stall, flight or hotel status flips to
+   booked and the reference is kept on the approval for the expense sheet.
+
+`EXPO_PAYMENT_MODE=rails` switches the optional automated rails on (only when their keys are also set):
 
 | Rail | Settings | What happens |
 |---|---|---|
 | RazorpayX payouts | `RAZORPAYX_KEY_ID`, `RAZORPAYX_KEY_SECRET`, `RAZORPAYX_ACCOUNT_NUMBER`, plus the payee's `fund_account_id` in the proposal details | NEFT/IMPS payout to the organiser for the stall advance |
 | Duffel flights | `DUFFEL_ACCESS_TOKEN` (test token = sandbox orders, live token = real tickets), passenger details in the proposal | Searches the round trip, books the cheapest direct offer if within 125% of the approved amount |
-| none | — | You get the exact payment / booking instruction and tap **Done** with the UTR or PNR; the stall, flight or hotel status flips to booked |
 
-`EXPO_AUTO_EXECUTE=true` runs the rail immediately on approval; otherwise tap **Execute now**.
+In rails mode `EXPO_AUTO_EXECUTE=true` runs the rail immediately on approval; otherwise tap **Execute now**.
+Alternatives to RazorpayX (Cashfree Payouts, your bank's API banking, a company card) plug in the same way:
+one executor function in `backend/core/expo/approvals.py` and its keys in `.env`.
 
 **Flight policy** (`flight_booking_window`): every flight is proposed with a booking window — domestic: preferred by 60 days before departure, hard deadline 30 days; international (Gulf etc.): preferred 90 days, hard deadline 45 days, plus a **visa** proposal due 21 days before departure (UAE e-visa, Saudi business e-visa). Automated ticketing for international trips needs passport fields in `DUFFEL_PASSENGERS_JSON`. Inside 60 days the item is marked urgent and jumps to the top of Approvals; inside 30 days it is marked late. A calendar reminder is placed on the 60-day mark for each away show.
 

@@ -550,7 +550,10 @@ def list_approvals(status: Optional[str] = None, event_id: Optional[str] = None,
     for it in items:  # refresh the flight window against today's date
         if it["kind"] == "flight" and it["details"].get("depart"):
             it["details"]["booking_window"] = approval_engine.flight_booking_window(datetime.fromisoformat(it["details"]["depart"]).date(), international=bool(it["details"].get("international")))
-    return {"rails": {"razorpayx": bool(settings.razorpayx_key_id), "duffel": bool(settings.duffel_access_token), "auto_execute": settings.expo_auto_execute},
+    return {"payment_mode": approval_engine.payment_mode(),
+            "rails": {"razorpayx": approval_engine.payment_mode() == "rails" and bool(settings.razorpayx_key_id),
+                      "duffel": approval_engine.payment_mode() == "rails" and bool(settings.duffel_access_token),
+                      "auto_execute": settings.expo_auto_execute},
             "policy": {"flights": "domestic: >= 30 days before, 60+ when possible; international: >= 45 days before, 90+ when possible; visas 21 days before"},
             "items": items}
 
@@ -614,14 +617,18 @@ def execute_approval(approval_id: int, db: Session = Depends(get_db)):
 
 
 @router.post("/approvals/{approval_id}/mark-done")
-def mark_done(approval_id: int, note: str = "", db: Session = Depends(get_db)):
-    """Human completed a manual step (paid the advance, booked the ticket)."""
+def mark_done(approval_id: int, note: str = "", reference: str = "", db: Session = Depends(get_db)):
+    """Human completed a manual step (paid the advance, booked the ticket); `reference` = UTR / PNR / booking id."""
     row = db.get(models.ExpoApproval, approval_id)
     if not row:
         raise HTTPException(404, "approval not found")
+    if row.status not in ("approved", "failed", "proposed"):
+        raise HTTPException(400, f"cannot mark an item in status {row.status} as done")
     row.status = "executed"
     row.executed_at = datetime.utcnow()
-    row.execution_json = json.dumps({"ok": True, "mode": "manual", "note": note})
+    if not row.decided_at:
+        row.decided_at = datetime.utcnow()
+    row.execution_json = json.dumps({"ok": True, "mode": "manual", "note": note, "reference": reference or note})
     plan = db.query(models.ExpoEventPlan).filter_by(event_id=row.event_id).first()
     if not plan:
         plan = models.ExpoEventPlan(event_id=row.event_id)

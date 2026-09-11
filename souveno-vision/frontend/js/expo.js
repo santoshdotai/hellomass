@@ -8,6 +8,7 @@
     return r.status === 204 ? null : r.json();
   };
   const inr = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
+  const linkify = (t) => esc(t).replace(/(https?:\/\/[^\s)]+)/g, (u) => `<a target="_blank" rel="noopener" href="${u}">${u.replace(/^https?:\/\//, '').slice(0, 48)}…</a>`);
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const starStr = (s) => '★'.repeat(Math.floor(s)) + (s % 1 ? '½' : '') + '☆'.repeat(5 - Math.ceil(s));
 
@@ -258,7 +259,9 @@
   async function loadApprovals() {
     const d = await api('/api/expo/approvals');
     const r = d.rails;
-    $('#railsInfo').textContent = `Rails: RazorpayX ${r.razorpayx ? 'on' : 'off'} · Duffel flights ${r.duffel ? 'on' : 'off'} · auto-execute ${r.auto_execute ? 'on' : 'off'} · Flight policy: ${d.policy.flights}`;
+    $('#railsInfo').textContent = d.payment_mode === 'manual'
+      ? `Manual mode: the agent proposes, you approve, then you pay from the Souveno bank app or book on the airline/hotel site and tap Done with the UTR / PNR. No card or payout key is stored. · Flight policy: ${d.policy.flights}`
+      : `Rails mode: RazorpayX ${r.razorpayx ? 'on' : 'off'} · Duffel flights ${r.duffel ? 'on' : 'off'} · auto-execute ${r.auto_execute ? 'on' : 'off'} · Flight policy: ${d.policy.flights}`;
     const pending = d.items.filter((i) => i.status === 'proposed').length;
     $('#apBadge').textContent = pending; $('#apBadge').classList.toggle('hidden', !pending);
     const evOf = (i) => state.catalog.events.find((e) => e.id === i.event_id) || null;
@@ -278,22 +281,25 @@
           ${i.kind === 'flight' ? `${i.details.origin} → ${i.details.destination} ${i.details.depart} / back ${i.details.return} · ${i.details.travellers} pax · ${esc(i.details.preference)} · <a target="_blank" href="${i.details.links.outbound.google_flights}">search</a>${i.details.booking_window ? `<br/><span class="pill ${i.details.booking_window.status === 'ideal' ? 'booked' : 'searching'}">${i.details.booking_window.status === 'ideal' ? (i.details.international ? '90-day' : '60-day') + ' window open' : i.details.booking_window.status === 'urgent' ? 'inside the window — book now' : 'past the hard deadline — book immediately'}${i.details.international ? ' · international' : ''}</span> ${esc(i.details.booking_window.advice)} · ${i.details.booking_window.days_to_departure} days to departure` : ''}` : ''}
           ${i.kind === 'visa' ? `${esc(i.details.visa_type)} · apply by ${i.details.apply_by} (${i.details.lead_days} working days) · ${esc(i.details.note)}<br/>Documents: ${i.details.documents.join(', ')}` : ''}
           ${i.kind === 'hotel' ? `${esc(i.details.hotel.name)} · ${i.details.checkin} → ${i.details.checkout} · ${inr(i.details.hotel.inr_night[0])}–${inr(i.details.hotel.inr_night[1])}/night · <a target="_blank" href="${i.details.links.google_hotels}">search</a>` : ''}</div>
-          ${i.status !== 'proposed' && i.status !== 'rejected' ? `<div class="meta">${esc(i.execution.instruction || i.execution.reason || (i.execution.ok ? 'Executed ' + (i.execution.mode || '') : ''))}${i.execution.error ? ' · ' + esc(i.execution.error) : ''}</div>` : ''}
+          ${i.status === 'approved' && i.executor === 'manual' ? `<div class="steps"><b>Do this now, then tap Done:</b><ol>${(i.manual_steps || []).map((st) => `<li>${linkify(st)}</li>`).join('')}</ol><button class="btn ghost act" data-act="copyref" title="Copy the reference for the payment remarks">Copy reference ${esc(i.approval_uid)}</button></div>` : ''}
+          ${i.status === 'executed' ? `<div class="meta">Done${i.execution.reference || i.execution.note ? ' · ref ' + esc(i.execution.reference || i.execution.note) : ''} · ${(i.executed_at || '').slice(0, 10)}</div>` : ''}
+          ${i.status === 'failed' || (i.status === 'approved' && i.executor !== 'manual') ? `<div class="meta">${esc(i.execution.instruction || i.execution.reason || (i.execution.ok ? 'Executed ' + (i.execution.mode || '') : ''))}${i.execution.error ? ' · ' + esc(i.execution.error) : ''}</div>` : ''}
           ${i.notes ? `<div class="meta">Note: ${esc(i.notes)}</div>` : ''}
         </div>
         <div class="actions">
           ${i.status === 'proposed' ? `<button class="btn primary act" data-act="approve">Approve</button><button class="btn ghost act" data-act="edit">Edit amount</button><button class="btn ghost act" data-act="reject">Reject</button>` : ''}
-          ${i.status === 'approved' ? `<button class="btn secondary act" data-act="execute">Execute now</button><button class="btn primary act" data-act="done">Done (paid/booked)</button>` : ''}
+          ${i.status === 'approved' ? `${i.executor !== 'manual' ? '<button class="btn secondary act" data-act="execute">Execute now</button>' : ''}<button class="btn primary act" data-act="done">Done (paid/booked)</button>` : ''}
           ${i.status === 'failed' ? `<button class="btn secondary act" data-act="approve">Retry</button><button class="btn primary act" data-act="done">Done manually</button>` : ''}
         </div></div>`).join('') : '<div class="muted">Nothing proposed yet. Tap "Propose bookings" or set an event to exhibit in its details.</div>';
     $$('#approvalList .act').forEach((b) => b.addEventListener('click', async () => {
       const id = b.closest('.ap').dataset.id, act = b.dataset.act;
       try {
-        if (act === 'approve') { if (!confirm('Approve this booking? Money moves only through a configured rail, otherwise you get the payment instruction.')) return; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'approve', execute: true }) }); }
+        if (act === 'copyref') { const uid = b.textContent.replace('Copy reference ', '').trim(); try { await navigator.clipboard.writeText(uid); b.textContent = 'Copied ' + uid; } catch { prompt('Copy this reference', uid); } return; }
+        if (act === 'approve') { if (!confirm('Approve this booking? Nothing is paid automatically: you get a step-by-step checklist to pay or book yourself, then tap Done.')) return; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'approve', execute: true }) }); }
         if (act === 'reject') { const notes = prompt('Reason (optional)') || ''; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'reject', notes }) }); }
         if (act === 'edit') { const v = prompt('Corrected amount in INR (from the organiser rate card / actual fare)'); if (!v) return; await api(`/api/expo/approvals/${id}`, { method: 'PATCH', body: JSON.stringify({ amount_inr: Number(v), details: { rate_status: 'corrected by you' } }) }); }
         if (act === 'execute') await api(`/api/expo/approvals/${id}/execute`, { method: 'POST' });
-        if (act === 'done') { const note = prompt('Reference / note (UTR, PNR, booking id)') || ''; await api(`/api/expo/approvals/${id}/mark-done?note=${encodeURIComponent(note)}`, { method: 'POST' }); }
+        if (act === 'done') { const ref = prompt('Reference (UTR for a payment, PNR for a flight, confirmation number for a hotel, visa number)'); if (ref === null) return; await api(`/api/expo/approvals/${id}/mark-done?reference=${encodeURIComponent(ref)}&note=${encodeURIComponent(ref)}`, { method: 'POST' }); }
       } catch (e) { alert(e.message); }
       loadApprovals(); loadCatalog();
     }));

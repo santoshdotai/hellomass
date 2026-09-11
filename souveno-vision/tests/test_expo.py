@@ -231,10 +231,13 @@ def test_approval_flow_propose_approve_execute_manual(client):
     assert client.post(f"/api/expo/approvals/{hotel['id']}/decide", json={"decision": "reject"}).json()["status"] == "rejected"
     d = client.post(f"/api/expo/approvals/{stall['id']}/decide", json={"decision": "approve", "execute": True}).json()
     assert d["status"] == "approved" and d["execution"]["mode"] == "manual" and "₹60,000" in d["execution"]["instruction"]
-    done = client.post(f"/api/expo/approvals/{stall['id']}/mark-done", params={"note": "NEFT done"}).json()
-    assert done["status"] == "executed"
+    assert d["payment_mode"] == "manual" and len(d["manual_steps"]) == 5 and "NEFT/RTGS or UPI" in d["manual_steps"][2]
+    assert d["approval_uid"] in d["manual_steps"][2]  # reference to put in the bank remarks
+    done = client.post(f"/api/expo/approvals/{stall['id']}/mark-done", params={"reference": "UTR123"}).json()
+    assert done["status"] == "executed" and done["execution"]["reference"] == "UTR123"
     assert client.get("/api/expo/plans/engiexpo-pune-2026").json()["stall_status"] == "booked"
     lst = client.get("/api/expo/approvals").json()
+    assert lst["payment_mode"] == "manual"
     assert lst["rails"] == {"razorpayx": False, "duffel": False, "auto_execute": False}
     assert any(i["status"] == "executed" for i in lst["items"])
 
@@ -320,3 +323,29 @@ def test_explain_gives_component_reasons_and_footfall():
     assert "80,000 visitors" in x["footfall_expected"]
     hw = scoring.explain(next(e for e in list_events() if e["id"] == "hardware-fair-india-2026"))
     assert hw["headline"].startswith("4.0 stars") and "ICP fit 36/40" in hw["lines"][0]
+
+
+def test_manual_mode_ignores_payment_rails_even_when_keys_exist(monkeypatch):
+    from backend.core.expo import approvals
+    from config.settings import settings
+    ev = next(e for e in list_events() if e["id"] == "elecrama-2027")
+    monkeypatch.setattr(settings, "razorpayx_key_id", "rzp_test_x")
+    monkeypatch.setattr(settings, "duffel_access_token", "duffel_test_x")
+    monkeypatch.setattr(settings, "expo_payment_mode", "manual")
+    ps = approvals.proposals_for_event(ev)
+    assert {p["executor"] for p in ps} == {"manual"} and ps[1]["payee"] == "Airline / OTA"
+    monkeypatch.setattr(settings, "expo_payment_mode", "rails")
+    ps = approvals.proposals_for_event(ev)
+    assert [p["executor"] for p in ps] == ["razorpayx", "duffel", "manual"]
+
+
+def test_manual_steps_for_every_kind():
+    from backend.core.expo import approvals
+    from backend.db import models
+    ev = next(e for e in list_events() if e["id"] == "middle-east-energy-2027")
+    for p in approvals.proposals_for_event(ev):
+        row = models.ExpoApproval(approval_uid="APR-TEST", event_id=ev["id"], kind=p["kind"], title=p["title"], amount_inr=p["amount_inr"], payee=p["payee"])
+        steps = approvals.manual_steps(row, p["details"])
+        assert len(steps) >= 4 and steps[-1].startswith("Tap Done")
+        if p["kind"] == "flight":
+            assert "HYD" in p["title"] and "Souveno company card" in steps[3]

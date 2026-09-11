@@ -75,6 +75,7 @@ class Settings(BaseSettings):
     razorpayx_account_number: str = ""  # your RazorpayX current-account number (debit source)
     duffel_access_token: str = ""  # Duffel flights API; live token issues real tickets
     duffel_passengers_json: str = ""  # JSON list: [{"given_name","family_name","born_on","gender","phone_number","email","title", passport fields for international}]
+    expo_payment_mode: str = "manual"  # manual (default: the agent proposes, you pay/book yourself from your bank app or the booking site, then tap Done) | rails (use RazorpayX / Duffel when their keys are set)
     expo_auto_execute: bool = False  # if True, approved items execute immediately via the configured rails
     expo_public_url: str = ""  # e.g. https://expo.souveno.ai — used in approval notifications
 

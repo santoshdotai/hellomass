@@ -10,8 +10,11 @@ the phone dashboard, and only then an executor runs:
   duffel     flight ticketing via the Duffel API (needs DUFFEL_ACCESS_TOKEN;
              a test token creates test orders, a live token issues real ones)
   email      sends the space-application / confirmation email
-  manual     no rail configured: produces a payment instruction (UPI / NEFT /
-             organiser link) for the human to complete
+  manual     DEFAULT (EXPO_PAYMENT_MODE=manual): the agent never touches money.
+             Approving produces a numbered checklist (pay from your bank app /
+             book on the airline or hotel site), you complete it and tap Done
+             with the UTR / PNR / booking id. Set EXPO_PAYMENT_MODE=rails to
+             let the RazorpayX / Duffel executors run when their keys are set.
 
 Everything is logged on the approval row, so the dashboard shows exactly
 what was proposed, who approved it, and what happened.
@@ -34,6 +37,21 @@ GST = 0.18
 ADVANCE_SHARE = 0.5
 
 
+def payment_mode() -> str:
+    return "rails" if (settings.expo_payment_mode or "manual").lower() == "rails" else "manual"
+
+
+def _rail(name: str) -> str:
+    """Which executor a proposal gets: a rail only when payment mode is 'rails' AND its keys exist."""
+    if payment_mode() != "rails":
+        return "manual"
+    if name == "razorpayx" and settings.razorpayx_key_id:
+        return "razorpayx"
+    if name == "duffel" and settings.duffel_access_token:
+        return "duffel"
+    return "manual"
+
+
 def _deadline(target: date, min_days_ahead: int = 7) -> str:
     """Never propose a decision date in the past: at least a week from today."""
     return max(target, date.today() + timedelta(days=min_days_ahead)).isoformat()
@@ -54,13 +72,14 @@ def stall_advance_proposal(ev: dict[str, Any], sqm: int | None = None, rate: int
         "title": f"50% stall advance — {ev['name']} ({sqm} sqm shell)",
         "amount_inr": advance,
         "payee": contact.get("org") or ev.get("organiser", ""),
-        "executor": "razorpayx" if settings.razorpayx_key_id else "manual",
+        "executor": _rail("razorpayx"),
         "deadline": _deadline(start - timedelta(days=90)),
         "details": {
             "sqm": sqm, "rate_inr_sqm": rate, "base_inr": base, "gst_pct": 18, "total_inr": total,
             "advance_share": ADVANCE_SHARE, "balance_inr": total - advance,
             "rate_status": "estimate — replace with the organiser's rate card before approving",
             "organiser_email": contact.get("email", ""), "organiser_phone": contact.get("phone", ""),
+            "organiser_website": contact.get("form") or ev.get("website", ""),
             "position_request": st.get("hall_hint", ""),
         },
     }
@@ -146,8 +165,8 @@ def flight_proposal(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any] |
         "kind": "flight",
         "title": f"Flights {tp['outbound']['route']} {tp['outbound']['date']} / return {tp['return']['date']} x{travellers} — {ev['name']}",
         "amount_inr": est,
-        "payee": "Airline (via Duffel)" if settings.duffel_access_token else "Airline / OTA",
-        "executor": "duffel" if settings.duffel_access_token else "manual",
+        "payee": "Airline (via Duffel)" if _rail("duffel") == "duffel" else "Airline / OTA",
+        "executor": _rail("duffel"),
         "deadline": deadline,
         "details": {
             "booking_window": window,
@@ -282,6 +301,52 @@ def _duffel_order(row: models.ExpoApproval, details: dict[str, Any]) -> dict[str
     return {"ok": r2.status_code < 300, "mode": "duffel", "status_code": r2.status_code, "response": r2.json(), "offer_total": offer["total_amount"]}
 
 
+def manual_steps(row: models.ExpoApproval, details: dict[str, Any]) -> list[str]:
+    """Numbered checklist a human follows after tapping Approve (manual payment mode)."""
+    amt = f"₹{row.amount_inr:,}"
+    ref = row.approval_uid
+    if row.kind == "stall_advance":
+        contact = details.get("organiser_email") or ""
+        site = details.get("organiser_website") or ""
+        return [
+            f"Ask {row.payee} for the space application form and proforma invoice for {details.get('sqm', '')} sqm shell scheme"
+            + (f" (email {contact})" if contact else "") + (f" or apply at {site}" if site else "") + ".",
+            f"Check the invoice: expected about {amt} as the 50% advance (rate ₹{details.get('rate_inr_sqm', 0):,}/sqm + 18% GST). If different, tap Edit amount first.",
+            f"Pay {amt} by NEFT/RTGS or UPI from the Souveno company bank app to the bank details printed on the proforma invoice. Put '{ref} Souveno AI' in the remarks.",
+            "Email the payment screenshot or UTR to the organiser and ask for the stall number and the GST tax invoice.",
+            f"Tap Done and enter the UTR. The stall status flips to booked and the balance ({'₹' + format(details.get('balance_inr', 0), ',')}) is proposed later.",
+        ]
+    if row.kind == "flight":
+        links = details.get("links", {})
+        out = links.get("outbound", {}).get("google_flights", "Google Flights")
+        back = links.get("return", {}).get("google_flights", "Google Flights")
+        win = details.get("booking_window", {})
+        return [
+            f"Open the outbound search: {out}",
+            f"Open the return search: {back}",
+            f"Pick a direct economy fare that lands the evening before and returns after 19:00; total for {details.get('travellers', 2)} travellers within {amt}.",
+            "Pay on the airline site or MakeMyTrip/ixigo with the Souveno company card; use the Souveno email for the booking so the tickets and GST invoice land in the company inbox."
+            + (f" Book by {win.get('preferred_by')} (latest {win.get('latest_by')})." if win else ""),
+            "Tap Done and enter the PNR. The flight status flips to booked.",
+        ]
+    if row.kind == "hotel":
+        h = details.get("hotel", {})
+        return [
+            f"Open {h.get('name', 'the hotel')} for {details.get('checkin')} → {details.get('checkout')}: {details.get('links', {}).get('google_hotels', '')}",
+            f"Book a room within {amt} total ({details.get('nights', '')} nights). Prefer free cancellation until 7 days before the show.",
+            "Pay with the Souveno company card and ask for a GST invoice in the company name (GSTIN 36BDNPP2011D2ZV).",
+            "Tap Done and enter the confirmation number. The hotel status flips to booked.",
+        ]
+    if row.kind == "visa":
+        return [
+            f"Apply for the {details.get('visa_type')} for {details.get('travellers', 2)} travellers by {details.get('apply_by')} ({details.get('lead_days')} working days). {details.get('note', '')}",
+            "Documents: " + ", ".join(details.get("documents", [])) + ".",
+            f"Pay the fee (about {amt}) with the Souveno company card; keep the receipt for the expense sheet.",
+            "Tap Done and enter the visa or application number.",
+        ]
+    return [f"Complete this manually, then tap Done with the reference. ({ref})"]
+
+
 def _manual_instruction(row: models.ExpoApproval, details: dict[str, Any]) -> str:
     if row.kind == "stall_advance":
         return (f"Pay ₹{row.amount_inr:,} to {row.payee} against their proforma invoice (NEFT/UPI details come with the space "
@@ -305,7 +370,7 @@ def execute(db: Session, row: models.ExpoApproval) -> models.ExpoApproval:
         elif row.executor == "duffel":
             result = _duffel_order(row, details)
         else:
-            result = {"ok": False, "mode": "manual", "instruction": _manual_instruction(row, details)}
+            result = {"ok": False, "mode": "manual", "instruction": _manual_instruction(row, details), "steps": manual_steps(row, details)}
     except Exception as exc:  # network / provider failure
         logger.exception("approval execution failed")
         result = {"ok": False, "mode": row.executor, "error": str(exc)}
@@ -330,4 +395,6 @@ def to_dict(row: models.ExpoApproval) -> dict[str, Any]:
         "executed_at": row.executed_at.isoformat() if row.executed_at else None,
         "notes": row.notes,
         "manual_instruction": _manual_instruction(row, json.loads(row.details_json or "{}")),
+        "manual_steps": manual_steps(row, json.loads(row.details_json or "{}")),
+        "payment_mode": payment_mode(),
     }
