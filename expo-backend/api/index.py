@@ -21,15 +21,15 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 
 REPO = os.environ.get("SOUVENO_SOURCE_REPO", "santoshdotai/hellomass")
-REF = os.environ.get("SOUVENO_SOURCE_REF", "claude/nice-pasteur-omkzao")
-SUBDIR = os.environ.get("SOUVENO_SOURCE_SUBDIR", "souveno-vision")
+REF = os.environ.get("SOUVENO_SOURCE_REF", "expo-backend")
+SUBDIR = os.environ.get("SOUVENO_SOURCE_SUBDIR", "")  # "" on the expo-backend branch (app at repo root); "expo-backend" on the monorepo branch
 
 
 def _bootstrap() -> Path:
     cache = Path("/tmp/souveno-src") / REF.replace("/", "_")
-    marker = cache / SUBDIR / "backend" / "main.py"
+    marker = (cache / SUBDIR if SUBDIR else cache) / "backend" / "main.py"
     if marker.exists():
-        return cache / SUBDIR
+        return cache / SUBDIR if SUBDIR else cache
     cache.mkdir(parents=True, exist_ok=True)
     url = f"https://codeload.github.com/{REPO}/tar.gz/refs/heads/{REF}"
     with urllib.request.urlopen(url, timeout=40) as r:

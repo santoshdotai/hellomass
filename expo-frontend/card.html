@@ -41,12 +41,13 @@
   </form>
   <div id="done" class="ok hidden">Thank you — we have your card. Our contact is saved above; we will WhatsApp you a demo quotation from your own product list.</div>
 </div>
+<script src="config.js"></script>
 <script>
 (async function () {
   const q = new URLSearchParams(location.search);
   document.getElementById('eventId').value = q.get('event') || 'walk-in';
   try {
-    const p = await (await fetch('/api/expo/profile')).json();
+    const p = await (await fetch((window.EXPO_API_BASE||'') + '/api/expo/profile')).json();
     document.getElementById('who').innerHTML = `<b>${p.contact_name}</b>${p.designation}<br/>${p.phone} · ${p.email}<br/><a href="${p.website}" style="color:#3ba7ff">${p.website.replace('https://','')}</a> · ${p.city}<br/><span class="muted">${p.description}</span>`;
     document.getElementById('waBtn').href = 'https://wa.me/' + p.phone.replace(/[^\d]/g, '') + '?text=' + encodeURIComponent('Hi Souveno, we met at the expo. Please send me a demo quotation.');
     if (p.calendly) document.getElementById('calBtn').href = p.calendly.includes('meet-souveno') ? p.calendly : 'https://calendly.com/souveno30/meet-souveno-at-the-expo-15-min-stall-demo';
@@ -55,7 +56,7 @@
     e.preventDefault();
     const body = Object.fromEntries(new FormData(e.target).entries());
     body.quote_requests_per_day = Number(body.quote_requests_per_day || 0);
-    const r = await fetch('/api/expo/exchange', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    const r = await fetch((window.EXPO_API_BASE||'') + '/api/expo/exchange', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     if (r.ok) { e.target.classList.add('hidden'); document.getElementById('done').classList.remove('hidden'); }
     else alert('Please add at least a name and phone number.');
   });

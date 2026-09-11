@@ -2,8 +2,10 @@
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const API_BASE = (window.EXPO_API_BASE || '').replace(/\/$/, '');
+  document.addEventListener('DOMContentLoaded', () => { if (API_BASE) document.querySelectorAll('a[href^="/api/"]').forEach((a) => { a.href = API_BASE + a.getAttribute('href'); }); });
   const api = async (path, opts = {}) => {
-    const r = await fetch(path, { headers: { 'Content-Type': 'application/json' }, ...opts });
+    const r = await fetch(API_BASE + path, { headers: { 'Content-Type': 'application/json' }, ...opts });
     if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || r.statusText);
     return r.status === 204 ? null : r.json();
   };
@@ -243,7 +245,7 @@
       let res;
       if (file) {
         const fd = new FormData(); fd.append('event_id', eid); fd.append('create_lead', 'true'); fd.append('image', file); if (text) fd.append('text', text);
-        const r = await fetch('/api/expo/cards/scan', { method: 'POST', body: fd }); res = await r.json();
+        const r = await fetch(API_BASE + '/api/expo/cards/scan', { method: 'POST', body: fd }); res = await r.json();
       } else {
         res = await api('/api/expo/cards/parse', { method: 'POST', body: JSON.stringify({ event_id: eid, text, create_lead: true }) });
       }
@@ -269,7 +271,7 @@
   }
   $('#scanEvent').addEventListener('change', renderQr);
   $('#copyBookmarklet').addEventListener('click', async () => {
-    const js = await (await fetch('/api/expo/profile/autofill.js' + ($('#scanEvent').value && $('#scanEvent').value !== 'walk-in' ? '?event_id=' + $('#scanEvent').value : ''))).text();
+    const js = await (await fetch(API_BASE + '/api/expo/profile/autofill.js' + ($('#scanEvent').value && $('#scanEvent').value !== 'walk-in' ? '?event_id=' + $('#scanEvent').value : ''))).text();
     const bm = 'javascript:' + encodeURIComponent(js);
     try { await navigator.clipboard.writeText(bm); alert('Copied. Create a bookmark and paste this as its URL; click it on any organiser registration form to fill it.'); }
     catch { prompt('Copy this bookmarklet URL:', bm); }

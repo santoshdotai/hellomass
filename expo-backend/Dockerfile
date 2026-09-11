@@ -1,8 +1,8 @@
 # Expo Agent only — deploys anywhere Docker runs (Hugging Face Space, Render, Railway).
 FROM python:3.11-slim
 WORKDIR /app
-COPY requirements-expo.txt .
-RUN pip install --no-cache-dir -r requirements-expo.txt
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 ENV APP_MODE=expo PORT=7860
 EXPOSE 7860

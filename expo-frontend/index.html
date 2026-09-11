@@ -9,11 +9,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Souveno Expo" />
-<link rel="manifest" href="/manifest.webmanifest" />
-<link rel="icon" href="/static/icon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/static/icon.svg" />
-<link rel="stylesheet" href="/static/css/styles.css" />
-<link rel="stylesheet" href="/static/css/expo.css" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icon.svg" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/expo.css" />
 </head>
 <body>
 <header class="topbar">
@@ -39,7 +39,7 @@
     <button class="nav-btn" data-view="playbook">Playbook</button>
   </nav>
   <div class="topbar-right">
-    <a class="badge badge-device" href="/">Vision app</a>
+    <a class="badge badge-device" href="dashboard/souveno-expo-command-center.html">Phone dashboard</a>
     <a class="badge badge-demo" href="/api/expo/calendar.ics">Download .ics</a>
   </div>
   <button class="btn ghost" id="micBtn" title="Voice: say e.g. book tickets to ELECRAMA, when is Plastivision, what is coming in 2 months">🎤 Voice</button><span id="micSay" class="hint"></span>
@@ -194,8 +194,9 @@
 
 <div id="modal" class="modal hidden"><div class="modal-box" id="modalBox"></div></div>
 
+<script src="config.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="/static/js/expo.js"></script>
+<script src="js/expo.js"></script>
 <script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(() => {});</script>
 </body>
 </html>
