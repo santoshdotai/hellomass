@@ -33,6 +33,7 @@
     <button class="nav-btn" data-view="collab">Collaborations</button>
     <button class="nav-btn" data-view="stalls">Stall Picker</button>
     <button class="nav-btn" data-view="travel">Travel &amp; Booking</button>
+    <button class="nav-btn" data-view="finance">Finance / P&amp;L</button>
     <button class="nav-btn" data-view="playbook">Playbook</button>
   </nav>
   <div class="topbar-right">
@@ -156,6 +157,12 @@
     </div>
   </section>
 
+  <section id="view-finance" class="view">
+    <div class="panel">
+      <div class="toolbar"><label>Show everything starting <select id="finHorizon"></select></label> <span class="hint" id="finWindow"></span></div>
+      <div id="finance"></div>
+    </div>
+  </section>
   <section id="view-travel" class="view">
     <div class="panel card">
       <h2>Travel &amp; booking desk</h2>

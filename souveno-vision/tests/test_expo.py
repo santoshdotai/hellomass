@@ -384,3 +384,21 @@ def test_flight_and_hotel_proposals_carry_skyscanner_and_booking_links():
     sky = ps["flight"]["details"]["links"]["skyscanner_round_trip"]
     assert sky.startswith("https://www.skyscanner.co.in/transport/flights/hyd/del/270219/270224/") and "adultsv2=2" in sky
     assert "booking.com/searchresults.html" in ps["hotel"]["details"]["links"]["booking_com"] and "checkin=2027-02-19" in ps["hotel"]["details"]["links"]["booking_com"]
+
+
+def test_finance_report_splits_exhibits_and_visits(client):
+    from datetime import date
+    from backend.core.expo import finance
+    r = finance.report("12m", today=date(2026, 9, 11))
+    assert r["totals"]["all"]["shows"] >= 25 and r["totals"]["exhibits"]["shows"] >= 15
+    assert all(x["mode"] == "exhibit" for x in r["exhibits"]) and all(x["mode"] == "visit" for x in r["visits"])
+    el = next(x for x in r["exhibits"] if x["id"] == "elecrama-2027")
+    assert el["revenue_inr"][1] == round(el["conversions"][1] * el["value_per_client_inr"]) and el["pl_inr"][1] > 0
+    assert el["revenue_usd"][1] == round(el["revenue_inr"][1] / 84) and el["best_bets"]["segments"]
+    short = finance.report("1w", today=date(2026, 9, 11))
+    assert short["totals"]["all"]["shows"] == 0 and short["window_end"] == "2026-09-18"
+    one = finance.report("1m", today=date(2026, 9, 11))
+    assert {x["id"] for x in one["exhibits"]} == {"papexpo-2026", "waremat-2026"}
+    api = client.get("/api/expo/finance", params={"horizon": "3m"}).json()
+    assert api["horizon_label"] == "in 3 months" and len(api["horizons"]) == 15
+    assert client.get("/api/expo/finance", params={"horizon": "99y"}).status_code == 400

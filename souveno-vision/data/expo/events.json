@@ -58,6 +58,30 @@
     "product_lines": {
       "quote_desk": "WhatsApp AI quote desk: enquiry → stock → GST quotation PDF → payment (ICP segments A-E, P)",
       "vision_ai": "Vision AI: camera-based employee attendance & performance reports, stock and dispatch counting, vehicle entry/exit logging, safety (segments F, W, K, L, R)"
+    },
+    "deal_economics": {
+      "note": "Editable assumptions for the Finance tab. First-year value per paid pilot that converts; change here and every P&L recomputes.",
+      "fx_inr_per_usd": 84.0,
+      "quote_desk": {
+        "pilot_fee_inr": 25000,
+        "monthly_inr": 12000,
+        "months_first_year": 12,
+        "first_year_value_inr": 169000,
+        "label": "WhatsApp quote desk: ₹25,000 pilot + Growth plan ₹12,000/month"
+      },
+      "vision_ai": {
+        "pilot_fee_inr": 50000,
+        "monthly_inr": 25000,
+        "months_first_year": 12,
+        "first_year_value_inr": 350000,
+        "label": "Vision AI: ₹50,000 pilot + ₹25,000/month per site (cameras already on site)"
+      },
+      "both": {
+        "first_year_value_inr": 259500,
+        "label": "Mixed floor: average of the two products"
+      },
+      "lead_to_client_probability": 0.0525,
+      "lead_to_client_note": "qualified 35% × demo 50% × paid pilot 30% = 5.25% of captured leads become paying clients"
     }
   },
   "events": [

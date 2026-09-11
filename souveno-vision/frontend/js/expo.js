@@ -28,6 +28,7 @@
     if (b.dataset.view === 'funnel') loadFunnel();
     if (b.dataset.view === 'approvals') loadApprovals();
     if (b.dataset.view === 'travel') loadTravellers();
+    if (b.dataset.view === 'finance') loadFinance();
     if (b.dataset.view === 'stalls') loadFloorplan();
     if (b.dataset.view === 'leads') loadLeads();
     if (b.dataset.view === 'collab') loadCollabs();
@@ -282,6 +283,31 @@
       await api('/api/expo/settings/travellers', { method: 'PUT', body: JSON.stringify(out) }); $('#travMsg').textContent = `Saved ${out.length} traveller(s).`;
     };
   }
+  // ---------------------------------------------------------------- finance
+  const rng = (a, u = inr) => Array.isArray(a) ? `${u(a[0])} – ${u(a[1])}` : u(a);
+  const usd = (n) => '$' + Number(n || 0).toLocaleString('en-US');
+  const pct = (a) => Array.isArray(a) ? `${a[0] == null ? '—' : a[0] + '%'} – ${a[1] == null ? '—' : a[1] + '%'}` : (a == null ? '—' : a + '%');
+  function finTable(rows, title) {
+    if (!rows.length) return `<h3>${title}</h3><div class="muted">No ${title.toLowerCase()} start in this window.</div>`;
+    return `<h3>${title} (${rows.length})</h3><div class="tablewrap"><table class="fin"><thead><tr><th>Show</th><th>Starts</th><th>★</th><th>Lead with</th><th>Total cost</th><th>Subsidy back</th><th>Leads</th><th>Pipeline worth</th><th>Conversions</th><th>Conv. %</th><th>Conversion worth ₹</th><th>Worth $</th><th>P&amp;L ₹</th><th>ROI</th><th>Best bets</th></tr></thead><tbody>
+      ${rows.map((r) => `<tr class="${r.verdict === 'loss' ? 'loss' : ''}"><td><b>${esc(r.name)}</b><br><span class="muted">${esc(r.city)}</span></td><td>${r.start}<br><span class="muted">${r.days_away} days</span></td><td>${r.stars.toFixed(1)}</td><td>${r.lead_product === 'both' ? 'both' : r.lead_product === 'vision_ai' ? 'Vision AI' : 'quote desk'}</td><td>${rng(r.cost_inr)}</td><td>${rng(r.subsidy_refund_inr)}</td><td>${r.leads[0]}–${r.leads[1]}</td><td>${rng(r.pipeline_inr)}</td><td>${r.conversions[0]}–${r.conversions[1]} clients</td><td>${r.conversion_pct}%<br><span class="muted">≥1 client: ${r.client_probability_pct}%</span></td><td>${rng(r.revenue_inr)}</td><td>${rng(r.revenue_usd, usd)}</td><td><b>${rng(r.pl_inr)}</b></td><td>${pct(r.roi_pct)}</td><td><span class="muted">${r.best_bets.segments.map((x) => esc(x.name)).join(' · ')}</span><br>${esc(r.best_bets.who)}</td></tr>`).join('')}
+    </tbody></table></div>`;
+  }
+  function kpi(t, label) {
+    return `<div class="fin-kpis"><b>${label}</b><span>${t.shows} shows</span><span>Cost ${rng(t.cost_inr)}</span><span>Subsidy back ${rng(t.subsidy_refund_inr)}</span><span>Leads ${t.leads[0]}–${t.leads[1]}</span><span>Pipeline ${rng(t.pipeline_inr)}</span><span>Conversions ${t.conversions[0]}–${t.conversions[1]} (${t.conversion_pct}%)</span><span>Revenue ${rng(t.revenue_inr)} / ${rng(t.revenue_usd, usd)}</span><span class="${t.pl_inr[0] < 0 ? 'bad' : 'good'}">P&amp;L ${rng(t.pl_inr)} / ${rng(t.pl_usd, usd)}</span><span>ROI ${pct(t.roi_pct)}</span></div>`;
+  }
+  async function loadFinance() {
+    const sel = $('#finHorizon'); const h = sel.value || '1m';
+    const r = await api(`/api/expo/finance?horizon=${h}`);
+    if (!sel.options.length) { r.horizons.forEach((x) => { const o = document.createElement('option'); o.value = x.key; o.textContent = x.label; sel.appendChild(o); }); sel.value = h; sel.onchange = loadFinance; }
+    $('#finWindow').textContent = `${r.today} → ${r.window_end}. ${r.disclaimer}`;
+    const a = r.assumptions;
+    $('#finance').innerHTML = kpi(r.totals.all, 'Everything') + kpi(r.totals.exhibits, 'Exhibits') + kpi(r.totals.visits, 'Visits')
+      + `<div class="whybox"><b>Best bets in this window (by high-case P&amp;L)</b><ol>${r.best_bets.map((b) => `<li>${esc(b.name)} — ${b.mode} · ${b.lead_product === 'vision_ai' ? 'Vision AI' : b.lead_product === 'both' ? 'both products' : 'quote desk'} · P&amp;L ${rng(b.pl_inr)} · ROI ${pct(b.roi_pct)}</li>`).join('')}</ol></div>`
+      + finTable(r.exhibits, 'Exhibits') + finTable(r.visits, 'Visits')
+      + `<div class="meta">Assumptions (edit in data/expo/events.json → _meta.deal_economics): ${esc(a.quote_desk.label)} = ${inr(a.quote_desk.first_year_value_inr)} first year · ${esc(a.vision_ai.label)} = ${inr(a.vision_ai.first_year_value_inr)} first year · ${Math.round(a.lead_to_client_probability * 10000) / 100}% of captured leads become clients (${esc(a.lead_to_client_note || '')}) · USD at ₹${a.fx_inr_per_usd}. Subsidy shown is the best single scheme; P&amp;L uses cost net of subsidy.</div>`;
+  }
+
 
   async function loadApprovals() {
     const d = await api('/api/expo/approvals');

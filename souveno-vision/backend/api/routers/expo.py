@@ -14,6 +14,7 @@ from sqlalchemy.orm import Session
 
 from backend.core.expo import approvals as approval_engine
 from backend.core.expo import subsidy as subsidy_engine
+from backend.core.expo import finance as finance_engine
 from backend.core.expo import cards as card_engine
 from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
@@ -710,6 +711,15 @@ def put_travellers(body: list[dict[str, Any]], db: Session = Depends(get_db)):
         row.details_json = json.dumps(d)
     db.commit()
     return {"travellers": rows}
+
+
+
+@router.get("/finance")
+def finance(horizon: str = "1m"):
+    try:
+        return finance_engine.report(horizon)
+    except KeyError:
+        raise HTTPException(400, f"horizon must be one of {[h[0] for h in finance_engine.HORIZONS]}")
 
 
 @router.get("/subsidies")

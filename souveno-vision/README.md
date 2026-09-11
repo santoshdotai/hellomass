@@ -329,6 +329,17 @@ The **Mode** button in the Approvals tab (in-app and on the phone dashboard) swi
 Nothing is ever charged without the Approve tap. Card numbers, portal passwords and Booking.com PINs are never
 stored; only PNRs, confirmation numbers and UTRs.
 
+
+### Finance / P&L tab
+
+`GET /api/expo/finance?horizon=1m` (horizons: 1w, 2w, 3w, 1m … 12m) and the **Finance / P&L** tab on both
+dashboards: every show starting inside the horizon, exhibits and visits separated, with total cost, subsidy
+money back, assumed leads, pipeline worth, conversions (paid pilots that become clients), conversion % and
+worth in ₹ and $, P&L (revenue minus cost net of subsidy), ROI, and the best bets on that floor (lead product,
+ICP segments, who to target). Revenue uses `_meta.deal_economics` in `data/expo/events.json` (first-year value
+per client: quote desk ₹1,69,000; Vision AI ₹3,50,000; 5.25% of captured leads convert; USD at ₹84) — edit the
+numbers there and everything recomputes. Low case first, high case second; costs are public ranges, not quotes.
+
 ### Phone app
 
 `/expo` ships a web-app manifest and service worker. Open it in Chrome (Android) or Safari (iPhone) and use
