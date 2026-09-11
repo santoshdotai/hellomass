@@ -50,7 +50,7 @@
   <section id="view-events" class="view active">
     <div class="toolbar">
       <label>Sort <select id="sortEvents"><option value="score">by stars</option><option value="date">by date</option><option value="cost">by cost per client</option></select></label>
-      <label>Mode <select id="filterMode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label>
+      <label>Mode <select id="filterMode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label> <span id="evViews"></span>
       <span class="muted">Stars, client probability and budgets are the agent's estimates from organiser figures and Souveno's own funnel assumptions.</span>
     </div>
     <div id="eventGrid" class="event-grid"></div>
@@ -72,6 +72,7 @@
         <button class="btn secondary" id="proposeBtn">Propose bookings due in 90 days</button>
         <label>Sort <select id="apSort"><option value="urgency">by urgency</option><option value="priority">by Souveno priority (stars)</option></select></label>
         <div class="seg" id="modeSegAp"><button data-m="manual">MANUAL — I pay &amp; book</button><button data-m="automate">AUTOMATE — agent books</button></div>
+        <span id="apViews"></span>
         <span id="railsInfo" class="hint"></span>
       </div>
       <p class="muted">The agent proposes each stall advance (50% of sqm × rate + 18% GST), flight and hotel with the amount worked out. Nothing is paid until you tap Approve. Approved items execute through RazorpayX or Duffel when those keys are set; otherwise you get the exact payment instruction and tap "Done" after paying.</p>
@@ -166,7 +167,7 @@
   </section>
   <section id="view-finance" class="view">
     <div class="panel">
-      <div class="toolbar"><label>Show everything starting <select id="finHorizon"></select></label> <span class="hint" id="finWindow"></span></div>
+      <div class="toolbar"><label>Show everything starting <select id="finHorizon"></select></label> <span id="finViews"></span> <span class="hint" id="finWindow"></span></div>
       <div id="finance"></div>
     </div>
   </section>

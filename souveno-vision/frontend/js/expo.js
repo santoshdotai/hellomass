@@ -14,6 +14,22 @@
     const eb = sb.early_bird || {};
     return `<div class="subbox"><b>💰 Subsidy / money back: ${esc(sb.headline)}</b>${sch ? `<ul>${sch}</ul>` : ''}<div class="ff">Early-bird / last date to book with discount: ${eb.deadline ? `<b>${eb.deadline}</b> (${eb.days_left} days)` : 'not published yet'} — ${esc(eb.note || '')}</div><div class="meta">Agent re-checks every 3 days · last checked ${esc(sb.last_checked || '—')} · next ${esc(sb.next_check || '')}${sb.notes ? ' · ' + esc(sb.notes) : ''}</div></div>`;
   };
+  // ---------------------------------------------------------------- navigation + view styles
+  function goToEvent(id) {
+    const btn = $('.nav-btn[data-view="events"]'); if (btn) btn.click();
+    const fm = $('#filterMode'); if (fm && fm.value) { fm.value = ''; renderEvents(); }
+    setTimeout(() => { const el = document.getElementById('ev-' + id); if (!el) return; el.scrollIntoView({ behavior: 'smooth', block: 'start' }); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }, 60);
+  }
+  document.addEventListener('click', (e) => { const a = e.target.closest('.golink'); if (!a) return; e.preventDefault(); goToEvent(a.dataset.ev); });
+  const evName = (id) => { const e = (state.catalog && state.catalog.events || []).find((x) => x.id === id); return e ? e.name : id; };
+  const evLink = (id, text) => `<a class="golink" data-ev="${id}" href="#ev-${id}">${esc(text || evName(id))}</a>`;
+  const VIEWS = {};
+  const viewOf = (key, def) => { if (VIEWS[key]) return VIEWS[key]; try { VIEWS[key] = localStorage.getItem('sx.view.' + key) || def; } catch { VIEWS[key] = def; } return VIEWS[key]; };
+  const viewBar = (key, opts, def) => { const cur = viewOf(key, def); return `<span class="views" data-key="${key}">${opts.map((o) => `<button type="button" class="${o === cur ? 'on' : ''}" data-v="${o}">${o}</button>`).join('')}</span>`; };
+  const VIEW_RENDER = {};
+  document.addEventListener('click', (e) => { const b = e.target.closest('.views button'); if (!b) return; const key = b.parentElement.dataset.key; VIEWS[key] = b.dataset.v; try { localStorage.setItem('sx.view.' + key, b.dataset.v); } catch {} if (VIEW_RENDER[key]) VIEW_RENDER[key](); });
+  const kanban = (cols) => `<div class="kanban">${cols.map((c) => `<div class="kcol"><h4>${c.title} <span class="muted">(${c.items.length})</span></h4>${c.items.join('') || '<div class="muted">—</div>'}</div>`).join('')}</div>`;
+
 
   const linkify = (t) => esc(t).replace(/(https?:\/\/[^\s)]+)/g, (u) => `<a target="_blank" rel="noopener" href="${u}">${u.replace(/^https?:\/\//, '').slice(0, 48)}…</a>`);
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -63,9 +79,18 @@
     let evs = state.catalog.events.filter((e) => !mode || e.mode === mode);
     if (sort === 'date') evs = evs.slice().sort((a, b) => a.start.localeCompare(b.start));
     if (sort === 'cost') evs = evs.slice().sort((a, b) => (a.evaluation.cost_per_expected_client_inr || 9e9) - (b.evaluation.cost_per_expected_client_inr || 9e9));
+    VIEW_RENDER.events = renderEvents;
+    const vb = $('#evViews'); if (vb) vb.innerHTML = viewBar('events', ['cards', 'list', 'kanban'], 'cards');
+    const view = viewOf('events', 'cards');
+    if (view !== 'cards') {
+      const stage = (e) => { const p = e.plan || {}; if (p.stall_status === 'booked' || p.flight_status === 'booked') return 'Booked'; if (p.stall_status === 'enquired' || p.flight_status === 'searching' || p.hotel_status === 'searching') return 'In progress'; return 'Not started'; };
+      const mini = (e) => `<div class="kcard">${evLink(e.id, e.name)}<b>${starStr(e.evaluation.stars)} ${e.evaluation.stars.toFixed(1)} · ${e.mode}</b><span class="muted">${e.start} · ${esc(e.city)}</span><br><span class="muted">${e.evaluation.lead_product === 'vision_ai' ? 'Vision AI' : e.evaluation.lead_product === 'both' ? 'both' : 'quote desk'} · clients ${e.evaluation.funnel.paid_pilots[0]}–${e.evaluation.funnel.paid_pilots[1]}</span>${e.plan && e.plan.stall_number ? `<br><span class="muted">stall ${esc(e.plan.stall_number)}</span>` : ''}</div>`;
+      if (view === 'list') { $('#eventGrid').innerHTML = `<div class="tablewrap"><table class="fin"><thead><tr><th>Show</th><th>Dates</th><th>City</th><th>Mode</th><th>★</th><th>Lead with</th><th>Cost</th><th>Clients</th><th>Stall</th><th>Flights</th><th>Hotel</th><th>Leads</th></tr></thead><tbody>${evs.map((e) => { const ev = e.evaluation, p = e.plan || {}; return `<tr><td>${evLink(e.id, e.name)}</td><td>${e.start} → ${e.end}</td><td>${esc(e.city)}</td><td>${e.mode}</td><td>${ev.stars.toFixed(1)}</td><td>${ev.lead_product === 'vision_ai' ? 'Vision AI' : ev.lead_product === 'both' ? 'both' : 'quote desk'}</td><td>${Array.isArray(ev.budget.total_inr) ? inr(ev.budget.total_inr[0]) + ' – ' + inr(ev.budget.total_inr[1]) : inr(ev.budget.total_inr)}</td><td>${ev.funnel.paid_pilots[0]}–${ev.funnel.paid_pilots[1]}</td><td>${p.stall_status || '—'} ${esc(p.stall_number || '')}</td><td>${p.flight_status || '—'}</td><td>${p.hotel_status || '—'}</td><td>${e.lead_count || 0}</td></tr>`; }).join('')}</tbody></table></div>`; return; }
+      $('#eventGrid').innerHTML = kanban(['Not started', 'In progress', 'Booked'].map((t) => ({ title: t, items: evs.filter((e) => stage(e) === t).sort((a, b) => a.start.localeCompare(b.start)).map(mini) }))); return;
+    }
     $('#eventGrid').innerHTML = evs.map((e) => {
       const ev = e.evaluation, f = ev.funnel, b = ev.budget, p = e.plan;
-      return `<div class="event-card s${Math.floor(ev.stars)}" data-id="${e.id}">
+      return `<div class="event-card s${Math.floor(ev.stars)}" data-id="${e.id}" id="ev-${e.id}">
         <div><span class="stars" title="${ev.total_score}/100">${starStr(ev.stars)}</span> <b>${ev.stars.toFixed(1)}</b>
           <span class="pill ${e.mode}">${e.mode}</span>${e.tentative ? '<span class="pill tentative">dates TBA</span>' : ''} <span class="pill" title="quote desk ${ev.quote_fit}/40 · Vision AI ${ev.vision_fit}/40">lead with: ${ev.lead_product === 'both' ? 'both products' : ev.lead_product === 'vision_ai' ? 'Vision AI' : 'WhatsApp quote desk'}</span></div>
         <h4>${esc(e.name)}</h4>
@@ -291,21 +316,31 @@
   function finTable(rows, title) {
     if (!rows.length) return `<h3>${title}</h3><div class="muted">No ${title.toLowerCase()} start in this window.</div>`;
     return `<h3>${title} (${rows.length})</h3><div class="tablewrap"><table class="fin"><thead><tr><th>Show</th><th>Starts</th><th>★</th><th>Lead with</th><th>Total cost</th><th>Subsidy back</th><th>Leads</th><th>Pipeline worth</th><th>Conversions</th><th>Conv. %</th><th>Conversion worth ₹</th><th>Worth $</th><th>P&amp;L ₹</th><th>ROI</th><th>Best bets</th></tr></thead><tbody>
-      ${rows.map((r) => `<tr class="${r.verdict === 'loss' ? 'loss' : ''}"><td><b>${esc(r.name)}</b><br><span class="muted">${esc(r.city)}</span></td><td>${r.start}<br><span class="muted">${r.days_away} days</span></td><td>${r.stars.toFixed(1)}</td><td>${r.lead_product === 'both' ? 'both' : r.lead_product === 'vision_ai' ? 'Vision AI' : 'quote desk'}</td><td>${rng(r.cost_inr)}</td><td>${rng(r.subsidy_refund_inr)}</td><td>${r.leads[0]}–${r.leads[1]}</td><td>${rng(r.pipeline_inr)}</td><td>${r.conversions[0]}–${r.conversions[1]} clients</td><td>${r.conversion_pct}%<br><span class="muted">≥1 client: ${r.client_probability_pct}%</span></td><td>${rng(r.revenue_inr)}</td><td>${rng(r.revenue_usd, usd)}</td><td><b>${rng(r.pl_inr)}</b></td><td>${pct(r.roi_pct)}</td><td><span class="muted">${r.best_bets.segments.map((x) => esc(x.name)).join(' · ')}</span><br>${esc(r.best_bets.who)}</td></tr>`).join('')}
+      ${rows.map((r) => `<tr class="${r.verdict === 'loss' ? 'loss' : ''}"><td><b>${evLink(r.id, r.name)}</b><br><span class="muted">${esc(r.city)}</span></td><td>${r.start}<br><span class="muted">${r.days_away} days</span></td><td>${r.stars.toFixed(1)}</td><td>${r.lead_product === 'both' ? 'both' : r.lead_product === 'vision_ai' ? 'Vision AI' : 'quote desk'}</td><td>${rng(r.cost_inr)}</td><td>${rng(r.subsidy_refund_inr)}</td><td>${r.leads[0]}–${r.leads[1]}</td><td>${rng(r.pipeline_inr)}</td><td>${r.conversions[0]}–${r.conversions[1]} clients</td><td>${r.conversion_pct}%<br><span class="muted">≥1 client: ${r.client_probability_pct}%</span></td><td>${rng(r.revenue_inr)}</td><td>${rng(r.revenue_usd, usd)}</td><td><b>${rng(r.pl_inr)}</b></td><td>${pct(r.roi_pct)}</td><td><span class="muted">${r.best_bets.segments.map((x) => esc(x.name)).join(' · ')}</span><br>${esc(r.best_bets.who)}</td></tr>`).join('')}
     </tbody></table></div>`;
   }
   function kpi(t, label) {
     return `<div class="fin-kpis"><b>${label}</b><span>${t.shows} shows</span><span>Cost ${rng(t.cost_inr)}</span><span>Subsidy back ${rng(t.subsidy_refund_inr)}</span><span>Leads ${t.leads[0]}–${t.leads[1]}</span><span>Pipeline ${rng(t.pipeline_inr)}</span><span>Conversions ${t.conversions[0]}–${t.conversions[1]} (${t.conversion_pct}%)</span><span>Revenue ${rng(t.revenue_inr)} / ${rng(t.revenue_usd, usd)}</span><span class="${t.pl_inr[0] < 0 ? 'bad' : 'good'}">P&amp;L ${rng(t.pl_inr)} / ${rng(t.pl_usd, usd)}</span><span>ROI ${pct(t.roi_pct)}</span></div>`;
   }
+  function finBody(r) {
+    const view = viewOf('finance', 'table'); const rows = (r.exhibits || []).concat(r.visits || []).sort((a, b) => a.start.localeCompare(b.start));
+    const fcard = (x) => `<div class="kcard">${evLink(x.id, x.name)}<b>${rng(x.pl_inr)} P&amp;L</b><span class="muted">${x.start} · ${esc(x.city)} · ${x.mode} · ${x.stars.toFixed(1)}★</span><br><span class="muted">cost ${rng(x.cost_inr)} · ${x.leads[0]}–${x.leads[1]} leads · ${x.conversions[0]}–${x.conversions[1]} clients · ROI ${pct(x.roi_pct)}</span><br><span class="muted">best bets: ${x.best_bets.segments.map((z) => esc(z.name.split(':')[0])).join(', ')}</span></div>`;
+    if (view === 'cards') return `<h3>Exhibits</h3><div class="kgrid">${(r.exhibits || []).map(fcard).join('') || '<div class="muted">none</div>'}</div><h3>Visits</h3><div class="kgrid">${(r.visits || []).map(fcard).join('') || '<div class="muted">none</div>'}</div>`;
+    if (view === 'kanban') return kanban([['profit', 'Profit (even at the low case)'], ['profit at the high case', 'Profit only at the high case'], ['loss', 'Loss']].map(([k, t]) => ({ title: t, items: rows.filter((x) => x.verdict === k).map(fcard) })));
+    if (view === 'timeline') { const months = {}; rows.forEach((x) => { const m = x.start.slice(0, 7); (months[m] = months[m] || []).push(x); }); return Object.entries(months).map(([m, xs]) => { const dt = new Date(m + '-01T00:00:00'); const c = [xs.reduce((a, x) => a + x.cost_inr[0], 0), xs.reduce((a, x) => a + x.cost_inr[1], 0)], p = [xs.reduce((a, x) => a + x.pl_inr[0], 0), xs.reduce((a, x) => a + x.pl_inr[1], 0)]; return `<div class="tl-row"><div><b>${dt.toLocaleString('en-IN', { month: 'short', year: 'numeric' })}</b><br><span class="muted">${xs.length} show(s)<br>cost ${rng(c)}<br>P&amp;L ${rng(p)}</span></div><div>${xs.map((x) => `<div>${x.start.slice(8)} · ${evLink(x.id, x.name)} <span class="muted">${x.mode} · P&amp;L ${rng(x.pl_inr)}</span></div>`).join('')}</div></div>`; }).join('') || '<div class="muted">No show starts in this window.</div>'; }
+    return finTable(r.exhibits, 'Exhibits') + finTable(r.visits, 'Visits');
+  }
+
   async function loadFinance() {
     const sel = $('#finHorizon'); const h = sel.value || '1m';
     const r = await api(`/api/expo/finance?horizon=${h}`);
     if (!sel.options.length) { r.horizons.forEach((x) => { const o = document.createElement('option'); o.value = x.key; o.textContent = x.label; sel.appendChild(o); }); sel.value = h; sel.onchange = loadFinance; }
     $('#finWindow').textContent = `${r.today} → ${r.window_end}. ${r.disclaimer}`;
     const a = r.assumptions;
+    VIEW_RENDER.finance = loadFinance; const fv = $('#finViews'); if (fv) fv.innerHTML = viewBar('finance', ['table', 'cards', 'kanban', 'timeline'], 'table');
     $('#finance').innerHTML = kpi(r.totals.all, 'Everything') + kpi(r.totals.exhibits, 'Exhibits') + kpi(r.totals.visits, 'Visits')
-      + `<div class="whybox"><b>Best bets in this window (by high-case P&amp;L)</b><ol>${r.best_bets.map((b) => `<li>${esc(b.name)} — ${b.mode} · ${b.lead_product === 'vision_ai' ? 'Vision AI' : b.lead_product === 'both' ? 'both products' : 'quote desk'} · P&amp;L ${rng(b.pl_inr)} · ROI ${pct(b.roi_pct)}</li>`).join('')}</ol></div>`
-      + finTable(r.exhibits, 'Exhibits') + finTable(r.visits, 'Visits')
+      + `<div class="whybox"><b>Best bets in this window (by high-case P&amp;L)</b><ol>${r.best_bets.map((b) => `<li>${evLink(b.id, b.name)} — ${b.mode} · ${b.lead_product === 'vision_ai' ? 'Vision AI' : b.lead_product === 'both' ? 'both products' : 'quote desk'} · P&amp;L ${rng(b.pl_inr)} · ROI ${pct(b.roi_pct)}</li>`).join('')}</ol></div>`
+      + finBody(r)
       + `<div class="meta">Assumptions (edit in data/expo/events.json → _meta.deal_economics): ${esc(a.quote_desk.label)} = ${inr(a.quote_desk.first_year_value_inr)} first year · ${esc(a.vision_ai.label)} = ${inr(a.vision_ai.first_year_value_inr)} first year · ${Math.round(a.lead_to_client_probability * 10000) / 100}% of captured leads become clients (${esc(a.lead_to_client_note || '')}) · USD at ₹${a.fx_inr_per_usd}. Subsidy shown is the best single scheme; P&amp;L uses cost net of subsidy.</div>`;
   }
   // ---------------------------------------------------------------- actuals (after the show) + voice
@@ -398,11 +433,12 @@
     const urg = (i) => (i.kind === 'flight' && i.details.booking_window && i.details.booking_window.status !== 'ideal' && i.status === 'proposed') ? 0 : 1;
     const stars = (i) => { const e = evOf(i); return e ? e.evaluation.stars : 0; };
     const items = d.items.slice().sort((a, b) => order[a.status] - order[b.status] || (sortMode === 'priority' ? (stars(b) - stars(a)) : 0) || urg(a) - urg(b) || (a.deadline || '').localeCompare(b.deadline || ''));
-    $('#approvalList').innerHTML = items.length ? items.map((i) => `<div class="ap ${i.status}" data-id="${i.id}">
+    VIEW_RENDER.approvals = loadApprovals; const apv = $('#apViews'); if (apv) apv.innerHTML = viewBar('approvals', ['list', 'kanban'], 'list');
+    const apCard = (i) => `<div class="ap ${i.status}" data-id="${i.id}">
         <div><div class="status muted">${i.status} · ${i.kind.replace('_', ' ')} · ${i.executor}${i.deadline ? ' · decide by ' + i.deadline.slice(0, 10) : ''}</div>
           <div><span class="stars" title="Souveno priority">${starStrOf(evOf(i))}</span> <span class="meta">priority for Souveno</span> · ${stallVerdict(evOf(i))}</div>
           <div class="amt">${inr(i.amount_inr)} <span class="muted" style="font-size:12px">to ${esc(i.payee)}</span></div>
-          <div>${esc(i.title)}</div>
+          <div>${evLink(i.event_id, i.event_name)} · ${esc(i.title)}</div>
           <div class="meta">${i.kind === 'stall_advance' ? `${i.details.sqm} sqm × ${inr(i.details.rate_inr_sqm)} = ${inr(i.details.base_inr)} + 18% GST = ${inr(i.details.total_inr)} · advance 50% · balance ${inr(i.details.balance_inr)} · <i>${esc(i.details.rate_status || '')}</i>` : ''}
           ${i.kind === 'flight' ? `${i.details.origin} → ${i.details.destination} ${i.details.depart} / back ${i.details.return} · ${i.details.travellers} pax · ${esc(i.details.preference)} · <a target="_blank" href="${i.details.links.outbound.google_flights}">search</a>${i.details.booking_window ? `<br/><span class="pill ${i.details.booking_window.status === 'ideal' ? 'booked' : 'searching'}">${i.details.booking_window.status === 'ideal' ? (i.details.international ? '90-day' : '60-day') + ' window open' : i.details.booking_window.status === 'urgent' ? 'inside the window — book now' : 'past the hard deadline — book immediately'}${i.details.international ? ' · international' : ''}</span> ${esc(i.details.booking_window.advice)} · ${i.details.booking_window.days_to_departure} days to departure` : ''}` : ''}
           ${i.kind === 'visa' ? `${esc(i.details.visa_type)} · apply by ${i.details.apply_by} (${i.details.lead_days} working days) · ${esc(i.details.note)}<br/>Documents: ${i.details.documents.join(', ')}` : ''}
@@ -416,7 +452,8 @@
           ${i.status === 'proposed' ? `<button class="btn primary act" data-act="approve">Approve</button><button class="btn ghost act" data-act="edit">Edit amount</button><button class="btn ghost act" data-act="reject">Reject</button>` : ''}
           ${i.status === 'approved' ? `${i.executor !== 'manual' ? '<button class="btn secondary act" data-act="execute">Execute now</button>' : ''}<button class="btn primary act" data-act="done">Done (paid/booked)</button>` : ''}
           ${i.status === 'failed' ? `<button class="btn secondary act" data-act="approve">Retry</button><button class="btn primary act" data-act="done">Done manually</button>` : ''}
-        </div></div>`).join('') : '<div class="muted">Nothing proposed yet. Tap "Propose bookings" or set an event to exhibit in its details.</div>';
+        </div></div>`;
+    $('#approvalList').innerHTML = !items.length ? '<div class="muted">Nothing proposed yet. Tap "Propose bookings" or set an event to exhibit in its details.</div>' : viewOf('approvals', 'list') === 'kanban' ? kanban([['proposed', 'Waiting for your tap'], ['approved', 'Approved — to pay/book'], ['executed', 'Done'], ['failed', 'Failed'], ['rejected', 'Rejected']].map(([k, t]) => ({ title: t, items: d.items.filter((i) => i.status === k).map(apCard) }))) : items.map(apCard).join('');
     $$('#approvalList .act').forEach((b) => b.addEventListener('click', async () => {
       const id = b.closest('.ap').dataset.id, act = b.dataset.act;
       try {
