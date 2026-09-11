@@ -17,8 +17,8 @@
     return `<div class="subbox"><b>💰 Subsidy / money back: ${esc(sb.headline)}</b>${sch ? `<ul>${sch}</ul>` : ''}<div class="ff">Early-bird / last date to book with discount: ${eb.deadline ? `<b>${eb.deadline}</b> (${eb.days_left} days)` : 'not published yet'} — ${esc(eb.note || '')}</div><div class="meta">Agent re-checks every 3 days · last checked ${esc(sb.last_checked || '—')} · next ${esc(sb.next_check || '')}${sb.notes ? ' · ' + esc(sb.notes) : ''}</div></div>`;
   };
   // ---------------------------------------------------------------- navigation + view styles
-  function goToEvent(id) {
-    const btn = $('.nav-btn[data-view="events"]'); if (btn) btn.click();
+  function goToEvent(id, push = true) {
+    showView('events', push); if (push) history.replaceState({ view: 'events', ev: id }, '', '#events/' + id);
     const fm = $('#filterMode'); if (fm && fm.value) { fm.value = ''; renderEvents(); }
     setTimeout(() => { const el = document.getElementById('ev-' + id); if (!el) return; el.scrollIntoView({ behavior: 'smooth', block: 'start' }); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }, 60);
   }
@@ -40,20 +40,23 @@
   const state = { catalog: null, playbook: null, leads: [], collabs: [] };
 
   // ---------------------------------------------------------------- nav
-  $$('#expoNav .nav-btn').forEach((b) => b.addEventListener('click', () => {
+  // page history: every view (and event jump) is a browser history entry, so Back works on phone and desktop
+  const HOME = 'overview';
+  const LOADERS = { overview: () => loadOverview(), funnel: () => { loadFunnel(); loadActuals(); }, approvals: loadApprovals, travel: loadTravellers, finance: loadFinance, settings: loadSettings, funds: loadFunds, stalls: loadFloorplan, leads: loadLeads, collab: loadCollabs };
+  function showView(v, push = true) {
+    const b = $(`.nav-btn[data-view="${v}"]`); if (!b) return false;
     $$('#expoNav .nav-btn').forEach((x) => x.classList.toggle('active', x === b));
-    $$('.view').forEach((v) => v.classList.toggle('active', v.id === 'view-' + b.dataset.view));
-    if (b.dataset.view === 'overview') loadOverview();
-    if (b.dataset.view === 'funnel') { loadFunnel(); loadActuals(); }
-    if (b.dataset.view === 'approvals') loadApprovals();
-    if (b.dataset.view === 'travel') loadTravellers();
-    if (b.dataset.view === 'finance') loadFinance();
-    if (b.dataset.view === 'settings') loadSettings();
-    if (b.dataset.view === 'funds') loadFunds();
-    if (b.dataset.view === 'stalls') loadFloorplan();
-    if (b.dataset.view === 'leads') loadLeads();
-    if (b.dataset.view === 'collab') loadCollabs();
-  }));
+    $$('.view').forEach((s) => s.classList.toggle('active', s.id === 'view-' + v));
+    if (push && location.hash.replace(/^#/, '').split('/')[0] !== v) history.pushState({ view: v }, '', '#' + v);
+    const bb = $('#backBtn'); if (bb) bb.classList.toggle('show', v !== HOME);
+    if (push) window.scrollTo({ top: 0, behavior: 'instant' });
+    if (LOADERS[v] && state.playbook) LOADERS[v]();
+    return true;
+  }
+  function routeFromHash() { const [v, ev] = location.hash.replace(/^#/, '').split('/'); if (v && showView(v, false)) { if (ev) goToEvent(ev, false); return true; } return false; }
+  $$('#expoNav .nav-btn').forEach((b) => b.addEventListener('click', () => showView(b.dataset.view)));
+  window.addEventListener('popstate', () => { if (!routeFromHash()) showView(HOME, false); });
+  $('#backBtn').addEventListener('click', () => { if (history.state && history.state.view) history.back(); else showView(HOME); });
 
   // ---------------------------------------------------------------- events
   async function loadCatalog() {
@@ -639,7 +642,7 @@
     renderPlaybook();
     await loadCatalog();
     renderQr();
-    loadOverview().catch(() => {});
+    if (!routeFromHash()) { showView(HOME, false); history.replaceState({ view: HOME }, '', '#' + HOME); }
     api('/api/expo/approvals').then((d) => { const n = d.items.filter((i) => i.status === 'proposed').length; $('#apBadge').textContent = n; $('#apBadge').classList.toggle('hidden', !n); }).catch(() => {});
   })().catch((e) => { document.body.insertAdjacentHTML('afterbegin', `<div class="panel card" style="margin:20px">Failed to load: ${esc(e.message)}</div>`); });
 })();

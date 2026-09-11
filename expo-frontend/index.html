@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/expo.css" />
 </head>
-<body>
+<body class="shell">
 <header class="topbar">
   <div class="brand">
     <div class="brand-mark">SX</div>
@@ -44,7 +44,7 @@
     <a class="badge badge-device" href="dashboard/souveno-expo-command-center.html">Phone dashboard</a>
     <a class="badge badge-demo" href="/api/expo/calendar.ics">Download .ics</a>
   </div>
-  <button class="btn ghost" id="micBtn" title="Voice: say e.g. book tickets to ELECRAMA, when is Plastivision, what is coming in 2 months">🎤 Voice</button><span id="micSay" class="hint"></span>
+  <div class="topbar-tools"><button class="btn ghost back-btn" id="backBtn" title="Back to the previous page">← Back</button><button class="btn ghost" id="micBtn" title="Voice: say e.g. book tickets to ELECRAMA, when is Plastivision, what is coming in 2 months">🎤 Voice</button><span id="micSay" class="hint"></span></div>
 </header>
 
 <main class="expo-main">
