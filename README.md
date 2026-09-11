@@ -10,6 +10,8 @@ pytest tests -q                               # 32 tests, no CV stack needed
 python scripts/build_dashboard.py ../expo-frontend/dashboard/command_center_template.html ../expo-frontend/dashboard/souveno-expo-command-center.html
 ```
 
+Live: https://hellomass-pd54.vercel.app (Vercel). Set `EXPO_CORS_ORIGINS` there to the frontend's origin.
+
 Env: `DATABASE_URL` (Postgres; default SQLite), `EXPO_CORS_ORIGINS` (frontend origin, default `*`),
 `EXPO_FRONTEND_DIR` (serve the static frontend from this process), `EXPO_PAYMENT_MODE` (automate | manual),
 `DUFFEL_ACCESS_TOKEN`, `DUFFEL_PASSENGERS_JSON`, `RAZORPAYX_*`, `ANTHROPIC_API_KEY` (card OCR fallback).
