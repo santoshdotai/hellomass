@@ -1032,9 +1032,13 @@
         "early_bird_deadline": null,
         "early_bird_note": "",
         "scheme_overrides": {},
-        "sources": [],
+        "sources": [
+          "https://www.plastivision.org/msme-subsidy.php"
+        ],
         "last_checked": "2026-09-11",
-        "notes": "AIPMA offers member rates; AIPMA membership (₹ few thousand/yr) usually pays for itself on the stall discount. Ask for the 'Plastivision 2027 space booking form' and member tariff."
+        "notes": "AIPMA offers member rates; AIPMA membership (₹ few thousand/yr) usually pays for itself on the stall discount. Ask for the 'Plastivision 2027 space booking form' and member tariff. | 11 Sep 2026: Santosh checked my.msme.gov.in — Plastivision India 2027 is NOT in the PMS Trade Fairs Domestic list, so no PMS reimbursement can be counted on. Ask AIPMA (plastivision.org/msme-subsidy.php, MSME desk) whether they have applied for DC-MSME approval / run an MSME pavilion for 2027; re-check the list every 3 days.",
+        "pms_listed": "no",
+        "pms_list_checked": "2026-09-11"
       }
     },
     {

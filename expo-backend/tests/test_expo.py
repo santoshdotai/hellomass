@@ -373,9 +373,13 @@ def test_mode_toggle_travellers_and_subsidies(client):
     assert "pms" in by["hardware-fair-india-2026"]["schemes"]  # flipped to exhibit on 11 Sep 2026
     one = client.get("/api/expo/subsidies/elecrama-2027").json()
     pms = next(s for s in one["schemes"] if s["key"] == "pms")
-    assert pms["apply_by"] == "2027-01-21" and pms["status"] == "confirmed" and one["early_bird"]["deadline"] is None
+    # scheme rules are confirmed, but a fair only qualifies once it is on the DC-MSME approved list
+    assert pms["apply_by"] == "2027-01-21" and pms["status"] == "check_list" and pms["listing"]["state"] == "unknown" and one["early_bird"]["deadline"] is None
     ev = client.get("/api/expo/events/elecrama-2027").json()
-    assert ev["subsidy_info"]["headline"].startswith("Estimated money back")
+    assert ev["subsidy_info"]["headline"].startswith("Possible money back") and ev["subsidy_info"]["estimated_refund_inr"][0] == 0
+    pv = client.get("/api/expo/subsidies/plastivision-2027").json()  # checked on my.msme.gov.in 11 Sep 2026: not listed
+    pv_pms = next(s for s in pv["schemes"] if s["key"] == "pms")
+    assert pv_pms["status"] == "fair_not_listed" and pv["headline"].startswith("PMS not claimable") and pv["estimated_refund_inr"][0] == 0
     assert any(d["what"].startswith("Apply") for d in subs["deadlines"])
 
 

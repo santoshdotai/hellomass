@@ -32,13 +32,14 @@ SCHEMES: dict[str, dict[str, Any]] = {
         "name": "MSME Procurement & Marketing Support (PMS) scheme — domestic trade fairs",
         "authority": "Ministry of MSME (DC-MSME), apply on my.msme.gov.in",
         "who": "Udyam-registered micro or small enterprise (manufacturing or service). Souveno qualifies as a service MSE.",
-        "benefit": "80% of stall space rent reimbursed (100% for SC/ST/women/NER/PwD-owned units), capped at ₹30,000, plus contingency expenses up to ₹15,000.",
+        "benefit": "80% of stall space rent reimbursed (100% for SC/ST/women/NER/PwD-owned units). Ceiling: ₹30,000 rent + ₹15,000 contingency under the older MATU text; the 2021 PMS revision quotes up to ₹1.5 lakh per exhibitor per event including contingency — the portal shows which applies. ONLY fairs on the DC-MSME approved list (my.msme.gov.in → PMS → Trade Fairs Domestic) qualify; the Fair/Exhibition Selection Committee at DC-MSME decides that list.",
         "scope": "domestic_exhibit",
         "lead_days": 30,
         "claim_days_after": 30,
-        "apply_rule": "Apply online at least 30 days before the show; submit the claim with stall-rent invoice, payment proof and photos within 30 days after it ends.",
-        "link": "https://my.msme.gov.in/mymsme/reg/COM_Matu.aspx",
+        "apply_rule": "First check the fair appears in the Trade Fairs Domestic list on my.msme.gov.in (Udyam login). If it does: apply online at least 30 days before the show and submit the claim with stall-rent invoice, payment proof and photos within 30 days after it ends. If it does not: the organiser / industry association must get the fair approved by DC-MSME — ask them, and re-check the list every 3 days.",
+        "link": "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
         "status": "confirmed",
+        "fair_must_be_listed": True,
         "sources": ["https://schemesmsme.com/procurement-and-marketing-support-pms-msme-2025-26/", "https://msme.gov.in/1-marketing-promotion-schemes"],
     },
     "telangana": {
@@ -127,7 +128,7 @@ def _estimate_refund(ev: dict[str, Any], key: str) -> tuple[int, int] | None:
     fare = tr.get("flight_oneway_inr") or [0, 0]
     airfare_two_pax = (fare[0] + fare[1]) * 2  # two travellers, return
     if key == "pms":
-        return (min(30000, round(rent * 0.8)) , min(30000, round(rent * 0.8)) + 15000)
+        return (min(30000, round(rent * 0.8)), min(150000, round(rent * 0.8) + 25000))  # low: MATU cap; high: 2021 PMS ceiling
     if key == "telangana":
         return (round(rent * 0.25), round(rent * 0.5))  # guideline range being verified
     if key == "ic":
@@ -152,20 +153,39 @@ def for_event(ev: dict[str, Any], today: date | None = None) -> dict[str, Any]:
         claim_by = (_d(ev["end"]) + timedelta(days=int(base.get("claim_days_after") or 0))).isoformat() if base.get("claim_days_after") else None
         est = _estimate_refund(ev, key)
         days_left = (start - timedelta(days=lead) - today).days if lead else None
+        status = base["status"]
+        listing = None
+        if base.get("fair_must_be_listed"):
+            # "confirmed" only once the fair itself is on the DC-MSME approved list (per-event `subsidy.pms_listed`)
+            listed = override.get("pms_listed", "unknown")
+            checked = override.get("pms_list_checked") or override.get("last_checked")
+            if listed == "yes":
+                status, listing = "confirmed", {"state": "listed", "checked": checked, "note": f"On the DC-MSME approved list (checked {checked})."}
+            elif listed == "no":
+                status, listing = "fair_not_listed", {"state": "not_listed", "checked": checked, "note": f"Scheme rules confirmed, but this fair is NOT on the Trade Fairs Domestic list on my.msme.gov.in (checked {checked}). Nothing can be claimed unless the organiser gets it approved or it appears in a later list update."}
+            else:
+                status, listing = "check_list", {"state": "unknown", "checked": checked, "note": "Scheme rules confirmed; whether this fair is on the DC-MSME approved list has not been checked yet — look it up on my.msme.gov.in before counting on the money."}
         schemes.append({
             "key": key, "name": base["name"], "who": base["who"], "benefit": base["benefit"], "apply_rule": base["apply_rule"],
-            "link": base["link"], "status": base["status"], "apply_by": apply_by, "claim_by": claim_by,
+            "link": base["link"], "status": status, "listing": listing, "apply_by": apply_by, "claim_by": claim_by,
             "days_to_apply": days_left, "estimated_refund_inr": list(est) if est else None,
             "urgency": "late" if (days_left is not None and days_left < 0) else "soon" if (days_left is not None and days_left <= 30) else "ok",
         })
     # schemes cannot be stacked on the same stall rent: show the best single scheme's range
-    money = [(s["status"] == "confirmed", s["estimated_refund_inr"]) for s in schemes if s["key"] in ("pms", "telangana", "ic", "mai") and s["estimated_refund_inr"]]
+    money = [(s["status"] == "confirmed", s["estimated_refund_inr"]) for s in schemes if s["key"] in ("pms", "telangana", "ic", "mai") and s["estimated_refund_inr"] and s["status"] != "fair_not_listed"]
     best = max(money, key=lambda r: (r[0], r[1][1]))[1] if money else [0, 0]  # confirmed schemes first, then the largest
     total_lo, total_hi = best[0], best[1]
+    pms_row = next((s for s in schemes if s["key"] == "pms"), None)
+    if pms_row and pms_row["status"] != "confirmed":
+        total_lo = 0  # not bankable until the fair is on the list
     eb = override.get("early_bird_deadline")
     eb_days = (_d(eb) - today).days if eb else None
     if ev.get("mode") != "exhibit":
         headline = "Visiting only: no stall rent to reimburse. Travel is not covered by any scheme." + (" A subsidised startup pod may be available (see below)." if "startup" in _applicable(ev) else "")
+    elif pms_row and pms_row["status"] == "fair_not_listed":
+        headline = f"PMS not claimable: this fair is not on the DC-MSME approved list (checked {pms_row['listing']['checked']}). Possible ₹0–{total_hi:,} only via another scheme or if the list changes; the 3-day follow-up re-checks."
+    elif pms_row and pms_row["status"] == "check_list":
+        headline = f"Possible money back ₹0–{total_hi:,}: PMS rules confirmed, but check that the fair is on the DC-MSME approved list (my.msme.gov.in → Trade Fairs Domestic) before counting on it."
     elif schemes:
         headline = f"Estimated money back: ₹{total_lo:,}–{total_hi:,} (best single scheme of {len(schemes)}; schemes do not stack on the same stall rent)."
     else:
