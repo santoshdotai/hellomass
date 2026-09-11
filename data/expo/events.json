@@ -1,0 +1,2725 @@
+{
+  "_meta": {
+    "prepared_for": "Souveno AI (souveno.ai / souveno.in) — WhatsApp quote-to-cash and agentic automation for quote-heavy Indian B2B manufacturers & distributors",
+    "prepared_on": "2026-09-10",
+    "home_base": {
+      "city": "Hyderabad",
+      "airport": "HYD",
+      "venue_home": "HITEX Exhibition Centre, Madhapur",
+      "travel_preference": "Founder prefers international (Gulf) trips; HYD-DXB is a 4-hour direct with 6+ daily flights, so Gulf geography scores 5/10 (cost) rather than 3.",
+      "departure_rule": "ALL flights depart from and return to Hyderabad (HYD). No multi-city routings from another show's city."
+    },
+    "icp_segments": {
+      "A": "Industrial components / fasteners / hardware",
+      "B": "Building materials / tiles / sanitary / electrical",
+      "C": "Packaging / printing / labels",
+      "D": "Auto parts / auto ancillary / job work",
+      "E": "Machinery / equipment / fabrication",
+      "P": "Pipes / HDPE / PVC / ducts (flagship live client vertical)",
+      "X": "Partners, investors, ecosystem (not buyers)",
+      "F": "Factories & plants: workforce attendance/performance, line activity, safety",
+      "W": "Warehouses, 3PL & distribution hubs: stock count, dispatch verification, vehicle gates",
+      "K": "Construction sites & developers: workforce, vehicle entry/exit, safety compliance",
+      "L": "Logistics yards, fleets, gate operations: vehicle entry/exit, dwell time",
+      "R": "Retail, cafés, showrooms: footfall, queue, staff activity",
+      "S": "Security system integrators & CCTV dealers: Vision AI channel partners"
+    },
+    "scoring": {
+      "icp_fit": "0-40  the BETTER of quote-desk fit and vision_fit (Vision AI buyers); the card says which product to lead with",
+      "footfall": "0-15  log-scaled realistic trade-visitor count",
+      "decision_makers": "0-15  owner/director density on the floor",
+      "geography_cost": "0-10  10 = Hyderabad home, 7 = domestic metro, 3 = Gulf",
+      "competition_noise": "0-10  fewer WhatsApp/CRM SaaS vendors on the floor = higher",
+      "timing_fit": "0-10  fit with the 90-day plan, clashes, travel fatigue",
+      "stars": "total/20 rounded to nearest 0.5, floor 1, cap 5",
+      "note": "All component scores are the agent's estimates from public data plus Souveno's own ICP documents. Footfall figures are organiser claims unless marked 'audited'."
+    },
+    "funnel_assumptions": {
+      "exhibit_capture_rate": 0.005,
+      "visit_booths_per_day": 60,
+      "visit_share_rate": 0.5,
+      "qualified_rate": 0.35,
+      "demo_rate": 0.5,
+      "paid_pilot_rate": 0.3,
+      "source": "Barakah Systems validation report targets: >=30% of qualified demos accept a paid pilot"
+    },
+    "flight_policy": {
+      "domestic": {
+        "preferred_days": 60,
+        "latest_days": 30
+      },
+      "international": {
+        "preferred_days": 90,
+        "latest_days": 45
+      },
+      "visa_lead_days": 21,
+      "note": "book >= 30 days before departure (>= 45 international); 60/90 days when time permits"
+    },
+    "product_lines": {
+      "quote_desk": "WhatsApp AI quote desk: enquiry → stock → GST quotation PDF → payment (ICP segments A-E, P)",
+      "vision_ai": "Vision AI: camera-based employee attendance & performance reports, stock and dispatch counting, vehicle entry/exit logging, safety (segments F, W, K, L, R)"
+    },
+    "deal_economics": {
+      "note": "Editable assumptions for the Finance tab. First-year value per paid pilot that converts; change here and every P&L recomputes.",
+      "fx_inr_per_usd": 84.0,
+      "quote_desk": {
+        "pilot_fee_inr": 25000,
+        "monthly_inr": 12000,
+        "months_first_year": 12,
+        "first_year_value_inr": 169000,
+        "label": "WhatsApp quote desk: ₹25,000 pilot + Growth plan ₹12,000/month"
+      },
+      "vision_ai": {
+        "pilot_fee_inr": 50000,
+        "monthly_inr": 25000,
+        "months_first_year": 12,
+        "first_year_value_inr": 350000,
+        "label": "Vision AI: ₹50,000 pilot + ₹25,000/month per site (cameras already on site)"
+      },
+      "both": {
+        "first_year_value_inr": 259500,
+        "label": "Mixed floor: average of the two products"
+      },
+      "lead_to_client_probability": 0.0525,
+      "lead_to_client_note": "qualified 35% × demo 50% × paid pilot 30% = 5.25% of captured leads become paying clients"
+    },
+    "contact_policy": {
+      "company_email": "souveno30@gmail.com",
+      "company_email_used_for": "stall bookings, organiser correspondence, invoices, subsidies, exhibitor registrations",
+      "travel_email": "santoshdotai@gmail.com",
+      "travel_email_used_for": "flights, hotels, e-tickets, booking confirmations, visa",
+      "payment": "Souveno current account (net banking / NEFT / its debit card) for everything, in both modes",
+      "set_on": "2026-09-11"
+    }
+  },
+  "events": [
+    {
+      "id": "papexpo-2026",
+      "name": "PAPEXPO 2026",
+      "edition": "2nd edition",
+      "category": "Paper, printing & packaging",
+      "icp": [
+        "C"
+      ],
+      "start": "2026-10-01",
+      "end": "2026-10-03",
+      "city": "Hyderabad",
+      "venue": "HITEX Exhibition Centre",
+      "venue_area": "Madhapur",
+      "organiser": "Papexpo",
+      "website": "https://papexpo.in/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 15000,
+          "exhibitors": 200,
+          "note": "inaugural edition, organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 15000,
+        "exhibitors": 200
+      },
+      "score": {
+        "icp_fit": 30,
+        "footfall": 8,
+        "decision_makers": 10,
+        "geography_cost": 10,
+        "competition_noise": 8,
+        "timing_fit": 9,
+        "vision_fit": 18
+      },
+      "why": "Packaging converters and paper traders quote on WhatsApp all day (size x material x qty). Home city, zero travel cost.",
+      "stall": {
+        "recommend": "exhibit 9 sqm shell in the packaging-machinery hall (URGENT: show opens 1 Oct — call HITEX/organiser today; late-booking rates apply)",
+        "hall_hint": "HITEX Hall 1, corner on the row nearest the machinery demos where converters cluster",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 8000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": null,
+        "flight_oneway_inr": [
+          0,
+          0
+        ],
+        "hotels": []
+      },
+      "sources": [
+        "https://papexpo.in/",
+        "https://www.tradeindia.com/tradeshows/136003/papexpo-2026.html"
+      ],
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "waremat-2026",
+      "name": "WAREMAT Expo 2026",
+      "edition": "2026",
+      "category": "Warehousing, logistics & material handling",
+      "icp": [
+        "A",
+        "E"
+      ],
+      "start": "2026-10-08",
+      "end": "2026-10-10",
+      "city": "Hyderabad",
+      "venue": "HITEX Exhibition Centre",
+      "venue_area": "Madhapur",
+      "organiser": "Midaas Touch Events and Trade Fairs",
+      "website": "https://hitex.co.in/events/waremat-expo-2026/index.html",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 8000,
+          "exhibitors": 120,
+          "note": "agent estimate from venue scale"
+        }
+      ],
+      "expected": {
+        "visitors": 9000,
+        "exhibitors": 130
+      },
+      "score": {
+        "icp_fit": 22,
+        "footfall": 6,
+        "decision_makers": 9,
+        "geography_cost": 10,
+        "competition_noise": 8,
+        "timing_fit": 8,
+        "vision_fit": 38
+      },
+      "why": "Distributors and 3PL owners with stock-aware quoting pain. Cheap half-day visit.",
+      "stall": {
+        "recommend": "exhibit 9 sqm with a live gate-camera / stock-count demo on a screen (URGENT: show opens 8 Oct — book this week)",
+        "hall_hint": "Warehouse-automation row nearest the entrance; ask for a corner",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 8500,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": null,
+        "flight_oneway_inr": [
+          0,
+          0
+        ],
+        "hotels": []
+      },
+      "sources": [
+        "https://hitex.co.in/"
+      ],
+      "icp_vision": [
+        "W",
+        "L"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "hardware-fair-india-2026",
+      "name": "International Hardware Fair India 2026",
+      "edition": "2026",
+      "category": "Hardware, tools, fasteners, building hardware",
+      "icp": [
+        "A",
+        "B"
+      ],
+      "start": "2026-10-23",
+      "end": "2026-10-25",
+      "city": "New Delhi",
+      "venue": "Bharat Mandapam (Pragati Maidan)",
+      "venue_area": "ITO / Supreme Court metro",
+      "organiser": "Koelnmesse India",
+      "website": "https://www.hardwarefair-india.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 12000,
+          "exhibitors": 300,
+          "note": "agent estimate; organiser reports 'over 10,000 trade visitors'"
+        }
+      ],
+      "expected": {
+        "visitors": 13000,
+        "exhibitors": 320
+      },
+      "score": {
+        "icp_fit": 36,
+        "footfall": 9,
+        "decision_makers": 12,
+        "geography_cost": 7,
+        "competition_noise": 8,
+        "timing_fit": 8,
+        "vision_fit": 16
+      },
+      "why": "Hardware and fastener distributors from Delhi NCR, Ludhiana, Jalandhar and Rajkot in one hall: ICP segment A, the highest-priority cluster in the validation report.",
+      "stall": {
+        "recommend": "exhibit 9 sqm shell; the only quote-desk software on a floor of hardware & fastener distributors (book this week: 6 weeks out)",
+        "hall_hint": "Halls 5-6 lower ground; corner stall near the Gate 10 entry",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 12000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Bloomrooms @ New Delhi Railway Station",
+            "area": "Paharganj / NDLS",
+            "tier": "budget",
+            "inr_night": [
+              3200,
+              4200
+            ],
+            "km_to_venue": 5,
+            "why": "Metro to Supreme Court station in 12 min"
+          },
+          {
+            "name": "Hotel Palace Heights",
+            "area": "Connaught Place",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7000
+            ],
+            "km_to_venue": 4,
+            "why": "Walk to Rajiv Chowk metro, one stop change to Blue Line"
+          },
+          {
+            "name": "The Lalit New Delhi",
+            "area": "Barakhamba",
+            "tier": "premium",
+            "inr_night": [
+              9500,
+              13000
+            ],
+            "km_to_venue": 2.5,
+            "why": "Closest full-service hotel to Pragati Maidan"
+          }
+        ]
+      },
+      "sources": [
+        "https://hardwarefair-india.com/dates-and-opening-hours.html"
+      ],
+      "icp_vision": [
+        "W"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "bts-2026",
+      "name": "Bengaluru Tech Summit 2026",
+      "edition": "29th edition — theme 'AI & Beyond'",
+      "category": "Technology, AI, startups, government",
+      "icp": [
+        "X"
+      ],
+      "start": "2026-11-17",
+      "end": "2026-11-19",
+      "city": "Bengaluru",
+      "venue": "Bangalore International Exhibition Centre (BIEC)",
+      "venue_area": "Tumkur Road, Madavara",
+      "organiser": "Govt. of Karnataka (Dept. of Electronics, IT & BT)",
+      "website": "https://www.bengalurutechsummit.com/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 25000,
+          "exhibitors": 1800,
+          "note": "organiser: 25K delegates, 1,800+ exhibitors, 1,000 startups"
+        }
+      ],
+      "expected": {
+        "visitors": 25000,
+        "exhibitors": 1800
+      },
+      "score": {
+        "icp_fit": 10,
+        "footfall": 11,
+        "decision_makers": 8,
+        "geography_cost": 7,
+        "competition_noise": 3,
+        "timing_fit": 6,
+        "vision_fit": 14
+      },
+      "why": "Not a buyer show for Souveno. Go for ERP/Tally consultants, BSPs, investors and a possible speaking slot; skip if the Pune trip needs the budget.",
+      "stall": {
+        "recommend": "do not exhibit; 1-day delegate pass",
+        "hall_hint": "Startup pavilion for partner hunting",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 14000
+      },
+      "travel": {
+        "airport": "BLR",
+        "flight_oneway_inr": [
+          3500,
+          5500
+        ],
+        "hotels": [
+          {
+            "name": "Holiday Inn Express Bengaluru Yeshwantpur",
+            "area": "Yeshwantpur",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7500
+            ],
+            "km_to_venue": 12,
+            "why": "Green Line metro straight to Madavara (BIEC) station"
+          },
+          {
+            "name": "Taj Yeshwantpur",
+            "area": "Yeshwantpur",
+            "tier": "premium",
+            "inr_night": [
+              9500,
+              13500
+            ],
+            "km_to_venue": 12,
+            "why": "Best full-service option on the BIEC side of the city"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.bengalurutechsummit.com/"
+      ],
+      "icp_vision": [
+        "S"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "Karnataka startup pavilion pods are subsidised for DPIIT startups; Telangana startups usually go via T-Hub delegation."
+      }
+    },
+    {
+      "id": "engiexpo-pune-2026",
+      "name": "EngiExpo Pune 2026",
+      "edition": "19th edition",
+      "category": "Industrial engineering: machinery, tooling, fasteners, automation",
+      "icp": [
+        "A",
+        "D",
+        "E"
+      ],
+      "start": "2026-11-21",
+      "end": "2026-11-23",
+      "city": "Pune",
+      "venue": "PIECC (Pimpri Chinchwad International Exhibition & Convention Centre)",
+      "venue_area": "Moshi, near Chakan MIDC",
+      "organiser": "2way Advertising (EngiExpo)",
+      "website": "https://engiexpo.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 50000,
+          "exhibitors": 500,
+          "note": "organiser claim per edition: 500+ exhibitors, 50,000+ verified industrial visitors"
+        }
+      ],
+      "expected": {
+        "visitors": 50000,
+        "exhibitors": 500
+      },
+      "score": {
+        "icp_fit": 38,
+        "footfall": 12,
+        "decision_makers": 12,
+        "geography_cost": 7,
+        "competition_noise": 8,
+        "timing_fit": 8,
+        "vision_fit": 30
+      },
+      "why": "Pune-Chakan auto-ancillary and job-work owners are ICP segment D; exhibitors themselves are fastener and component makers (segment A). Free visitor registration keeps the crowd owner-heavy.",
+      "stall": {
+        "recommend": "exhibit: 9 sqm shell scheme, corner",
+        "hall_hint": "Ask for the 'Automation & Software' row nearest the main entrance; corner stall numbers ending in 01 or the row's last number",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 8500
+      },
+      "travel": {
+        "airport": "PNQ",
+        "flight_oneway_inr": [
+          4500,
+          7000
+        ],
+        "hotels": [
+          {
+            "name": "Ginger Pune Pimpri",
+            "area": "Pimpri",
+            "tier": "budget",
+            "inr_night": [
+              3500,
+              4800
+            ],
+            "km_to_venue": 9,
+            "why": "Cheapest reliable option on the PCMC side"
+          },
+          {
+            "name": "Courtyard by Marriott Pune Chakan",
+            "area": "Chakan",
+            "tier": "mid",
+            "inr_night": [
+              6500,
+              8500
+            ],
+            "km_to_venue": 8,
+            "why": "Closest branded hotel to PIECC Moshi; industrial guests"
+          },
+          {
+            "name": "Sayaji Hotel Pune",
+            "area": "Wakad",
+            "tier": "premium",
+            "inr_night": [
+              7500,
+              9500
+            ],
+            "km_to_venue": 16,
+            "why": "If you also have Hinjawadi meetings"
+          }
+        ]
+      },
+      "sources": [
+        "https://engiexpo.com/UpcomingExhibition",
+        "https://10times.com/engiexpo"
+      ],
+      "exhibitor_contact": {
+        "email": "engiexpo2015@gmail.com",
+        "phone": "+91 96877 44488 (Ambalal Bhankardar) / +91 98796 15979 (Mahendra Parihar)",
+        "org": "2way Advertising",
+        "how": "email or online stall booking on engiexpo.com"
+      },
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "big5-global-2026",
+      "name": "Big 5 Global 2026",
+      "edition": "2026",
+      "category": "Construction & building materials (Gulf)",
+      "icp": [
+        "B"
+      ],
+      "start": "2026-11-23",
+      "end": "2026-11-26",
+      "city": "Dubai",
+      "venue": "Dubai World Trade Centre",
+      "venue_area": "Trade Centre 2",
+      "organiser": "dmg events",
+      "website": "https://www.big5global.com/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 80000,
+          "exhibitors": 2500,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 80000,
+        "exhibitors": 2500
+      },
+      "score": {
+        "icp_fit": 26,
+        "footfall": 13,
+        "decision_makers": 11,
+        "geography_cost": 5,
+        "competition_noise": 6,
+        "timing_fit": 4,
+        "vision_fit": 32
+      },
+      "why": "Gulf building-material traders quote on WhatsApp too, but the strategy docs say 'prove India first'. Clashes with EngiExpo Pune (23 Nov): fly PNQ → HYD on the 23rd night, then HYD → DXB on the 24th morning; attend 24-26 Nov. Only worth it if 2 Gulf pilots are already in discussion.",
+      "stall": {
+        "recommend": "visit only, 24-26 Nov (fly HYD → DXB 24 Nov morning after returning from Pune)",
+        "hall_hint": "Sheikh Saeed Halls for MEP/electrical; Za'abeel for building materials",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 45000
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Trade Centre",
+            "area": "Trade Centre",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 0.5,
+            "why": "Walk to DWTC"
+          },
+          {
+            "name": "ibis One Central",
+            "area": "Trade Centre",
+            "tier": "budget",
+            "inr_night": [
+              6500,
+              9000
+            ],
+            "km_to_venue": 0.3,
+            "why": "Connected to the venue"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.big5global.com/"
+      ],
+      "icp_vision": [
+        "K",
+        "L"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "gitex-global-2026",
+      "name": "GITEX Global 2026",
+      "edition": "46th edition (first at Expo City)",
+      "category": "Technology (Gulf)",
+      "icp": [
+        "X"
+      ],
+      "start": "2026-12-07",
+      "end": "2026-12-11",
+      "city": "Dubai",
+      "venue": "Dubai Exhibition Centre, Expo City",
+      "venue_area": "Expo City Dubai",
+      "organiser": "DWTC",
+      "website": "https://www.gitex.com/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 200000,
+          "exhibitors": 6800,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 200000,
+        "exhibitors": 6800
+      },
+      "score": {
+        "icp_fit": 12,
+        "footfall": 15,
+        "decision_makers": 10,
+        "geography_cost": 5,
+        "competition_noise": 2,
+        "timing_fit": 5,
+        "vision_fit": 24
+      },
+      "why": "Huge but noisy; every WhatsApp SaaS competitor is on the floor. Useful only to meet Gulf BSPs, resellers and investors. Low priority.",
+      "stall": {
+        "recommend": "skip unless a partner sponsors a pod in the India pavilion",
+        "hall_hint": "India pavilion / Expand North Star for startups",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 60000
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Expo City",
+            "area": "Expo City",
+            "tier": "mid",
+            "inr_night": [
+              9000,
+              13000
+            ],
+            "km_to_venue": 0.3,
+            "why": "On site"
+          },
+          {
+            "name": "ibis Al Barsha",
+            "area": "Al Barsha",
+            "tier": "budget",
+            "inr_night": [
+              6000,
+              8500
+            ],
+            "km_to_venue": 20,
+            "why": "Metro Route 2020 to Expo City"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.gitex.com/"
+      ],
+      "icp_vision": [
+        "S",
+        "R"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "India pavilion via ESC India / STPI; Expand North Star startup pods are subsidised for accelerator-backed startups."
+      }
+    },
+    {
+      "id": "engiexpo-ahmedabad-2026",
+      "name": "EngiExpo Ahmedabad 2026",
+      "edition": "20th edition",
+      "category": "Industrial engineering: machinery, tooling, fasteners, automation",
+      "icp": [
+        "A",
+        "E",
+        "P"
+      ],
+      "start": "2026-12-19",
+      "end": "2026-12-21",
+      "city": "Ahmedabad",
+      "venue": "GMDC Ground",
+      "venue_area": "Vastrapur / University Road",
+      "organiser": "2way Advertising (EngiExpo)",
+      "website": "https://engiexpo.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 50000,
+          "exhibitors": 500,
+          "note": "organiser claim per edition"
+        }
+      ],
+      "expected": {
+        "visitors": 50000,
+        "exhibitors": 500
+      },
+      "score": {
+        "icp_fit": 38,
+        "footfall": 12,
+        "decision_makers": 12,
+        "geography_cost": 7,
+        "competition_noise": 8,
+        "timing_fit": 8,
+        "vision_fit": 30
+      },
+      "why": "Ahmedabad-Rajkot is India's densest cluster of owner-run pipe, pump, fastener and machinery makers: segments A, E and P together. Gujarati owners run sales on WhatsApp voice notes, which is Souveno's demo.",
+      "stall": {
+        "recommend": "exhibit: 9-12 sqm corner on the main aisle",
+        "hall_hint": "Open-ground layout: choose the row between the entrance gate and the food court; avoid the far end near generators",
+        "suggested_sqm": 12,
+        "shell_rate_inr_sqm": 8000
+      },
+      "travel": {
+        "airport": "AMD",
+        "flight_oneway_inr": [
+          5500,
+          8000
+        ],
+        "hotels": [
+          {
+            "name": "Ginger Ahmedabad",
+            "area": "Drive-In Road",
+            "tier": "budget",
+            "inr_night": [
+              3200,
+              4500
+            ],
+            "km_to_venue": 4,
+            "why": "10-min auto to GMDC"
+          },
+          {
+            "name": "Lemon Tree Hotel Ahmedabad",
+            "area": "Navrangpura",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7000
+            ],
+            "km_to_venue": 4,
+            "why": "Business hotel, easy for client dinners"
+          },
+          {
+            "name": "Hyatt Regency Ahmedabad",
+            "area": "Ashram Road",
+            "tier": "premium",
+            "inr_night": [
+              8500,
+              11500
+            ],
+            "km_to_venue": 6,
+            "why": "If hosting decision-makers"
+          }
+        ]
+      },
+      "sources": [
+        "https://engiexpo.com/UpcomingExhibition",
+        "https://www.tradeindia.com/tradeshows/135347/engiexpo-ahmedabad-2026.html"
+      ],
+      "exhibitor_contact": {
+        "email": "engiexpo2015@gmail.com",
+        "phone": "+91 96877 44488 / +91 98796 15979",
+        "org": "2way Advertising",
+        "how": "email or online stall booking on engiexpo.com"
+      },
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "gulf-print-pack-2027",
+      "name": "Gulf Print & Pack 2027",
+      "edition": "15th edition",
+      "category": "Printing & packaging (Gulf)",
+      "icp": [
+        "C"
+      ],
+      "start": "2027-01-12",
+      "end": "2027-01-14",
+      "city": "Dubai",
+      "venue": "Dubai World Trade Centre",
+      "venue_area": "Trade Centre 2",
+      "organiser": "Tarsus / Informa",
+      "website": "https://www.gulfprintpack.com/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 9000,
+          "exhibitors": 250,
+          "note": "agent estimate"
+        }
+      ],
+      "expected": {
+        "visitors": 9000,
+        "exhibitors": 250
+      },
+      "score": {
+        "icp_fit": 20,
+        "footfall": 8,
+        "decision_makers": 10,
+        "geography_cost": 5,
+        "competition_noise": 7,
+        "timing_fit": 5,
+        "vision_fit": 18
+      },
+      "why": "Only if a Gulf packaging pilot is live by January. Otherwise a 2.5-star trip that costs a Plastivision stall.",
+      "stall": {
+        "recommend": "skip in 2027",
+        "hall_hint": "n/a",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 45000
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Trade Centre",
+            "area": "Trade Centre",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 0.5,
+            "why": "Walk to DWTC"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.labelsandlabeling.com/news/associations-events-awards/gulf-print-pack-announces-2027-dates"
+      ],
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "plastivision-2027",
+      "name": "Plastivision India 2027",
+      "edition": "13th International Plastics Exhibition & Conference (every 4 years)",
+      "category": "Plastics, pipes, packaging, processing machinery",
+      "icp": [
+        "P",
+        "C",
+        "E"
+      ],
+      "start": "2027-01-21",
+      "end": "2027-01-25",
+      "city": "Mumbai",
+      "venue": "Bombay Exhibition Centre (NESCO)",
+      "venue_area": "Goregaon East",
+      "organiser": "AIPMA",
+      "website": "https://www.plastivision.org/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2023,
+          "visitors": 150000,
+          "exhibitors": 1500,
+          "note": "AIPMA reported figures; organiser projects 250,000 for 2027"
+        }
+      ],
+      "expected": {
+        "visitors": 200000,
+        "exhibitors": 1700
+      },
+      "score": {
+        "icp_fit": 40,
+        "footfall": 15,
+        "decision_makers": 14,
+        "geography_cost": 7,
+        "competition_noise": 9,
+        "timing_fit": 10,
+        "vision_fit": 30
+      },
+      "why": "The single best show for Souveno: HDPE/PVC/DWC pipe and duct makers (your flagship live vertical, PSL Polymers and Main Stream Ducts) plus packaging converters, all owner-led, once every four years.",
+      "stall": {
+        "recommend": "exhibit: 12-18 sqm corner, book early (halls sell out)",
+        "hall_hint": "Pipes & profiles are usually clustered in Hall 1-2 near the main Goregaon gate; take a corner on the cross-aisle that links the pipe zone to the machinery halls",
+        "suggested_sqm": 12,
+        "shell_rate_inr_sqm": 12500
+      },
+      "travel": {
+        "airport": "BOM",
+        "flight_oneway_inr": [
+          5000,
+          7500
+        ],
+        "hotels": [
+          {
+            "name": "FabHotel / Treebo Goregaon East",
+            "area": "Goregaon East",
+            "tier": "budget",
+            "inr_night": [
+              3500,
+              5000
+            ],
+            "km_to_venue": 1.5,
+            "why": "Walkable to NESCO"
+          },
+          {
+            "name": "Holiday Inn Mumbai International Airport",
+            "area": "Andheri East",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 6,
+            "why": "Late-night flight friendly"
+          },
+          {
+            "name": "The Westin Mumbai Garden City",
+            "area": "Goregaon East",
+            "tier": "premium",
+            "inr_night": [
+              12000,
+              16000
+            ],
+            "km_to_venue": 0.8,
+            "why": "Adjacent to the venue; client meetings in the lobby"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.plastivision.org/",
+        "https://10times.com/plastivision-india"
+      ],
+      "exhibitor_contact": {
+        "email": "sales@plastivision.org",
+        "phone": "+91 22 6777 8853 / 93215 67920",
+        "org": "AIPMA",
+        "how": "email"
+      },
+      "icp_vision": [
+        "F",
+        "W"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "AIPMA offers member rates; AIPMA membership (₹ few thousand/yr) usually pays for itself on the stall discount. Ask for the 'Plastivision 2027 space booking form' and member tariff."
+      }
+    },
+    {
+      "id": "acetech-hyderabad-2027",
+      "name": "ACETECH Hyderabad 2027",
+      "edition": "2027",
+      "category": "Architecture, building materials, interiors",
+      "icp": [
+        "B"
+      ],
+      "start": "2027-01-22",
+      "end": "2027-01-24",
+      "city": "Hyderabad",
+      "venue": "HITEX Exhibition Centre",
+      "venue_area": "Madhapur",
+      "organiser": "ABEC (Economic Times ACETECH)",
+      "website": "https://acetechexpo.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 35000,
+          "exhibitors": 300,
+          "note": "agent estimate; organiser claims are far higher and not audited"
+        }
+      ],
+      "expected": {
+        "visitors": 35000,
+        "exhibitors": 300
+      },
+      "score": {
+        "icp_fit": 34,
+        "footfall": 11,
+        "decision_makers": 11,
+        "geography_cost": 10,
+        "competition_noise": 8,
+        "timing_fit": 7,
+        "vision_fit": 26
+      },
+      "why": "Tiles, sanitary, plumbing and electrical dealers (segment B) in your home city; no hotel, no flight. Clashes with Plastivision and IMTEX, so split days.",
+      "stall": {
+        "recommend": "exhibit 9 sqm shell; staff it with the CTO while you fly to Mumbai on 21-22 Jan",
+        "hall_hint": "Hall 1 near registration; avoid Hall 3 far wall",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 10500
+      },
+      "travel": {
+        "airport": null,
+        "flight_oneway_inr": [
+          0,
+          0
+        ],
+        "hotels": []
+      },
+      "sources": [
+        "https://www.tradeindia.com/tradeshows/150708/acetech-show-hyderabad-2027.html"
+      ],
+      "exhibitor_contact": {
+        "email": "ranjeet.p@abec.asia",
+        "phone": "+91 97693 33987 (Ranjeet Patole)",
+        "org": "ABEC Exhibitions",
+        "how": "email"
+      },
+      "icp_vision": [
+        "K"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "imtex-2027",
+      "name": "IMTEX 2027 + Tooltech + Digital Manufacturing",
+      "edition": "2027",
+      "category": "Machine tools & manufacturing technology",
+      "icp": [
+        "E",
+        "A"
+      ],
+      "start": "2027-01-21",
+      "end": "2027-01-27",
+      "city": "Bengaluru",
+      "venue": "Bangalore International Exhibition Centre (BIEC)",
+      "venue_area": "Tumkur Road, Madavara",
+      "organiser": "IMTMA",
+      "website": "https://www.imtex.in/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 100000,
+          "exhibitors": 1180,
+          "note": "IMTMA reported 1,180+ exhibitors; visitors ~1 lakh over 7 days"
+        }
+      ],
+      "expected": {
+        "visitors": 100000,
+        "exhibitors": 1200
+      },
+      "score": {
+        "icp_fit": 30,
+        "footfall": 13,
+        "decision_makers": 13,
+        "decision_makers_note": "MDs of tool rooms and machine builders",
+        "geography_cost": 7,
+        "competition_noise": 8,
+        "timing_fit": 6,
+        "vision_fit": 34
+      },
+      "why": "Machinery makers (segment E) with 2-20 high-ticket RFQs a day; Digital Manufacturing pavilion is where they look for software. Visit the last 3 days after Plastivision and ACETECH.",
+      "stall": {
+        "recommend": "exhibit 12 sqm in the Digital Manufacturing pavilion (ask IMTMA today: halls sell out a year ahead)",
+        "hall_hint": "Digital Manufacturing pavilion (Hall 5 in the 2025 layout); corner on the aisle from the main entrance",
+        "suggested_sqm": 12,
+        "shell_rate_inr_sqm": 15000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": "BLR",
+        "flight_oneway_inr": [
+          3500,
+          5500
+        ],
+        "hotels": [
+          {
+            "name": "Holiday Inn Express Bengaluru Yeshwantpur",
+            "area": "Yeshwantpur",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7500
+            ],
+            "km_to_venue": 12,
+            "why": "Green Line metro to Madavara (BIEC)"
+          },
+          {
+            "name": "Taj Yeshwantpur",
+            "area": "Yeshwantpur",
+            "tier": "premium",
+            "inr_night": [
+              9500,
+              13500
+            ],
+            "km_to_venue": 12,
+            "why": "Client dinners"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.imtex.in/"
+      ],
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "engiexpo-surat-2027",
+      "name": "EngiExpo Surat 2027",
+      "edition": "21st edition",
+      "category": "Industrial engineering: machinery, tooling, fasteners, automation",
+      "icp": [
+        "A",
+        "E"
+      ],
+      "start": "2027-02-06",
+      "end": "2027-02-08",
+      "city": "Surat",
+      "venue": "Vanita Vishram Ground",
+      "venue_area": "Athwalines",
+      "organiser": "2way Advertising (EngiExpo)",
+      "website": "https://engiexpo.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 40000,
+          "exhibitors": 450,
+          "note": "organiser claim; Surat edition slightly smaller than Pune/Ahmedabad"
+        }
+      ],
+      "expected": {
+        "visitors": 40000,
+        "exhibitors": 450
+      },
+      "score": {
+        "icp_fit": 36,
+        "footfall": 11,
+        "decision_makers": 11,
+        "geography_cost": 5,
+        "competition_noise": 8,
+        "timing_fit": 8,
+        "vision_fit": 30
+      },
+      "why": "Surat-Hazira engineering and textile-machinery owners; almost no SaaS vendors exhibit here. Flight connectivity from HYD is thin (check IndiGo direct, else via Ahmedabad).",
+      "stall": {
+        "recommend": "exhibit 9 sqm if Ahmedabad converted >=3 pilots; else visit",
+        "hall_hint": "Open ground; take the row facing the entrance gate",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 7500
+      },
+      "travel": {
+        "airport": "STV",
+        "flight_oneway_inr": [
+          6000,
+          9000
+        ],
+        "hotels": [
+          {
+            "name": "Lords Plaza Surat",
+            "area": "Ring Road",
+            "tier": "budget",
+            "inr_night": [
+              4000,
+              5500
+            ],
+            "km_to_venue": 3,
+            "why": "Value business hotel"
+          },
+          {
+            "name": "Courtyard by Marriott Surat",
+            "area": "Vesu",
+            "tier": "mid",
+            "inr_night": [
+              6500,
+              8500
+            ],
+            "km_to_venue": 4,
+            "why": "Reliable, near Athwalines"
+          }
+        ]
+      },
+      "sources": [
+        "https://engiexpo.com/UpcomingExhibition"
+      ],
+      "exhibitor_contact": {
+        "email": "engiexpo2015@gmail.com",
+        "phone": "+91 96877 44488 / +91 98796 15979",
+        "org": "2way Advertising",
+        "how": "email or online stall booking on engiexpo.com"
+      },
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "elecrama-2027",
+      "name": "ELECRAMA 2027",
+      "edition": "17th edition — 'Harnessing the power of I'",
+      "category": "Electrical & electronics: switchgear, cables, distributors",
+      "icp": [
+        "B",
+        "A"
+      ],
+      "start": "2027-02-20",
+      "end": "2027-02-24",
+      "city": "Greater Noida",
+      "venue": "India Expo Mart",
+      "venue_area": "Knowledge Park II (Aqua Line metro)",
+      "organiser": "IEEMA",
+      "website": "https://elecrama.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 120000,
+          "exhibitors": 1500,
+          "note": "IEEMA reports 1,500+ exhibitors; organiser projects 350,000 visitors for 2027 (treat as marketing)"
+        }
+      ],
+      "expected": {
+        "visitors": 150000,
+        "exhibitors": 1500
+      },
+      "score": {
+        "icp_fit": 40,
+        "footfall": 15,
+        "decision_makers": 15,
+        "geography_cost": 6,
+        "competition_noise": 9,
+        "timing_fit": 10,
+        "vision_fit": 28
+      },
+      "why": "Every electrical distributor and cable/switchgear dealer in India walks ELECRAMA (segment B). Your Manikan Cables implementation plan is the case study to show here. Once every 2 years.",
+      "stall": {
+        "recommend": "exhibit: 12-18 sqm corner; book by October (space sells out)",
+        "hall_hint": "Halls 9-11 house the distributor and dealer pavilions; request the aisle between Hall 9 and the Reverse Buyer-Seller Meet zone",
+        "suggested_sqm": 12,
+        "shell_rate_inr_sqm": 13000
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "FabHotel / OYO Townhouse Knowledge Park",
+            "area": "Pari Chowk",
+            "tier": "budget",
+            "inr_night": [
+              2800,
+              4000
+            ],
+            "km_to_venue": 3,
+            "why": "Aqua Line one stop to Knowledge Park II"
+          },
+          {
+            "name": "Crowne Plaza Greater Noida",
+            "area": "Surajpur",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 6,
+            "why": "Standard ELECRAMA exhibitor hotel; book early"
+          },
+          {
+            "name": "Jaypee Greens Golf & Spa Resort",
+            "area": "Greater Noida",
+            "tier": "premium",
+            "inr_night": [
+              9500,
+              13500
+            ],
+            "km_to_venue": 8,
+            "why": "Host distributor dinners"
+          }
+        ]
+      },
+      "sources": [
+        "https://elecrama.com/",
+        "https://www.electronicsmedia.info/2026/04/16/elecrama-2027-dates-and-venue/"
+      ],
+      "exhibitor_contact": {
+        "email": "response@elecrama.org",
+        "phone": "",
+        "org": "IEEMA",
+        "how": "email + Exhibit Enquiry Form on elecrama.com"
+      },
+      "icp_vision": [
+        "F",
+        "W"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "ELECRAMA publishes tariff slabs on booking.elecrama.com; early booking slab not yet announced for 2027 — agent asks IEEMA.",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "IEEMA (organiser) runs an Indian MSME pavilion in some editions; ask response@elecrama.org whether a subsidised MSME/startup pod exists for 2027. Space booking guidance from the agent: book by October 2026."
+      }
+    },
+    {
+      "id": "india-pharma-expo-2027",
+      "name": "India Pharma Expo 2027",
+      "edition": "2027",
+      "category": "Pharma, healthcare, lab & packaging suppliers",
+      "icp": [
+        "C"
+      ],
+      "start": "2027-03-11",
+      "end": "2027-03-13",
+      "city": "Hyderabad",
+      "venue": "HITEX Exhibition Centre",
+      "venue_area": "Madhapur",
+      "organiser": "Elets",
+      "website": "https://indiapharmaexpo.com/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 10000,
+          "exhibitors": 300,
+          "note": "organiser: 300 exhibitors, 10k+ visitors"
+        }
+      ],
+      "expected": {
+        "visitors": 10000,
+        "exhibitors": 300
+      },
+      "score": {
+        "icp_fit": 22,
+        "footfall": 8,
+        "decision_makers": 10,
+        "geography_cost": 10,
+        "competition_noise": 8,
+        "timing_fit": 7,
+        "vision_fit": 30
+      },
+      "why": "Pharma distributors and packaging suppliers in Genome Valley quote on WhatsApp; regulated pricing limits automation depth. Home-city visit, 1 day.",
+      "stall": {
+        "recommend": "visit only",
+        "hall_hint": "n/a",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 10500
+      },
+      "travel": {
+        "airport": null,
+        "flight_oneway_inr": [
+          0,
+          0
+        ],
+        "hotels": []
+      },
+      "sources": [
+        "https://indiapharmaexpo.com/"
+      ],
+      "icp_vision": [
+        "F",
+        "W"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "startup-mahakumbh-2027",
+      "name": "Startup Mahakumbh 6.0",
+      "edition": "6.0",
+      "category": "Startup ecosystem, investors, government",
+      "icp": [
+        "X"
+      ],
+      "start": "2027-03-12",
+      "end": "2027-03-14",
+      "city": "New Delhi",
+      "venue": "Bharat Mandapam (Pragati Maidan)",
+      "venue_area": "ITO / Supreme Court metro",
+      "organiser": "ASSOCHAM / FICCI / DPIIT",
+      "website": "https://startupmahakumbh.co.in/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 250000,
+          "exhibitors": 800,
+          "note": "organiser: 2.5 lakh footfall"
+        }
+      ],
+      "expected": {
+        "visitors": 100000,
+        "exhibitors": 800
+      },
+      "score": {
+        "icp_fit": 10,
+        "footfall": 14,
+        "decision_makers": 8,
+        "geography_cost": 7,
+        "competition_noise": 3,
+        "timing_fit": 6,
+        "vision_fit": 12
+      },
+      "why": "Investor and government visibility, not customers. Take the 13-14 Mar days after Pharma Expo if fundraising is on.",
+      "stall": {
+        "recommend": "apply for a subsidised startup pod only (B2B SaaS pavilion)",
+        "hall_hint": "B2B / Deeptech pavilion",
+        "suggested_sqm": 6,
+        "shell_rate_inr_sqm": 6000
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Hotel Palace Heights",
+            "area": "Connaught Place",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7000
+            ],
+            "km_to_venue": 4,
+            "why": "Metro to Supreme Court station"
+          }
+        ]
+      },
+      "sources": [
+        "https://startupmahakumbh.co.in/",
+        "https://dealroom.co/events/startup-mahakumbh-2027/"
+      ],
+      "icp_vision": [
+        "S"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "Startup pod applications open around December 2026 on startupmahakumbh.co.in.",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "DPIIT-recognised startups can apply for a subsidised pod in the B2B/Deeptech pavilion; slots open ~Dec 2026."
+      }
+    },
+    {
+      "id": "convergence-india-2027",
+      "name": "Convergence India 2027 + INDELXPO 2027",
+      "edition": "34th Convergence India / 12th India Electronics Expo",
+      "category": "AI, IoT, telecom, electronics manufacturing",
+      "icp": [
+        "X",
+        "A"
+      ],
+      "start": "2027-03-23",
+      "end": "2027-03-25",
+      "city": "New Delhi",
+      "venue": "Bharat Mandapam (Pragati Maidan)",
+      "venue_area": "ITO / Supreme Court metro",
+      "organiser": "Exhibitions India Group / ESC",
+      "website": "https://www.convergenceindia.org/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 35000,
+          "exhibitors": 900,
+          "note": "agent estimate across co-located shows"
+        }
+      ],
+      "expected": {
+        "visitors": 35000,
+        "exhibitors": 900
+      },
+      "score": {
+        "icp_fit": 20,
+        "footfall": 11,
+        "decision_makers": 9,
+        "geography_cost": 7,
+        "competition_noise": 4,
+        "timing_fit": 7,
+        "vision_fit": 26
+      },
+      "why": "INDELXPO brings electronics component distributors (segment A-adjacent); Convergence brings BSPs and telecom partners. Two-in-one visit.",
+      "stall": {
+        "recommend": "visit; AI Bharat pavilion pod only if subsidised",
+        "hall_hint": "AI Bharat Expo zone",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 12000
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Bloomrooms @ New Delhi Railway Station",
+            "area": "NDLS",
+            "tier": "budget",
+            "inr_night": [
+              3200,
+              4200
+            ],
+            "km_to_venue": 5,
+            "why": "Metro access"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.convergenceindia.org/",
+        "https://www.eoiparis.gov.in/page/trade-events-in-india/"
+      ],
+      "icp_vision": [
+        "S",
+        "R"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "AI Bharat Expo startup pods are subsidised for DPIIT startups; ask the organiser (Exhibitions India Group)."
+      }
+    },
+    {
+      "id": "india-automation-robotics-2027",
+      "name": "India Automation & Robotics Expo 2027",
+      "edition": "2nd edition",
+      "category": "Industrial automation, robotics, IIoT (South India)",
+      "icp": [
+        "E",
+        "A"
+      ],
+      "start": "2027-04-09",
+      "end": "2027-04-11",
+      "city": "Bengaluru",
+      "venue": "Bangalore International Exhibition Centre (BIEC)",
+      "venue_area": "Tumkur Road, Madavara",
+      "organiser": "BIEC / IMTMA",
+      "website": "https://indiaautomationandroboticsexpo.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 12000,
+          "exhibitors": 200,
+          "note": "agent estimate, 1st edition"
+        }
+      ],
+      "expected": {
+        "visitors": 15000,
+        "exhibitors": 250
+      },
+      "score": {
+        "icp_fit": 26,
+        "footfall": 8,
+        "decision_makers": 11,
+        "geography_cost": 7,
+        "competition_noise": 7,
+        "timing_fit": 8,
+        "vision_fit": 34
+      },
+      "why": "System integrators and machine builders looking for Industry 4.0 software; good for the Vision AI and agentic OS story.",
+      "stall": {
+        "recommend": "exhibit 9 sqm in the Industry 4.0 / machine-vision zone with a live performance-report demo",
+        "hall_hint": "Hall 3, Industry 4.0 / vision zone near the entrance",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 9500,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": "BLR",
+        "flight_oneway_inr": [
+          3500,
+          5500
+        ],
+        "hotels": [
+          {
+            "name": "Holiday Inn Express Bengaluru Yeshwantpur",
+            "area": "Yeshwantpur",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7500
+            ],
+            "km_to_venue": 12,
+            "why": "Metro to BIEC"
+          }
+        ]
+      },
+      "sources": [
+        "https://indiaautomationandroboticsexpo.com/"
+      ],
+      "icp_vision": [
+        "F",
+        "S"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "fastener-fair-india-2027",
+      "name": "Fastener Fair India 2027",
+      "edition": "2027 (Mumbai)",
+      "category": "Fasteners & fixing technology",
+      "icp": [
+        "A"
+      ],
+      "start": "2027-04-22",
+      "end": "2027-04-24",
+      "city": "Mumbai",
+      "venue": "Bombay Exhibition Centre (NESCO)",
+      "venue_area": "Goregaon East",
+      "organiser": "RX India",
+      "website": "https://www.fastenerfairindia.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 8500,
+          "exhibitors": 300,
+          "note": "agent estimate; RX reports 8,000+ trade visitors"
+        }
+      ],
+      "expected": {
+        "visitors": 9000,
+        "exhibitors": 320
+      },
+      "score": {
+        "icp_fit": 40,
+        "footfall": 8,
+        "decision_makers": 13,
+        "geography_cost": 7,
+        "competition_noise": 9,
+        "timing_fit": 9,
+        "vision_fit": 26
+      },
+      "why": "Pure segment A: every visitor is a fastener maker, importer or distributor with daily 'rate for 500 pcs?' messages. Small show, extremely dense.",
+      "stall": {
+        "recommend": "exhibit 9 sqm; the only software vendor in the hall wins by default",
+        "hall_hint": "Single hall; corner next to the distributor pavilion",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 12500
+      },
+      "travel": {
+        "airport": "BOM",
+        "flight_oneway_inr": [
+          5000,
+          7500
+        ],
+        "hotels": [
+          {
+            "name": "FabHotel / Treebo Goregaon East",
+            "area": "Goregaon East",
+            "tier": "budget",
+            "inr_night": [
+              3500,
+              5000
+            ],
+            "km_to_venue": 1.5,
+            "why": "Walkable"
+          },
+          {
+            "name": "The Westin Mumbai Garden City",
+            "area": "Goregaon East",
+            "tier": "premium",
+            "inr_night": [
+              12000,
+              16000
+            ],
+            "km_to_venue": 0.8,
+            "why": "Adjacent"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.fastenerfairindia.com/"
+      ],
+      "exhibitor_contact": {
+        "email": "",
+        "phone": "RX India, DLF Cyber City, Gurugram",
+        "org": "RX India",
+        "how": "exhibit enquiry form on fastenerfairindia.com (use the bookmarklet)"
+      },
+      "icp_vision": [
+        "F",
+        "W"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "automation-expo-2027",
+      "name": "Automation Expo 2027",
+      "edition": "2027",
+      "category": "Industrial automation & smart manufacturing",
+      "icp": [
+        "E",
+        "A"
+      ],
+      "start": "2027-06-02",
+      "end": "2027-06-05",
+      "city": "Mumbai",
+      "venue": "Bombay Exhibition Centre (NESCO), Halls 2, 3, 4 & 6",
+      "venue_area": "Goregaon East",
+      "organiser": "IED Communications",
+      "website": "https://automationindiaexpo.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 75000,
+          "exhibitors": 2500,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 75000,
+        "exhibitors": 2500
+      },
+      "score": {
+        "icp_fit": 30,
+        "footfall": 13,
+        "decision_makers": 12,
+        "geography_cost": 7,
+        "competition_noise": 7,
+        "timing_fit": 8,
+        "vision_fit": 36
+      },
+      "why": "Asia's largest automation show; panel builders, instrumentation distributors and machine builders. Co-located week with Indexpo Mumbai: one trip, two shows.",
+      "stall": {
+        "recommend": "exhibit 9 sqm in the software/IIoT zone",
+        "hall_hint": "Hall 2 (main entrance side); avoid Hall 6 rear",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 13000
+      },
+      "travel": {
+        "airport": "BOM",
+        "flight_oneway_inr": [
+          5000,
+          7500
+        ],
+        "hotels": [
+          {
+            "name": "FabHotel / Treebo Goregaon East",
+            "area": "Goregaon East",
+            "tier": "budget",
+            "inr_night": [
+              3500,
+              5000
+            ],
+            "km_to_venue": 1.5,
+            "why": "Walkable"
+          },
+          {
+            "name": "Holiday Inn Mumbai International Airport",
+            "area": "Andheri East",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 6,
+            "why": "Late flights"
+          }
+        ]
+      },
+      "sources": [
+        "https://automationindiaexpo.com/"
+      ],
+      "exhibitor_contact": {
+        "email": "jyothi@iedcommunications.com",
+        "phone": "",
+        "org": "IED Communications",
+        "how": "email or automationindiaexpo.com/exhibit"
+      },
+      "icp_vision": [
+        "F",
+        "S"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "indexpo-mumbai-2027",
+      "name": "Indexpo Mumbai 2027 (Industrial & Engineering Expo)",
+      "edition": "5th year Mumbai edition",
+      "category": "Industrial engineering, machine tools",
+      "icp": [
+        "A",
+        "E"
+      ],
+      "start": "2027-06-03",
+      "end": "2027-06-05",
+      "city": "Mumbai",
+      "venue": "Bombay Exhibition Centre (NESCO)",
+      "venue_area": "Goregaon East",
+      "organiser": "Indore Infoline",
+      "website": "https://indexpo.co.in/mumbai-expo/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 18000,
+          "exhibitors": 350,
+          "note": "agent estimate; same organiser as the Hyderabad show you attended 4-6 Sep 2026"
+        }
+      ],
+      "expected": {
+        "visitors": 18000,
+        "exhibitors": 350
+      },
+      "score": {
+        "icp_fit": 34,
+        "footfall": 9,
+        "decision_makers": 11,
+        "geography_cost": 7,
+        "competition_noise": 8,
+        "timing_fit": 9,
+        "vision_fit": 30
+      },
+      "why": "Same organiser and audience profile as Indexpo Hyderabad, so your Sept-2026 lead data is the benchmark. Walk it during Automation Expo.",
+      "stall": {
+        "recommend": "exhibit 9 sqm; same venue and week as the Automation Expo stall, so one team covers both",
+        "hall_hint": "NESCO Hall 4 corner nearest the Automation Expo halls",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 9000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": "BOM",
+        "flight_oneway_inr": [
+          5000,
+          7500
+        ],
+        "hotels": []
+      },
+      "sources": [
+        "https://indexpo.co.in/mumbai-expo/"
+      ],
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "engiexpo-jaipur-2027",
+      "name": "EngiExpo Jaipur 2027",
+      "edition": "22nd edition",
+      "category": "Industrial engineering",
+      "icp": [
+        "A",
+        "E"
+      ],
+      "start": "2027-08-28",
+      "end": "2027-08-30",
+      "city": "Jaipur",
+      "venue": "JECC (Jaipur Exhibition & Convention Centre)",
+      "venue_area": "Sitapura",
+      "organiser": "2way Advertising (EngiExpo)",
+      "website": "https://engiexpo.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 35000,
+          "exhibitors": 400,
+          "note": "organiser claim"
+        }
+      ],
+      "expected": {
+        "visitors": 35000,
+        "exhibitors": 400
+      },
+      "score": {
+        "icp_fit": 34,
+        "footfall": 11,
+        "decision_makers": 11,
+        "geography_cost": 6,
+        "competition_noise": 8,
+        "timing_fit": 7,
+        "vision_fit": 28
+      },
+      "why": "Rajasthan marble-machinery, stone and hardware traders; decide in June based on EngiExpo Ahmedabad/Surat conversion.",
+      "stall": {
+        "recommend": "exhibit 9 sqm; Rajasthan stone, marble-machinery and hardware traders",
+        "hall_hint": "JECC Hall A near the Novotel entrance",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 8000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": "JAI",
+        "flight_oneway_inr": [
+          6500,
+          9000
+        ],
+        "hotels": [
+          {
+            "name": "ibis Jaipur Civil Lines",
+            "area": "Civil Lines",
+            "tier": "budget",
+            "inr_night": [
+              4000,
+              5500
+            ],
+            "km_to_venue": 14,
+            "why": "Value"
+          },
+          {
+            "name": "Novotel Jaipur Convention Centre",
+            "area": "Sitapura",
+            "tier": "mid",
+            "inr_night": [
+              7000,
+              10000
+            ],
+            "km_to_venue": 0,
+            "why": "Attached to JECC"
+          }
+        ]
+      },
+      "sources": [
+        "https://engiexpo.com/UpcomingExhibition"
+      ],
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "indexpo-hyderabad-2027",
+      "name": "Indexpo Hyderabad 2027 (Industrial & Engineering Expo)",
+      "edition": "2027 (annual; 2026 edition was 4-6 Sep)",
+      "category": "Industrial engineering, machine tools",
+      "icp": [
+        "A",
+        "E"
+      ],
+      "start": "2027-09-03",
+      "end": "2027-09-05",
+      "city": "Hyderabad",
+      "venue": "HITEX Exhibition Centre",
+      "venue_area": "Madhapur",
+      "organiser": "Indore Infoline",
+      "website": "https://indexpo.co.in/",
+      "mode": "exhibit",
+      "tentative": true,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 15000,
+          "exhibitors": 300,
+          "note": "agent estimate; replace with your own count from the 4-6 Sep 2026 visit"
+        }
+      ],
+      "expected": {
+        "visitors": 15000,
+        "exhibitors": 300
+      },
+      "score": {
+        "icp_fit": 36,
+        "footfall": 9,
+        "decision_makers": 11,
+        "geography_cost": 10,
+        "competition_noise": 8,
+        "timing_fit": 9,
+        "vision_fit": 30
+      },
+      "why": "Your first expo (Sept 2026) as a visitor; 2027 is the year to exhibit at home with a year of case studies. Dates are the agent's projection until the organiser announces.",
+      "stall": {
+        "recommend": "exhibit 9-12 sqm corner; MSME PMS subsidy applies",
+        "hall_hint": "Hall 1 aisle between registration and the machine-tool anchors",
+        "suggested_sqm": 12,
+        "shell_rate_inr_sqm": 9000
+      },
+      "travel": {
+        "airport": null,
+        "flight_oneway_inr": [
+          0,
+          0
+        ],
+        "hotels": []
+      },
+      "sources": [
+        "https://indexpo.co.in/hyderabad-expo-2026/"
+      ],
+      "exhibitor_contact": {
+        "email": "iyp_ind@yahoo.co.in",
+        "phone": "+91 90988 87755 / 0731-4093000",
+        "org": "Indore Infoline",
+        "how": "email; published rate ₹9,000/sqm + GST, MSME PMS subsidy"
+      },
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "Home show; PMS + Telangana reimbursements apply. Agent will confirm the 2027 dates with Indore Infoline."
+      }
+    },
+    {
+      "id": "gulfood-manufacturing-2026",
+      "name": "Gulfood Manufacturing 2026",
+      "edition": "2026",
+      "category": "F&B processing, packaging, automation (Gulf)",
+      "icp": [
+        "C",
+        "E"
+      ],
+      "start": "2026-11-03",
+      "end": "2026-11-05",
+      "city": "Dubai",
+      "venue": "Dubai World Trade Centre",
+      "venue_area": "Trade Centre 2",
+      "organiser": "DWTC",
+      "website": "https://gulfoodmanufacturing.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 36000,
+          "exhibitors": 2500,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 36000,
+        "exhibitors": 2500
+      },
+      "score": {
+        "icp_fit": 26,
+        "footfall": 12,
+        "decision_makers": 11,
+        "geography_cost": 5,
+        "competition_noise": 7,
+        "timing_fit": 8,
+        "vision_fit": 34
+      },
+      "why": "Packaging converters, processing-machinery makers and F&B distributors from the whole GCC and India; the Indian pavilion alone has 200+ exhibitors who quote on WhatsApp. First Gulf pilot hunting ground with no clash.",
+      "stall": {
+        "recommend": "exhibit 9 sqm in the India pavilion / Packaging & Processing hall (7 weeks out: ask DWTC & the India-pavilion organiser now; full payment likely due at booking)",
+        "hall_hint": "Za'abeel Halls (packaging & processing); India pavilion if a pod is free",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 43000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Trade Centre",
+            "area": "Trade Centre",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 0.5,
+            "why": "Walk to DWTC"
+          },
+          {
+            "name": "ibis One Central",
+            "area": "Trade Centre",
+            "tier": "budget",
+            "inr_night": [
+              6500,
+              9000
+            ],
+            "km_to_venue": 0.3,
+            "why": "Connected to the venue"
+          }
+        ]
+      },
+      "sources": [
+        "https://gulfoodmanufacturing.com/"
+      ],
+      "icp_vision": [
+        "F",
+        "W"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "middle-east-energy-2027",
+      "name": "Middle East Energy 2027",
+      "edition": "50th edition",
+      "category": "Electrical, power distribution, energy (Gulf)",
+      "icp": [
+        "B",
+        "A"
+      ],
+      "start": "2027-05-11",
+      "end": "2027-05-13",
+      "city": "Dubai",
+      "venue": "Dubai Exhibition Centre, Expo City",
+      "venue_area": "Expo City Dubai",
+      "organiser": "Informa Markets",
+      "website": "https://www.middleeast-energy.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 35000,
+          "exhibitors": 1900,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 35000,
+        "exhibitors": 1900
+      },
+      "score": {
+        "icp_fit": 36,
+        "footfall": 12,
+        "decision_makers": 13,
+        "geography_cost": 5,
+        "competition_noise": 8,
+        "timing_fit": 8,
+        "vision_fit": 26
+      },
+      "why": "The Gulf's ELECRAMA: cable, switchgear and lighting distributors from UAE, Saudi, Africa and India. The Manikan Cables case study plus a WhatsApp quotation demo in Arabic/Hindi lands here. Best first Gulf stall.",
+      "stall": {
+        "recommend": "exhibit 9-12 sqm in the India pavilion (subsidised via EEPC/IEEMA) or a corner near the transmission & distribution hall entrance",
+        "hall_hint": "India pavilion or the T&D hall main aisle",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 48000
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Expo City",
+            "area": "Expo City",
+            "tier": "mid",
+            "inr_night": [
+              9000,
+              13000
+            ],
+            "km_to_venue": 0.3,
+            "why": "On site"
+          },
+          {
+            "name": "ibis Al Barsha",
+            "area": "Al Barsha",
+            "tier": "budget",
+            "inr_night": [
+              6000,
+              8500
+            ],
+            "km_to_venue": 20,
+            "why": "Metro Route 2020 to Expo City"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.middleeast-energy.com/en/home.html"
+      ],
+      "icp_vision": [
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "India pavilion is organised by EEPC India / IEEMA in past editions with MAI-supported stall rates; joining the pavilion is the cheapest route and doubles as the IC/MAI delegation."
+      }
+    },
+    {
+      "id": "big5-saudi-2027",
+      "name": "Big 5 Saudi 2027 (formerly Big 5 Construct Saudi)",
+      "edition": "2027",
+      "category": "Construction & building materials (Saudi)",
+      "icp": [
+        "B"
+      ],
+      "start": "2027-04-19",
+      "end": "2027-04-22",
+      "city": "Riyadh",
+      "venue": "Riyadh Front Exhibition & Conference Center",
+      "venue_area": "ROSHN Front",
+      "organiser": "dmg events",
+      "website": "https://www.big5constructsaudi.com/",
+      "mode": "visit",
+      "tentative": true,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 40000,
+          "exhibitors": 1400,
+          "note": "organiser figure; 2027 dates published inconsistently (22-25 Feb or 19-22 Apr) — confirm before booking"
+        }
+      ],
+      "expected": {
+        "visitors": 40000,
+        "exhibitors": 1400
+      },
+      "score": {
+        "icp_fit": 26,
+        "footfall": 12,
+        "decision_makers": 11,
+        "geography_cost": 3,
+        "competition_noise": 7,
+        "timing_fit": 5,
+        "vision_fit": 32
+      },
+      "why": "Saudi building-material traders are the largest Gulf ICP pool, but a Saudi business visa, Arabic-first buyers and unconfirmed dates make this a 2027-28 option, not a 2026-27 priority.",
+      "stall": {
+        "recommend": "visit only once dates are confirmed",
+        "hall_hint": "n/a",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 55000
+      },
+      "travel": {
+        "airport": "RUH",
+        "flight_oneway_inr": [
+          18000,
+          28000
+        ],
+        "hotels": [
+          {
+            "name": "Novotel Riyadh Sahafa",
+            "area": "Al Sahafa",
+            "tier": "mid",
+            "inr_night": [
+              9000,
+              13000
+            ],
+            "km_to_venue": 8,
+            "why": "Business hotel near Riyadh Front"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.big5constructsaudi.com/"
+      ],
+      "icp_vision": [
+        "K",
+        "L"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": "India pavilion normally via FIEO/EEPC; only relevant if Souveno decides to exhibit."
+      }
+    },
+    {
+      "id": "ifsec-india-2026",
+      "name": "IFSEC India 2026",
+      "edition": "2026",
+      "category": "Security, surveillance, CCTV, access control",
+      "icp": [
+        "S"
+      ],
+      "icp_vision": [
+        "S",
+        "F",
+        "K"
+      ],
+      "start": "2026-12-03",
+      "end": "2026-12-05",
+      "city": "New Delhi",
+      "venue": "Bharat Mandapam (Pragati Maidan)",
+      "venue_area": "ITO / Supreme Court metro",
+      "organiser": "Informa Markets India",
+      "website": "https://ifsecindia.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 16000,
+          "exhibitors": 350,
+          "note": "organiser: 350+ exhibitors, 14,000-18,000 professionals"
+        }
+      ],
+      "expected": {
+        "visitors": 16000,
+        "exhibitors": 350
+      },
+      "score": {
+        "icp_fit": 8,
+        "vision_fit": 34,
+        "footfall": 9,
+        "decision_makers": 11,
+        "geography_cost": 7,
+        "competition_noise": 5,
+        "timing_fit": 8
+      },
+      "why": "Every CCTV dealer and security system integrator in India walks IFSEC: they already own the cameras in factories, warehouses and sites. Souveno Vision AI rides on their installs; this is the channel-partner show for Vision AI, not a quote-desk show.",
+      "stall": {
+        "recommend": "exhibit 9 sqm in the video-analytics / AI zone; Vision AI on the cameras every integrator on this floor installs",
+        "hall_hint": "Bharat Mandapam: video analytics / AI zone nearest the main entrance",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 11000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Bloomrooms @ New Delhi Railway Station",
+            "area": "NDLS",
+            "tier": "budget",
+            "inr_night": [
+              3200,
+              4200
+            ],
+            "km_to_venue": 5,
+            "why": "Metro to Supreme Court station"
+          },
+          {
+            "name": "The Lalit New Delhi",
+            "area": "Barakhamba",
+            "tier": "premium",
+            "inr_night": [
+              9500,
+              13000
+            ],
+            "km_to_venue": 2.5,
+            "why": "Closest full-service hotel"
+          }
+        ]
+      },
+      "sources": [
+        "https://ifsecindia.com/"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "india-warehousing-show-2027",
+      "name": "India Warehousing Show 2027",
+      "edition": "2027",
+      "category": "Warehousing, logistics, material handling, supply chain",
+      "icp": [
+        "W",
+        "L"
+      ],
+      "icp_vision": [
+        "W",
+        "L"
+      ],
+      "start": "2027-06-24",
+      "end": "2027-06-26",
+      "city": "New Delhi",
+      "venue": "Yashobhoomi (IICC), Dwarka",
+      "venue_area": "Dwarka Sector 25 metro",
+      "organiser": "RX India",
+      "website": "https://www.indiawarehousingshow.com/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 15000,
+          "exhibitors": 300,
+          "note": "organiser: 15,000+ business visitors, 300+ exhibitors"
+        }
+      ],
+      "expected": {
+        "visitors": 15000,
+        "exhibitors": 300
+      },
+      "score": {
+        "icp_fit": 24,
+        "vision_fit": 38,
+        "footfall": 9,
+        "decision_makers": 12,
+        "geography_cost": 7,
+        "competition_noise": 8,
+        "timing_fit": 8
+      },
+      "why": "Warehouse and 3PL heads with exactly the Vision AI problems: stock count, dispatch verification, vehicle entry/exit at the gate, worker productivity. Distributors here also run WhatsApp quote desks, so both products sell.",
+      "stall": {
+        "recommend": "exhibit 9 sqm with a live gate-camera demo on a screen",
+        "hall_hint": "Warehouse automation / tech zone near the main entrance",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 12500
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Holiday Inn New Delhi International Airport",
+            "area": "Aerocity",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 6,
+            "why": "Metro Airport Line to Dwarka Sector 25 (Yashobhoomi)"
+          },
+          {
+            "name": "FabHotel Dwarka",
+            "area": "Dwarka",
+            "tier": "budget",
+            "inr_night": [
+              3200,
+              4500
+            ],
+            "km_to_venue": 4,
+            "why": "10-min auto to IICC"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.indiawarehousingshow.com/"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    },
+    {
+      "id": "intersec-dubai-2027",
+      "name": "Intersec Dubai 2027",
+      "edition": "28th edition",
+      "category": "Security, safety, surveillance (Gulf)",
+      "icp": [
+        "S"
+      ],
+      "icp_vision": [
+        "S",
+        "K",
+        "L"
+      ],
+      "start": "2027-01-12",
+      "end": "2027-01-14",
+      "city": "Dubai",
+      "venue": "Dubai World Trade Centre",
+      "venue_area": "Trade Centre 2",
+      "organiser": "Messe Frankfurt Middle East",
+      "website": "https://intersecglobal.ae.messefrankfurt.com/dubai/en.html",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 50000,
+          "exhibitors": 1400,
+          "note": "organiser figure"
+        }
+      ],
+      "expected": {
+        "visitors": 50000,
+        "exhibitors": 1400
+      },
+      "score": {
+        "icp_fit": 6,
+        "vision_fit": 34,
+        "footfall": 12,
+        "decision_makers": 11,
+        "geography_cost": 5,
+        "competition_noise": 5,
+        "timing_fit": 8
+      },
+      "why": "The world's largest security show, same dates and venue as Gulf Print & Pack: one Dubai trip covers both. Gulf system integrators and facility-management companies buy video analytics for sites, warehouses and gates; Vision AI channel partners for the UAE.",
+      "stall": {
+        "recommend": "exhibit 9 sqm in the India pavilion or the Commercial Security hall; Vision AI for Gulf system integrators",
+        "hall_hint": "DWTC Sheikh Saeed Halls (commercial security & video analytics); India pavilion pod if available",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 41000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "Rove Trade Centre",
+            "area": "Trade Centre",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 0.5,
+            "why": "Walk to DWTC; same hotel as Gulf Print & Pack"
+          }
+        ]
+      },
+      "sources": [
+        "https://intersecglobal.ae.messefrankfurt.com/dubai/en.html"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-11",
+        "notes": ""
+      }
+    }
+  ]
+}
