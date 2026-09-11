@@ -6,7 +6,7 @@ stall picker, travel, settings, voice), `card.html` (public card / QR page), `da
 
 ```
 # point it at the API
-echo "window.EXPO_API_BASE = 'https://<your-expo-backend>';" > config.js
+# config.js already points at the live backend: https://hellomass-pd54.vercel.app
 python -m http.server 8080           # or any static host (Vercel, Netlify, GitHub Pages)
 ```
 
