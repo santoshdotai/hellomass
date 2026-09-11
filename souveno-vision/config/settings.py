@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     app_name: str = "SOUVENO VISION"
     tagline: str = "See. Understand. Act. Measure."
     app_env: str = "development"
+    app_mode: str = "full"  # full | expo  (expo = no OpenCV/YOLO; runs on Vercel/HF free tiers)
     demo_mode: bool = True
     log_level: str = "INFO"
 
@@ -68,11 +69,38 @@ class Settings(BaseSettings):
     whatsapp_access_token: str = ""
     whatsapp_recipient_numbers: str = ""
 
+    # --- Expo Agent booking executors (all optional; approvals stay manual without them) ---
+    razorpayx_key_id: str = ""
+    razorpayx_key_secret: str = ""
+    razorpayx_account_number: str = ""  # your RazorpayX current-account number (debit source)
+    duffel_access_token: str = ""  # Duffel flights API; live token issues real tickets
+    duffel_passengers_json: str = ""  # JSON list: [{"given_name","family_name","born_on","gender","phone_number","email","title", passport fields for international}]
+    expo_payment_mode: str = "automate"  # automate (default since 11 Sep 2026) | manual  — manual (: the agent proposes, you pay/book yourself from your bank app or the booking site, then tap Done) | rails (use RazorpayX / Duffel when their keys are set)
+    expo_auto_execute: bool = False  # if True, approved items execute immediately via the configured rails
+    expo_public_url: str = ""  # e.g. https://expo.souveno.ai — used in approval notifications
+
     # --- RTSP / NVR (Stage 3) ---
     rtsp_default_username: str = ""
     rtsp_default_password: str = ""
 
     def ensure_directories(self) -> None:
+        import os
+        import tempfile
+
+        # Serverless hosts (Vercel) mount the code read-only; fall back to /tmp for writable dirs.
+        try:
+            self.data_dir.mkdir(parents=True, exist_ok=True)
+            probe = self.data_dir / ".write_probe"
+            probe.write_text("ok")
+            probe.unlink()
+        except OSError:
+            tmp = Path(tempfile.gettempdir()) / "souveno"
+            for name in ("uploads_dir", "outputs_dir", "clips_dir", "processed_dir", "screenshots_dir", "models_dir", "logs_dir"):
+                object.__setattr__(self, name, tmp / name.replace("_dir", ""))
+            object.__setattr__(self, "clips_dir", tmp / "outputs" / "event_clips")
+            object.__setattr__(self, "processed_dir", tmp / "outputs" / "processed")
+            if self.database_url.startswith("sqlite:///") and "DATABASE_URL" not in os.environ:
+                object.__setattr__(self, "database_url", f"sqlite:///{(tmp / 'souveno_vision.db').as_posix()}")
         for d in [
             self.uploads_dir,
             self.outputs_dir,
@@ -83,7 +111,24 @@ class Settings(BaseSettings):
             self.data_dir,
             self.logs_dir,
         ]:
+            try:
+                d.mkdir(parents=True, exist_ok=True)
+            except OSError:
+                pass
+
+    @property
+    def card_images_dir(self) -> Path:
+        """Where scanned visitor-card images go; /tmp on read-only hosts."""
+        import tempfile
+
+        d = self.data_dir / "expo" / "cards"
+        try:
             d.mkdir(parents=True, exist_ok=True)
+            return d
+        except OSError:
+            d = Path(tempfile.gettempdir()) / "souveno" / "cards"
+            d.mkdir(parents=True, exist_ok=True)
+            return d
 
 
 settings = Settings()

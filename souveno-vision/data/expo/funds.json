@@ -1,0 +1,1155 @@
+{
+  "_meta": {
+    "prepared_on": "2026-09-11",
+    "company": {
+      "legal_name": "Souveno AI Solutions",
+      "gstin": "36BDNPP2011D2ZV",
+      "age_years": 1,
+      "founder_age": 41,
+      "city": "Hyderabad, Telangana",
+      "stage": "paying pilots (WhatsApp quote desk), Vision AI in pilot",
+      "dpiit_recognised": "unknown — confirm",
+      "udyam_registered": "unknown — confirm"
+    },
+    "eligibility_notes": [
+      "Startup age 1 year: inside the 2-year SISFS window and every 'early stage' window.",
+      "Founder age 41: no upper age limit on SISFS, MeitY, DST NIDHI, T-AIM, Hub71, YC or Techstars. Only youth-only schemes (some state 'young entrepreneur' awards, PM-YUVA 18–35) are out.",
+      "Hyderabad base: Telangana schemes (T-Hub, T-AIM Revv Up, T-Fund, TSIC) and IIIT-H / IIT-H incubators apply.",
+      "Gulf inclination: Hub71, Dubai AI Campus, Misk, Startup Qatar, LEAP India pavilion ranked high."
+    ],
+    "status_values": [
+      "not_applied",
+      "applied",
+      "shortlisted",
+      "rejected",
+      "awarded",
+      "not_eligible"
+    ],
+    "priority_rule": "fit 5 = apply this month; 4 = apply this quarter; 3 = apply when the cash or market need appears; 2–1 = parked."
+  },
+  "funds": [
+    {
+      "id": "sisfs",
+      "name": "Startup India Seed Fund Scheme (SISFS)",
+      "region": "india",
+      "country": "India",
+      "type": "grant",
+      "amount": "Up to ₹20 lakh validation grant; up to ₹50 lakh for commercialisation (via an approved incubator)",
+      "equity": "none",
+      "who": "DPIIT-recognised startup ≤ 2 years from incorporation, Pvt Ltd/LLP, ≤ ₹10 lakh prior government funding",
+      "why_fit": "Souveno is 1 year old and DPIIT-eligible: this is the single best fit for a cash grant; pilots with PSL Polymers / Manikan Cables are the 'validation' story.",
+      "fit": 5,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://seedfund.startupindia.gov.in/",
+      "status": "to_verify",
+      "notes": "Last cycle closed 31 May 2026; incubators (T-Hub, CIE IIIT-H, IITH) accept on rolling windows — the agent watches for the next window.",
+      "needs": [
+        "DPIIT recognition",
+        "pitch deck",
+        "incubator selection"
+      ],
+      "tags": [
+        "cash",
+        "grant",
+        "priority"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "dpiit",
+      "name": "DPIIT Startup India recognition + 80-IAC tax exemption",
+      "region": "india",
+      "country": "India",
+      "type": "recognition",
+      "amount": "3-year income-tax holiday (80-IAC), self-certification, IPR fast-track, access to SISFS/Fund of Funds",
+      "equity": "none",
+      "who": "Pvt Ltd/LLP/partnership ≤ 10 years, turnover < ₹100 cr, innovative product",
+      "why_fit": "Prerequisite for almost every Indian grant below; apply first.",
+      "fit": 5,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.startupindia.gov.in/",
+      "status": "to_verify",
+      "notes": "If already recognised, mark done and upload the certificate number in notes.",
+      "needs": [
+        "Certificate of incorporation",
+        "brief write-up"
+      ],
+      "tags": [
+        "prerequisite"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "meity-samridh",
+      "name": "MeitY SAMRIDH accelerator (matching funding)",
+      "region": "india",
+      "country": "India",
+      "type": "matching funding",
+      "amount": "Up to ₹40 lakh, matched 1:1 with the accelerator's investment",
+      "equity": "small equity via accelerator",
+      "who": "IT/AI software startup with an MVP and early customers, selected by a SAMRIDH accelerator",
+      "why_fit": "WhatsApp quote desk has paying pilots; SAMRIDH accelerators (e.g. T-Hub, IIITH CIE, Nasscom) run AI cohorts.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://samridh.meity.gov.in/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "MVP",
+        "customer proof",
+        "DPIIT"
+      ],
+      "tags": [
+        "cash",
+        "accelerator"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "meity-tide",
+      "name": "MeitY TIDE 2.0 (via TIDE centres e.g. IIT Hyderabad iTIC)",
+      "region": "india",
+      "country": "India",
+      "type": "grant",
+      "amount": "₹4–7 lakh grant for MVP/prototype, 12 months",
+      "equity": "none",
+      "who": "ICT startup in AI/IoT/vision at an idea-to-MVP stage, through a TIDE centre",
+      "why_fit": "Vision AI (camera-based attendance, stock, gates) fits the 'emerging tech prototype' brief; IIT Hyderabad's iTIC is a TIDE centre in the home city.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://itic.iith.ac.in/meity-tide.html",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "prototype plan",
+        "DPIIT preferred"
+      ],
+      "tags": [
+        "cash",
+        "grant",
+        "hyderabad"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "nidhi-prayas",
+      "name": "DST NIDHI-PRAYAS 2.0 (prototype grant)",
+      "region": "india",
+      "country": "India",
+      "type": "grant",
+      "amount": "Up to ₹20 lakh (up to ₹40 lakh for advanced prototypes)",
+      "equity": "none",
+      "who": "Innovator/startup building a hardware-linked prototype through a PRAYAS centre",
+      "why_fit": "Vision AI edge box (camera + on-site inference) qualifies as hardware-linked; software-only quote desk does not.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://nidhi-prayas.org/",
+      "status": "to_verify",
+      "notes": "Frame the application around the Vision AI edge device.",
+      "needs": [
+        "prototype plan",
+        "PRAYAS centre"
+      ],
+      "tags": [
+        "cash",
+        "grant",
+        "vision_ai"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "nidhi-ssp",
+      "name": "DST NIDHI Seed Support Programme (via incubators)",
+      "region": "india",
+      "country": "India",
+      "type": "seed (grant/debt/equity via incubator)",
+      "amount": "Up to ₹1 crore per startup through the incubator",
+      "equity": "incubator decides",
+      "who": "Incubated startup with a validated product",
+      "why_fit": "After incubation at T-Hub / CIE IIIT-H / IITH, this is the next cheque.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://nidhi.dst.gov.in/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "incubation"
+      ],
+      "tags": [
+        "cash"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "msme-innovative",
+      "name": "MSME Innovative scheme (Incubation + IPR)",
+      "region": "india",
+      "country": "India",
+      "type": "grant",
+      "amount": "Incubation: up to ₹15 lakh per idea; IPR: up to ₹5 lakh domestic / ₹15 lakh foreign patent reimbursement",
+      "equity": "none",
+      "who": "Udyam-registered MSE with an innovative idea, via a host institute",
+      "why_fit": "Patent the Vision AI dispatch-verification method and get the filing reimbursed.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://innovative.msme.gov.in/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "Udyam",
+        "host institute"
+      ],
+      "tags": [
+        "grant",
+        "ipr"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "msme-pms",
+      "name": "MSME PMS scheme (trade-fair stall rent reimbursement)",
+      "region": "india",
+      "country": "India",
+      "type": "subsidy",
+      "amount": "80% of stall rent up to ₹30,000 + ₹15,000 contingency per domestic fair",
+      "equity": "none",
+      "who": "Udyam-registered MSE exhibiting at a domestic fair; apply 30 days before",
+      "why_fit": "Already wired into every exhibit show's subsidy box; apply per show.",
+      "fit": 5,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://my.msme.gov.in/mymsme/reg/COM_Matu.aspx",
+      "status": "confirmed",
+      "notes": "Per-show apply-by dates are on each event card.",
+      "needs": [
+        "Udyam",
+        "stall invoice"
+      ],
+      "tags": [
+        "subsidy",
+        "expo"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "msme-ic",
+      "name": "MSME International Cooperation scheme (foreign fairs via association)",
+      "region": "india",
+      "country": "India",
+      "type": "subsidy",
+      "amount": "Airfare + stall rent reimbursed to the delegation",
+      "equity": "none",
+      "who": "MSE joining a registered association's delegation to a foreign fair",
+      "why_fit": "Gulfood, Intersec, Middle East Energy: join the FTCCI / EEPC / NSIC delegation.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.ic.msme.gov.in/",
+      "status": "to_verify",
+      "notes": "Next call for Oct 2026 – Mar 2027 events awaited.",
+      "needs": [
+        "association membership"
+      ],
+      "tags": [
+        "subsidy",
+        "expo",
+        "gulf"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "cgtmse",
+      "name": "CGTMSE collateral-free loan (banks/NBFCs)",
+      "region": "india",
+      "country": "India",
+      "type": "debt guarantee",
+      "amount": "Collateral-free working-capital / term loan up to ₹5 crore (guarantee cover)",
+      "equity": "none",
+      "who": "MSE with a bankable plan",
+      "why_fit": "Working capital for 20 stalls in a year; bank of the current account can apply.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.cgtmse.in/",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [
+        "Udyam",
+        "bank"
+      ],
+      "tags": [
+        "debt"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "mudra",
+      "name": "PM MUDRA (Tarun/Tarun Plus) loan",
+      "region": "india",
+      "country": "India",
+      "type": "debt",
+      "amount": "₹10–20 lakh collateral-free",
+      "equity": "none",
+      "who": "Non-farm micro enterprise",
+      "why_fit": "Small, fast, for stall advances if cash is tight.",
+      "fit": 2,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.mudra.org.in/",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [
+        "bank"
+      ],
+      "tags": [
+        "debt"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "t-hub",
+      "name": "T-Hub incubation / Lab32 (Hyderabad)",
+      "region": "india",
+      "country": "India · Telangana",
+      "type": "incubation",
+      "amount": "Incubation, corporate connects, investor access; route to SISFS/NIDHI/SAMRIDH",
+      "equity": "none",
+      "who": "Hyderabad startups",
+      "why_fit": "Home-city incubator; being a T-Hub startup unlocks the SISFS and NIDHI cheques and the Telangana delegations to Gulf fairs.",
+      "fit": 5,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://t-hub.co/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "application",
+        "pitch"
+      ],
+      "tags": [
+        "incubator",
+        "hyderabad",
+        "priority"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "t-aim-revvup",
+      "name": "Telangana AI Mission (T-AIM) Revv Up accelerator",
+      "region": "india",
+      "country": "India · Telangana",
+      "type": "accelerator",
+      "amount": "Equity-free; government & industry use cases; C-DAC AI compute at no cost; NASSCOM mentoring",
+      "equity": "none",
+      "who": "AI startups based in Hyderabad, ≤ 30 employees",
+      "why_fit": "Made for Souveno: AI, Hyderabad, small team; government use cases could pilot Vision AI at state warehouses and gates.",
+      "fit": 5,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://ai.telangana.gov.in/revv-up/",
+      "status": "to_verify",
+      "notes": "Cohorts open roughly yearly; the agent watches for the next call.",
+      "needs": [
+        "application"
+      ],
+      "tags": [
+        "accelerator",
+        "hyderabad",
+        "priority",
+        "vision_ai"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "t-fund",
+      "name": "T-Fund / Telangana State Innovation Cell funding",
+      "region": "india",
+      "country": "India · Telangana",
+      "type": "seed equity/grant",
+      "amount": "₹25 lakh – ₹1 crore (per Startup Grants India)",
+      "equity": "equity likely",
+      "who": "Telangana startups",
+      "why_fit": "State fund for Hyderabad startups; apply through T-Hub / TSIC.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.startupgrantsindia.com/state/telangana",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "T-Hub link"
+      ],
+      "tags": [
+        "cash"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "tsic-grand",
+      "name": "Telangana State Innovation Cell grand challenges / MSME Policy 2024 innovation support",
+      "region": "india",
+      "country": "India · Telangana",
+      "type": "grant / subsidy",
+      "amount": "Patent reimbursement, marketing assistance, challenge prizes",
+      "equity": "none",
+      "who": "Telangana MSMEs and startups",
+      "why_fit": "Marketing assistance already in the subsidy box; patent and challenge tracks on top.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://ipass.telangana.gov.in/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "TS-iPASS"
+      ],
+      "tags": [
+        "subsidy"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "cie-iiith",
+      "name": "CIE IIIT Hyderabad (Deep-tech incubator)",
+      "region": "india",
+      "country": "India · Telangana",
+      "type": "incubation",
+      "amount": "Incubation, MeitY/DST grant access, AI research links",
+      "equity": "none",
+      "who": "AI / vision startups",
+      "why_fit": "Computer-vision research base for Vision AI; SISFS incubator.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://cie.iiit.ac.in/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "application"
+      ],
+      "tags": [
+        "incubator",
+        "hyderabad",
+        "vision_ai"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "iith-itic",
+      "name": "IIT Hyderabad i-TIC Foundation (TIDE 2.0 centre)",
+      "region": "india",
+      "country": "India · Telangana",
+      "type": "incubation + grant",
+      "amount": "TIDE 2.0 grants, DST seed support",
+      "equity": "none",
+      "who": "Tech startups",
+      "why_fit": "Route for the TIDE grant above.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://itic.iith.ac.in/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "incubator",
+        "hyderabad"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "gfsa-india",
+      "name": "Google for Startups Accelerator: India (AI-first)",
+      "region": "india",
+      "country": "India",
+      "type": "accelerator",
+      "amount": "Equity-free 3-month programme; Google Cloud credits, Gemini/TPU access, mentoring",
+      "equity": "none",
+      "who": "AI-first startups in India, seed to Series A",
+      "why_fit": "2026 batch took 20 of 2,000; the WhatsApp + Vision AI combination is exactly the 'AI-first SME' story.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://startup.google.com/programs/accelerator/india/",
+      "status": "to_verify",
+      "notes": "Next call usually opens early in the year.",
+      "needs": [
+        "application",
+        "demo video"
+      ],
+      "tags": [
+        "accelerator",
+        "credits"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "ms-founders",
+      "name": "Microsoft for Startups Founders Hub",
+      "region": "world",
+      "country": "Global",
+      "type": "credits",
+      "amount": "Azure credits (up to $150k), OpenAI/GitHub tools, no VC needed",
+      "equity": "none",
+      "who": "Any software startup",
+      "why_fit": "Free; apply today.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.microsoft.com/en-us/startups",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "credits"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "aws-activate",
+      "name": "AWS Activate",
+      "region": "world",
+      "country": "Global",
+      "type": "credits",
+      "amount": "Up to $100k–200k AWS credits (tier depends on incubator/VC link)",
+      "equity": "none",
+      "who": "Startups",
+      "why_fit": "Hosting for the quote desk and Vision AI inference.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://startups.aws.com/join",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "credits"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "nvidia-inception",
+      "name": "NVIDIA Inception",
+      "region": "world",
+      "country": "Global",
+      "type": "programme + credits",
+      "amount": "Preferred GPU pricing, DGX Cloud credits, VC exposure",
+      "equity": "none",
+      "who": "AI startups of any stage",
+      "why_fit": "Vision AI models on NVIDIA edge (Jetson) and cloud; free to join.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.nvidia.com/en-us/startups/",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "credits",
+        "vision_ai"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "anthropic-startups",
+      "name": "Anthropic Startup Program (Claude credits)",
+      "region": "world",
+      "country": "Global",
+      "type": "credits",
+      "amount": "Up to $100,000 in Claude API credits, no equity",
+      "equity": "none",
+      "who": "Startups with or without VC backing",
+      "why_fit": "The quote-desk agent runs on an LLM; credits cut COGS.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://claude.com/programs/startups",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "credits"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "nasscom-10k",
+      "name": "NASSCOM 10,000 Startups / DeepTech Club",
+      "region": "india",
+      "country": "India",
+      "type": "programme",
+      "amount": "Mentoring, corporate connects, subsidised pavilions at GITEX / LEAP / VivaTech",
+      "equity": "none",
+      "who": "Indian tech startups",
+      "why_fit": "NASSCOM organises the India startup pavilions abroad: membership is the door to those pods.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://10000startups.com/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "pavilions",
+        "network"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "meta-whatsapp",
+      "name": "Meta / WhatsApp Business partner & startup programmes",
+      "region": "india",
+      "country": "India",
+      "type": "programme + credits",
+      "amount": "Ads credits, BSP support, early API access",
+      "equity": "none",
+      "who": "WhatsApp-native startups",
+      "why_fit": "Souveno is a WhatsApp Business Platform product; a Meta programme credential also helps at expos.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://business.whatsapp.com/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "programme"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "cisco-launchpad",
+      "name": "Cisco LaunchPad (India)",
+      "region": "india",
+      "country": "India",
+      "type": "accelerator",
+      "amount": "Equity-free, enterprise access",
+      "equity": "none",
+      "who": "B2B tech startups",
+      "why_fit": "Vision AI + IoT gates fit Cisco's enterprise/IoT thesis.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.cisco.com/c/en_in/about/csr/launchpad.html",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "accelerator"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "jiogennext",
+      "name": "JioGenNext",
+      "region": "india",
+      "country": "India",
+      "type": "accelerator",
+      "amount": "Equity-free market-access programme with Reliance ecosystem",
+      "equity": "none",
+      "who": "Indian startups",
+      "why_fit": "Reliance's retail/logistics arms are Vision AI buyers.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.jiogennext.com/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "accelerator"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "ian",
+      "name": "Indian Angel Network / LetsVenture / Inflection Point",
+      "region": "india",
+      "country": "India",
+      "type": "angel equity",
+      "amount": "₹50 lakh – ₹5 crore",
+      "equity": "equity",
+      "who": "Seed-stage startups with revenue",
+      "why_fit": "Only if you decide to raise; pilots + expo pipeline make the story.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.indianangelnetwork.com/",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [
+        "deck",
+        "data room"
+      ],
+      "tags": [
+        "equity"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "peakxv-surge",
+      "name": "Peak XV Surge / Accel Atoms / Antler India",
+      "region": "india",
+      "country": "India",
+      "type": "accelerator equity",
+      "amount": "$1–3M for equity (Surge); Atoms ~$500k–1M; Antler pre-seed",
+      "equity": "equity",
+      "who": "Early-stage startups in India/SEA",
+      "why_fit": "Strong programmes if Souveno wants to raise; Antler Bengaluru/Hyderabad takes pre-seed.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.peakxv.com/surge/",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [
+        "deck"
+      ],
+      "tags": [
+        "equity",
+        "accelerator"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "startup-mahakumbh",
+      "name": "Startup Mahakumbh subsidised pod (DPIIT)",
+      "region": "india",
+      "country": "India",
+      "type": "expo subsidy",
+      "amount": "Subsidised/free startup pod",
+      "equity": "none",
+      "who": "DPIIT-recognised startups",
+      "why_fit": "Already in the calendar (12–14 Mar 2027).",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://startupmahakumbh.co.in/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "DPIIT"
+      ],
+      "tags": [
+        "expo"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "hub71",
+      "name": "Hub71 Abu Dhabi — Access Programme / Hub71+ AI",
+      "region": "world",
+      "country": "UAE",
+      "type": "incentives + accelerator",
+      "amount": "Up to AED 500,000 in-kind and cash incentives; up to AED 1M follow-on for top performers",
+      "equity": "none (incentives) / optional equity",
+      "who": "Tech startups willing to set up in Abu Dhabi; latest cohort took 26 AI startups from 2,000 applications, including Indian ones",
+      "why_fit": "Gulf inclination + AI: Hub71 gives licence, visas, cash and a base for Big 5 / Middle East Energy / Intersec pilots.",
+      "fit": 5,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.hub71.com/program/access-programme/apply",
+      "status": "to_verify",
+      "notes": "Cohorts twice a year; the agent watches the next call.",
+      "needs": [
+        "deck",
+        "traction",
+        "UAE entity plan"
+      ],
+      "tags": [
+        "gulf",
+        "cash",
+        "priority"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "dubai-ai-campus",
+      "name": "Dubai AI Campus (DIFC) — AI licence + programmes",
+      "region": "world",
+      "country": "UAE",
+      "type": "licence subsidy + programme",
+      "amount": "90% subsidised commercial licence, 50% off co-working, Google Cloud collaboration",
+      "equity": "none",
+      "who": "AI startups setting up in Dubai",
+      "why_fit": "Cheapest legal base in Dubai for Gulf clients; pairs with Intersec / Big 5 stalls.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://dubaiaicampus.com/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "UAE entity"
+      ],
+      "tags": [
+        "gulf",
+        "licence"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "in5-dubai",
+      "name": "in5 Dubai / DTEC / Dubai Future District Fund",
+      "region": "world",
+      "country": "UAE",
+      "type": "incubation + fund",
+      "amount": "Subsidised licence & desks (in5), DFDF equity",
+      "equity": "none / equity",
+      "who": "Tech startups in Dubai",
+      "why_fit": "Alternative to Dubai AI Campus.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://infive.ae/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "gulf"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "misk",
+      "name": "Misk Accelerator (Saudi)",
+      "region": "world",
+      "country": "Saudi Arabia",
+      "type": "accelerator",
+      "amount": "12-week zero-equity accelerator, Saudi market access",
+      "equity": "none",
+      "who": "Seed-stage tech startups targeting Saudi/MENA",
+      "why_fit": "Saudi is the other Gulf market (Big 5 Saudi, LEAP); zero equity.",
+      "fit": 4,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://misk.org.sa/en/programs/misk-accelerator/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "gulf",
+        "accelerator"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "monshaat",
+      "name": "Monsha'at / Saudi Venture Capital / Flat6Labs KSA",
+      "region": "world",
+      "country": "Saudi Arabia",
+      "type": "seed + support",
+      "amount": "Seed tickets and subsidised set-up for startups relocating to KSA",
+      "equity": "equity (Flat6Labs)",
+      "who": "Startups establishing in Saudi",
+      "why_fit": "Only after a first Saudi client.",
+      "fit": 2,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.monshaat.gov.sa/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "gulf"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "startup-qatar",
+      "name": "Startup Qatar Investment Program (QDB / Invest Qatar)",
+      "region": "world",
+      "country": "Qatar",
+      "type": "grant + investment",
+      "amount": "Licence waivers, visas, subsidised space; up to $5.5M for global startups expanding to Qatar",
+      "equity": "equity for investment track",
+      "who": "Tech startups expanding to Qatar",
+      "why_fit": "Gulf third market; generous but needs a Qatar entity.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://startupqatar.qa/en/investment-program",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "Qatar entity"
+      ],
+      "tags": [
+        "gulf",
+        "cash"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "expand-north-star",
+      "name": "Expand North Star (GITEX) India pavilion / startup pods",
+      "region": "world",
+      "country": "UAE",
+      "type": "expo subsidy",
+      "amount": "Subsidised pod in the India / Startup India pavilion",
+      "equity": "none",
+      "who": "Indian startups via NASSCOM / Startup India",
+      "why_fit": "Cheapest way to stand at GITEX (7–11 Dec 2026).",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.expandnorthstar.com/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "NASSCOM / Startup India"
+      ],
+      "tags": [
+        "gulf",
+        "expo"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "yc",
+      "name": "Y Combinator",
+      "region": "world",
+      "country": "USA",
+      "type": "accelerator equity",
+      "amount": "$500k standard deal",
+      "equity": "7% + MFN",
+      "who": "Global startups; two batches a year",
+      "why_fit": "Long shot but free to apply; AI-for-SME with revenue is a YC theme.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.ycombinator.com/apply",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [
+        "video",
+        "deck"
+      ],
+      "tags": [
+        "equity",
+        "accelerator"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "techstars",
+      "name": "Techstars (incl. Techstars Bangalore / Riyadh)",
+      "region": "world",
+      "country": "Global",
+      "type": "accelerator equity",
+      "amount": "$120k for equity",
+      "equity": "equity",
+      "who": "Early-stage startups",
+      "why_fit": "Techstars Riyadh cohort is Gulf-relevant.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.techstars.com/accelerators",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "equity",
+        "accelerator",
+        "gulf"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "500global",
+      "name": "500 Global (incl. Sanabil 500 MENA)",
+      "region": "world",
+      "country": "Global / Saudi",
+      "type": "accelerator equity",
+      "amount": "~$100–150k for equity",
+      "equity": "equity",
+      "who": "Early-stage startups",
+      "why_fit": "Sanabil 500 is Saudi-backed: Gulf entry plus capital.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://500.co/",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "equity",
+        "gulf"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "plugandplay",
+      "name": "Plug and Play (Silicon Valley / Abu Dhabi / Riyadh)",
+      "region": "world",
+      "country": "Global / Gulf",
+      "type": "accelerator",
+      "amount": "Equity-free corporate matchmaking programmes",
+      "equity": "none (some tracks)",
+      "who": "B2B startups",
+      "why_fit": "Corporate-partner programmes in supply chain and smart cities fit Vision AI.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.plugandplaytechcenter.com/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "accelerator",
+        "gulf"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "google-startups-cloud",
+      "name": "Google for Startups Cloud Program",
+      "region": "world",
+      "country": "Global",
+      "type": "credits",
+      "amount": "Up to $200k–350k Google Cloud credits over 2 years (AI-first tier)",
+      "equity": "none",
+      "who": "Startups",
+      "why_fit": "Alternative to AWS for Vision AI inference.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://cloud.google.com/startup",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "credits"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "web-summit-india-pavilion",
+      "name": "Web Summit Lisbon / Web Summit Qatar — India pavilion (Startup India / MeitY)",
+      "region": "world",
+      "country": "Portugal / Qatar",
+      "type": "expo subsidy",
+      "amount": "Subsidised startup stand in the India pavilion",
+      "equity": "none",
+      "who": "DPIIT startups selected by Startup India",
+      "why_fit": "Web Summit Qatar (Doha, Feb) is a Gulf show with an India pavilion.",
+      "fit": 3,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.startupindia.gov.in/",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [
+        "DPIIT"
+      ],
+      "tags": [
+        "expo",
+        "gulf"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "vivatech-india",
+      "name": "VivaTech Paris — India Pavilion (ITPO / MeitY)",
+      "region": "world",
+      "country": "France",
+      "type": "expo subsidy",
+      "amount": "Subsidised pod in the India pavilion (ITPO)",
+      "equity": "none",
+      "who": "Indian startups",
+      "why_fit": "Confirmed India pavilion for 2026 via ITPO; Europe is not a Souveno priority yet.",
+      "fit": 2,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.itpo.gov.in/india-pavilion-vivatech-2026",
+      "status": "to_verify",
+      "notes": "",
+      "needs": [],
+      "tags": [
+        "expo"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "leap-india-pavilion",
+      "name": "LEAP Riyadh — India pavilion (ESC / NASSCOM / MeitY)",
+      "region": "world",
+      "country": "Saudi Arabia",
+      "type": "expo subsidy",
+      "amount": "Subsidised stand in the India pavilion; MAI support via ESC",
+      "equity": "none",
+      "who": "Indian IT/AI startups",
+      "why_fit": "LEAP 2027 is 12–15 Apr 2027 in Riyadh: the Gulf's biggest tech show with an India pavilion.",
+      "fit": 4,
+      "deadline": "2027-04-12",
+      "rolling": false,
+      "link": "https://onegiantleap.com/",
+      "status": "to_verify",
+      "notes": "Apply through ESC India / NASSCOM about 4 months before.",
+      "needs": [
+        "ESC/NASSCOM"
+      ],
+      "tags": [
+        "gulf",
+        "expo",
+        "priority"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "eu-horizon",
+      "name": "EU Horizon Europe / EIC Accelerator",
+      "region": "world",
+      "country": "EU",
+      "type": "grant + equity",
+      "amount": "€2.5M grant + equity",
+      "equity": "equity option",
+      "who": "Needs an EU-established entity",
+      "why_fit": "Not eligible without an EU entity; listed so it is not forgotten.",
+      "fit": 1,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://eic.ec.europa.eu/",
+      "status": "confirmed",
+      "notes": "Skip for now.",
+      "needs": [
+        "EU entity"
+      ],
+      "tags": [
+        "grant"
+      ],
+      "last_checked": "2026-09-11"
+    },
+    {
+      "id": "enterprise-sg",
+      "name": "Enterprise Singapore Startup SG / EDB",
+      "region": "world",
+      "country": "Singapore",
+      "type": "grant",
+      "amount": "Startup SG Founder S$50k etc.",
+      "equity": "none",
+      "who": "Needs a Singapore entity with local director",
+      "why_fit": "Skip unless a Singapore base is planned.",
+      "fit": 1,
+      "deadline": null,
+      "rolling": true,
+      "link": "https://www.startupsg.gov.gov.sg/",
+      "status": "confirmed",
+      "notes": "",
+      "needs": [
+        "SG entity"
+      ],
+      "tags": [
+        "grant"
+      ],
+      "last_checked": "2026-09-11"
+    }
+  ]
+}

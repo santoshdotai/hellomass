@@ -1,0 +1,11 @@
+tests/
+scripts/
+uploads/
+outputs/
+logs/
+screenshots/
+models/
+data/souveno_vision.db
+data/expo/cards/
+__pycache__/
+requirements.txt
