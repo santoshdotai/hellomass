@@ -46,6 +46,7 @@ def build() -> dict:
 
 if __name__ == "__main__":
     tpl, out = Path(sys.argv[1]), Path(sys.argv[2])
-    html = tpl.read_text(encoding="utf-8").replace("__DATA__", json.dumps(build(), ensure_ascii=False, separators=(",", ":")))
+    css = (tpl.parent.parent / "css" / "expo.css").read_text(encoding="utf-8")  # one stylesheet for both surfaces
+    html = tpl.read_text(encoding="utf-8").replace("__CSS__", css).replace("__DATA__", json.dumps(build(), ensure_ascii=False, separators=(",", ":")))
     out.write_text(html, encoding="utf-8")
     print(f"wrote {out} ({out.stat().st_size:,} bytes)")
