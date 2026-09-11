@@ -26,7 +26,8 @@
     </div>
   </div>
   <nav class="main-nav" id="expoNav">
-    <button class="nav-btn active" data-view="events" data-icon="🎪">Events</button>
+    <button class="nav-btn active" data-view="overview" data-icon="🏠">Overview</button>
+    <button class="nav-btn" data-view="events" data-icon="🎪">Events</button>
     <button class="nav-btn" data-view="itinerary" data-icon="📅">Itinerary</button>
     <button class="nav-btn" data-view="approvals" data-icon="✅">Approvals <span id="apBadge" class="pill hidden"></span></button>
     <button class="nav-btn" data-view="funnel" data-icon="📈">Live Funnel</button>
@@ -47,9 +48,15 @@
 </header>
 
 <main class="expo-main">
-  <section class="kpi-row" id="kpiRow"></section>
+  <section id="view-overview" class="view active">
+    <div class="live" id="liveHome"><div class="muted">Loading live metrics…</div></div>
+    <section class="kpi-row" id="kpiRow"></section>
+    <div id="ovAttention"></div>
+    <div class="cols-2"><div class="panel"><h3>Next 30 days</h3><div id="ovTimeline" class="muted">…</div></div><div class="panel"><h3>Money</h3><div id="ovMoney" class="muted">…</div></div></div>
+    <div class="cols-2"><div class="panel"><h3>Best bets, next 12 months</h3><div id="ovBets" class="muted">…</div></div><div class="panel"><h3>Pipeline &amp; follow-ups</h3><div id="ovPipeline" class="muted">…</div></div></div>
+  </section>
 
-  <section id="view-events" class="view active">
+  <section id="view-events" class="view">
     <div class="toolbar">
       <label>Sort <select id="sortEvents"><option value="score">by stars</option><option value="date">by date</option><option value="cost">by cost per client</option></select></label>
       <label>Mode <select id="filterMode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label> <span id="evViews"></span>

@@ -1,5 +1,7 @@
 <title>Souveno Expo Command Center</title>
-<meta name="theme-color" content="#D8781A">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6366F1">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Souveno Expo">
@@ -221,6 +223,53 @@ main.content{min-width:0;padding-top:14px}
   body{padding-block:0 96px}
   .hero{grid-template-columns:1fr}.hero-main .big{font-size:42px}
 }
+.grid > .kanban,.grid > .tablewrap{grid-column:1/-1}.kanban{align-items:start}.kcol{min-width:240px}
+.statusline{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 4px}.attn ul{list-style:none;margin:6px 0 0;padding:0}.attn li{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}.attn li:last-child{border:0}.attn .dot{flex:none;width:9px;height:9px;border-radius:50%;margin-top:6px;background:#94A3B8}.attn li.bad .dot{background:#DC2626;box-shadow:0 0 0 4px rgba(220,38,38,.15)}.attn li.warn .dot{background:#F59E0B;box-shadow:0 0 0 4px rgba(245,158,11,.15)}.attn li.info .dot{background:#06B6D4}.tlist{display:flex;flex-direction:column}.tli{display:grid;grid-template-columns:44px 24px 1fr;gap:6px;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px;align-items:start}.tli:last-child{border:0}.tld{font-family:var(--mono);font-size:11px;color:var(--ink3);padding-top:2px}.mrow{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}.mrow:last-of-type{border:0}.mrow b{font-variant-numeric:tabular-nums;text-align:right}ol.bets,ul.bets{margin:6px 0 0;padding-left:18px}ul.bets{list-style:none;padding:0}.bets li{margin:6px 0;font-size:13px}.golink2{color:inherit;text-decoration:underline dotted;text-underline-offset:3px}
+
+/* ---- live metrics strip (homepage) ---- */
+.live{margin:0 0 12px}
+.live-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px;font-size:12px;color:var(--ink3)}
+.live-head .ldot{width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 0 0 rgba(16,185,129,.6);animation:lpulse 1.8s ease-out infinite;flex:none}
+.live-head.off .ldot{background:#94A3B8;animation:none}
+@keyframes lpulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)}70%{box-shadow:0 0 0 9px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.live-head b{color:var(--ink);font-weight:700;letter-spacing:.08em;font-family:var(--mono);font-size:11px}
+.live-head .clock{margin-left:auto;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.live-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.lt{position:relative;overflow:hidden;padding:12px 14px;border-radius:var(--r);background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.8);box-shadow:var(--shadow);backdrop-filter:blur(10px);cursor:pointer;transition:transform .15s,box-shadow .2s}
+.lt:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.lt .v{font-family:var(--display);font-size:24px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--ink);letter-spacing:-.02em}
+.lt .v.money{font-size:19px}
+.lt .v small{font-size:13px;font-weight:600;color:var(--ink3);margin-left:2px}
+.lt .l{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);margin-top:4px}
+.lt .s{font-size:11.5px;color:var(--ink2);margin-top:4px}
+.lt.good .v{color:#059669}.lt.bad .v{color:#DC2626}.lt.warn .v{color:#D97706}.lt.acc .v{background:var(--grad2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lt .spark{position:absolute;right:8px;bottom:8px;width:72px;height:26px;opacity:.9}
+.lt .bar{height:4px;border-radius:4px;background:#E2E8F0;margin-top:8px;overflow:hidden}.lt .bar i{display:block;height:100%;background:var(--grad);border-radius:4px;transition:width .6s ease}
+.lt.bump .v{animation:bump .5s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+/* ---- phone: compact, informative ---- */
+@media (max-width:640px){
+  header{padding:10px 14px 6px;gap:8px}
+  header h1{font-size:17px}
+  header > div:first-child .meta{display:none}
+  header .eyebrow{font-size:9.5px;letter-spacing:.1em}
+  .live-tiles{display:flex;overflow-x:auto;gap:8px;padding:2px 2px 8px;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:-2px}
+  .live-tiles::-webkit-scrollbar{display:none}
+  .lt{flex:0 0 44%;min-width:150px;scroll-snap-align:start;padding:10px 12px}
+  .lt .v{font-size:21px}
+  .hero-main{padding:16px 16px;border-radius:18px}.hero-main h2{font-size:19px}.hero-main .big{font-size:40px}
+  .hero-side{grid-template-columns:1fr 1fr;gap:8px}.hero-side .panel{padding:10px 12px}.hero-side .v{font-size:15px}.hero-side .l{font-size:9.5px}.ring{width:48px;height:48px}.ring i{width:36px;height:36px;font-size:11px}
+  .kpis{grid-template-columns:1fr 1fr;gap:8px}.kpi{padding:10px 12px}.kpi .v{font-size:18px}.kpi .l{font-size:10px}
+  .cols{grid-template-columns:1fr;gap:10px}.panel{padding:12px 13px}.panel h3{font-size:13.5px}
+  .attn li{font-size:12.5px;padding:6px 0}.tli{grid-template-columns:40px 22px 1fr;font-size:12.5px}.mrow{font-size:12.5px}.bets li{font-size:12.5px}
+  .tab table{display:block;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  .kanban{grid-auto-columns:minmax(78vw,1fr);scroll-snap-type:x mandatory}.kcol{scroll-snap-align:start}
+  .chip{padding:6px 10px;font-size:11.5px}
+  nav#nav button{min-width:58px;padding:5px 8px}
+}
+
+@media (max-width:900px){header{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.7)}#dbBanner{position:static}}
+@media (max-width:640px){header .eyebrow{display:none}.live-head{font-size:11px;gap:6px}.live-head b{font-size:10px;letter-spacing:.05em}.live-head .clock{font-size:11px}}
 </style>
 <div class="wrap">
 <header>
@@ -231,14 +280,19 @@ main.content{min-width:0;padding-top:14px}
   </div>
   <div class="voice"><button class="btn ghost" id="micBtn" title="Say: book tickets to ELECRAMA · when is Plastivision · what is coming in 2 months · mark Hardware Fair flight done PNR ABC123">🎤 Voice</button> <span id="micSay" class="meta"></span></div>
   <nav id="nav">
-    <button class="on" data-t="events" data-icon="🎪">Events</button><button data-t="calendar" data-icon="📅">Calendar</button><button data-t="approvals" data-icon="✅">Approvals <span id="apBadge" class="pill" hidden></span></button><button data-t="funnel" data-icon="📈">Live funnel</button><button data-t="capture" data-icon="📇">Capture lead</button><button data-t="partners" data-icon="🤝">Partners</button><button data-t="stalls" data-icon="🗺️">Stall picker</button><button data-t="travel" data-icon="✈️">Travel desk</button><button data-t="finance" data-icon="💹">Finance / P&amp;L</button><button data-t="funds" data-icon="💰">💰 Funds &amp; pavilions</button><button data-t="settings" data-icon="⚙️">⚙ Settings &amp; connections</button><button data-t="playbook" data-icon="📘">Playbook</button>
+    <button class="on" data-t="overview" data-icon="🏠">Overview</button><button data-t="events" data-icon="🎪">Events</button><button data-t="calendar" data-icon="📅">Calendar</button><button data-t="approvals" data-icon="✅">Approvals <span id="apBadge" class="pill" hidden></span></button><button data-t="funnel" data-icon="📈">Live funnel</button><button data-t="capture" data-icon="📇">Capture lead</button><button data-t="partners" data-icon="🤝">Partners</button><button data-t="stalls" data-icon="🗺️">Stall picker</button><button data-t="travel" data-icon="✈️">Travel desk</button><button data-t="finance" data-icon="💹">Finance / P&amp;L</button><button data-t="funds" data-icon="💰">💰 Funds &amp; pavilions</button><button data-t="settings" data-icon="⚙️">⚙ Settings &amp; connections</button><button data-t="playbook" data-icon="📘">Playbook</button>
   </nav>
 </header>
 <main class="content">
-<div class="kpis" id="kpis"></div>
 <div id="dbBanner" class="banner" hidden></div>
 
-<section class="tab on" id="t-events">
+<section class="tab on" id="t-overview">
+<div class="live" id="live"></div>
+<div class="kpis" id="kpis"></div>
+  <div id="ovAttention"></div>
+  <div class="cols"><div class="panel"><h3>Next 30 days</h3><div id="ovTimeline"></div></div><div class="panel"><h3>Money</h3><div id="ovMoney"></div></div><div class="panel"><h3>Pipeline &amp; follow-ups</h3><div id="ovPipeline"></div></div><div class="panel"><h3>Best bets this year</h3><div id="ovBets"></div></div><div class="panel"><h3>Funds to apply this month</h3><div id="ovFunds"></div></div><div class="panel"><h3>Team &amp; travel</h3><div id="ovTravel"></div></div></div>
+</section>
+<section class="tab" id="t-events">
   <div class="toolbar"><label>Sort <select id="sort"><option value="stars">by stars</option><option value="date">by date</option><option value="cpc">by cost per client</option></select></label>
   <label>Mode <select id="mode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label> <span id="evViews"></span>
   <span>Stars = ICP fit 40 (best of WhatsApp quote desk and Vision AI) · footfall 15 · decision-makers 15 · geography 10 · low competition 10 · timing 10. Probability = chance of at least one paid pilot from the low estimate.</span></div>
@@ -362,7 +416,7 @@ const state={leads:[],collabs:[],plans:{},approvals:[],db:null,local:false,mode:
 
 // ---------------------------------------------------------------- nav
 $$('#nav button').forEach(b=>b.addEventListener('click',()=>{$$('#nav button').forEach(x=>x.classList.toggle('on',x===b));$$('section.tab').forEach(s=>s.classList.toggle('on',s.id==='t-'+b.dataset.t));try{localStorage.setItem('sx.tab',b.dataset.t)}catch{}}));
-try{const t=localStorage.getItem('sx.tab');if(t&&$('#nav button[data-t="'+t+'"]'))$('#nav button[data-t="'+t+'"]').click()}catch{}
+try{const t=localStorage.getItem('sx.tab');if(t&&t!=='events'&&$('#nav button[data-t="'+t+'"]'))$('#nav button[data-t="'+t+'"]').click()}catch{}
 
 // ---------------------------------------------------------------- kpis
 function kpis(){
@@ -381,6 +435,7 @@ function renderEvents(){
   if(sort==='date')evs=evs.slice().sort((a,b)=>a.start.localeCompare(b.start));
   if(sort==='cpc')evs=evs.slice().sort((a,b)=>(a.cpc||9e9)-(b.cpc||9e9));
   const evv=$('#evViews');if(evv)evv.innerHTML=viewBar('events',['cards','list','kanban','pipeline'],'cards');const view=viewOf('events','cards');
+  $('#events').classList.toggle('grid',view==='cards');
   if(view==='pipeline'){const ex=evs.filter(e=>e.mode==='exhibit');const mini=e=>{const st=orgStage(e),d=stalledDays(e),final=['stall allotted','badges / manual received'].includes(st);return `<div class="kcard">${evLink(e.id,e.name)}<span class="meta">${e.start} · ${esc(e.city)} · ${esc((e.contact||{}).org||e.organiser||'')}</span><br><select data-org="${e.id}">${ORG_STAGES.map(x=>`<option ${x===st?'selected':''}>${x}</option>`).join('')}</select>${d!=null&&d>=5&&!final?`<br><span class="stalled">stalled ${d} days — chase from souveno30@gmail.com</span>`:d!=null?`<br><span class="meta">${d} d in this stage</span>`:''}</div>`};$('#events').innerHTML=`<p class="meta">Organiser pipeline for the ${ex.length} exhibit shows. A stage older than 5 days turns red. All organiser mail goes from souveno30@gmail.com.</p>`+kanban(ORG_STAGES.map(t=>({title:t,items:ex.filter(e=>orgStage(e)===t).sort((a,b)=>a.start.localeCompare(b.start)).map(mini)})));$$('#events select[data-org]').forEach(sel=>sel.onchange=()=>savePlan(sel.dataset.org,{organiserStage:sel.value,organiserAt:new Date().toISOString()}));return}
   if(view!=='cards'){const fin=(DATA.finance||{})['12m'];const finBy={};if(fin)(fin.exhibits||[]).concat(fin.visits||[]).forEach(r=>finBy[r.id]=r);
     const stage=e=>{const p=state.plans[e.id]||{};const aps=state.approvals.filter(a=>a.eventId===e.id);if(p.stallStatus==='booked'||p.flightStatus==='booked'||aps.some(a=>a.status==='executed'))return 'Booked';if(aps.some(a=>a.status==='approved'))return 'Approved — to pay/book';if(aps.some(a=>a.status==='proposed'))return 'Proposed — waiting for your tap';return 'Not started'};
@@ -391,6 +446,7 @@ function renderEvents(){
     return `<article class="card s${Math.floor(e.stars)}" id="ev-${e.id}">
       <div><span class="stars">${stars(e.stars)}</span> <span class="big">${e.stars.toFixed(1)}</span> <span class="meta mono">${e.total}/100</span> <span class="pill ${e.mode}">${e.mode}</span>${e.tentative?'<span class="pill">dates TBA</span>':''} <span class="pill" title="quote desk ${e.quote_fit}/40 · Vision AI ${e.vision_fit}/40">lead with: ${e.lead_product==='both'?'both products':e.lead_product==='vision_ai'?'Vision AI':'WhatsApp quote desk'}</span></div>
       <h2>${esc(e.name)}</h2>
+      <div class="statusline"><span class="pill ${daysAway(e.start)<0?'':daysAway(e.start)<=30?'searching':''}">${daysAway(e.end)<0?'done':daysAway(e.start)<=0?'live now':'in '+daysAway(e.start)+' days'}</span>${e.mode==='exhibit'?`<span class="pill ${p.stallStatus==='booked'?'booked':''}">stall: ${p.stallStatus||orgStage(e)}</span>`:''}${e.travel&&e.travel.needs_travel?`<span class="pill ${p.flightStatus==='booked'?'booked':''}">✈ ${p.flightStatus||'not started'}</span><span class="pill ${p.hotelStatus==='booked'?'booked':''}">🏨 ${p.hotelStatus||'not started'}</span>`:'<span class="pill">home city</span>'}${n?`<span class="pill booked">${n} leads</span>`:''}${(e.subsidy&&e.subsidy.schemes||[]).some(s=>s.key==='pms'&&s.days_to_apply!=null&&s.days_to_apply<=14&&s.days_to_apply>=-30)?'<span class="pill searching">PMS apply now</span>':''}</div>
       <div class="meta mono">${e.start} → ${e.end}</div><div class="meta">${esc(e.venue)}, ${esc(e.city)} · ${esc(e.category)} · ICP ${e.icp.join(', ')}</div>
       <div class="whybox"><b>${esc(e.explain.headline)}</b><ul>${e.explain.lines.map(l=>`<li>${esc(l)}</li>`).join('')}</ul><div class="ff">${esc(e.explain.footfall_expected)}</div><div class="ff">${esc(e.explain.reach)}</div></div>
       ${subsidyBox(e.subsidy)}
@@ -622,7 +678,7 @@ function showReport(evId){const e=byId[evId];const a=(state.actuals||{})[evId]||
 // ---------------- stall QR
 function renderQR(){const host=$('#qrbox');if(!host)return;const sel=$('#qrEvent');if(!sel.options.length){EV.filter(e=>e.mode==='exhibit').forEach(e=>{const o=document.createElement('option');o.value=e.id;o.textContent=e.name;sel.appendChild(o)});sel.onchange=renderQR}const e=byId[sel.value]||EV[0];const p=state.plans[e.id]||{};const url=`https://hellomass-pd54.vercel.app/expo/card?ev=${encodeURIComponent(e.id)}&stall=${encodeURIComponent(p.stallNumber||'')}&src=qr`;host.innerHTML='';try{new QRCode(host,{text:url,width:180,height:180})}catch(err){host.textContent='QR library not loaded: '+url}$('#qrUrl').textContent=url}
 
-function renderHero(){let h=$('#hero');if(!h){h=document.createElement('div');h.id='hero';h.className='hero';const k=$('#kpis');k.parentNode.insertBefore(h,k)}
+function renderHero(){let h=$('#hero');if(!h){h=document.createElement('div');h.id='hero';h.className='hero';const k=$('#live')||$('#kpis');k.parentNode.insertBefore(h,k)}
   const today=new Date();today.setHours(0,0,0,0);const up=EV.filter(e=>daysAway(e.end)>=0).sort((a,b)=>a.start.localeCompare(b.start));const nx=up[0];const live=up.find(e=>daysAway(e.start)<=0&&daysAway(e.end)>=0);
   const pend=state.approvals.filter(a=>a.status==='proposed');const flightsDue=pend.filter(a=>a.kind==='flight'&&(flightWindow((a.details||{}).depart,(a.details||{}).international)||{}).status!=='ideal');
   const hour=new Date().getHours();const greet=hour<12?'Good morning':hour<17?'Good afternoon':'Good evening';
@@ -632,6 +688,44 @@ function renderHero(){let h=$('#hero');if(!h){h=document.createElement('div');h.
   <div class="hero-side"><div class="panel"><div class="row2"><div class="ring" style="--p:${season}"><i>${season}%</i></div><div><div class="v">${exhibits} stalls · ${EV.length-exhibits} visits</div><div class="l">season 2026-27 · ${season}% done</div></div></div></div>
   ${tt?`<div class="panel"><div class="v">${inr(tt.pl_inr[0])} – ${inr(tt.pl_inr[1])}</div><div class="l">expected P&amp;L, next 12 months · ROI ${tt.roi_pct[0]==null?'—':tt.roi_pct[0]+'%'}–${tt.roi_pct[1]==null?'—':tt.roi_pct[1]+'%'}</div></div>`:''}</div>`;
   $$('#hero [data-go]').forEach(c=>c.onclick=()=>{const b=$(`#nav button[data-t="${c.dataset.go}"]`);if(b)b.click()})}
+
+// ---------------------------------------------------------------- overview
+function renderOverview(){const host=$('#ovAttention');if(!host)return;const today=new Date();today.setHours(0,0,0,0);const d=s=>daysAway(s);
+  const att=[];
+  state.approvals.filter(a=>a.status==='proposed'&&a.kind==='flight').forEach(a=>{const w=flightWindow((a.details||{}).depart,(a.details||{}).international);if(w&&w.status!=='ideal')att.push({lvl:w.status==='late'?'bad':'warn',t:`Flight for ${(byId[a.eventId]||{}).name||a.eventId} is ${w.status==='late'?'past the hard deadline':'inside the booking window'} — approve now (departs ${a.details.depart})`,go:'approvals'})});
+  state.approvals.filter(a=>a.status==='approved').forEach(a=>att.push({lvl:'warn',t:`Approved but not yet paid/booked: ${a.title} (${inr(a.amountInr)})`,go:'approvals'}));
+  EV.filter(e=>e.mode==='exhibit'&&d(e.start)>=0).forEach(e=>{const sb=e.subsidy||{};(sb.schemes||[]).filter(s=>s.key==='pms'&&s.days_to_apply!=null&&s.days_to_apply<=14).forEach(s=>att.push({lvl:s.days_to_apply<0?'bad':'warn',t:`PMS subsidy for ${e.name}: apply ${s.days_to_apply<0?'immediately (window passed '+(-s.days_to_apply)+' days ago)':'by '+s.apply_by+' ('+s.days_to_apply+' days)'}`,ev:e.id}));
+    const st=orgStage(e),sd=stalledDays(e);if(d(e.start)<=60&&st==='not contacted')att.push({lvl:d(e.start)<=30?'bad':'warn',t:`${e.name} starts in ${d(e.start)} days and the organiser has not been contacted (stall not booked)`,ev:e.id});else if(sd!=null&&sd>=5&&!['stall allotted','badges / manual received'].includes(st))att.push({lvl:'warn',t:`${e.name}: organiser stage "${st}" stalled for ${sd} days`,ev:e.id});
+    if(e.tentative&&d(e.start)<=120)att.push({lvl:'warn',t:`${e.name}: dates are tentative — confirm with the organiser`,ev:e.id})});
+  EV.filter(e=>d(e.start)>=0&&d(e.start)<=45&&e.travel&&e.travel.needs_travel).forEach(e=>{const p=state.plans[e.id]||{};if(p.flightStatus!=='booked'&&!state.approvals.some(a=>a.eventId===e.id&&a.kind==='flight'&&a.status==='executed'))att.push({lvl:d(e.start)<=30?'bad':'warn',t:`${e.name} in ${d(e.start)} days: flights not booked`,ev:e.id});if(p.hotelStatus!=='booked'&&!state.approvals.some(a=>a.eventId===e.id&&a.kind==='hotel'&&a.status==='executed'))att.push({lvl:'warn',t:`${e.name}: hotel not booked`,ev:e.id})});
+  ((DATA.funds||{}).items||[]).filter(f=>f.deadline&&f.days_to_deadline!=null&&f.days_to_deadline<=30&&f.days_to_deadline>=0&&((state.funds||{})[f.id]||{}).status!=='applied').forEach(f=>att.push({lvl:'warn',t:`${f.name}: deadline ${f.deadline} (${f.days_to_deadline} days) — not applied`,go:'funds'}));
+  staffConflicts().forEach(c=>att.push({lvl:'warn',t:'Staffing conflict: '+c,go:'settings'}));
+  followupsDue().filter(x=>x.step!=='day 0').slice(0,3).forEach(x=>att.push({lvl:'info',t:`WhatsApp follow-up due: ${x.l.name||x.l.company} (${x.step})`,go:'funnel'}));
+  const order={bad:0,warn:1,info:2};att.sort((a,b)=>order[a.lvl]-order[b.lvl]);
+  host.innerHTML=`<div class="panel attn"><h3>Needs your attention <span class="pill ${att.some(a=>a.lvl==='bad')?'':'booked'}">${att.length}</span></h3>${att.length?`<ul>${att.slice(0,12).map(a=>`<li class="${a.lvl}"><span class="dot"></span>${a.ev?evLink(a.ev,a.t):a.go?`<a class="golink2" data-go="${a.go}" href="#">${esc(a.t)}</a>`:esc(a.t)}</li>`).join('')}</ul>${att.length>12?`<p class="meta">+${att.length-12} more</p>`:''}`:'<p class="meta">Nothing urgent. Everything is inside its window.</p>'}</div>`;
+  $$('#ovAttention [data-go]').forEach(a=>a.onclick=ev=>{ev.preventDefault();const b=$(`#nav button[data-t="${a.dataset.go}"]`);if(b)b.click()});
+  // timeline next 30 days
+  const items=[];EV.forEach(e=>{const ds=d(e.start),de=d(e.end);if(de>=0&&ds<=30)items.push({date:e.start,k:'🎪',t:`${e.name} (${e.mode}, ${e.city})`,ev:e.id});if(e.travel&&e.travel.needs_travel){const o=d(e.travel.outbound.date),r=d(e.travel.return.date);if(o>=0&&o<=30)items.push({date:e.travel.outbound.date,k:'✈️',t:`Fly ${e.travel.outbound.route} for ${e.name.split(' ').slice(0,2).join(' ')}`,ev:e.id});if(r>=0&&r<=30)items.push({date:e.travel.return.date,k:'✈️',t:`Return ${e.travel.return.route}`,ev:e.id})}(e.subsidy&&e.subsidy.schemes||[]).forEach(s=>{if(s.apply_by&&s.days_to_apply!=null&&s.days_to_apply>=0&&s.days_to_apply<=30)items.push({date:s.apply_by,k:'💰',t:`Apply: ${s.name.split(' — ')[0]} for ${e.name.split(' ').slice(0,2).join(' ')}`,ev:e.id})})});
+  state.approvals.filter(a=>a.status==='proposed'&&a.deadline&&d(a.deadline)>=0&&d(a.deadline)<=30).forEach(a=>items.push({date:a.deadline,k:'✅',t:`Decide: ${a.title}`,go:'approvals'}));
+  ((DATA.funds||{}).items||[]).filter(f=>f.deadline&&f.days_to_deadline>=0&&f.days_to_deadline<=30).forEach(f=>items.push({date:f.deadline,k:'🏦',t:`Deadline: ${f.name}`,go:'funds'}));
+  items.sort((a,b)=>a.date.localeCompare(b.date));
+  $('#ovTimeline').innerHTML=items.length?`<div class="tlist">${items.map(i=>`<div class="tli"><span class="tld">${i.date.slice(5)}</span><span class="tlk">${i.k}</span><span>${i.ev?evLink(i.ev,i.t):i.go?`<a class="golink2" data-go="${i.go}" href="#">${esc(i.t)}</a>`:esc(i.t)}</span></div>`).join('')}</div>`:'<p class="meta">Nothing scheduled in the next 30 days.</p>';
+  $$('#ovTimeline [data-go]').forEach(a=>a.onclick=ev=>{ev.preventDefault();const b=$(`#nav button[data-t="${a.dataset.go}"]`);if(b)b.click()});
+  // money
+  const paid=state.approvals.filter(a=>a.status==='executed').reduce((x,a)=>x+(a.amountInr||0),0),committed=state.approvals.filter(a=>a.status==='approved').reduce((x,a)=>x+(a.amountInr||0),0),waiting=state.approvals.filter(a=>a.status==='proposed').reduce((x,a)=>x+(a.amountInr||0),0);
+  const fin=(DATA.finance||{})['12m'];const tt=fin?fin.totals:null;const season=EV.reduce((x,e)=>{const b=e.budget.total_inr;return [x[0]+(Array.isArray(b)?b[0]:b),x[1]+(Array.isArray(b)?b[1]:b)]},[0,0]);const sub=EV.reduce((x,e)=>{const r=(e.subsidy||{}).estimated_refund_inr||[0,0];return [x[0]+r[0],x[1]+r[1]]},[0,0]);
+  $('#ovMoney').innerHTML=`<div class="mrow"><span>Paid so far</span><b>${inr(paid)}</b></div><div class="mrow"><span>Approved, to pay</span><b>${inr(committed)}</b></div><div class="mrow"><span>Waiting for your tap</span><b>${inr(waiting)}</b></div><div class="mrow"><span>Season budget (29 shows)</span><b>${rng(season)}</b></div><div class="mrow"><span>Subsidy money back (est.)</span><b class="good">${rng(sub)}</b></div>${tt?`<div class="mrow"><span>Expected revenue, 12 months</span><b>${rng(tt.all.revenue_inr)}</b></div><div class="mrow"><span>Expected P&amp;L, 12 months</span><b class="good">${rng(tt.all.pl_inr)}</b></div><div class="mrow"><span>Expected clients</span><b>${tt.all.conversions[0]}–${tt.all.conversions[1]}</b></div>`:''}<p class="meta">Assumptions in the Finance tab. Paid = approvals marked Done.</p>`;
+  // pipeline
+  const cnt=Object.fromEntries(STATUS.map(s=>[s.key,0]));state.leads.forEach(l=>cnt[l.status]=(cnt[l.status]||0)+1);const due=followupsDue();
+  $('#ovPipeline').innerHTML=`<div class="mrow"><span>Leads captured</span><b>${state.leads.length}</b></div>${STATUS.map(s=>`<div class="mrow"><span>${s.label}</span><b>${cnt[s.key]||0}</b></div>`).join('')}<div class="mrow"><span>WhatsApp follow-ups due</span><b>${due.length}</b></div><div class="mrow"><span>Partners / collaborations</span><b>${state.collabs.length}</b></div>`;
+  // best bets
+  $('#ovBets').innerHTML=fin?`<ol class="bets">${fin.best_bets.map(b=>`<li>${evLink(b.id,b.name)}<br><span class="meta">${b.mode} · ${b.lead_product==='vision_ai'?'Vision AI':b.lead_product==='both'?'both products':'quote desk'} · P&amp;L ${rng(b.pl_inr)}</span></li>`).join('')}</ol>`:'';
+  // funds
+  const fm=((DATA.funds||{}).items||[]).filter(f=>f.fit>=5);$('#ovFunds').innerHTML=fm.length?`<ul class="bets">${fm.map(f=>{const st=((state.funds||{})[f.id]||{}).status||'not_applied';return `<li><a class="golink2" data-go="funds" href="#">${esc(f.name)}</a> <span class="pill ${st==='applied'||st==='awarded'?'booked':''}">${st.replace('_',' ')}</span><br><span class="meta">${esc(f.amount)}</span></li>`}).join('')}</ul>`:'<p class="meta">—</p>';
+  $$('#ovFunds [data-go]').forEach(a=>a.onclick=ev=>{ev.preventDefault();$('#nav button[data-t="funds"]').click()});
+  // travel & team
+  const legs=[];EV.filter(e=>e.travel&&e.travel.needs_travel&&d(e.travel.outbound.date)>=0).sort((a,b)=>a.travel.outbound.date.localeCompare(b.travel.outbound.date)).slice(0,5).forEach(e=>{const p=state.plans[e.id]||{};legs.push(`<div class="mrow"><span>${evLink(e.id,e.name.split(' ').slice(0,3).join(' '))}<br><span class="meta">${e.travel.outbound.route} ${e.travel.outbound.date} → back ${e.travel.return.date}${p.staff?' · '+esc(p.staff):''}</span></span><b><span class="pill ${p.flightStatus==='booked'?'booked':''}">✈ ${p.flightStatus||'not started'}</span> <span class="pill ${p.hotelStatus==='booked'?'booked':''}">🏨 ${p.hotelStatus||'not started'}</span></b></div>`)});
+  const conf=staffConflicts();$('#ovTravel').innerHTML=(legs.join('')||'<p class="meta">No trips in the plan.</p>')+`<p class="meta">Team: ${team().map(m=>esc(m.name)).join(', ')} · ${conf.length?'<span class="bad">'+conf.length+' staffing conflict(s)</span>':'no staffing conflicts'}</p>`}
 function renderTravellers(){for(const hid of ['#travellers','#travellers2']){const host=$(hid);if(!host)continue;const rows=(state.travellers&&state.travellers.length)?state.travellers:[{given_name:'Santosh',phone_number:'+91 86393 32232',email:'santoshdotai@gmail.com',gender:'m',loyalty:{}},{given_name:'',gender:'m',loyalty:{}}];const air=[['6E','IndiGo BluChip'],['AI','Air India Flying Returns'],['QP','Akasa'],['EK','Emirates Skywards'],['FZ','flydubai'],['G9','Air Arabia']];
   host.innerHTML=`<h3>Travellers & frequent-flyer numbers (asked once, used for every booking)</h3><p class="meta">Pre-fills airline bookings; in automate mode the agent tickets via Duffel with these loyalty numbers. Passport only for Gulf trips. Never enter card numbers or portal passwords.</p>${rows.map((t,i)=>`<div class="trav" data-i="${i}"><b>Traveller ${i+1}</b><div class="grid3"><label>First name<input name="given_name" value="${esc(t.given_name||'')}"></label><label>Last name<input name="family_name" value="${esc(t.family_name||'')}"></label><label>Date of birth<input name="born_on" type="date" value="${esc(t.born_on||'')}"></label><label>Gender<select name="gender"><option value="m" ${t.gender==='m'?'selected':''}>M</option><option value="f" ${t.gender==='f'?'selected':''}>F</option></select></label><label>Phone<input name="phone_number" value="${esc(t.phone_number||'')}"></label><label>E-mail<input name="email" value="${esc(t.email||'')}"></label><label>Passport no.<input name="passport_number" value="${esc(t.passport_number||'')}"></label><label>Passport expiry<input name="passport_expiry" type="date" value="${esc(t.passport_expiry||'')}"></label>${air.map(([c,n])=>`<label>${n} #<input name="loyalty.${c}" value="${esc((t.loyalty||{})[c]||'')}"></label>`).join('')}</div></div>`).join('')}<button class="btn primary saveTrav">Save travellers</button> <span class="meta travMsg"></span>`;
   host.querySelector('.saveTrav').onclick=async()=>{const out=$$('.trav',host).map(div=>{const o={loyalty:{}};$$('input,select',div).forEach(inp=>{if(inp.name.startsWith('loyalty.')){if(inp.value)o.loyalty[inp.name.slice(8)]=inp.value}else o[inp.name]=inp.value});return o}).filter(o=>o.given_name);await saveSetting('travellers',{rows:out});state.travellers=out;host.querySelector('.travMsg').textContent=`Saved ${out.length} traveller(s).`;rerender()}}}
@@ -644,6 +738,53 @@ function renderPlaybook(){const li=a=>'<ul>'+a.map(x=>`<li>${esc(x)}</li>`).join
   <div class="panel"><h3>Where to stand and sit</h3>${li(PB.stall_selection.where_to_stand)}<h3 style="margin-top:12px">Pre-event checklist</h3>${li(PB.checklist)}</div>
   <div class="panel"><h3>ICP segments used in scoring</h3>${li(Object.entries(DATA.meta.icp).map(([k,v])=>k+' — '+v))}<h3 style="margin-top:12px">Funnel assumptions</h3><p class="meta">Exhibit capture ${DATA.meta.assumptions.exhibit_capture_rate*100}% of ICP visitors (capped at 60k reach) · visiting ${DATA.meta.assumptions.visit_booths_per_day} booths/day, ${DATA.meta.assumptions.visit_share_rate*100}% share details · qualified ${DATA.meta.assumptions.qualified_rate*100}% · demo ${DATA.meta.assumptions.demo_rate*100}% · paid pilot ${DATA.meta.assumptions.paid_pilot_rate*100}% (${esc(DATA.meta.assumptions.source)}). Low estimate = half of high.</p></div>`}
 
+
+// ---------------------------------------------------------------- live metrics (homepage)
+const _lv={};
+function animNum(el,to,fmt){const from=Number(el.dataset.n||0);el.dataset.n=to;if(!isFinite(to)||from===to){el.textContent=fmt(to);return}const t0=performance.now(),dur=650;const step=t=>{const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=fmt(Math.round(from+(to-from)*e));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+function spark(vals){if(!vals.length)return '';const w=72,h=26,mx=Math.max(1,...vals);const pts=vals.map((v,i)=>[(i/(vals.length-1||1))*w,h-2-(v/mx)*(h-4)]);const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><path d="${d} L${w} ${h} L0 ${h} Z" fill="rgba(99,102,241,.12)"/><path d="${d}" fill="none" stroke="#6366F1" stroke-width="1.6" stroke-linecap="round"/></svg>`}
+function liveMetrics(){const now=new Date();const today=now.toISOString().slice(0,10);const weekAgo=new Date(now-6*86400000).toISOString().slice(0,10);
+  const up=EV.filter(e=>daysAway(e.end)>=0).sort((a,b)=>a.start.localeCompare(b.start));const nx=up.find(e=>daysAway(e.start)<=0)||up[0];const liveNow=up.find(e=>daysAway(e.start)<=0&&daysAway(e.end)>=0);
+  const pend=state.approvals.filter(a=>a.status==='proposed'),appr=state.approvals.filter(a=>a.status==='approved'),done=state.approvals.filter(a=>a.status==='executed');
+  const sum=a=>a.reduce((x,y)=>x+(y.amountInr||0),0);
+  const leadsToday=state.leads.filter(l=>(l.createdAt||'').slice(0,10)===today).length,leadsWeek=state.leads.filter(l=>(l.createdAt||'')>=weekAgo).length;
+  const days=[];for(let i=13;i>=0;i--){const d=new Date(now-i*86400000).toISOString().slice(0,10);days.push(state.leads.filter(l=>(l.createdAt||'').slice(0,10)===d).length)}
+  const due=followupsDue().filter(x=>x.step!=='day 0').length;
+  const exh=EV.filter(e=>e.mode==='exhibit'&&daysAway(e.end)>=0);const stallsBooked=exh.filter(e=>{const p=state.plans[e.id]||{};return p.stallStatus==='booked'||['stall allotted','badges / manual received'].includes(orgStage(e))||state.approvals.some(a=>a.eventId===e.id&&(a.kind==='stall'||a.kind==='stall_advance')&&a.status==='executed')}).length;
+  const trips=EV.filter(e=>e.travel&&e.travel.needs_travel&&daysAway(e.travel.outbound.date)>=0);const flightsBooked=trips.filter(e=>{const p=state.plans[e.id]||{};return p.flightStatus==='booked'||state.approvals.some(a=>a.eventId===e.id&&a.kind==='flight'&&a.status==='executed')}).length;const hotelsBooked=trips.filter(e=>{const p=state.plans[e.id]||{};return p.hotelStatus==='booked'||state.approvals.some(a=>a.eventId===e.id&&a.kind==='hotel'&&a.status==='executed')}).length;
+  const subDue=[];EV.forEach(e=>((e.subsidy||{}).schemes||[]).forEach(s=>{if(s.key==='pms'&&s.days_to_apply!=null&&s.days_to_apply<=14&&daysAway(e.start)>=0)subDue.push(e)}));
+  const fundsOpen=((DATA.funds||{}).items||[]).filter(f=>f.fit>=5&&((state.funds||{})[f.id]||{}).status!=='applied'&&((state.funds||{})[f.id]||{}).status!=='awarded').length;
+  const fin=(DATA.finance||{})['12m'];const tt=fin?fin.totals.all:null;
+  const flightsLate=pend.filter(a=>a.kind==='flight'&&(flightWindow((a.details||{}).depart,(a.details||{}).international)||{}).status!=='ideal').length;
+  const seasonDone=EV.filter(e=>daysAway(e.end)<0).length;
+  return {nx,liveNow,pend,appr,done,sum,leadsToday,leadsWeek,days,due,exh,stallsBooked,trips,flightsBooked,hotelsBooked,subDue,fundsOpen,tt,flightsLate,seasonDone}}
+function countdown(nx){if(!nx)return '—';const t=new Date(nx.start+'T09:00:00')-Date.now();if(t<=0)return 'now';const d=Math.floor(t/86400000),h=Math.floor(t%86400000/3600000),m=Math.floor(t%3600000/60000);return d>0?`${d}<small>d</small> ${String(h).padStart(2,'0')}<small>h</small> ${String(m).padStart(2,'0')}<small>m</small>`:`${h}<small>h</small> ${String(m).padStart(2,'0')}<small>m</small>`}
+function renderLive(){const host=$('#live');if(!host)return;const m=liveMetrics();const pct=EV.length?Math.round(100*m.seasonDone/EV.length):0;
+  const tiles=[
+    {id:'next',cls:'acc',v:m.liveNow?'LIVE':countdown(m.nx),raw:m.liveNow?0:daysAway((m.nx||{}).start||'2099-01-01'),l:m.liveNow?'happening now':'next show starts in',s:m.nx?esc(m.nx.name)+' · '+esc(m.nx.city):'nothing scheduled',ev:(m.nx||{}).id,html:true},
+    {id:'leads',cls:m.leadsToday?'good':'',n:m.leadsToday,l:'leads captured today',s:`${m.leadsWeek} this week · ${state.leads.length} total`,go:'funnel',extra:spark(m.days)},
+    {id:'due',cls:m.due?'warn':'good',n:m.due,l:'WhatsApp follow-ups due',s:m.due?'day-2 / day-7 nudges waiting':'all leads nudged on time',go:'funnel'},
+    {id:'wait',cls:m.pend.length?(m.flightsLate?'bad':'warn'):'good',n:m.pend.length,l:'bookings awaiting your tap',s:inr(m.sum(m.pend))+(m.flightsLate?` · ${m.flightsLate} flight${m.flightsLate>1?'s':''} inside window`:' queued'),go:'approvals'},
+    {id:'paid',cls:'',n:m.sum(m.done),fmt:inr,l:'paid so far',s:`${inr(m.sum(m.appr))} approved, still to pay`,go:'approvals'},
+    {id:'stalls',cls:m.exh.length&&m.stallsBooked===m.exh.length?'good':'',n:m.stallsBooked,suf:` / ${m.exh.length}`,l:'stalls booked',s:`${m.exh.length-m.stallsBooked} organisers still to close`,go:'events',bar:m.exh.length?m.stallsBooked/m.exh.length:0},
+    {id:'flights',cls:'',n:m.flightsBooked,suf:` / ${m.trips.length}`,l:'flights booked (ex-HYD)',s:`${m.hotelsBooked} / ${m.trips.length} hotels booked`,go:'travel',bar:m.trips.length?m.flightsBooked/m.trips.length:0},
+    {id:'sub',cls:m.subDue.length?'bad':'good',n:m.subDue.length,l:'PMS subsidy filings due',s:m.subDue.length?'apply ≤14 days: '+m.subDue.slice(0,2).map(e=>esc(e.name.split(' ').slice(0,2).join(' '))).join(', '):'no filing inside 14 days',go:'events'},
+    {id:'funds',cls:m.fundsOpen?'warn':'good',n:m.fundsOpen,l:'top-fit funds not yet applied',s:'India + world programmes, fit 5/5',go:'funds'},
+    {id:'pl',cls:'acc',n:m.tt?m.tt.pl_inr[0]:0,fmt:inr,l:'expected P&L, 12 months (low)',s:m.tt?`up to ${inr(m.tt.pl_inr[1])} · ${m.tt.conversions[0]}–${m.tt.conversions[1]} clients`:'—',go:'finance'},
+    {id:'season',cls:'',n:pct,suf:'%',l:'season 2026-27 done',s:`${m.seasonDone} of ${EV.length} shows behind us`,go:'calendar',bar:pct/100}
+  ];
+  if(!host.dataset.built){host.innerHTML=`<div class="live-head ${state.db?'':'off'}"><span class="ldot"></span><b>${state.db?'LIVE · shared Souveno store':'LOCAL · this browser only'}</b><span id="liveSync"></span><span class="clock" id="liveClock"></span></div><div class="live-tiles">${tiles.map(t=>`<div class="lt ${t.cls}" data-id="${t.id}" ${t.ev?`data-ev="${t.ev}"`:''} ${t.go?`data-go="${t.go}"`:''}><div class="v"><span class="n"></span><small class="suf"></small></div><div class="l"></div><div class="s"></div><div class="x"></div></div>`).join('')}</div>`;host.dataset.built='1';
+    $$('.lt',host).forEach(el=>el.onclick=()=>{if(el.dataset.ev){goToEvent(el.dataset.ev);return}const b=$(`#nav button[data-t="${el.dataset.go}"]`);if(b)b.click()})}
+  const head=$('.live-head',host);head.className='live-head '+(state.db?'':'off');head.querySelector('b').textContent=state.db?'LIVE · shared Souveno store':'LOCAL · this browser only';
+  tiles.forEach(t=>{const el=host.querySelector(`.lt[data-id="${t.id}"]`);if(!el)return;el.className='lt '+t.cls;if(t.ev)el.dataset.ev=t.ev;const n=el.querySelector('.n');el.querySelector('.v').classList.toggle('money',t.fmt===inr);
+    if(t.html){if(n.innerHTML!==t.v){n.innerHTML=t.v}}else{const prev=n.dataset.n;animNum(n,t.n,t.fmt||(x=>x.toLocaleString('en-IN')));if(prev!=null&&Number(prev)!==t.n){el.classList.add('bump');setTimeout(()=>el.classList.remove('bump'),600)}}
+    el.querySelector('.suf').textContent=t.suf||'';el.querySelector('.l').textContent=t.l;el.querySelector('.s').innerHTML=t.s;el.querySelector('.x').innerHTML=(t.extra||'')+(t.bar!=null?`<div class="bar"><i style="width:${Math.round(t.bar*100)}%"></i></div>`:'')});
+  _lv.nx=m.nx;_lv.liveNow=m.liveNow;tickLive()}
+function tickLive(){const c=$('#liveClock');if(c){c.textContent=new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',second:'2-digit',timeZone:'Asia/Kolkata'})+' IST'}
+  const sy=$('#liveSync');if(sy){const ago=state.syncedAt?Math.max(0,Math.round((Date.now()-state.syncedAt)/1000)):null;sy.textContent=ago==null?'':ago<5?'· synced just now':ago<60?`· synced ${ago}s ago`:`· synced ${Math.round(ago/60)} min ago`}
+  const n=$('#live .lt[data-id="next"] .n');if(n&&!_lv.liveNow&&_lv.nx){const v=countdown(_lv.nx);if(n.innerHTML!==v)n.innerHTML=v}}
+setInterval(tickLive,1000);setInterval(()=>{if(document.visibilityState==='visible')renderLive()},60000);
+
 // ---------------------------------------------------------------- storage (db capability with local fallback)
 const LS='sx.state';
 function localLoad(){try{state.funds=JSON.parse(localStorage.getItem(LS+':local')||'{}');const lf={};Object.entries(state.funds).forEach(([k,v])=>{if(k.startsWith('funds/'))lf[k.slice(6)]=v});state.funds=lf}catch{}try{state.actuals=JSON.parse(localStorage.getItem(LS+':actuals')||'{}')}catch{}try{state.mode=(JSON.parse(localStorage.getItem(LS+':payment')||'{}').mode)||'manual';state.travellers=(JSON.parse(localStorage.getItem(LS+':travellers')||'{}').rows)||[]}catch{}try{const s=JSON.parse(localStorage.getItem(LS)||'{}');state.leads=s.leads||[];state.collabs=s.collabs||[];state.plans=s.plans||{};state.approvals=s.approvals||[]}catch{}}
@@ -655,23 +796,23 @@ async function addCollab(c){if(state.db){try{await state.db.collection('collabs'
 async function saveCollab(id,patch){if(state.db){try{await state.db.doc('collabs/'+id).update(patch)}catch(e){banner('Could not update: '+e.message,'err')}return}const c=state.collabs.find(x=>x.id===id);if(c)Object.assign(c,patch);localSave();rerender()}
 async function savePlan(ev,patch){if(state.db){try{await state.db.doc('plans/'+ev).set({...(state.plans[ev]||{}),...patch,updatedAt:new Date().toISOString()})}catch(e){banner('Could not save plan: '+e.message,'err')}return}state.plans[ev]={...(state.plans[ev]||{}),...patch};localSave();rerender()}
 function banner(msg,cls){const b=$('#dbBanner');b.textContent=msg;b.className='banner '+(cls||'');b.hidden=false}
-function rerender(){kpis();renderHero();renderEvents();renderFunnel();renderLeadBoard();renderCollabs();renderTravel();renderTravellers();renderApprovals();renderFinance();renderActuals();renderFunds();renderExpenses();renderQR()}
+function rerender(){kpis();renderHero();renderLive();renderOverview();renderEvents();renderFunnel();renderLeadBoard();renderCollabs();renderTravel();renderTravellers();renderApprovals();renderFinance();renderActuals();renderFunds();renderExpenses();renderQR()}
 
 // ---------------------------------------------------------------- boot
 const opts=EV.slice().sort((a,b)=>a.start.localeCompare(b.start)).map(e=>`<option value="${e.id}">${esc(e.name)} (${e.start})</option>`).join('');
 $('#fEvent').innerHTML+=opts;$('#capEvent').innerHTML=opts+'<option value="walk-in">Walk-in / other</option>';$('#colEvent').innerHTML=opts+'<option value="walk-in">Other</option>';$('#fpEvent').innerHTML=EV.filter(e=>(DATA.floorplans||{})[e.id]).sort((a,b)=>b.total-a.total).map(e=>`<option value="${e.id}">${esc(e.name)} (${e.mode})</option>`).join('');renderFloorplan();
-document.getElementById('showCount').textContent=EV.length;renderCalendar();renderPlaybook();localLoad();state.local=true;rerender();
+document.getElementById('showCount').textContent=EV.length;renderCalendar();renderPlaybook();localLoad();state.local=true;state.syncedAt=Date.now();rerender();
 (async()=>{const db=window.claude&&claude.use?await claude.use('db'):null;
   if(!db){banner('Not connected to the shared store: leads, partners and booking statuses are kept in this browser only.','');return}
   state.db=db;state.local=false;const onErr=e=>banner('Live sync problem ('+e.code+'): '+e.message,'err');
-  db.collection('leads').onSnapshot(s=>{state.leads=s.docs.map(d=>({id:d.id,...d.data()}));rerender()},onErr);
-  db.collection('collabs').onSnapshot(s=>{state.collabs=s.docs.map(d=>({id:d.id,...d.data()}));rerender()},onErr);
-  db.collection('approvals').onSnapshot(s=>{state.approvals=s.docs.map(d=>({id:d.id,...d.data()}));rerender()},onErr);
-  db.collection('plans').onSnapshot(s=>{state.plans=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));rerender()},onErr);
-  db.collection('targets').onSnapshot(s=>{state.targets=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));rerender()},onErr);
-  db.collection('funds').onSnapshot(s=>{state.funds=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));rerender()},onErr);
-  db.collection('actuals').onSnapshot(s=>{state.actuals=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));rerender()},onErr);
-  db.collection('settings').onSnapshot(s=>{s.docs.forEach(d=>{if(d.id==='payment')state.mode=(d.data()||{}).mode||'manual';if(d.id==='travellers')state.travellers=(d.data()||{}).rows||[];if(d.id==='team')state.team=d.data()||{}});rerender()},onErr);
+  db.collection('leads').onSnapshot(s=>{state.leads=s.docs.map(d=>({id:d.id,...d.data()}));state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('collabs').onSnapshot(s=>{state.collabs=s.docs.map(d=>({id:d.id,...d.data()}));state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('approvals').onSnapshot(s=>{state.approvals=s.docs.map(d=>({id:d.id,...d.data()}));state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('plans').onSnapshot(s=>{state.plans=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('targets').onSnapshot(s=>{state.targets=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('funds').onSnapshot(s=>{state.funds=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('actuals').onSnapshot(s=>{state.actuals=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('settings').onSnapshot(s=>{s.docs.forEach(d=>{if(d.id==='payment')state.mode=(d.data()||{}).mode||'manual';if(d.id==='travellers')state.travellers=(d.data()||{}).rows||[];if(d.id==='team')state.team=d.data()||{}});state.syncedAt=Date.now();rerender()},onErr);
   banner('Saved to the shared Souveno database. Anyone you share this link with sees the same leads, partners and approvals. Payments are manual: approve, follow the checklist, tap Done.','ok');
 })();
 })();
