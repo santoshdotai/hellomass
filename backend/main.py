@@ -13,6 +13,7 @@ from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from loguru import logger
@@ -65,6 +66,19 @@ if FRONTEND_DIR.is_dir():
     @app.get("/sw.js")
     def service_worker():
         return FileResponse(str(FRONTEND_DIR / "sw.js"), media_type="application/javascript", headers={"Service-Worker-Allowed": "/"})
+
+    # index.html references its assets relatively (config.js, css/, js/, icons, dashboard/);
+    # serve those from the frontend folder too so the combined deploy works at "/".
+    _ASSET_TOP = {"config.js", "card.html", "icon.svg", "icon-maskable.svg"}
+
+    @app.get("/{asset:path}", include_in_schema=False)
+    def frontend_asset(asset: str):
+        top = asset.split("/", 1)[0]
+        if asset in _ASSET_TOP or top in ("css", "js", "dashboard"):
+            target = (FRONTEND_DIR / asset).resolve()
+            if str(target).startswith(str(FRONTEND_DIR.resolve())) and target.is_file():
+                return FileResponse(str(target))
+        raise HTTPException(404, "not found")
 else:
     @app.get("/")
     def root():
