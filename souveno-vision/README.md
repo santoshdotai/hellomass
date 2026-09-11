@@ -362,6 +362,24 @@ good is Big 5 for us", "footfall at ELECRAMA", "subsidy deadlines for Plastivisi
 months" (opens Finance at that horizon), "next event", "approvals waiting". Nothing is charged by voice: a
 booking command is an Approve tap, and the payment still happens through the mode you have chosen.
 
+
+### Who gets which e-mail, and how things are paid (set 11 Sep 2026)
+
+| | Address / account | Used for |
+|---|---|---|
+| Company | souveno30@gmail.com | stall bookings, organiser correspondence, proforma invoices, subsidy applications, exhibitor registration |
+| Travel | santoshdotai@gmail.com | flights, hotels, e-tickets, Booking.com / MakeMyTrip confirmations, visas |
+| Payment | Souveno current account (net banking / NEFT / its debit card) | everything, in both modes |
+
+The 3-day routine reads the souveno30 inbox. Set a Gmail filter on santoshdotai@gmail.com that forwards mail
+from booking.com, makemytrip.com, goindigo.in, airindia.com, akasaair.com and emirates.com to souveno30@gmail.com
+so flight and hotel confirmations are matched to approvals automatically. Default mode is now **automate**.
+
+**Flight connectors in Claude's directory** (connect at claude.ai → Settings → Connectors): Kiwi.com, Expedia and
+lastminute.com search flights; Booking.com, Tripadvisor and DirectBooker search hotels; **Otto Travel** is the only
+one that books flights and hotels (business travel, needs an account). There is no MakeMyTrip connector; the
+agent opens MakeMyTrip pre-filled instead.
+
 ### Phone app
 
 `/expo` ships a web-app manifest and service worker. Open it in Chrome (Android) or Safari (iPhone) and use

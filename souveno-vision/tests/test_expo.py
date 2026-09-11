@@ -216,6 +216,7 @@ def test_proposals_compute_advance_and_travel():
 
 
 def test_approval_flow_propose_approve_execute_manual(client):
+    client.put("/api/expo/settings/payment-mode", json={"mode": "manual"})
     r = client.post("/api/expo/approvals/propose", params={"event_id": "engiexpo-pune-2026"})
     assert r.status_code == 201
     items = r.json()["created"]
@@ -231,7 +232,7 @@ def test_approval_flow_propose_approve_execute_manual(client):
     assert client.post(f"/api/expo/approvals/{hotel['id']}/decide", json={"decision": "reject"}).json()["status"] == "rejected"
     d = client.post(f"/api/expo/approvals/{stall['id']}/decide", json={"decision": "approve", "execute": True}).json()
     assert d["status"] == "approved" and d["execution"]["mode"] == "manual" and "₹60,000" in d["execution"]["instruction"]
-    assert d["payment_mode"] == "manual" and len(d["manual_steps"]) == 5 and "NEFT/RTGS or UPI" in d["manual_steps"][2]
+    assert d["payment_mode"] == "manual" and len(d["manual_steps"]) == 5 and "NEFT/RTGS" in d["manual_steps"][2] and "souveno30@gmail.com" in d["manual_steps"][2]
     assert d["approval_uid"] in d["manual_steps"][2]  # reference to put in the bank remarks
     done = client.post(f"/api/expo/approvals/{stall['id']}/mark-done", params={"reference": "UTR123"}).json()
     assert done["status"] == "executed" and done["execution"]["reference"] == "UTR123"
@@ -329,6 +330,7 @@ def test_manual_mode_ignores_payment_rails_even_when_keys_exist(monkeypatch):
     from backend.core.expo import approvals
     from config.settings import settings
     ev = next(e for e in list_events() if e["id"] == "elecrama-2027")
+    monkeypatch.setattr(approvals, "_mode_override", None)
     monkeypatch.setattr(settings, "razorpayx_key_id", "rzp_test_x")
     monkeypatch.setattr(settings, "duffel_access_token", "duffel_test_x")
     monkeypatch.setattr(settings, "expo_payment_mode", "manual")
@@ -348,12 +350,12 @@ def test_manual_steps_for_every_kind():
         steps = approvals.manual_steps(row, p["details"])
         assert len(steps) >= 4 and steps[-1].startswith("Tap Done")
         if p["kind"] == "flight":
-            assert "HYD" in p["title"] and "Souveno company card" in steps[3]
+            assert "HYD" in p["title"] and "santoshdotai@gmail.com" in " ".join(steps) and "current account" in " ".join(steps)
 
 
 def test_mode_toggle_travellers_and_subsidies(client):
     st = client.get("/api/expo/settings").json()
-    assert st["payment_mode"] == "manual" and st["travellers"] == []
+    assert st["payment_mode"] in ("manual", "automate") and st["travellers"] == []
     r = client.put("/api/expo/settings/payment-mode", json={"mode": "automate"}).json()
     assert r["payment_mode"] == "automate"
     assert client.get("/api/expo/approvals").json()["payment_mode"] == "automate"

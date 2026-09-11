@@ -18,7 +18,9 @@ SOUVENO_PROFILE = {
     "legal_name": "Souveno AI",
     "website": "https://souveno.ai",
     "alt_website": "https://souveno.in",
-    "email": "souveno30@gmail.com",
+    "email": "souveno30@gmail.com",  # company / organiser correspondence: stalls, invoices, subsidies
+    "travel_email": "santoshdotai@gmail.com",  # flights and hotels: bookings, e-tickets, confirmations go here
+    "payment_account": "Souveno current account (net banking / NEFT / its debit card)",
     "phone": "+91 86393 32232",
     "contact_name": "Santosh Padmaa",
     "designation": "Founder & CEO",

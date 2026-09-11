@@ -359,31 +359,33 @@ def manual_steps(row: models.ExpoApproval, details: dict[str, Any]) -> list[str]
         contact = details.get("organiser_email") or ""
         site = details.get("organiser_website") or ""
         return [
-            f"Ask {row.payee} for the space application form and proforma invoice for {details.get('sqm', '')} sqm shell scheme"
+            f"From souveno30@gmail.com, ask {row.payee} for the space application form and proforma invoice for {details.get('sqm', '')} sqm shell scheme"
             + (f" (email {contact})" if contact else "") + (f" or apply at {site}" if site else "") + ".",
             f"Check the invoice: expected about {amt} as the 50% advance (rate ₹{details.get('rate_inr_sqm', 0):,}/sqm + 18% GST). If different, tap Edit amount first.",
-            f"Pay {amt} by NEFT/RTGS or UPI from the Souveno company bank app to the bank details printed on the proforma invoice. Put '{ref} Souveno AI' in the remarks.",
+            f"Pay {amt} by NEFT/RTGS from the Souveno current account to the bank details printed on the proforma invoice. Put '{ref} Souveno AI' in the remarks. All organiser correspondence from souveno30@gmail.com.",
             "Email the payment screenshot or UTR to the organiser and ask for the stall number and the GST tax invoice.",
             f"Tap Done and enter the UTR. The stall status flips to booked and the balance ({'₹' + format(details.get('balance_inr', 0), ',')}) is proposed later.",
         ]
     if row.kind == "flight":
         links = details.get("links", {})
         sky = links.get("skyscanner_round_trip") or links.get("outbound", {}).get("skyscanner")
+        mmt = links.get("outbound", {}).get("makemytrip", "")
         out = sky or links.get("outbound", {}).get("google_flights", "Google Flights")
         back = links.get("return", {}).get("skyscanner") or links.get("return", {}).get("google_flights", "Google Flights")
         win = details.get("booking_window", {})
         if payment_mode() == "automate":
             return [
-                f"Open Skyscanner (round trip, 2 adults, direct first): {out}",
-                "Pick the flights you like and paste the flight numbers + dates into this card (Edit → details.chosen_flights), or just book on the airline site with the Souveno e-mail.",
-                "If Duffel is connected, the agent tickets the chosen flights with the saved frequent-flyer numbers and marks this Done. Otherwise the agent watches the Souveno inbox for the e-ticket and marks it Done with the PNR.",
+                f"Open MakeMyTrip pre-filled (outbound): {mmt}" if mmt else f"Open Skyscanner (round trip, 2 adults, direct first): {out}",
+                f"Or compare on Skyscanner (round trip, 2 adults, direct first): {out}",
+                "Book with santoshdotai@gmail.com as the contact e-mail and pay from the Souveno current account (net banking or its debit card). If Duffel is connected, the agent tickets the chosen flights itself with the saved frequent-flyer numbers.",
+                "The agent watches the inbox for the e-ticket (forward or filter airline mails from santoshdotai@gmail.com to souveno30@gmail.com) and marks this Done with the PNR.",
                 (f"Book by {win.get('preferred_by')} (latest {win.get('latest_by')})." if win else "Book inside the policy window."),
             ]
         return [
             f"Open Skyscanner (round trip, 2 adults, direct first): {out}",
             f"Return leg on its own if you prefer: {back}",
             f"Pick a direct economy fare that lands the evening before and returns after 19:00; total for {details.get('travellers', 2)} travellers within {amt}.",
-            "Pay on the airline site or MakeMyTrip/ixigo with the Souveno company card; use the Souveno email for the booking so the tickets and GST invoice land in the company inbox."
+            "Pay on MakeMyTrip or the airline site from the Souveno current account (net banking or its debit card); use santoshdotai@gmail.com as the booking e-mail so tickets land there, and ask for the GST invoice in Souveno AI's name."
             + (f" Book by {win.get('preferred_by')} (latest {win.get('latest_by')})." if win else ""),
             "Tap Done and enter the PNR. The flight status flips to booked.",
         ]
@@ -393,20 +395,20 @@ def manual_steps(row: models.ExpoApproval, details: dict[str, Any]) -> list[str]
         if payment_mode() == "automate":
             return [
                 f"Open Booking.com pre-filled for {h.get('name', 'the hotel')} {details.get('checkin')} → {details.get('checkout')}, 2 adults: {bk}",
-                f"Book within {amt} total with free cancellation; pay with the Souveno company card and the Souveno e-mail.",
-                "The agent watches the Souveno inbox for the Booking.com confirmation and marks this Done with the confirmation number (it never stores the PIN or card).",
+                f"Book within {amt} total with free cancellation; booking e-mail santoshdotai@gmail.com, pay from the Souveno current account (net banking / debit card).",
+                "The agent watches the inbox for the Booking.com confirmation (forward or filter Booking.com mails from santoshdotai@gmail.com to souveno30@gmail.com) and marks this Done with the confirmation number (it never stores the PIN or card).",
             ]
         return [
             f"Open Booking.com pre-filled for {h.get('name', 'the hotel')} {details.get('checkin')} → {details.get('checkout')}, 2 adults: {bk}",
             f"Book a room within {amt} total ({details.get('nights', '')} nights). Prefer free cancellation until 7 days before the show.",
-            "Pay with the Souveno company card and ask for a GST invoice in the company name (GSTIN 36BDNPP2011D2ZV).",
+            "Booking e-mail santoshdotai@gmail.com; pay from the Souveno current account (net banking / debit card) and ask for a GST invoice in the company name (GSTIN 36BDNPP2011D2ZV).",
             "Tap Done and enter the confirmation number. The hotel status flips to booked.",
         ]
     if row.kind == "visa":
         return [
             f"Apply for the {details.get('visa_type')} for {details.get('travellers', 2)} travellers by {details.get('apply_by')} ({details.get('lead_days')} working days). {details.get('note', '')}",
             "Documents: " + ", ".join(details.get("documents", [])) + ".",
-            f"Pay the fee (about {amt}) with the Souveno company card; keep the receipt for the expense sheet.",
+            f"Pay the fee (about {amt}) from the Souveno current account; keep the receipt for the expense sheet.",
             "Tap Done and enter the visa or application number.",
         ]
     return [f"Complete this manually, then tap Done with the reference. ({ref})"]

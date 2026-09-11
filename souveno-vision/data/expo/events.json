@@ -82,6 +82,14 @@
       },
       "lead_to_client_probability": 0.0525,
       "lead_to_client_note": "qualified 35% × demo 50% × paid pilot 30% = 5.25% of captured leads become paying clients"
+    },
+    "contact_policy": {
+      "company_email": "souveno30@gmail.com",
+      "company_email_used_for": "stall bookings, organiser correspondence, invoices, subsidies, exhibitor registrations",
+      "travel_email": "santoshdotai@gmail.com",
+      "travel_email_used_for": "flights, hotels, e-tickets, booking confirmations, visa",
+      "payment": "Souveno current account (net banking / NEFT / its debit card) for everything, in both modes",
+      "set_on": "2026-09-11"
     }
   },
   "events": [
