@@ -18,6 +18,7 @@ from backend.core.expo import finance as finance_engine
 from backend.core.expo import calibration as calibration_engine
 from backend.core.expo import voice as voice_engine
 from backend.core.expo import funds as funds_engine
+from backend.core.expo import applications as app_engine
 from backend.core.expo import cards as card_engine
 from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
@@ -854,6 +855,49 @@ def put_fund_status(fund_id: str, body: FundStatus, db: Session = Depends(get_db
 @router.get("/pavilions")
 def list_pavilions():
     return funds_engine.pavilions()
+
+
+# ---------------------------------------------------------------- subsidy application desk
+COMPANY_KEY = "expo_company"
+APPS_KEY = "expo_application_status"
+_SECRET_KEYS = {"password", "otp", "pin", "portal_password", "card_number", "cvv"}
+
+
+class ApplicationStatus(BaseModel):
+    status: str
+    notes: str = ""
+    reference: str = ""  # portal application number / acknowledgement
+
+
+@router.get("/settings/company")
+def get_company(db: Session = Depends(get_db)):
+    return {"company": app_engine.company(crud.get_setting(db, COMPANY_KEY, {}) or {}), "fields": app_engine.COMPANY_FIELDS}
+
+
+@router.put("/settings/company")
+def put_company(body: dict[str, Any], db: Session = Depends(get_db)):
+    cur = crud.get_setting(db, COMPANY_KEY, {}) or {}
+    for k, v in body.items():
+        if k in _SECRET_KEYS:
+            continue
+        cur[k] = str(v).strip() if v is not None else ""
+    crud.set_setting(db, COMPANY_KEY, cur)
+    return {"company": app_engine.company(cur), "saved": sorted(k for k, v in cur.items() if v)}
+
+
+@router.get("/applications")
+def list_applications(db: Session = Depends(get_db)):
+    return app_engine.applications(company_overrides=crud.get_setting(db, COMPANY_KEY, {}) or {}, statuses=crud.get_setting(db, APPS_KEY, {}) or {})
+
+
+@router.put("/applications/{app_id}/status")
+def put_application_status(app_id: str, body: ApplicationStatus, db: Session = Depends(get_db)):
+    if body.status not in ("not_started", "info_needed", "ready", "submitted", "approved", "claimed", "paid", "rejected", "blocked_not_listed"):
+        raise HTTPException(400, "bad status")
+    cur = crud.get_setting(db, APPS_KEY, {}) or {}
+    cur[app_id] = {"status": body.status, "notes": body.notes, "reference": body.reference, "updated_at": datetime.utcnow().isoformat()}
+    crud.set_setting(db, APPS_KEY, cur)
+    return {"id": app_id, **cur[app_id]}
 
 
 @router.get("/subsidies")
