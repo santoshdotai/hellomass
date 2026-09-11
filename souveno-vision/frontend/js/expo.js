@@ -29,6 +29,7 @@
     if (b.dataset.view === 'approvals') loadApprovals();
     if (b.dataset.view === 'travel') loadTravellers();
     if (b.dataset.view === 'finance') loadFinance();
+    if (b.dataset.view === 'settings') loadSettings();
     if (b.dataset.view === 'stalls') loadFloorplan();
     if (b.dataset.view === 'leads') loadLeads();
     if (b.dataset.view === 'collab') loadCollabs();
@@ -359,13 +360,31 @@
     rec.onend = () => btn.classList.remove('primary');
     btn.onclick = () => { btn.classList.add('primary'); $('#micSay').textContent = 'Listening…'; try { rec.start(); } catch (e) { $('#micSay').textContent = e.message; } };
   })();
+  function renderModeSeg(d) {
+    const m = d.payment_mode || 'manual';
+    for (const id of ['#modeSeg', '#modeSegAp']) { const seg = $(id); if (!seg) continue; $$('button', seg).forEach((b) => { b.classList.toggle('on', b.dataset.m === m); b.onclick = async () => { if (b.dataset.m === m) return; if (!confirm(`Switch to ${b.dataset.m.toUpperCase()} mode?`)) return; await api('/api/expo/settings/payment-mode', { method: 'PUT', body: JSON.stringify({ mode: b.dataset.m }) }); loadSettings(); loadApprovals(); }; }); }
+    const info = $('#modeInfo'); if (info) info.textContent = m === 'manual' ? 'Manual: you approve, then pay from the Souveno bank app or open the pre-filled Skyscanner / Booking.com link, book with the Souveno e-mail, and tap Done with the UTR / PNR / confirmation number.' : 'Automate: you approve; the agent books flights via Duffel with your saved frequent-flyer numbers when DUFFEL_ACCESS_TOKEN is set, otherwise opens the pre-filled Skyscanner / Booking.com link; then it reads the confirmation e-mail and marks the item Done. Nothing is charged without your Approve tap.';
+  }
+  async function loadSettings() {
+    const st = await api('/api/expo/settings'); renderModeSeg(st);
+    const c = $('#connections'); if (!c) return;
+    const rows = [['Skyscanner', 'Flights: every flight proposal opens a Skyscanner round trip from Hyderabad, pre-filled with dates and 2 adults. No login needed; you pay on the airline site with the Souveno e-mail.', 'ready'],
+      ['Booking.com', 'Hotels: every hotel proposal opens Booking.com pre-filled with the hotel, dates and 2 adults. No login stored; you pay on the site.', 'ready'],
+      ['Gmail (Souveno inbox)', 'The 3-day routine reads e-tickets, Booking.com confirmations and organiser invoices and marks approvals Done.', 'routine'],
+      ['Google Calendar', 'All shows, flights, booking and visa reminders are on the calendar; santoshdotai@gmail.com is invited to each.', 'connected'],
+      ['Duffel (airline ticketing)', 'Lets AUTOMATE mode issue tickets with your frequent-flyer numbers. Needs DUFFEL_ACCESS_TOKEN.', st.connectors.duffel ? 'connected' : 'not connected'],
+      ['RazorpayX payouts', 'Lets AUTOMATE mode pay stall advances by NEFT. Needs RAZORPAYX_* keys. Not needed in manual mode.', st.connectors.razorpayx ? 'connected' : 'not connected'],
+      ['Frequent-flyer numbers', `${(st.travellers || []).length} traveller(s) saved in Travel & Booking.`, (st.travellers || []).length ? 'ready' : 'fill in Travel & Booking']];
+    c.innerHTML = `<table class="conn">${rows.map(([n, d, x]) => `<tr><td><b>${n}</b></td><td class="muted">${d}</td><td><span class="pill ${x === 'ready' || x === 'connected' ? 'booked' : x === 'routine' ? 'searching' : ''}">${x}</span></td></tr>`).join('')}</table>`;
+  }
+
 
 
 
   async function loadApprovals() {
     const d = await api('/api/expo/approvals');
     const r = d.rails;
-    const mb = $('#modeBtn'); if (mb) { mb.textContent = d.payment_mode === 'manual' ? 'Mode: MANUAL (you pay & book) — tap to automate' : 'Mode: AUTOMATE (agent books & reads confirmations) — tap for manual'; mb.className = 'btn ' + (d.payment_mode === 'manual' ? 'ghost' : 'primary'); mb.onclick = async () => { const to = d.payment_mode === 'manual' ? 'automate' : 'manual'; if (!confirm(to === 'automate' ? 'Switch to AUTOMATE? The agent will book flights via Duffel (with your saved frequent-flyer numbers) when a Duffel key is set, otherwise hand you the pre-filled Skyscanner / Booking.com link and mark items Done from the confirmation e-mail. Nothing is charged without your Approve tap.' : 'Switch to MANUAL? You pay from the bank app and book on Skyscanner / Booking.com yourself, then tap Done.')) return; await api('/api/expo/settings/payment-mode', { method: 'PUT', body: JSON.stringify({ mode: to }) }); loadApprovals(); }; }
+    renderModeSeg(d);
     $('#railsInfo').textContent = d.payment_mode === 'manual'
       ? `Manual mode: the agent proposes, you approve, then you pay from the Souveno bank app or book on the airline/hotel site and tap Done with the UTR / PNR. No card or payout key is stored. · Flight policy: ${d.policy.flights}`
       : `Automate mode: Duffel ticketing ${r.duffel ? 'on' : 'off (no key: you get the Skyscanner link, agent reads the e-ticket e-mail)'} · RazorpayX payouts ${r.razorpayx ? 'on' : 'off'} · travellers saved ${d.travellers_saved || 0} · Flight policy: ${d.policy.flights}`;

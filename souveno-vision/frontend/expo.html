@@ -34,6 +34,7 @@
     <button class="nav-btn" data-view="stalls">Stall Picker</button>
     <button class="nav-btn" data-view="travel">Travel &amp; Booking</button>
     <button class="nav-btn" data-view="finance">Finance / P&amp;L</button>
+    <button class="nav-btn" data-view="settings">⚙ Settings &amp; connections</button>
     <button class="nav-btn" data-view="playbook">Playbook</button>
   </nav>
   <div class="topbar-right">
@@ -70,7 +71,7 @@
         <h3>Bookings waiting for your tap</h3>
         <button class="btn secondary" id="proposeBtn">Propose bookings due in 90 days</button>
         <label>Sort <select id="apSort"><option value="urgency">by urgency</option><option value="priority">by Souveno priority (stars)</option></select></label>
-        <button class="btn ghost" id="modeBtn" title="Switch between manual (you pay/book) and automate (agent books via Duffel / reads confirmations)">Mode: …</button>
+        <div class="seg" id="modeSegAp"><button data-m="manual">MANUAL — I pay &amp; book</button><button data-m="automate">AUTOMATE — agent books</button></div>
         <span id="railsInfo" class="hint"></span>
       </div>
       <p class="muted">The agent proposes each stall advance (50% of sqm × rate + 18% GST), flight and hotel with the amount worked out. Nothing is paid until you tap Approve. Approved items execute through RazorpayX or Duffel when those keys are set; otherwise you get the exact payment instruction and tap "Done" after paying.</p>
@@ -159,6 +160,10 @@
     </div>
   </section>
 
+  <section id="view-settings" class="view">
+    <div class="panel"><h3>Booking mode</h3><div class="seg" id="modeSeg"><button data-m="manual">MANUAL — I pay &amp; book</button><button data-m="automate">AUTOMATE — agent books</button></div><p class="hint" id="modeInfo"></p></div>
+    <div class="panel"><h3>Connections</h3><div id="connections"></div></div>
+  </section>
   <section id="view-finance" class="view">
     <div class="panel">
       <div class="toolbar"><label>Show everything starting <select id="finHorizon"></select></label> <span class="hint" id="finWindow"></span></div>
