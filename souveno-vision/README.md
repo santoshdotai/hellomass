@@ -380,6 +380,14 @@ lastminute.com search flights; Booking.com, Tripadvisor and DirectBooker search 
 one that books flights and hotels (business travel, needs an account). There is no MakeMyTrip connector; the
 agent opens MakeMyTrip pre-filled instead.
 
+### Funds & pavilions, WhatsApp sequences, pipeline, expenses, report, QR
+
+`GET /api/expo/funds?region=india|world|all` and `GET /api/expo/pavilions` (data in `data/expo/funds.json`,
+`data/expo/pavilions.json`, engine `backend/core/expo/funds.py`); status per programme via
+`PUT /api/expo/funds/{id}/status`. The phone dashboard also has WhatsApp day-0/2/7 follow-ups per lead, the
+organiser pipeline view, team staffing conflicts, expenses & GST/PMS claims, the printable post-show report,
+a stall QR and an offline write queue. The sector-by-sector manual is `docs/SOUVENO_EXPO_OPERATIONS.md`.
+
 ### Phone app
 
 `/expo` ships a web-app manifest and service worker. Open it in Chrome (Android) or Safari (iPhone) and use

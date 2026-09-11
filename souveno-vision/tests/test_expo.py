@@ -437,3 +437,19 @@ def test_actuals_calibrate_future_estimates_and_voice_commands(client, tmp_path,
     done = client.post("/api/expo/voice", json={"text": "mark ELECRAMA flight done PNR XYZ789"}).json()
     assert done["approval"]["status"] == "executed" and done["approval"]["execution"]["reference"] == "XYZ789"
     assert client.get("/api/expo/plans/elecrama-2027").json()["flight_status"] in ("booked", "not_started", "searching")
+
+
+def test_funds_and_pavilions(client):
+    r = client.get("/api/expo/funds", params={"region": "india"}).json()
+    assert r["count"] >= 20 and all(x["region"] == "india" for x in r["items"]) and r["meta"]["company"]["founder_age"] == 41
+    top = r["items"][0]
+    assert top["fit"] == 5 and top["priority_label"] == "apply this month"
+    w = client.get("/api/expo/funds", params={"region": "world"}).json()
+    assert any(x["id"] == "hub71" and x["fit"] == 5 for x in w["items"])
+    st = client.put("/api/expo/funds/sisfs/status", json={"status": "applied", "notes": "via T-Hub"}).json()
+    assert st["status"] == "applied" and st["applied_on"]
+    assert next(x for x in client.get("/api/expo/funds").json()["items"] if x["id"] == "sisfs")["status_app"] == "applied"
+    assert client.get("/api/expo/funds", params={"region": "mars"}).status_code == 400
+    p = client.get("/api/expo/pavilions").json()
+    assert p["count"] >= 15 and p["items"][0]["priority"] == 1 and "LEAP" in " ".join(p["apply_first"])
+    assert client.get("/api/expo/profile").json()["legal_name"] == "Souveno AI Solutions"

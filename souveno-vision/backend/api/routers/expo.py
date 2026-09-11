@@ -17,6 +17,7 @@ from backend.core.expo import subsidy as subsidy_engine
 from backend.core.expo import finance as finance_engine
 from backend.core.expo import calibration as calibration_engine
 from backend.core.expo import voice as voice_engine
+from backend.core.expo import funds as funds_engine
 from backend.core.expo import cards as card_engine
 from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
@@ -821,6 +822,38 @@ def voice(body: VoiceIn, db: Session = Depends(get_db)):
             row.execution_json = json.dumps({"ok": True, "mode": "manual", "reference": intent.get("reference", ""), "note": f"by voice: {body.text}"})
             db.commit(); result = approval_engine.to_dict(row)
     return {**intent, "approval": result}
+
+
+
+# ---------------------------------------------------------------- funds, grants, pavilions
+FUNDS_KEY = "expo_fund_status"
+
+
+class FundStatus(BaseModel):
+    status: str  # not_applied | applied | shortlisted | rejected | awarded | not_eligible
+    notes: str = ""
+
+
+@router.get("/funds")
+def list_funds(region: str = "all", db: Session = Depends(get_db)):
+    if region not in ("all", "india", "world"):
+        raise HTTPException(400, "region must be all, india or world")
+    return funds_engine.funds(region, crud.get_setting(db, FUNDS_KEY, {}) or {})
+
+
+@router.put("/funds/{fund_id}/status")
+def put_fund_status(fund_id: str, body: FundStatus, db: Session = Depends(get_db)):
+    if body.status not in ("not_applied", "applied", "shortlisted", "rejected", "awarded", "not_eligible"):
+        raise HTTPException(400, "bad status")
+    cur = crud.get_setting(db, FUNDS_KEY, {}) or {}
+    cur[fund_id] = {"status": body.status, "notes": body.notes, "applied_on": datetime.utcnow().date().isoformat() if body.status == "applied" else (cur.get(fund_id) or {}).get("applied_on")}
+    crud.set_setting(db, FUNDS_KEY, cur)
+    return {"id": fund_id, **cur[fund_id]}
+
+
+@router.get("/pavilions")
+def list_pavilions():
+    return funds_engine.pavilions()
 
 
 @router.get("/subsidies")

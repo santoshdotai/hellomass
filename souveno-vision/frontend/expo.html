@@ -34,6 +34,7 @@
     <button class="nav-btn" data-view="stalls">Stall Picker</button>
     <button class="nav-btn" data-view="travel">Travel &amp; Booking</button>
     <button class="nav-btn" data-view="finance">Finance / P&amp;L</button>
+    <button class="nav-btn" data-view="funds">💰 Funds &amp; pavilions</button>
     <button class="nav-btn" data-view="settings">⚙ Settings &amp; connections</button>
     <button class="nav-btn" data-view="playbook">Playbook</button>
   </nav>
@@ -161,6 +162,12 @@
     </div>
   </section>
 
+  <section id="view-funds" class="view">
+    <div class="panel"><div class="hint" id="fundsCo"></div>
+      <div class="toolbar"><label>Region <select id="fundRegion"><option value="india">India</option><option value="world">Rest of the world</option><option value="all">All</option></select></label> <span class="hint" id="fundSum"></span></div>
+      <div id="funds"></div></div>
+    <div class="panel"><h3>Indian pavilions around the world</h3><div class="hint" id="pavNote"></div><div id="pavilions"></div></div>
+  </section>
   <section id="view-settings" class="view">
     <div class="panel"><h3>Booking mode</h3><div class="seg" id="modeSeg"><button data-m="manual">MANUAL — I pay &amp; book</button><button data-m="automate">AUTOMATE — agent books</button></div><p class="hint" id="modeInfo"></p></div>
     <div class="panel"><h3>Connections</h3><div id="connections"></div></div>

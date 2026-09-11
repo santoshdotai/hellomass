@@ -46,6 +46,7 @@
     if (b.dataset.view === 'travel') loadTravellers();
     if (b.dataset.view === 'finance') loadFinance();
     if (b.dataset.view === 'settings') loadSettings();
+    if (b.dataset.view === 'funds') loadFunds();
     if (b.dataset.view === 'stalls') loadFloorplan();
     if (b.dataset.view === 'leads') loadLeads();
     if (b.dataset.view === 'collab') loadCollabs();
@@ -196,6 +197,7 @@
   }
   $('#refreshFunnel').addEventListener('click', loadFunnel);
   $('#funnelEvent').addEventListener('change', () => { loadFunnel(); loadActuals(); });
+  $('#fundRegion').addEventListener('change', loadFunds);
 
   // ---------------------------------------------------------------- leads & cards
   async function loadLeads() {
@@ -412,6 +414,20 @@
       ['Frequent-flyer numbers', `${(st.travellers || []).length} traveller(s) saved in Travel & Booking.`, (st.travellers || []).length ? 'ready' : 'fill in Travel & Booking']];
     c.innerHTML = `<table class="conn">${rows.map(([n, d, x]) => `<tr><td><b>${n}</b></td><td class="muted">${d}</td><td><span class="pill ${x === 'ready' || x === 'connected' ? 'booked' : x === 'routine' ? 'searching' : ''}">${x}</span></td></tr>`).join('')}</table>`;
   }
+  // ---------------------------------------------------------------- funds & pavilions
+  const FUND_ST = [['not_applied', 'not applied'], ['applied', 'applied'], ['shortlisted', 'shortlisted'], ['rejected', 'rejected'], ['awarded', 'awarded'], ['not_eligible', 'not eligible']];
+  async function loadFunds() {
+    const region = $('#fundRegion').value || 'india';
+    const r = await api(`/api/expo/funds?region=${region}`); const m = r.meta || {};
+    $('#fundsCo').innerHTML = `<b>${esc(m.company.legal_name)}</b> · GSTIN ${esc(m.company.gstin)} · ${m.company.age_years}-year-old startup · founder ${m.company.founder_age} · ${esc(m.company.city)}<br>${(m.eligibility_notes || []).map(esc).join(' · ')}<br>${esc(m.priority_rule || '')}`;
+    $('#fundSum').textContent = `${r.count} programmes · ${r.summary.apply_this_month.length} to apply this month`;
+    $('#funds').innerHTML = r.items.map((f) => `<div class="fund p${f.fit}"><div><b>${esc(f.name)}</b> <span class="pill">${esc(f.type)}</span> <span class="pill ${f.fit >= 4 ? 'exhibit' : ''}">fit ${f.fit}/5 · ${esc(f.priority_label)}</span>${f.deadline ? ` <span class="pill">deadline ${f.deadline} (${f.days_to_deadline} d)</span>` : ' <span class="muted">rolling / next call watched</span>'}<br><span class="muted">${esc(f.country)} · ${esc(f.amount)} · equity: ${esc(f.equity)}</span><br>${esc(f.why_fit)}<br><span class="muted">Who: ${esc(f.who)}${f.needs.length ? ' · Needs: ' + f.needs.map(esc).join(', ') : ''}${f.notes ? ' · ' + esc(f.notes) : ''}</span>${f.applied_on ? `<br><span class="muted">applied ${f.applied_on} ${esc(f.notes_app || '')}</span>` : ''}</div><div class="actions"><a class="btn primary" target="_blank" rel="noopener" href="${f.link}" data-apply="${f.id}">Apply / open</a><select data-fund="${f.id}">${FUND_ST.map(([k, l]) => `<option value="${k}" ${f.status_app === k ? 'selected' : ''}>${l}</option>`).join('')}</select></div></div>`).join('');
+    $$('#funds select[data-fund]').forEach((sel) => sel.onchange = async () => { await api(`/api/expo/funds/${sel.dataset.fund}/status`, { method: 'PUT', body: JSON.stringify({ status: sel.value }) }); loadFunds(); });
+    $$('#funds a[data-apply]').forEach((a) => a.addEventListener('click', async () => { const f = r.items.find((x) => x.id === a.dataset.apply); if (f && f.status_app === 'not_applied') { await api(`/api/expo/funds/${f.id}/status`, { method: 'PUT', body: JSON.stringify({ status: 'applied' }) }); loadFunds(); } }));
+    const pv = await api('/api/expo/pavilions'); $('#pavNote').textContent = (pv.meta || {}).note || '';
+    $('#pavilions').innerHTML = `<div class="tablewrap"><table class="fin"><thead><tr><th>Priority</th><th>Fair</th><th>Where / when</th><th>India pavilion run by</th><th>Fit</th><th>Why</th><th>Support</th><th></th></tr></thead><tbody>${pv.items.map((x) => `<tr><td><b>${x.priority === 1 ? 'apply now' : x.priority === 2 ? 'this quarter' : x.priority === 3 ? 'if pilots exist' : 'parked'}</b></td><td><b>${esc(x.fair)}</b>${x.event_id ? '<br>' + evLink(x.event_id, 'on the calendar →') : ''}</td><td>${esc(x.city)}, ${esc(x.country)}<br><span class="muted">${esc(x.next_dates)}</span></td><td>${esc(x.india_pavilion_by)}</td><td>${x.fit}/5</td><td class="muted">${esc(x.why)}</td><td class="muted">${esc(x.support)}</td><td><a class="btn" target="_blank" rel="noopener" href="${x.link}">open</a></td></tr>`).join('')}</tbody></table></div><div class="hint">${esc((pv.meta || {}).how_to_apply || '')}</div>`;
+  }
+
 
 
 

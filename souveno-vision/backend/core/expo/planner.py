@@ -15,7 +15,10 @@ HOME_AIRPORT = "HYD"  # RULE: every trip departs from and returns to Hyderabad; 
 
 SOUVENO_PROFILE = {
     "company": "Souveno AI",
-    "legal_name": "Souveno AI",
+    "legal_name": "Souveno AI Solutions",
+    "incorporated": "2025",  # 1-year-old startup (Sept 2026)
+    "founder": "Santosh",
+    "founder_age": 41,
     "website": "https://souveno.ai",
     "alt_website": "https://souveno.in",
     "email": "souveno30@gmail.com",  # company / organiser correspondence: stalls, invoices, subsidies
