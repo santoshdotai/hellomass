@@ -108,7 +108,7 @@ Views: cards, list, kanban by booking stage, organiser pipeline. Click any show 
 
 | Scheme | What you get | When to apply |
 |---|---|---|
-| MSME PMS (confirmed) | 80% of stall rent, max ₹30,000 + ₹15,000 contingency, per domestic fair | 30 days before, on my.msme.gov.in; claim within 30 days after |
+| MSME PMS (scheme confirmed; **fair must be on the DC-MSME approved list**) | 80% of stall rent; ₹30,000 + ₹15,000 contingency (older cap) or up to ₹1.5 lakh incl. contingency (2021 revision) | First check the fair is in *Trade Fairs Domestic* on my.msme.gov.in. Listed: apply 30 days before, claim within 30 days after. Not listed (e.g. Plastivision 2027 as of 11 Sep 2026): nothing to claim unless the organiser gets it approved |
 | Telangana MSME Policy 2024 (verifying) | Stall-rent reimbursement for national/international fairs | After the fair via TS-iPASS / DIC |
 | MSME International Cooperation (verifying) | Airfare + stall rent for foreign fairs, via an association delegation | Ministry call before the event |
 | MAI via ESC India (needs 12 months' membership) | Two-thirds of airfare + stall in India pavilions abroad | Join ESC India now; apply ~90 days before each fair |
