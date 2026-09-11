@@ -185,6 +185,8 @@ def applications(today: date | None = None, company_overrides: dict[str, Any] | 
                 next_action = "Join a registered association's delegation (FTCCI / TiE / NSIC); the agent has drafted the request."
             elif ch["channel"] == "epc":
                 next_action = "ESC India membership first (12 months before the claim); the agent has drafted the request."
+            elif str(comp.get("dpiit_number", "")).lower() in ("", "not yet", "none", "no"):
+                next_action = "Blocked: startup pods need DPIIT recognition, which is open only to a Pvt Ltd / LLP / registered partnership — Souveno is a proprietorship. Incorporate first, then apply for DPIIT (free, ~2 weeks)."
             else:
                 next_action = "Apply to the organiser's startup pod desk with the DPIIT certificate."
             rows.append({

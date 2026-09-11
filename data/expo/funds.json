@@ -42,8 +42,8 @@
       "deadline": null,
       "rolling": true,
       "link": "https://seedfund.startupindia.gov.in/",
-      "status": "to_verify",
-      "notes": "Last cycle closed 31 May 2026; incubators (T-Hub, CIE IIIT-H, IITH) accept on rolling windows — the agent watches for the next window.",
+      "status": "not_eligible_yet",
+      "notes": "Last cycle closed 31 May 2026; incubators (T-Hub, CIE IIIT-H, IITH) accept on rolling windows — the agent watches for the next window. | 11 Sep 2026: Souveno AI Solutions is a PROPRIETORSHIP (PAN BDNPP2011D). DPIIT Startup India recognition is open only to a Private Limited company, LLP or registered Partnership firm, so DPIIT (and everything that needs it: SISFS, 80-IAC, startup pods) is blocked until the business is incorporated as a Pvt Ltd / LLP. Udyam micro registration (UDYAM-TS-02-0251582) is in place, so MSME schemes (PMS, Telangana, IC) are open.",
       "needs": [
         "DPIIT recognition",
         "pitch deck",
@@ -70,8 +70,8 @@
       "deadline": null,
       "rolling": true,
       "link": "https://www.startupindia.gov.in/",
-      "status": "to_verify",
-      "notes": "If already recognised, mark done and upload the certificate number in notes.",
+      "status": "not_eligible_yet",
+      "notes": "If already recognised, mark done and upload the certificate number in notes. | 11 Sep 2026: Souveno AI Solutions is a PROPRIETORSHIP (PAN BDNPP2011D). DPIIT Startup India recognition is open only to a Private Limited company, LLP or registered Partnership firm, so DPIIT (and everything that needs it: SISFS, 80-IAC, startup pods) is blocked until the business is incorporated as a Pvt Ltd / LLP. Udyam micro registration (UDYAM-TS-02-0251582) is in place, so MSME schemes (PMS, Telangana, IC) are open.",
       "needs": [
         "Certificate of incorporation",
         "brief write-up"
