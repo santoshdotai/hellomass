@@ -13,6 +13,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from backend.core.expo import approvals as approval_engine
+from backend.core.expo import subsidy as subsidy_engine
 from backend.core.expo import cards as card_engine
 from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
@@ -181,6 +182,8 @@ def events(db: Session = Depends(get_db)):
         ev["plan"] = plans.get(ev["id"], _plan_dict(None, ev["id"]))
         ev["lead_count"] = int(lead_counts.get(ev["id"], 0))
         ev["travel_plan"] = planner.travel_plan(ev)
+        ev["subsidy_info"] = subsidy_engine.for_event(ev)
+    summary["payment_mode"] = approval_engine.sync_mode(db)
     return summary
 
 
@@ -191,6 +194,7 @@ def event_detail(event_id: str, db: Session = Depends(get_db)):
     return {
         **ev,
         "evaluation": scoring.evaluate(ev),
+        "subsidy_info": subsidy_engine.for_event(ev),
         "travel_plan": planner.travel_plan(ev),
         "registration_answers": planner.registration_answers(ev, _profile(db)),
         "plan": _plan_dict(plan, event_id),
@@ -545,15 +549,17 @@ def list_approvals(status: Optional[str] = None, event_id: Optional[str] = None,
         q = q.filter(models.ExpoApproval.status == status)
     if event_id:
         q = q.filter(models.ExpoApproval.event_id == event_id)
+    approval_engine.sync_mode(db)
     rows = q.order_by(models.ExpoApproval.deadline.asc().nullslast(), models.ExpoApproval.proposed_at.desc()).all()
     items = [approval_engine.to_dict(r) for r in rows]
     for it in items:  # refresh the flight window against today's date
         if it["kind"] == "flight" and it["details"].get("depart"):
             it["details"]["booking_window"] = approval_engine.flight_booking_window(datetime.fromisoformat(it["details"]["depart"]).date(), international=bool(it["details"].get("international")))
     return {"payment_mode": approval_engine.payment_mode(),
-            "rails": {"razorpayx": approval_engine.payment_mode() == "rails" and bool(settings.razorpayx_key_id),
-                      "duffel": approval_engine.payment_mode() == "rails" and bool(settings.duffel_access_token),
+            "rails": {"razorpayx": approval_engine.payment_mode() == "automate" and bool(settings.razorpayx_key_id),
+                      "duffel": approval_engine.payment_mode() == "automate" and bool(settings.duffel_access_token),
                       "auto_execute": settings.expo_auto_execute},
+            "travellers_saved": len(approval_engine.travellers(db)),
             "policy": {"flights": "domestic: >= 30 days before, 60+ when possible; international: >= 45 days before, 90+ when possible; visas 21 days before"},
             "items": items}
 
@@ -662,6 +668,60 @@ class LayoutIn(BaseModel):
     aisles: list[dict[str, Any]] = []
     stalls: list[dict[str, Any]]
     top: int = 5
+
+
+
+# ---------------------------------------------------------------- mode toggle, travellers, subsidies
+class PaymentMode(BaseModel):
+    mode: str  # manual | automate
+
+
+@router.get("/settings")
+def get_expo_settings(db: Session = Depends(get_db)):
+    mode = approval_engine.sync_mode(db)
+    return {"payment_mode": mode, "travellers": approval_engine.travellers(db),
+            "connectors": {"duffel": bool(settings.duffel_access_token), "razorpayx": bool(settings.razorpayx_key_id)},
+            "modes": {"manual": "You approve, then pay from the Souveno bank app / book on Skyscanner or Booking.com, then tap Done with the reference.",
+                      "automate": "You approve; the agent books flights via Duffel with your saved frequent-flyer numbers when a Duffel key exists, otherwise hands you the pre-filled Skyscanner / Booking.com link, then reads the confirmation e-mail and marks it Done."}}
+
+
+@router.put("/settings/payment-mode")
+def put_payment_mode(body: PaymentMode, db: Session = Depends(get_db)):
+    if body.mode not in ("manual", "automate"):
+        raise HTTPException(400, "mode must be manual or automate")
+    mode = approval_engine.set_payment_mode(db, body.mode)
+    # re-point open proposals at the right executor
+    for row in db.query(models.ExpoApproval).filter(models.ExpoApproval.status == "proposed").all():
+        if row.kind == "flight":
+            row.executor = "duffel" if (mode == "automate" and settings.duffel_access_token) else "manual"
+        elif row.kind == "stall_advance":
+            row.executor = "razorpayx" if (mode == "automate" and settings.razorpayx_key_id) else "manual"
+    db.commit()
+    return {"payment_mode": mode}
+
+
+@router.put("/settings/travellers")
+def put_travellers(body: list[dict[str, Any]], db: Session = Depends(get_db)):
+    rows = approval_engine.set_travellers(db, body)
+    # attach to open flight proposals so Duffel can ticket with loyalty numbers
+    for row in db.query(models.ExpoApproval).filter(models.ExpoApproval.kind == "flight", models.ExpoApproval.status.in_(["proposed", "approved"])).all():
+        d = json.loads(row.details_json or "{}")
+        d["travellers_saved"] = rows
+        row.details_json = json.dumps(d)
+    db.commit()
+    return {"travellers": rows}
+
+
+@router.get("/subsidies")
+def subsidies(horizon_days: int = 120):
+    out = subsidy_engine.summary()
+    out["deadlines"] = subsidy_engine.deadlines(horizon_days=horizon_days)
+    return out
+
+
+@router.get("/subsidies/{event_id}")
+def subsidy_for_event(event_id: str):
+    return subsidy_engine.for_event(_require_event(event_id))
 
 
 @router.get("/floorplans/{event_id}.svg")

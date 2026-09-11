@@ -8,6 +8,13 @@
     return r.status === 204 ? null : r.json();
   };
   const inr = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
+  const subsidyBox = (sb) => {
+    if (!sb) return '';
+    const sch = (sb.schemes || []).map((x) => `<li><b>${esc(x.name)}</b> — ${esc(x.benefit)}${x.estimated_refund_inr ? ` · est. ${inr(x.estimated_refund_inr[0])}–${inr(x.estimated_refund_inr[1])}` : ''}${x.apply_by ? ` · <span class="${x.urgency === 'late' ? 'late' : x.urgency === 'soon' ? 'soon' : ''}">apply by ${x.apply_by}${x.days_to_apply != null ? ` (${x.days_to_apply} days)` : ''}</span>` : ' · apply after the show'} · <a target="_blank" rel="noopener" href="${x.link}">${x.status === 'confirmed' ? 'confirmed scheme' : x.status === 'needs_membership' ? 'needs EPC membership' : 'being verified'}</a></li>`).join('');
+    const eb = sb.early_bird || {};
+    return `<div class="subbox"><b>💰 Subsidy / money back: ${esc(sb.headline)}</b>${sch ? `<ul>${sch}</ul>` : ''}<div class="ff">Early-bird / last date to book with discount: ${eb.deadline ? `<b>${eb.deadline}</b> (${eb.days_left} days)` : 'not published yet'} — ${esc(eb.note || '')}</div><div class="meta">Agent re-checks every 3 days · last checked ${esc(sb.last_checked || '—')} · next ${esc(sb.next_check || '')}${sb.notes ? ' · ' + esc(sb.notes) : ''}</div></div>`;
+  };
+
   const linkify = (t) => esc(t).replace(/(https?:\/\/[^\s)]+)/g, (u) => `<a target="_blank" rel="noopener" href="${u}">${u.replace(/^https?:\/\//, '').slice(0, 48)}…</a>`);
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const starStr = (s) => '★'.repeat(Math.floor(s)) + (s % 1 ? '½' : '') + '☆'.repeat(5 - Math.ceil(s));
@@ -20,6 +27,7 @@
     $$('.view').forEach((v) => v.classList.toggle('active', v.id === 'view-' + b.dataset.view));
     if (b.dataset.view === 'funnel') loadFunnel();
     if (b.dataset.view === 'approvals') loadApprovals();
+    if (b.dataset.view === 'travel') loadTravellers();
     if (b.dataset.view === 'stalls') loadFloorplan();
     if (b.dataset.view === 'leads') loadLeads();
     if (b.dataset.view === 'collab') loadCollabs();
@@ -62,6 +70,7 @@
         <div class="meta">${e.start} → ${e.end} · ${esc(e.city)} · ${esc(e.venue)}</div>
         <div class="meta">${esc(e.category)} · ICP ${e.icp.join(', ')}</div>
         <div class="whybox"><b>${esc(ev.explain.headline)}</b><ul>${ev.explain.lines.map((l) => `<li>${esc(l)}</li>`).join('')}</ul><div class="ff">${esc(ev.explain.footfall_expected)}</div><div class="ff">${esc(ev.explain.reach)}</div></div>
+        ${subsidyBox(e.subsidy_info)}
         <div class="bar-row"><span>Client probability</span><div class="bar"><i style="width:${f.client_probability_pct}%"></i></div><b>${f.client_probability_pct}%</b></div>
         <div class="meta">Leads ${f.leads[0]}–${f.leads[1]} · demos ${f.demos[0]}–${f.demos[1]} · paid pilots ${f.paid_pilots[0]}–${f.paid_pilots[1]}</div>
         <div class="meta">Budget ${inr(b.total_inr[0])}–${inr(b.total_inr[1])}${ev.cost_per_expected_client_inr ? ' · ' + inr(ev.cost_per_expected_client_inr) + ' per expected client' : ''}</div>
@@ -256,12 +265,31 @@
   });
 
   // ---------------------------------------------------------------- approvals
+  async function loadTravellers() {
+    const host = $('#travellersPanel'); if (!host) return;
+    const st = await api('/api/expo/settings');
+    const rows = (st.travellers && st.travellers.length) ? st.travellers : [{ given_name: 'Santosh', family_name: '', born_on: '', gender: 'm', phone_number: '+91 86393 32232', email: 'santoshdotai@gmail.com', loyalty: {} }, { given_name: '', family_name: '', born_on: '', gender: 'm', phone_number: '', email: '', loyalty: {} }];
+    const air = [['6E', 'IndiGo BluChip'], ['AI', 'Air India Flying Returns'], ['QP', 'Akasa'], ['EK', 'Emirates Skywards'], ['FZ', 'flydubai OPEN'], ['G9', 'Air Arabia']];
+    host.innerHTML = `<h3>Travellers & frequent-flyer numbers (asked once, saved for every booking)</h3><div class="hint">Used to pre-fill airline bookings and, in automate mode, to ticket via Duffel with your loyalty numbers. Passport fields are only needed for Gulf trips. Never enter card numbers or portal passwords here.</div>
+      ${rows.map((t, i) => `<div class="trav" data-i="${i}"><b>Traveller ${i + 1}</b><div class="grid3">
+        <label>First name <input name="given_name" value="${esc(t.given_name || '')}"></label><label>Last name <input name="family_name" value="${esc(t.family_name || '')}"></label><label>Date of birth <input name="born_on" type="date" value="${esc(t.born_on || '')}"></label>
+        <label>Gender <select name="gender"><option value="m" ${t.gender === 'm' ? 'selected' : ''}>M</option><option value="f" ${t.gender === 'f' ? 'selected' : ''}>F</option></select></label><label>Phone <input name="phone_number" value="${esc(t.phone_number || '')}"></label><label>E-mail <input name="email" value="${esc(t.email || '')}"></label>
+        <label>Passport no. <input name="passport_number" value="${esc(t.passport_number || '')}"></label><label>Passport expiry <input name="passport_expiry" type="date" value="${esc(t.passport_expiry || '')}"></label><label>Nationality <input name="nationality" value="${esc(t.nationality || 'IN')}"></label>
+        ${air.map(([c, n]) => `<label>${n} # <input name="loyalty.${c}" value="${esc((t.loyalty || {})[c] || '')}"></label>`).join('')}</div></div>`).join('')}
+      <button class="btn primary" id="saveTrav">Save travellers</button> <span class="hint" id="travMsg"></span>`;
+    $('#saveTrav').onclick = async () => {
+      const out = $$('#travellersPanel .trav').map((div) => { const o = { loyalty: {} }; $$('input,select', div).forEach((inp) => { if (inp.name.startsWith('loyalty.')) { if (inp.value) o.loyalty[inp.name.slice(8)] = inp.value; } else o[inp.name] = inp.value; }); return o; }).filter((o) => o.given_name);
+      await api('/api/expo/settings/travellers', { method: 'PUT', body: JSON.stringify(out) }); $('#travMsg').textContent = `Saved ${out.length} traveller(s).`;
+    };
+  }
+
   async function loadApprovals() {
     const d = await api('/api/expo/approvals');
     const r = d.rails;
+    const mb = $('#modeBtn'); if (mb) { mb.textContent = d.payment_mode === 'manual' ? 'Mode: MANUAL (you pay & book) — tap to automate' : 'Mode: AUTOMATE (agent books & reads confirmations) — tap for manual'; mb.className = 'btn ' + (d.payment_mode === 'manual' ? 'ghost' : 'primary'); mb.onclick = async () => { const to = d.payment_mode === 'manual' ? 'automate' : 'manual'; if (!confirm(to === 'automate' ? 'Switch to AUTOMATE? The agent will book flights via Duffel (with your saved frequent-flyer numbers) when a Duffel key is set, otherwise hand you the pre-filled Skyscanner / Booking.com link and mark items Done from the confirmation e-mail. Nothing is charged without your Approve tap.' : 'Switch to MANUAL? You pay from the bank app and book on Skyscanner / Booking.com yourself, then tap Done.')) return; await api('/api/expo/settings/payment-mode', { method: 'PUT', body: JSON.stringify({ mode: to }) }); loadApprovals(); }; }
     $('#railsInfo').textContent = d.payment_mode === 'manual'
       ? `Manual mode: the agent proposes, you approve, then you pay from the Souveno bank app or book on the airline/hotel site and tap Done with the UTR / PNR. No card or payout key is stored. · Flight policy: ${d.policy.flights}`
-      : `Rails mode: RazorpayX ${r.razorpayx ? 'on' : 'off'} · Duffel flights ${r.duffel ? 'on' : 'off'} · auto-execute ${r.auto_execute ? 'on' : 'off'} · Flight policy: ${d.policy.flights}`;
+      : `Automate mode: Duffel ticketing ${r.duffel ? 'on' : 'off (no key: you get the Skyscanner link, agent reads the e-ticket e-mail)'} · RazorpayX payouts ${r.razorpayx ? 'on' : 'off'} · travellers saved ${d.travellers_saved || 0} · Flight policy: ${d.policy.flights}`;
     const pending = d.items.filter((i) => i.status === 'proposed').length;
     $('#apBadge').textContent = pending; $('#apBadge').classList.toggle('hidden', !pending);
     const evOf = (i) => state.catalog.events.find((e) => e.id === i.event_id) || null;

@@ -37,13 +37,59 @@ GST = 0.18
 ADVANCE_SHARE = 0.5
 
 
+MODE_KEY = "expo_payment_mode"        # crud.Setting key: "manual" | "automate"
+TRAVELLERS_KEY = "expo_travellers"    # crud.Setting key: list of traveller dicts incl. frequent-flyer numbers
+_mode_override: str | None = None
+
+
 def payment_mode() -> str:
-    return "rails" if (settings.expo_payment_mode or "manual").lower() == "rails" else "manual"
+    """manual  = the agent proposes, you approve, you pay/book yourself, tap Done (default).
+    automate = the agent also books: Duffel tickets (with saved frequent-flyer numbers) and RazorpayX payouts when
+               their keys exist; otherwise it still hands you the Skyscanner / Booking.com link pre-filled and then
+               reads the confirmation e-mail (Gmail) to mark the item done for you."""
+    raw = (_mode_override or settings.expo_payment_mode or "manual").lower()
+    return "automate" if raw in ("automate", "rails", "auto") else "manual"
+
+
+def set_payment_mode(db: Session, mode: str) -> str:
+    global _mode_override
+    from backend.db import crud
+    mode = "automate" if mode in ("automate", "rails", "auto") else "manual"
+    crud.set_setting(db, MODE_KEY, mode)
+    _mode_override = mode
+    return mode
+
+
+def sync_mode(db: Session) -> str:
+    """Load the persisted toggle (the dashboard button) so every process agrees."""
+    global _mode_override
+    from backend.db import crud
+    saved = crud.get_setting(db, MODE_KEY, None)
+    if saved:
+        _mode_override = saved
+    return payment_mode()
+
+
+def travellers(db: Session) -> list[dict[str, Any]]:
+    from backend.db import crud
+    return crud.get_setting(db, TRAVELLERS_KEY, []) or []
+
+
+def set_travellers(db: Session, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Store traveller details once: name, DOB, gender, phone, e-mail, passport and frequent-flyer numbers
+    ({"6E": "...", "AI": "...", "EK": "..."}). Never store card numbers or portal passwords here."""
+    from backend.db import crud
+    clean = []
+    for r in rows[:6]:
+        clean.append({k: r.get(k, "") for k in ("given_name", "family_name", "born_on", "gender", "phone_number", "email", "title",
+                                                  "passport_number", "passport_expiry", "nationality")} | {"loyalty": {str(k).upper(): str(v) for k, v in (r.get("loyalty") or {}).items() if v}})
+    crud.set_setting(db, TRAVELLERS_KEY, clean)
+    return clean
 
 
 def _rail(name: str) -> str:
     """Which executor a proposal gets: a rail only when payment mode is 'rails' AND its keys exist."""
-    if payment_mode() != "rails":
+    if payment_mode() != "automate":
         return "manual"
     if name == "razorpayx" and settings.razorpayx_key_id:
         return "razorpayx"
@@ -175,7 +221,8 @@ def flight_proposal(ev: dict[str, Any], travellers: int = 2) -> dict[str, Any] |
             "origin": tp["outbound"]["route"].split(" -> ")[0], "destination": tp["outbound"]["route"].split(" -> ")[1],
             "depart": tp["outbound"]["date"], "return": tp["return"]["date"], "travellers": travellers,
             "fare_oneway_inr": [lo, hi], "cabin": "economy", "preference": "arrive evening before; return after 19:00",
-            "links": {"outbound": tp["outbound"]["links"], "return": tp["return"]["links"]},
+            "links": {"outbound": tp["outbound"]["links"], "return": tp["return"]["links"],
+                      "skyscanner_round_trip": planner.skyscanner_round_trip(tp["outbound"]["route"].split(" -> ")[0], tp["outbound"]["route"].split(" -> ")[1], depart, date.fromisoformat(tp["return"]["date"]), travellers)},
         },
     }
 
@@ -198,7 +245,8 @@ def hotel_proposal(ev: dict[str, Any], tier: str = "mid") -> dict[str, Any] | No
         "executor": "manual",
         "deadline": _deadline(date.fromisoformat(tp["hotel"]["checkin"]) - timedelta(days=14)),
         "details": {"hotel": pick, "checkin": tp["hotel"]["checkin"], "checkout": tp["hotel"]["checkout"], "nights": nights,
-                    "links": tp["hotel"]["links"], "alternatives": [h["name"] for h in picks if h is not pick]},
+                    "links": {**tp["hotel"]["links"], "booking_com": planner.booking_com_link(pick["name"], ev["city"], date.fromisoformat(tp["hotel"]["checkin"]), date.fromisoformat(tp["hotel"]["checkout"]))},
+                    "alternatives": [h["name"] for h in picks if h is not pick]},
     }
 
 
@@ -287,6 +335,8 @@ def _duffel_order(row: models.ExpoApproval, details: dict[str, Any]) -> dict[str
         return {"ok": False, "mode": "duffel", "reason": f"cheapest offer {offer['total_amount']} {offer['total_currency']} exceeds approved budget by >25%",
                 "offer_id": offer["id"]}
     passengers = details.get("passengers") or []
+    if not passengers and details.get("travellers_saved"):
+        passengers = details["travellers_saved"][: len(pax)]
     if not passengers and settings.duffel_passengers_json:
         try:
             passengers = json.loads(settings.duffel_passengers_json)[: len(pax)]
@@ -296,7 +346,7 @@ def _duffel_order(row: models.ExpoApproval, details: dict[str, Any]) -> dict[str
         return {"ok": False, "mode": "duffel", "reason": "passenger details (given_name, family_name, born_on, gender, phone, email) missing in details.passengers",
                 "offer_id": offer["id"], "offer_total": offer["total_amount"]}
     order = {"data": {"type": "instant", "selected_offers": [offer["id"]], "payments": [{"type": "balance", "amount": offer["total_amount"], "currency": offer["total_currency"]}],
-                      "passengers": [{**p, "id": op["id"]} for p, op in zip(passengers, offer["passengers"])]}}
+                      "passengers": [_duffel_passenger(p, op["id"], offer) for p, op in zip(passengers, offer["passengers"])]}}
     r2 = requests.post("https://api.duffel.com/air/orders", json=order, headers=h, timeout=60)
     return {"ok": r2.status_code < 300, "mode": "duffel", "status_code": r2.status_code, "response": r2.json(), "offer_total": offer["total_amount"]}
 
@@ -318,12 +368,20 @@ def manual_steps(row: models.ExpoApproval, details: dict[str, Any]) -> list[str]
         ]
     if row.kind == "flight":
         links = details.get("links", {})
-        out = links.get("outbound", {}).get("google_flights", "Google Flights")
-        back = links.get("return", {}).get("google_flights", "Google Flights")
+        sky = links.get("skyscanner_round_trip") or links.get("outbound", {}).get("skyscanner")
+        out = sky or links.get("outbound", {}).get("google_flights", "Google Flights")
+        back = links.get("return", {}).get("skyscanner") or links.get("return", {}).get("google_flights", "Google Flights")
         win = details.get("booking_window", {})
+        if payment_mode() == "automate":
+            return [
+                f"Open Skyscanner (round trip, 2 adults, direct first): {out}",
+                "Pick the flights you like and paste the flight numbers + dates into this card (Edit → details.chosen_flights), or just book on the airline site with the Souveno e-mail.",
+                "If Duffel is connected, the agent tickets the chosen flights with the saved frequent-flyer numbers and marks this Done. Otherwise the agent watches the Souveno inbox for the e-ticket and marks it Done with the PNR.",
+                (f"Book by {win.get('preferred_by')} (latest {win.get('latest_by')})." if win else "Book inside the policy window."),
+            ]
         return [
-            f"Open the outbound search: {out}",
-            f"Open the return search: {back}",
+            f"Open Skyscanner (round trip, 2 adults, direct first): {out}",
+            f"Return leg on its own if you prefer: {back}",
             f"Pick a direct economy fare that lands the evening before and returns after 19:00; total for {details.get('travellers', 2)} travellers within {amt}.",
             "Pay on the airline site or MakeMyTrip/ixigo with the Souveno company card; use the Souveno email for the booking so the tickets and GST invoice land in the company inbox."
             + (f" Book by {win.get('preferred_by')} (latest {win.get('latest_by')})." if win else ""),
@@ -331,8 +389,15 @@ def manual_steps(row: models.ExpoApproval, details: dict[str, Any]) -> list[str]
         ]
     if row.kind == "hotel":
         h = details.get("hotel", {})
+        bk = details.get("links", {}).get("booking_com") or details.get("links", {}).get("google_hotels", "")
+        if payment_mode() == "automate":
+            return [
+                f"Open Booking.com pre-filled for {h.get('name', 'the hotel')} {details.get('checkin')} → {details.get('checkout')}, 2 adults: {bk}",
+                f"Book within {amt} total with free cancellation; pay with the Souveno company card and the Souveno e-mail.",
+                "The agent watches the Souveno inbox for the Booking.com confirmation and marks this Done with the confirmation number (it never stores the PIN or card).",
+            ]
         return [
-            f"Open {h.get('name', 'the hotel')} for {details.get('checkin')} → {details.get('checkout')}: {details.get('links', {}).get('google_hotels', '')}",
+            f"Open Booking.com pre-filled for {h.get('name', 'the hotel')} {details.get('checkin')} → {details.get('checkout')}, 2 adults: {bk}",
             f"Book a room within {amt} total ({details.get('nights', '')} nights). Prefer free cancellation until 7 days before the show.",
             "Pay with the Souveno company card and ask for a GST invoice in the company name (GSTIN 36BDNPP2011D2ZV).",
             "Tap Done and enter the confirmation number. The hotel status flips to booked.",
@@ -345,6 +410,19 @@ def manual_steps(row: models.ExpoApproval, details: dict[str, Any]) -> list[str]
             "Tap Done and enter the visa or application number.",
         ]
     return [f"Complete this manually, then tap Done with the reference. ({ref})"]
+
+
+def _duffel_passenger(p: dict[str, Any], pid: str, offer: dict[str, Any]) -> dict[str, Any]:
+    """Duffel passenger payload with loyalty_programme_accounts filled from the saved frequent-flyer numbers."""
+    out = {k: v for k, v in p.items() if k not in ("loyalty", "passport_number", "passport_expiry", "nationality") and v}
+    out["id"] = pid
+    carriers = {seg.get("marketing_carrier", {}).get("iata_code") for sl in offer.get("slices", []) for seg in sl.get("segments", [])}
+    loyalty = [{"airline_iata_code": code, "account_number": num} for code, num in (p.get("loyalty") or {}).items() if code in carriers and num]
+    if loyalty:
+        out["loyalty_programme_accounts"] = loyalty
+    if p.get("passport_number"):
+        out["identity_documents"] = [{"type": "passport", "unique_identifier": p["passport_number"], "expires_on": p.get("passport_expiry", ""), "issuing_country_code": (p.get("nationality") or "IN")[:2].upper()}]
+    return out
 
 
 def _manual_instruction(row: models.ExpoApproval, details: dict[str, Any]) -> str:

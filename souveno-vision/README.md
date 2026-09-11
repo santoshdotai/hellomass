@@ -299,6 +299,36 @@ one executor function in `backend/core/expo/approvals.py` and its keys in `.env`
 
 **Flight policy** (`flight_booking_window`): every flight is proposed with a booking window — domestic: preferred by 60 days before departure, hard deadline 30 days; international (Gulf etc.): preferred 90 days, hard deadline 45 days, plus a **visa** proposal due 21 days before departure (UAE e-visa, Saudi business e-visa). Automated ticketing for international trips needs passport fields in `DUFFEL_PASSENGERS_JSON`. Inside 60 days the item is marked urgent and jumps to the top of Approvals; inside 30 days it is marked late. A calendar reminder is placed on the 60-day mark for each away show.
 
+
+### Subsidies, early-bird deadlines and the 3-day follow-up
+
+Every event card has a green **Subsidy / money back** box (`backend/core/expo/subsidy.py`, data in each event's
+`subsidy` block of `data/expo/events.json`). It lists the schemes that apply to that show, the estimated refund,
+the **apply-by date** (PMS: 30 days before the show; MAI: 90 days; IC: the ministry's call), the claim window,
+and the organiser's early-bird / last-date-to-book-with-discount when it is published (`null` = not published
+yet, never a guess). Schemes in the catalogue: MSME PMS (domestic stall rent, confirmed), Telangana MSME Policy
+2024 marketing assistance (being verified), MSME International Cooperation (foreign fairs, via an industry
+association), MAI via ESC India (needs 12 months' EPC membership), DPIIT startup pods. `GET /api/expo/subsidies`
+returns the whole table plus the next deadlines.
+
+A Claude routine runs **every 3 days at 9:30am IST** ("Souveno expo: 3-day subsidy, early-bird and confirmation
+follow-up"): it re-checks organiser early-bird deadlines and scheme pages, reads organiser replies and
+Booking.com / airline confirmation e-mails in the Souveno inbox, marks the matching approvals Done, commits the
+updated `subsidy` blocks, and e-mails santoshdotai@gmail.com a summary. A second routine sends the **8pm evening
+brief** with the next day's programme, flights, hotel, stall advice and everything due in the next 3 days.
+
+### Manual vs automate mode
+
+The **Mode** button in the Approvals tab (in-app and on the phone dashboard) switches `EXPO_PAYMENT_MODE`:
+
+| Mode | What happens after you tap Approve |
+|---|---|
+| **Manual** (default) | Checklist: pay from the Souveno bank app / open the pre-filled **Skyscanner** or **Booking.com** link, book with the Souveno e-mail, tap Done with the UTR / PNR / confirmation number. |
+| **Automate** | Flights: the agent tickets via Duffel with the **frequent-flyer numbers saved once** in Travel & Booking (`PUT /api/expo/settings/travellers`) when `DUFFEL_ACCESS_TOKEN` is set; otherwise it hands you the Skyscanner link. Hotels: pre-filled Booking.com link (Booking.com has no booking API for guests, and the agent never takes your login). In both cases the 3-day routine reads the confirmation e-mail and marks the item Done. Stall advances: RazorpayX payout when keys exist, else the manual checklist. |
+
+Nothing is ever charged without the Approve tap. Card numbers, portal passwords and Booking.com PINs are never
+stored; only PNRs, confirmation numbers and UTRs.
+
 ### Phone app
 
 `/expo` ships a web-app manifest and service worker. Open it in Chrome (Android) or Safari (iPhone) and use

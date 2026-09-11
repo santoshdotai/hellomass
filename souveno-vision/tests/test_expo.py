@@ -349,3 +349,37 @@ def test_manual_steps_for_every_kind():
         assert len(steps) >= 4 and steps[-1].startswith("Tap Done")
         if p["kind"] == "flight":
             assert "HYD" in p["title"] and "Souveno company card" in steps[3]
+
+
+def test_mode_toggle_travellers_and_subsidies(client):
+    st = client.get("/api/expo/settings").json()
+    assert st["payment_mode"] == "manual" and st["travellers"] == []
+    r = client.put("/api/expo/settings/payment-mode", json={"mode": "automate"}).json()
+    assert r["payment_mode"] == "automate"
+    assert client.get("/api/expo/approvals").json()["payment_mode"] == "automate"
+    rows = client.put("/api/expo/settings/travellers", json=[{"given_name": "Santosh", "family_name": "P", "born_on": "1990-01-01", "gender": "m",
+                                                               "phone_number": "+91 86393 32232", "email": "santoshdotai@gmail.com",
+                                                               "loyalty": {"6E": "123456", "ek": "EK9988"}, "password": "should-not-be-stored"}]).json()["travellers"]
+    assert rows[0]["loyalty"] == {"6E": "123456", "EK": "EK9988"} and "password" not in rows[0]
+    assert client.get("/api/expo/settings").json()["travellers"][0]["given_name"] == "Santosh"
+    assert client.put("/api/expo/settings/payment-mode", json={"mode": "manual"}).json()["payment_mode"] == "manual"
+    # subsidies: exhibit shows carry PMS with an apply-by date; visit shows do not
+    subs = client.get("/api/expo/subsidies").json()
+    by = {r["event_id"]: r for r in subs["events"]}
+    assert "pms" in by["elecrama-2027"]["schemes"] and by["elecrama-2027"]["estimated_refund_inr"][1] > 0
+    assert by["hardware-fair-india-2026"]["schemes"] == [] and by["hardware-fair-india-2026"]["estimated_refund_inr"] == [0, 0]
+    one = client.get("/api/expo/subsidies/elecrama-2027").json()
+    pms = next(s for s in one["schemes"] if s["key"] == "pms")
+    assert pms["apply_by"] == "2027-01-21" and pms["status"] == "confirmed" and one["early_bird"]["deadline"] is None
+    ev = client.get("/api/expo/events/elecrama-2027").json()
+    assert ev["subsidy_info"]["headline"].startswith("Estimated money back")
+    assert any(d["what"].startswith("Apply") for d in subs["deadlines"])
+
+
+def test_flight_and_hotel_proposals_carry_skyscanner_and_booking_links():
+    from backend.core.expo import approvals
+    ev = next(e for e in list_events() if e["id"] == "elecrama-2027")
+    ps = {p["kind"]: p for p in approvals.proposals_for_event(ev)}
+    sky = ps["flight"]["details"]["links"]["skyscanner_round_trip"]
+    assert sky.startswith("https://www.skyscanner.co.in/transport/flights/hyd/del/270219/270224/") and "adultsv2=2" in sky
+    assert "booking.com/searchresults.html" in ps["hotel"]["details"]["links"]["booking_com"] and "checkin=2027-02-19" in ps["hotel"]["details"]["links"]["booking_com"]

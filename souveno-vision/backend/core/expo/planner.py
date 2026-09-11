@@ -48,12 +48,24 @@ def flight_links(origin: str, dest: str, day: date) -> dict[str, str]:
         "google_flights": f"https://www.google.com/travel/flights?q={quote_plus(f'flights from {origin} to {dest} on {iso}')}",
         "makemytrip": f"https://www.makemytrip.com/flight/search?itinerary={origin}-{dest}-{dmy}&tripType=O&paxType=A-1_C-0_I-0&cabinClass=E",
         "ixigo": f"https://www.ixigo.com/search/result/flight?from={origin}&to={dest}&date={day.strftime('%d%m%Y')}&adults=1&children=0&infants=0&class=e",
+        "skyscanner": f"https://www.skyscanner.co.in/transport/flights/{origin.lower()}/{dest.lower()}/{day.strftime('%y%m%d')}/?adultsv2=2&cabinclass=economy&rtn=0&preferdirects=true",
     }
+
+
+def skyscanner_round_trip(origin: str, dest: str, depart: date, ret: date, adults: int = 2) -> str:
+    return (f"https://www.skyscanner.co.in/transport/flights/{origin.lower()}/{dest.lower()}/{depart.strftime('%y%m%d')}/{ret.strftime('%y%m%d')}/"
+            f"?adultsv2={adults}&cabinclass=economy&rtn=1&preferdirects=true")
+
+
+def booking_com_link(hotel_name: str, city: str, checkin: date, checkout: date, adults: int = 2) -> str:
+    return (f"https://www.booking.com/searchresults.html?ss={quote_plus(hotel_name + ' ' + city)}&checkin={checkin.isoformat()}"
+            f"&checkout={checkout.isoformat()}&group_adults={adults}&no_rooms=1&group_children=0&selected_currency=INR")
 
 
 def hotel_links(venue: str, city: str, checkin: date, checkout: date) -> dict[str, str]:
     q = quote_plus(f"hotels near {venue} {city}")
     return {
+        "booking_com": booking_com_link(f"hotels near {venue}", city, checkin, checkout),
         "google_hotels": f"https://www.google.com/travel/hotels?q={q}&checkin={checkin.isoformat()}&checkout={checkout.isoformat()}",
         "makemytrip": f"https://www.makemytrip.com/hotels/hotel-listing/?checkin={checkin.strftime('%m%d%Y')}&checkout={checkout.strftime('%m%d%Y')}&city={quote_plus(city)}&roomStayQualifier=2e0e&searchText={q}",
     }

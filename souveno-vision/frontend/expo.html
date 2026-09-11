@@ -68,6 +68,7 @@
         <h3>Bookings waiting for your tap</h3>
         <button class="btn secondary" id="proposeBtn">Propose bookings due in 90 days</button>
         <label>Sort <select id="apSort"><option value="urgency">by urgency</option><option value="priority">by Souveno priority (stars)</option></select></label>
+        <button class="btn ghost" id="modeBtn" title="Switch between manual (you pay/book) and automate (agent books via Duffel / reads confirmations)">Mode: …</button>
         <span id="railsInfo" class="hint"></span>
       </div>
       <p class="muted">The agent proposes each stall advance (50% of sqm × rate + 18% GST), flight and hotel with the amount worked out. Nothing is paid until you tap Approve. Approved items execute through RazorpayX or Duffel when those keys are set; otherwise you get the exact payment instruction and tap "Done" after paying.</p>
@@ -159,6 +160,7 @@
     <div class="panel card">
       <h2>Travel &amp; booking desk</h2>
       <p class="muted">The agent cannot pay for tickets. Every row opens a pre-filled search; mark the status here once booked so the dashboard tracks it.</p>
+      <div id="travellersPanel" class="panel"></div>
       <div id="travelTable"></div>
     </div>
   </section>
