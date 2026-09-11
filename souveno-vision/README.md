@@ -340,6 +340,28 @@ ICP segments, who to target). Revenue uses `_meta.deal_economics` in `data/expo/
 per client: quote desk ₹1,69,000; Vision AI ₹3,50,000; 5.25% of captured leads convert; USD at ₹84) — edit the
 numbers there and everything recomputes. Low case first, high case second; costs are public ranges, not quotes.
 
+
+### After the show: actuals, and the agent learning from them
+
+Live Funnel tab → pick the event → **After the show: actual figures**: actual cost, footfall you saw, leads
+(defaults to the cards scanned on the dashboard), qualified, demos, paid pilots, revenue won, subsidy received,
+stall number, the segments that actually converted, notes. Saved via `PUT /api/expo/actuals/{event_id}`.
+The card then shows estimate vs actual and the real P&L. `backend/core/expo/calibration.py` turns every actual
+into a ratio (actual ÷ estimate) per mode and scales future estimates by it (shrunk towards 1.0 until five
+shows per mode are in), so the Finance tab shows calibrated conversions and P&L under each estimate. An observed
+footfall is written back into the event's `footfall_history` and `expected` so next year starts from reality.
+
+### Voice
+
+The 🎤 Voice button (both dashboards, Chrome on Android, Safari on iPhone) uses the browser's speech
+recognition; the sentence goes to `POST /api/expo/voice` (in-app) or the same grammar in the phone dashboard.
+It speaks the answer back. Works today: "book tickets to ELECRAMA" (approves the flight; manual mode opens the
+pre-filled Skyscanner search, automate mode books via Duffel), "book hotel for Plastivision", "book the stall at
+Fastener Fair", "mark Hardware Fair flight done PNR ABC123", "when is IMTEX", "what does WAREMAT cost", "how
+good is Big 5 for us", "footfall at ELECRAMA", "subsidy deadlines for Plastivision", "what is coming in two
+months" (opens Finance at that horizon), "next event", "approvals waiting". Nothing is charged by voice: a
+booking command is an Approve tap, and the payment still happens through the mode you have chosen.
+
 ### Phone app
 
 `/expo` ships a web-app manifest and service worker. Open it in Chrome (Android) or Safari (iPhone) and use

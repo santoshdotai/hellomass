@@ -15,6 +15,8 @@ from sqlalchemy.orm import Session
 from backend.core.expo import approvals as approval_engine
 from backend.core.expo import subsidy as subsidy_engine
 from backend.core.expo import finance as finance_engine
+from backend.core.expo import calibration as calibration_engine
+from backend.core.expo import voice as voice_engine
 from backend.core.expo import cards as card_engine
 from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
@@ -715,11 +717,110 @@ def put_travellers(body: list[dict[str, Any]], db: Session = Depends(get_db)):
 
 
 @router.get("/finance")
-def finance(horizon: str = "1m"):
+def finance(horizon: str = "1m", db: Session = Depends(get_db)):
     try:
-        return finance_engine.report(horizon)
+        r = finance_engine.report(horizon)
     except KeyError:
         raise HTTPException(400, f"horizon must be one of {[h[0] for h in finance_engine.HORIZONS]}")
+    fx = calibration_engine.factors(db)
+    for row in r["exhibits"] + r["visits"]:
+        calibration_engine.calibrate_row(row, fx)
+    r["calibration"] = fx
+    return r
+
+
+# ---------------------------------------------------------------- actuals (after the show) + calibration + voice
+class ActualsIn(BaseModel):
+    mode: Optional[str] = None
+    actual_cost_inr: int = 0
+    footfall_visitors: int = 0
+    leads: int = 0
+    qualified: int = 0
+    demos: int = 0
+    paid_pilots: int = 0
+    revenue_inr: int = 0
+    subsidy_received_inr: int = 0
+    stall_number: str = ""
+    best_segments: list[str] = []
+    notes: str = ""
+    update_expected_footfall: bool = True
+
+
+@router.get("/actuals")
+def list_actuals(db: Session = Depends(get_db)):
+    rows = db.query(models.ExpoActuals).order_by(models.ExpoActuals.recorded_at.desc()).all()
+    return {"items": [calibration_engine.actuals_dict(r) for r in rows], "calibration": calibration_engine.factors(db)}
+
+
+@router.put("/actuals/{event_id}")
+def put_actuals(event_id: str, body: ActualsIn, db: Session = Depends(get_db)):
+    ev = _require_event(event_id)
+    row = db.query(models.ExpoActuals).filter_by(event_id=event_id).first()
+    if not row:
+        row = models.ExpoActuals(event_id=event_id)
+        db.add(row)
+    for k in ("actual_cost_inr", "footfall_visitors", "leads", "qualified", "demos", "paid_pilots", "revenue_inr", "subsidy_received_inr", "stall_number", "notes"):
+        setattr(row, k, getattr(body, k))
+    row.mode = body.mode or ev.get("mode", "")
+    row.best_segments = ",".join(body.best_segments)
+    if body.leads == 0:  # default to the leads captured on the dashboard during the show
+        row.leads = db.query(func.count(models.ExpoLead.id)).filter(models.ExpoLead.event_id == event_id).scalar() or 0
+    if body.update_expected_footfall and body.footfall_visitors:
+        # feed the observed footfall back into the catalogue so next year's estimate starts from reality
+        from backend.core.expo import catalog as _cat
+        import json as _json
+        path = _cat.CATALOG_PATH if hasattr(_cat, "CATALOG_PATH") else None
+        if path:
+            data = _json.loads(open(path, encoding="utf-8").read())
+            for e in data["events"]:
+                if e["id"] == event_id:
+                    e.setdefault("footfall_history", []).append({"year": int(ev["start"][:4]), "visitors": body.footfall_visitors, "note": "Souveno's own count / organiser closing figure (entered after the show)"})
+                    e["expected"] = {**(e.get("expected") or {}), "visitors": body.footfall_visitors}
+            open(path, "w", encoding="utf-8").write(_json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+            _cat.reload()
+    db.commit()
+    db.refresh(row)
+    return calibration_engine.actuals_dict(row)
+
+
+@router.get("/calibration")
+def calibration(db: Session = Depends(get_db)):
+    return calibration_engine.factors(db)
+
+
+class VoiceIn(BaseModel):
+    text: str
+    execute: bool = True
+
+
+@router.post("/voice")
+def voice(body: VoiceIn, db: Session = Depends(get_db)):
+    """Turn a spoken sentence into an action. Approvals and mark-done run here when execute=true."""
+    intent = voice_engine.parse(body.text)
+    result = None
+    if body.execute and intent["action"] in ("approve", "mark_done") and intent.get("event_id"):
+        q = db.query(models.ExpoApproval).filter(models.ExpoApproval.event_id == intent["event_id"], models.ExpoApproval.kind == intent["kind"])
+        row = q.filter(models.ExpoApproval.status.in_(["proposed", "failed"] if intent["action"] == "approve" else ["approved", "proposed", "failed"])).first()
+        if not row and intent["action"] == "approve":
+            created = approval_engine.propose(db, _require_event(intent["event_id"]))
+            row = next((r for r in created if r.kind == intent["kind"]), None) if created else None
+            if row is None:
+                row = q.filter(models.ExpoApproval.status.in_(["proposed", "failed"])).first()
+        if not row:
+            intent["reply"] = f"I could not find a {intent['kind'].replace('_', ' ')} to {intent['action'].replace('_', ' ')} for {intent['event_name']}. It may already be done."
+        elif intent["action"] == "approve":
+            row.status = "approved"; row.decided_at = datetime.utcnow(); row.notes = (row.notes + "\n" if row.notes else "") + f"Approved by voice: {body.text}"
+            db.commit()
+            row = approval_engine.execute(db, row)
+            result = approval_engine.to_dict(row)
+            link = (result["details"].get("links") or {}).get("skyscanner_round_trip") or (result["details"].get("links") or {}).get("booking_com") or ""
+            intent["open_url"] = link
+            intent["reply"] = f"Approved {result['title']} for {result['amount_inr']:,} rupees. " + ("Opening the pre-filled search; pay with the Souveno e-mail and say 'mark it done' with the PNR." if result["executor"] == "manual" else "The agent is booking it and will mark it done from the confirmation e-mail.")
+        else:
+            row.status = "executed"; row.executed_at = datetime.utcnow()
+            row.execution_json = json.dumps({"ok": True, "mode": "manual", "reference": intent.get("reference", ""), "note": f"by voice: {body.text}"})
+            db.commit(); result = approval_engine.to_dict(row)
+    return {**intent, "approval": result}
 
 
 @router.get("/subsidies")

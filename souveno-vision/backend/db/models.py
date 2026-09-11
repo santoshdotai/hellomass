@@ -253,6 +253,27 @@ class ExpoCardScan(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
 
+class ExpoActuals(Base):
+    """What really happened at a show, entered after coming back. Drives calibration of future estimates."""
+    __tablename__ = "expo_actuals"
+
+    id = Column(Integer, primary_key=True)
+    event_id = Column(String, unique=True, nullable=False, index=True)
+    mode = Column(String, default="")  # exhibit | visit as actually done
+    actual_cost_inr = Column(Integer, default=0)
+    footfall_visitors = Column(Integer, default=0)  # what you saw / organiser's closing figure
+    leads = Column(Integer, default=0)
+    qualified = Column(Integer, default=0)
+    demos = Column(Integer, default=0)
+    paid_pilots = Column(Integer, default=0)
+    revenue_inr = Column(Integer, default=0)  # first-year value of the clients won
+    subsidy_received_inr = Column(Integer, default=0)
+    stall_number = Column(String, default="")
+    best_segments = Column(String, default="")  # comma-separated ICP keys that actually converted
+    notes = Column(Text, default="")
+    recorded_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
 class ExpoApproval(Base):
     """A booking the agent proposes; money moves only after a human taps Approve."""
     __tablename__ = "expo_approvals"

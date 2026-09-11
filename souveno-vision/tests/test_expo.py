@@ -402,3 +402,36 @@ def test_finance_report_splits_exhibits_and_visits(client):
     api = client.get("/api/expo/finance", params={"horizon": "3m"}).json()
     assert api["horizon_label"] == "in 3 months" and len(api["horizons"]) == 15
     assert client.get("/api/expo/finance", params={"horizon": "99y"}).status_code == 400
+
+
+def test_actuals_calibrate_future_estimates_and_voice_commands(client, tmp_path, monkeypatch):
+    # keep the catalogue file untouched during the test
+    from backend.core.expo import catalog as cat
+    import shutil
+    tmp = tmp_path / "events.json"; shutil.copy(cat.CATALOG_PATH, tmp)
+    monkeypatch.setattr(cat, "CATALOG_PATH", tmp)
+    assert client.get("/api/expo/calibration").json()["n_actuals"] == 0
+    r = client.put("/api/expo/actuals/engiexpo-pune-2026", json={"actual_cost_inr": 210000, "footfall_visitors": 30000, "leads": 120, "qualified": 40, "demos": 20,
+                                                                 "paid_pilots": 5, "revenue_inr": 845000, "subsidy_received_inr": 30000, "stall_number": "B18", "best_segments": ["A", "D"], "notes": "corner near entrance worked"}).json()
+    assert r["variance"]["leads_ratio"] < 1 and r["pl_actual_inr"] == 845000 + 30000 - 210000 and r["best_segments"] == ["A", "D"]
+    fx = client.get("/api/expo/calibration").json()
+    assert fx["n_actuals"] == 1 and 0 < fx["by_mode"]["exhibit"]["leads"]["factor"] < 1 and fx["by_mode"]["visit"]["leads"]["factor"] == 1.0
+    fin = client.get("/api/expo/finance", params={"horizon": "12m"}).json()
+    row = next(x for x in fin["exhibits"] if x["id"] == "elecrama-2027")
+    assert row["calibrated"]["leads"][1] < row["leads"][1] and fin["calibration"]["n_actuals"] == 1
+    lst = client.get("/api/expo/actuals").json()
+    assert lst["items"][0]["event_id"] == "engiexpo-pune-2026" and lst["items"][0]["estimate"]["leads"][1] > 0
+    # voice
+    from backend.core.expo import voice
+    from datetime import date
+    v = voice.parse("when is plastivision", today=date(2026, 9, 11))
+    assert v["intent"] == "dates" and "21 January 2027" in v["reply"] and v["event_id"] == "plastivision-2027"
+    assert voice.parse("what is coming in two months", today=date(2026, 9, 11))["horizon"] == "2m"
+    assert voice.parse("book the stall at fastener fair")["kind"] == "stall_advance"
+    assert voice.parse("mark hardware fair flight done PNR ABC123")["reference"] == "ABC123"
+    assert voice.parse("blah blah")["intent"] == "unknown"
+    out = client.post("/api/expo/voice", json={"text": "book tickets to ELECRAMA"}).json()
+    assert out["intent"] == "approve" and out["approval"]["status"] == "approved" and out["approval"]["kind"] == "flight" and "skyscanner" in out["open_url"]
+    done = client.post("/api/expo/voice", json={"text": "mark ELECRAMA flight done PNR XYZ789"}).json()
+    assert done["approval"]["status"] == "executed" and done["approval"]["execution"]["reference"] == "XYZ789"
+    assert client.get("/api/expo/plans/elecrama-2027").json()["flight_status"] in ("booked", "not_started", "searching")

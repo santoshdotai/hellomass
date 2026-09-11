@@ -25,7 +25,7 @@
   $$('#expoNav .nav-btn').forEach((b) => b.addEventListener('click', () => {
     $$('#expoNav .nav-btn').forEach((x) => x.classList.toggle('active', x === b));
     $$('.view').forEach((v) => v.classList.toggle('active', v.id === 'view-' + b.dataset.view));
-    if (b.dataset.view === 'funnel') loadFunnel();
+    if (b.dataset.view === 'funnel') { loadFunnel(); loadActuals(); }
     if (b.dataset.view === 'approvals') loadApprovals();
     if (b.dataset.view === 'travel') loadTravellers();
     if (b.dataset.view === 'finance') loadFinance();
@@ -169,7 +169,7 @@
     $('#developments').innerHTML = d.developments.length ? `<table class="grid"><tbody>${d.developments.map((x) => `<tr><td>${(x.happened_at || '').slice(0, 16).replace('T', ' ')}</td><td>${x.kind}</td><td>${esc(x.summary)}</td><td>${x.outcome}</td></tr>`).join('')}</tbody></table>` : '<div class="muted">Log demos, calls and meetings from the lead row.</div>';
   }
   $('#refreshFunnel').addEventListener('click', loadFunnel);
-  $('#funnelEvent').addEventListener('change', loadFunnel);
+  $('#funnelEvent').addEventListener('change', () => { loadFunnel(); loadActuals(); });
 
   // ---------------------------------------------------------------- leads & cards
   async function loadLeads() {
@@ -307,6 +307,59 @@
       + finTable(r.exhibits, 'Exhibits') + finTable(r.visits, 'Visits')
       + `<div class="meta">Assumptions (edit in data/expo/events.json → _meta.deal_economics): ${esc(a.quote_desk.label)} = ${inr(a.quote_desk.first_year_value_inr)} first year · ${esc(a.vision_ai.label)} = ${inr(a.vision_ai.first_year_value_inr)} first year · ${Math.round(a.lead_to_client_probability * 10000) / 100}% of captured leads become clients (${esc(a.lead_to_client_note || '')}) · USD at ₹${a.fx_inr_per_usd}. Subsidy shown is the best single scheme; P&amp;L uses cost net of subsidy.</div>`;
   }
+  // ---------------------------------------------------------------- actuals (after the show) + voice
+  async function loadActuals() {
+    const host = $('#actualsPanel'); if (!host) return;
+    const evId = $('#funnelEvent').value;
+    const all = await api('/api/expo/actuals');
+    const fx = all.calibration;
+    const existing = evId ? all.items.find((x) => x.event_id === evId) : null;
+    const segs = Object.entries(state.catalog.meta.icp_segments || {});
+    const a = existing || {};
+    host.innerHTML = `<h3>After the show: actual figures (the AI learns from these)</h3>
+      <div class="hint">${esc(fx.note)}${fx.n_actuals ? ` Exhibit factors — leads ×${fx.by_mode.exhibit.leads.factor}, clients ×${fx.by_mode.exhibit.paid_pilots.factor}, cost ×${fx.by_mode.exhibit.cost.factor}; visit factors — leads ×${fx.by_mode.visit.leads.factor}, clients ×${fx.by_mode.visit.paid_pilots.factor}.` : ''}</div>
+      ${evId ? `<div class="grid3">
+        <label>Actual total cost (INR) <input name="actual_cost_inr" type="number" value="${a.actual_cost_inr || ''}"></label>
+        <label>Footfall you saw / organiser closing figure <input name="footfall_visitors" type="number" value="${a.footfall_visitors || ''}"></label>
+        <label>Leads captured (blank = cards scanned here) <input name="leads" type="number" value="${a.leads || ''}"></label>
+        <label>Qualified <input name="qualified" type="number" value="${a.qualified || ''}"></label>
+        <label>Demos <input name="demos" type="number" value="${a.demos || ''}"></label>
+        <label>Paid pilots / clients won <input name="paid_pilots" type="number" value="${a.paid_pilots || ''}"></label>
+        <label>Revenue won, first year (INR) <input name="revenue_inr" type="number" value="${a.revenue_inr || ''}"></label>
+        <label>Subsidy received (INR) <input name="subsidy_received_inr" type="number" value="${a.subsidy_received_inr || ''}"></label>
+        <label>Stall number <input name="stall_number" value="${esc(a.stall_number || '')}"></label>
+        <label>Segments that actually converted <select name="best_segments" multiple size="4">${segs.map(([k, n]) => `<option value="${k}" ${(a.best_segments || []).includes(k) ? 'selected' : ''}>${k} — ${esc(n)}</option>`).join('')}</select></label>
+        <label style="grid-column:1/-1">Notes (what worked, what did not, where the crowd was) <textarea name="notes" rows="2">${esc(a.notes || '')}</textarea></label>
+      </div><button class="btn primary" id="saveActuals">Save actuals</button> <span class="hint" id="actMsg"></span>
+      ${a.estimate ? `<div class="whybox" style="margin-top:8px"><b>Estimate vs actual</b><ul><li>Leads: estimated ${a.estimate.leads[0]}–${a.estimate.leads[1]}, actual ${a.leads} (×${a.variance.leads_ratio ?? '—'})</li><li>Clients: estimated ${a.estimate.paid_pilots[0]}–${a.estimate.paid_pilots[1]}, actual ${a.paid_pilots} (×${a.variance.pilots_ratio ?? '—'})</li><li>Cost: estimated ${inr(a.estimate.cost_inr[0])}–${inr(a.estimate.cost_inr[1])}, actual ${inr(a.actual_cost_inr)} (×${a.variance.cost_ratio ?? '—'})</li><li>Footfall: estimated ${a.estimate.footfall_visitors || '—'}, actual ${a.footfall_visitors || '—'}</li><li><b>Actual P&amp;L: ${inr(a.pl_actual_inr)}</b> (revenue + subsidy − cost)</li></ul></div>` : ''}`
+      : `<div class="muted">Pick an event above to enter what really happened.</div>`}
+      ${all.items.length ? `<h4>Recorded so far</h4><ul>${all.items.map((x) => `<li>${esc(x.event_name)}: ${x.leads} leads, ${x.paid_pilots} clients, cost ${inr(x.actual_cost_inr)}, P&amp;L ${inr(x.pl_actual_inr)}</li>`).join('')}</ul>` : ''}`;
+    const sb = $('#saveActuals'); if (sb) sb.onclick = async () => {
+      const body = {}; $$('#actualsPanel input,#actualsPanel textarea,#actualsPanel select').forEach((el) => { if (el.name === 'best_segments') body.best_segments = Array.from(el.selectedOptions).map((o) => o.value); else if (el.type === 'number') body[el.name] = Number(el.value || 0); else body[el.name] = el.value; });
+      await api(`/api/expo/actuals/${evId}`, { method: 'PUT', body: JSON.stringify(body) }); $('#actMsg').textContent = 'Saved. Future estimates are now calibrated.'; loadActuals();
+    };
+  }
+  function speak(text) { try { const u = new SpeechSynthesisUtterance(text); u.lang = 'en-IN'; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch {} }
+  async function runVoice(text) {
+    $('#micSay').textContent = `“${text}” …`;
+    try {
+      const r = await api('/api/expo/voice', { method: 'POST', body: JSON.stringify({ text }) });
+      $('#micSay').textContent = r.reply; speak(r.reply);
+      if (r.open_url) window.open(r.open_url, '_blank', 'noopener');
+      if (r.action === 'open_finance' || r.action === 'approve' || r.action === 'mark_done' || r.action === 'open_approvals') { const v = r.action === 'open_finance' ? 'finance' : 'approvals'; const btn = $(`.nav-btn[data-view="${v}"]`); if (btn) btn.click(); if (r.action === 'open_finance' && r.horizon) { const sel = $('#finHorizon'); if (sel) { sel.value = r.horizon; loadFinance(); } } }
+    } catch (e) { $('#micSay').textContent = e.message; }
+  }
+  (() => {
+    const btn = $('#micBtn'); if (!btn) return;
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) { btn.onclick = () => { const t = prompt('Voice is not available in this browser. Type the command instead:'); if (t) runVoice(t); }; return; }
+    const rec = new SR(); rec.lang = 'en-IN'; rec.interimResults = false; rec.maxAlternatives = 1;
+    rec.onresult = (e) => runVoice(e.results[0][0].transcript);
+    rec.onerror = (e) => { $('#micSay').textContent = 'Mic error: ' + e.error; };
+    rec.onend = () => btn.classList.remove('primary');
+    btn.onclick = () => { btn.classList.add('primary'); $('#micSay').textContent = 'Listening…'; try { rec.start(); } catch (e) { $('#micSay').textContent = e.message; } };
+  })();
+
 
 
   async function loadApprovals() {

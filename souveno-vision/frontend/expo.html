@@ -40,6 +40,7 @@
     <a class="badge badge-device" href="/">Vision app</a>
     <a class="badge badge-demo" href="/api/expo/calendar.ics">Download .ics</a>
   </div>
+  <button class="btn ghost" id="micBtn" title="Voice: say e.g. book tickets to ELECRAMA, when is Plastivision, what is coming in 2 months">🎤 Voice</button><span id="micSay" class="hint"></span>
 </header>
 
 <main class="expo-main">
@@ -84,6 +85,7 @@
     </div>
     <div class="funnel-grid">
       <div class="panel card"><h3>Funnel</h3><div id="funnelBars"></div></div>
+      <div class="panel card" id="actualsPanel"></div>
       <div class="panel card"><h3>Why not converted / left midway</h3><div id="reasonBars"></div></div>
       <div class="panel card"><h3>Leads per day</h3><div id="perDay"></div></div>
       <div class="panel card"><h3>Expected vs actual</h3><div id="expectedBox"></div></div>
