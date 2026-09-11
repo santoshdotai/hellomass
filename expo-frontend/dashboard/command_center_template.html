@@ -270,6 +270,7 @@ main.content{min-width:0;padding-top:14px}
 
 @media (max-width:900px){header{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.7)}#dbBanner{position:static}}
 @media (max-width:640px){header .eyebrow{display:none}.live-head{font-size:11px;gap:6px}.live-head b{font-size:10px;letter-spacing:.05em}.live-head .clock{font-size:11px}}
+.pref{font-size:12px;margin:6px 0}.pref th{text-align:left;color:var(--ink3);font-weight:600;padding:3px 8px 3px 0;white-space:nowrap;vertical-align:top}.pref td{padding:3px 0}.appl{border-top:1px solid var(--line);padding:8px 0}.appl summary{cursor:pointer;font-size:13px}.appl .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}.appl .acts input{min-width:200px}@media (max-width:640px){.pref{display:block;overflow-x:auto;white-space:normal}.pref th{white-space:normal;min-width:110px}}
 </style>
 <div class="wrap">
 <header>
@@ -379,6 +380,7 @@ main.content{min-width:0;padding-top:14px}
   <div class="panel" id="expenses" style="margin-top:14px"></div>
 </section>
 <section class="tab" id="t-funds">
+  <div class="panel" id="applyDesk"><h3>Subsidy application desk</h3><div id="applySummary" class="meta"></div><details id="companyIntake"><summary><b>Company facts the applications need (asked once, never a password)</b> <span id="intakeBadge" class="pill"></span></summary><div id="companyForm"></div></details><div id="applications"></div></div>
   <div class="banner" id="fundsCo"></div>
   <div class="toolbar"><label>Region <select id="fundRegion"><option value="india">India</option><option value="world">Rest of the world</option><option value="all">All</option></select></label> <label>Show <select id="fundFilter"><option value="">all</option><option value="todo">not applied yet</option><option value="applied">applied / in progress</option><option value="cash">cash grants only</option></select></label> <span id="fundViews"></span> <span class="meta" id="fundSum"></span></div>
   <div id="funds"></div>
@@ -412,7 +414,7 @@ const inr=n=>'₹'+Math.round(n).toLocaleString('en-IN');
 const stars=s=>'★'.repeat(Math.floor(s))+(s%1?'½':'')+'☆'.repeat(5-Math.ceil(s));
 const EV=DATA.events, byId=Object.fromEntries(EV.map(e=>[e.id,e])), PB=DATA.playbook;
 const STATUS=PB.lead_statuses, REASONS=PB.drop_reasons;
-const state={leads:[],collabs:[],plans:{},approvals:[],db:null,local:false,mode:'manual',travellers:[],actuals:{},funds:{},team:null};
+const state={leads:[],collabs:[],plans:{},approvals:[],db:null,local:false,mode:'manual',travellers:[],actuals:{},funds:{},team:null,company:{},apps:{}};
 
 // ---------------------------------------------------------------- nav
 $$('#nav button').forEach(b=>b.addEventListener('click',()=>{$$('#nav button').forEach(x=>x.classList.toggle('on',x===b));$$('section.tab').forEach(s=>s.classList.toggle('on',s.id==='t-'+b.dataset.t));try{localStorage.setItem('sx.tab',b.dataset.t)}catch{}}));
@@ -785,9 +787,32 @@ function tickLive(){const c=$('#liveClock');if(c){c.textContent=new Date().toLoc
   const n=$('#live .lt[data-id="next"] .n');if(n&&!_lv.liveNow&&_lv.nx){const v=countdown(_lv.nx);if(n.innerHTML!==v)n.innerHTML=v}}
 setInterval(tickLive,1000);setInterval(()=>{if(document.visibilityState==='visible')renderLive()},60000);
 
+
+// ---------------------------------------------------------------- subsidy application desk
+const SECRET_KEYS=['password','otp','pin','portal_password','card_number','cvv'];
+function companyVal(k){const c=state.company||{};if(c[k])return c[k];const base=((DATA.applications||{}).company)||{};return base[k]||''}
+function fillTokens(v){return String(v==null?'':v).replace(/\{\{(\w+)\}\}/g,(m,k)=>companyVal(k)||'⟨'+k.replace(/_/g,' ')+' — fill in above⟩')}
+function renderCompanyForm(){const host=$('#companyForm');const A=DATA.applications;if(!host||!A)return;const groups={};A.fields.forEach(f=>{(groups[f.group]=groups[f.group]||[]).push(f)});
+  const filled=A.fields.filter(f=>companyVal(f.key)).length;$('#intakeBadge').textContent=`${filled}/${A.fields.length} filled`;$('#intakeBadge').className='pill '+(filled===A.fields.length?'booked':'');
+  host.innerHTML=Object.entries(groups).map(([g,fs])=>`<h4 style="margin:12px 0 6px">${esc(g)}</h4><div class="grid3">${fs.map(f=>`<label>${esc(f.label)}${f.options?`<select name="${f.key}"><option value="">—</option>${f.options.map(o=>`<option ${companyVal(f.key)===o?'selected':''}>${o}</option>`).join('')}</select>`:`<input name="${f.key}" value="${esc(companyVal(f.key))}" placeholder="${esc(f.example||'')}">`}</label>`).join('')}</div>`).join('')+`<p class="meta">Stored in the shared Souveno store as <code>settings/company</code>. Registration numbers and the reimbursement account only — never a portal password, OTP or card number.</p><button class="btn primary" id="saveCompany">Save company facts</button> <span class="meta" id="companyMsg"></span>`;
+  $('#saveCompany').onclick=async()=>{const out={};$$('input,select',host).forEach(i=>{if(!SECRET_KEYS.includes(i.name))out[i.name]=i.value.trim()});state.company=out;try{localStorage.setItem(LS+':company',JSON.stringify(out))}catch{}await saveSetting('company',{...out});$('#companyMsg').textContent='Saved — every application below is re-filled.';rerender()}}
+function appStatus(a){const s=(state.apps||{})[a.id]||{};if(s.status)return s.status;return a.status}
+function renderApplications(){const host=$('#applications');const A=DATA.applications;if(!host||!A)return;renderCompanyForm();
+  const rows=A.items.map(a=>{const missing=a.missing_info.filter(m=>!companyVal(m.key));return {...a,missing,st:appStatus(a)}});
+  const ready=rows.filter(r=>!r.missing.length&&!['blocked_not_listed','submitted','approved','claimed','paid','rejected'].includes(r.st)).length,blocked=rows.filter(r=>r.st==='blocked_not_listed').length,submitted=rows.filter(r=>['submitted','approved','claimed','paid'].includes(r.st)).length,needInfo=rows.filter(r=>r.missing.length&&!['blocked_not_listed','submitted','approved','claimed','paid','rejected'].includes(r.st)).length;
+  $('#applySummary').innerHTML=`<b>${rows.length}</b> applications across ${new Set(rows.map(r=>r.event_id)).size} shows · <b class="good">${ready}</b> ready to submit · <b>${submitted}</b> submitted / in progress · <b class="${needInfo?'soon':''}">${needInfo}</b> waiting on company facts · <b class="${blocked?'late':''}">${blocked}</b> blocked (fair not on the DC-MSME list). The agent pre-fills every form and sends the organiser / association e-mails; portal submits (Udyam login + OTP) are the only taps left to you.`;
+  const byEv={};rows.forEach(r=>{(byEv[r.event_id]=byEv[r.event_id]||[]).push(r)});const order=Object.keys(byEv).sort((a,b)=>(byId[a]||{}).start.localeCompare((byId[b]||{}).start));
+  const pill=st=>`<span class="pill ${['submitted','approved','claimed','paid'].includes(st)?'booked':st==='blocked_not_listed'?'late':st==='ready'?'ok':''}">${st.replace(/_/g,' ')}</span>`;
+  host.innerHTML=order.map(eid=>{const ev=byId[eid]||{};return `<div class="ap" style="display:block;margin-top:10px"><h3 style="margin:0 0 6px">${evLink(eid,ev.name||eid)} <span class="meta">${ev.start} · ${esc(ev.city||'')}</span></h3>${byEv[eid].map(a=>`<details class="appl" data-id="${a.id}"><summary>${pill(a.st)} <b>${esc(a.scheme_name.split(' — ')[0])}</b> · ${a.apply_by?`apply by <span class="${a.days_to_apply<0?'late':a.days_to_apply<=30?'soon':''}">${a.apply_by}${a.days_to_apply!=null?` (${a.days_to_apply} d)`:''}</span>`:'claim after the show'}${a.estimated_refund_inr?` · est. ${inr(a.estimated_refund_inr[0])}–${inr(a.estimated_refund_inr[1])}`:''}</summary>
+      <p class="meta"><b>Where:</b> ${esc(a.portal)} ${a.link?`· <a target="_blank" rel="noopener" href="${a.link}">open</a>`:''}<br><b>Who submits:</b> ${esc(a.who_submits)}<br><b>Next:</b> ${a.missing.length?`need ${a.missing.length} company fact(s): ${a.missing.map(m=>esc(m.label.split(' (')[0])).join(', ')} — fill the form above`:esc(a.next_action)}</p>
+      <table class="pref"><tbody>${Object.entries(a.prefilled).map(([k,v])=>`<tr><th>${esc(k)}</th><td>${esc(fillTokens(v))}</td></tr>`).join('')}</tbody></table>
+      <p class="meta"><b>Attach:</b> ${a.documents.map(esc).join(' · ')}</p>
+      <div class="acts"><button class="btn ghost copyPref">Copy pre-filled answers</button>${a.email&&a.email.to?`<a class="btn ghost" href="mailto:${encodeURIComponent(a.email.to)}?subject=${encodeURIComponent(a.email.subject)}&body=${encodeURIComponent(fillTokens(a.email.body))}">E-mail ${esc(a.email.to)}</a>`:''}<label>Status <select class="appSt">${A.statuses.map(s=>`<option value="${s}" ${s===a.st?'selected':''}>${s.replace(/_/g,' ')}</option>`).join('')}</select></label><input class="appRef" placeholder="application no. / acknowledgement" value="${esc(((state.apps||{})[a.id]||{}).reference||'')}"><button class="btn primary saveApp">Save</button></div></details>`).join('')}</div>`}).join('');
+  $$('.appl',host).forEach(d=>{const id=d.dataset.id;const a=rows.find(r=>r.id===id);d.querySelector('.copyPref').onclick=()=>{navigator.clipboard.writeText(Object.entries(a.prefilled).map(([k,v])=>k+': '+fillTokens(v)).join('\n')).then(()=>banner('Pre-filled answers copied — paste them into the portal form.','ok'))};d.querySelector('.saveApp').onclick=async()=>{const st=d.querySelector('.appSt').value,ref=d.querySelector('.appRef').value.trim();state.apps=state.apps||{};state.apps[id]={...(state.apps[id]||{}),status:st,reference:ref,eventId:a.event_id,scheme:a.scheme_key,updatedAt:new Date().toISOString()};try{localStorage.setItem(LS+':apps',JSON.stringify(state.apps))}catch{}await dbWrite('applications/'+id,state.apps[id]);banner(`Saved: ${a.scheme_name.split(' — ')[0]} for ${a.event_name} → ${st.replace(/_/g,' ')}`,'ok');rerender()}})}
+
 // ---------------------------------------------------------------- storage (db capability with local fallback)
 const LS='sx.state';
-function localLoad(){try{state.funds=JSON.parse(localStorage.getItem(LS+':local')||'{}');const lf={};Object.entries(state.funds).forEach(([k,v])=>{if(k.startsWith('funds/'))lf[k.slice(6)]=v});state.funds=lf}catch{}try{state.actuals=JSON.parse(localStorage.getItem(LS+':actuals')||'{}')}catch{}try{state.mode=(JSON.parse(localStorage.getItem(LS+':payment')||'{}').mode)||'manual';state.travellers=(JSON.parse(localStorage.getItem(LS+':travellers')||'{}').rows)||[]}catch{}try{const s=JSON.parse(localStorage.getItem(LS)||'{}');state.leads=s.leads||[];state.collabs=s.collabs||[];state.plans=s.plans||{};state.approvals=s.approvals||[]}catch{}}
+function localLoad(){try{state.funds=JSON.parse(localStorage.getItem(LS+':local')||'{}');const lf={};Object.entries(state.funds).forEach(([k,v])=>{if(k.startsWith('funds/'))lf[k.slice(6)]=v});state.funds=lf}catch{}try{state.actuals=JSON.parse(localStorage.getItem(LS+':actuals')||'{}')}catch{}try{state.company=JSON.parse(localStorage.getItem(LS+':company')||'{}');state.apps=JSON.parse(localStorage.getItem(LS+':apps')||'{}')}catch{}try{state.mode=(JSON.parse(localStorage.getItem(LS+':payment')||'{}').mode)||'manual';state.travellers=(JSON.parse(localStorage.getItem(LS+':travellers')||'{}').rows)||[]}catch{}try{const s=JSON.parse(localStorage.getItem(LS)||'{}');state.leads=s.leads||[];state.collabs=s.collabs||[];state.plans=s.plans||{};state.approvals=s.approvals||[]}catch{}}
 function localSave(){try{localStorage.setItem(LS,JSON.stringify({leads:state.leads,collabs:state.collabs,plans:state.plans,approvals:state.approvals}))}catch{}}
 const uid=()=>'L'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 async function addLead(lead){if(state.db){try{const ref=await state.db.collection('leads').add(lead);return ref.id}catch(e){banner('Could not save lead: '+e.message,'err');return null}}lead.id=uid();state.leads.push(lead);localSave();rerender();return lead.id}
@@ -796,7 +821,7 @@ async function addCollab(c){if(state.db){try{await state.db.collection('collabs'
 async function saveCollab(id,patch){if(state.db){try{await state.db.doc('collabs/'+id).update(patch)}catch(e){banner('Could not update: '+e.message,'err')}return}const c=state.collabs.find(x=>x.id===id);if(c)Object.assign(c,patch);localSave();rerender()}
 async function savePlan(ev,patch){if(state.db){try{await state.db.doc('plans/'+ev).set({...(state.plans[ev]||{}),...patch,updatedAt:new Date().toISOString()})}catch(e){banner('Could not save plan: '+e.message,'err')}return}state.plans[ev]={...(state.plans[ev]||{}),...patch};localSave();rerender()}
 function banner(msg,cls){const b=$('#dbBanner');b.textContent=msg;b.className='banner '+(cls||'');b.hidden=false}
-function rerender(){kpis();renderHero();renderLive();renderOverview();renderEvents();renderFunnel();renderLeadBoard();renderCollabs();renderTravel();renderTravellers();renderApprovals();renderFinance();renderActuals();renderFunds();renderExpenses();renderQR()}
+function rerender(){kpis();renderHero();renderLive();renderOverview();renderEvents();renderFunnel();renderLeadBoard();renderCollabs();renderTravel();renderTravellers();renderApprovals();renderFinance();renderActuals();renderFunds();renderApplications();renderExpenses();renderQR()}
 
 // ---------------------------------------------------------------- boot
 const opts=EV.slice().sort((a,b)=>a.start.localeCompare(b.start)).map(e=>`<option value="${e.id}">${esc(e.name)} (${e.start})</option>`).join('');
@@ -810,9 +835,10 @@ document.getElementById('showCount').textContent=EV.length;renderCalendar();rend
   db.collection('approvals').onSnapshot(s=>{state.approvals=s.docs.map(d=>({id:d.id,...d.data()}));state.syncedAt=Date.now();rerender()},onErr);
   db.collection('plans').onSnapshot(s=>{state.plans=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
   db.collection('targets').onSnapshot(s=>{state.targets=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('applications').onSnapshot(s=>{state.apps=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
   db.collection('funds').onSnapshot(s=>{state.funds=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
   db.collection('actuals').onSnapshot(s=>{state.actuals=Object.fromEntries(s.docs.map(d=>[d.id,d.data()]));state.syncedAt=Date.now();rerender()},onErr);
-  db.collection('settings').onSnapshot(s=>{s.docs.forEach(d=>{if(d.id==='payment')state.mode=(d.data()||{}).mode||'manual';if(d.id==='travellers')state.travellers=(d.data()||{}).rows||[];if(d.id==='team')state.team=d.data()||{}});state.syncedAt=Date.now();rerender()},onErr);
+  db.collection('settings').onSnapshot(s=>{s.docs.forEach(d=>{if(d.id==='payment')state.mode=(d.data()||{}).mode||'manual';if(d.id==='travellers')state.travellers=(d.data()||{}).rows||[];if(d.id==='team')state.team=d.data()||{};if(d.id==='company')state.company=d.data()||{}});state.syncedAt=Date.now();rerender()},onErr);
   banner('Saved to the shared Souveno database. Anyone you share this link with sees the same leads, partners and approvals. Payments are manual: approve, follow the checklist, tap Done.','ok');
 })();
 })();
