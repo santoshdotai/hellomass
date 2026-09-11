@@ -21,6 +21,7 @@
     <button class="nav-btn" data-view="events">Events</button>
     <button class="nav-btn" data-view="insights">Insights</button>
     <button class="nav-btn" data-view="config">Configuration</button>
+    <button class="nav-btn" data-view="designer">Solution Designer</button>
   </nav>
   <div class="topbar-right">
     <span id="demoBadge" class="badge badge-demo hidden">DEMO MODE</span>
@@ -219,11 +220,154 @@
     </div>
   </section>
 
+  <!-- ============================= SOLUTION DESIGNER VIEW ============================= -->
+  <section id="view-designer" class="view">
+    <div class="panel card">
+      <div class="sd-head">
+        <div>
+          <h2>Souveno Vision Solution Designer</h2>
+          <p class="muted">Capture a prospect's CCTV environment, score camera suitability, run the deterministic
+            calculators and generate a preliminary, pilot-first proposal. Nothing here promises camera compatibility,
+            GPU capacity or accuracy without evidence — unknowns are flagged "Site validation required".</p>
+        </div>
+        <div class="row-actions">
+          <button id="sdLoadSample" class="btn secondary">Load 348-camera sample</button>
+          <button id="sdClear" class="btn ghost">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sd-layout">
+      <!-- ---------------- inputs ---------------- -->
+      <div class="sd-inputs">
+        <details class="panel card" open>
+          <summary><h3>1. Site assessment</h3></summary>
+          <div class="cost-form sd-form">
+            <label>Company<input data-path="client.company_name" type="text" placeholder="Bharat Precision Pvt Ltd" /></label>
+            <label>Contact<input data-path="client.contact_name" type="text" /></label>
+            <label>Industry<select data-path="client.industry">
+              <option value="manufacturing">Manufacturing</option><option value="warehouse_logistics">Warehouse / logistics</option>
+              <option value="retail">Retail</option><option value="hospitality">Hospitality</option><option value="healthcare">Healthcare</option>
+              <option value="education">Education</option><option value="office_it">Office / IT</option><option value="pharma">Pharma</option>
+              <option value="construction">Construction</option><option value="other" selected>Other</option></select></label>
+            <label>Site name<input data-path="site.name" type="text" placeholder="Pune Plant 2" /></label>
+            <label>City<input data-path="site.city" type="text" /></label>
+            <label>Employees<input data-path="site.employees" type="number" min="0" /></label>
+            <label>Shifts<input data-path="site.shifts" type="number" min="1" max="6" /></label>
+            <label>Existing camera count<input data-path="site.existing_camera_count" type="number" min="0" /></label>
+            <label>Operating schedule<input data-path="requirements.operating_schedule" type="text" placeholder="24x7 / 08:00–20:00" /></label>
+          </div>
+        </details>
+
+        <details class="panel card" open>
+          <summary><h3>2. Camera inventory (per camera or per group)</h3></summary>
+          <p class="hint">Leave a cell blank when a value is unknown — the engine will flag it rather than guess.
+            Count &gt; 1 makes the row a camera group.</p>
+          <div class="row-actions">
+            <button id="sdAddCamera" class="btn secondary">+ Add camera / group</button>
+            <label class="btn secondary sd-file">Import CSV<input id="sdCsvFile" type="file" accept=".csv" hidden /></label>
+            <a class="btn ghost" href="/api/designer/cameras/csv-template" download>CSV template</a>
+            <button id="sdExportCsv" class="btn ghost">Export CSV</button>
+          </div>
+          <div id="sdCsvErrors" class="sd-errors hidden"></div>
+          <div class="sd-table-wrap"><table class="events-table sd-cam-table"><thead><tr>
+            <th>Ref</th><th>Name</th><th>Count</th><th>Area</th><th>Type</th><th>Res</th><th>FPS</th><th>Mbps</th><th>Codec</th>
+            <th>RTSP</th><th>ONVIF</th><th>Sub</th><th>View</th><th>Light</th><th>Occl.</th><th>Stab.</th><th>Dist m</th><th>Subj px</th><th></th>
+          </tr></thead><tbody id="sdCamRows"></tbody></table></div>
+        </details>
+
+        <details class="panel card">
+          <summary><h3>3. NVR / VMS</h3></summary>
+          <div class="cost-form sd-form">
+            <label>Brand<input data-path="nvr.brand" type="text" /></label>
+            <label>Model<input data-path="nvr.model" type="text" /></label>
+            <label>Channels<input data-path="nvr.channel_count" type="number" min="0" /></label>
+            <label>RTSP per channel<select data-path="nvr.rtsp_available" data-type="bool"><option value="">Unknown</option><option value="true">Yes</option><option value="false">No</option></select></label>
+            <label>API / SDK<select data-path="nvr.api_sdk_available" data-type="bool"><option value="">Unknown</option><option value="true">Yes</option><option value="false">No</option></select></label>
+            <label>Outbound stream limit<input data-path="nvr.outbound_stream_limit" type="number" min="0" /></label>
+            <label>Is a DVR<select data-path="nvr.is_dvr" data-type="bool"><option value="">Unknown</option><option value="true">Yes</option><option value="false">No</option></select></label>
+          </div>
+        </details>
+
+        <details class="panel card">
+          <summary><h3>4. Server / GPU</h3></summary>
+          <div class="cost-form sd-form">
+            <label>GPU present<select data-path="server.has_gpu" data-type="bool"><option value="">Unknown</option><option value="true">Yes</option><option value="false">No</option></select></label>
+            <label>GPU model<input data-path="server.gpu_model" type="text" placeholder="NVIDIA T4" /></label>
+            <label>GPU VRAM (GB)<input data-path="server.gpu_vram_gb" type="number" min="0" step="0.5" /></label>
+            <label>Existing GPU utilisation %<input data-path="server.existing_gpu_utilization_pct" type="number" min="0" max="100" /></label>
+            <label>CPU model<input data-path="server.cpu_model" type="text" /></label>
+            <label>CPU cores<input data-path="server.cpu_cores" type="number" min="1" /></label>
+            <label>RAM (GB)<input data-path="server.ram_gb" type="number" min="0" /></label>
+          </div>
+          <label class="sd-textarea">nvidia-smi output (paste)<textarea data-path="server.nvidia_smi_output" rows="5"></textarea></label>
+        </details>
+
+        <details class="panel card">
+          <summary><h3>5. Network</h3></summary>
+          <div class="cost-form sd-form">
+            <label>Link speed (Mbps)<input data-path="network.link_speed_mbps" type="number" min="0" /></label>
+            <label>Camera VLAN<input data-path="network.camera_vlan" type="text" /></label>
+            <label>Internet restricted<select data-path="network.internet_restricted" data-type="bool"><option value="">Unknown</option><option value="true">Yes</option><option value="false">No</option></select></label>
+            <label>Cloud allowed<select data-path="network.cloud_allowed" data-type="bool"><option value="">Unknown</option><option value="true">Yes</option><option value="false">No</option></select></label>
+          </div>
+        </details>
+
+        <details class="panel card" open>
+          <summary><h3>6. Use cases &amp; requirements</h3></summary>
+          <div id="sdUseCases" class="sd-usecases"></div>
+          <div class="cost-form sd-form">
+            <label>Required alert latency (s)<input data-path="requirements.required_alert_latency_s" type="number" min="1" /></label>
+            <label>Evidence retention (days)<input data-path="requirements.evidence_retention_days" type="number" min="1" value="30" /></label>
+            <label>Events / camera / day<input data-path="requirements.events_per_camera_per_day" type="number" min="0" value="20" /></label>
+            <label>Avg clip size (MB)<input data-path="requirements.average_clip_size_mb" type="number" min="0.1" step="0.1" value="5" /></label>
+            <label>Employee identification requested?<select data-path="requirements.employee_identification_requested" data-type="boolstrict"><option value="false">No</option><option value="true">Yes (separate module)</option></select></label>
+          </div>
+          <label class="sd-textarea">Privacy requirements<textarea data-path="requirements.privacy_requirements" rows="2"></textarea></label>
+        </details>
+
+        <details class="panel card">
+          <summary><h3>7. Calculation settings &amp; pricing</h3></summary>
+          <div class="cost-form sd-form">
+            <label>Network safety factor<input data-path="settings.network_safety_factor" type="number" min="1" step="0.1" value="1.5" /></label>
+            <label>Analytics FPS<input data-path="settings.analytics_fps" type="number" min="1" max="30" value="5" /></label>
+            <label>Assumed bitrate for unknown cams (Mbps)<input data-path="settings.assumed_bitrate_mbps" type="number" min="0.1" step="0.1" /></label>
+            <label>Model size<select data-path="settings.model_size"><option value="nano">Nano</option><option value="small" selected>Small</option><option value="medium">Medium</option><option value="large">Large</option></select></label>
+          </div>
+          <hr />
+          <div id="sdPricing" class="sd-pricing"></div>
+        </details>
+
+        <div class="row-actions sd-run">
+          <button id="sdPreview" class="btn secondary">Preview assessment</button>
+          <button id="sdSave" class="btn primary">Save &amp; generate proposal</button>
+          <span id="sdStatus" class="hint"></span>
+        </div>
+      </div>
+
+      <!-- ---------------- results ---------------- -->
+      <div class="sd-results">
+        <div class="panel card">
+          <div class="sd-tabs" id="sdTabs">
+            <button data-tab="summary" class="active">Summary</button><button data-tab="suitability">Suitability</button>
+            <button data-tab="calcs">Calculators</button><button data-tab="compute">Compute</button>
+            <button data-tab="usecases">Use cases</button><button data-tab="pilot">Pilot</button>
+            <button data-tab="arch">Architecture</button><button data-tab="risks">Risks</button>
+            <button data-tab="commercial">Commercial</button><button data-tab="actions">Client actions</button>
+            <button data-tab="saved">Saved</button>
+          </div>
+          <div id="sdOut" class="sd-out"><p class="muted">Fill in the form (or load the sample) and click Preview.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <script src="/static/js/api.js"></script>
 <script src="/static/js/zonebuilder.js"></script>
 <script src="/static/js/live.js"></script>
+<script src="/static/js/designer.js"></script>
 <script src="/static/js/app.js"></script>
 </body>
 </html>

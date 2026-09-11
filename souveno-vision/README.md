@@ -225,3 +225,52 @@ standalone apps at the repository root and on their own branches:
 * `expo-frontend/` — static dashboard, card page and the phone command-center template, branch `expo-frontend`
 
 See `expo-backend/README.md` and `expo-frontend/README.md`.
+
+---
+
+## 10. Souveno Vision Solution Designer
+
+An enterprise pre-sales module (**Solution Designer** tab, API under `/api/designer/*`) that turns a prospect's CCTV
+environment into a technically responsible AI-video-analytics design. It combines deterministic calculators,
+compatibility rules and a narrative layer, and it **never** promises camera compatibility, GPU capacity or detection
+accuracy without evidence.
+
+### What it produces
+
+| Component | Where |
+|---|---|
+| Site / camera / NVR / server / network assessment form, per-camera **or** per-group entry, CSV import/export | `frontend/js/designer.js`, `backend/solution_designer/csv_io.py` |
+| Camera suitability scoring (0–100, 12 factors, classes A/B/C/D, reason per factor) | `backend/solution_designer/suitability.py` |
+| Bandwidth, network capacity, analysed-FPS and evidence-storage calculators (formula + inputs + assumptions echoed) | `backend/solution_designer/calculators.py` |
+| Preliminary compute assessment incl. `nvidia-smi` parsing — never sizes from VRAM alone | `backend/solution_designer/compute.py` |
+| Use-case engine (11 use cases), stream architecture, risk register, required client actions | `backend/solution_designer/recommendations.py`, `catalog.py` |
+| Pilot designer (8–12 cameras, 2 areas, 2–3 use cases, 30 days, measurements, scale-up criteria) | `backend/solution_designer/pilot.py` |
+| Commercial estimate with editable tiered pricing, GST and pilot adjustment shown separately | `backend/solution_designer/pricing.py` |
+| 17-section client proposal (print-ready HTML; DOCX/PDF when `python-docx` / `weasyprint` are installed) | `backend/solution_designer/report.py` |
+| Tables `clients, sites, camera_groups, cameras, nvrs, servers, networks, use_cases, assessments, calculations, recommendations, proposals` + ordered migrations | `models.py`, `migrations.py`, `storage.py` |
+
+### Safety rules (enforced in code, not prompts)
+
+* Missing specifications are never invented — they are flagged **"Site validation required"** and scored conservatively.
+* An IP address is not a stream; an NVR is not assumed to expose RTSP. No stream = class D, whatever the other scores.
+* GPU capacity is never asserted without benchmark data: the output states *"Final GPU capacity cannot be guaranteed
+  without benchmarking representative client streams."* and recommends a pilot benchmark.
+* Anonymous tracking is kept separate from employee identification; facial recognition is only ever a separately
+  reviewed module with HR/legal approval.
+* Every number carries its formula, inputs and assumptions. The optional LLM narrative (uses `LLM_API_KEY` and
+  `LLM_MODEL`, same as the AI summary) receives only the computed findings, and its text is rejected if it contains
+  guarantee language — the rule-based narrative is the real fallback.
+
+### Try it
+
+```bash
+python scripts/sample_assessment.py --html sample_report.html
+```
+
+runs the built-in sample (348 cameras, 1,000 employees, mixed/unknown camera specs, existing NVR of unknown
+capability, unknown GPU; restricted-zone, occupancy and PPE). The result recommends a **technical pilot first** and
+does not recommend final hardware. In the app: **Solution Designer → Load 348-camera sample → Preview / Save &
+generate proposal**.
+
+Tests: `pytest tests/test_designer_*.py` (bandwidth, tiered pricing, evidence storage, missing-field handling,
+suitability classes, no-GPU, unknown-GPU warning, NVR without RTSP, analog-through-DVR, report generation, API).

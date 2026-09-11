@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from loguru import logger
 
-from backend.db.database import init_db
+from backend.db.database import engine, init_db
 from config.settings import settings
 
 logger.remove()
@@ -20,11 +20,16 @@ except OSError:  # read-only host (serverless)
     pass
 
 from backend.api.routers import analysis, cameras, config_router, cost, events, health, sessions, zones
+from backend.solution_designer import router as designer_router
+from backend.solution_designer.migrations import run_migrations
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
+    applied = run_migrations(engine)
+    if applied:
+        logger.info(f"Solution Designer migrations applied: {applied}")
     logger.info(f"{settings.app_name} starting — demo_mode={settings.demo_mode}")
     yield
     logger.info(f"{settings.app_name} shutting down")
@@ -41,6 +46,7 @@ app.include_router(events.router)
 app.include_router(config_router.router)
 app.include_router(cost.router)
 app.include_router(cameras.router)
+app.include_router(designer_router.router)
 
 FRONTEND_DIR = settings.base_dir / "frontend"
 app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
