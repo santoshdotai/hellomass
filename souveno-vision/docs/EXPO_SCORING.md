@@ -66,7 +66,7 @@ ICP fit 40/40 (HDPE/PVC pipe and duct makers are Souveno's live vertical), footf
 
 Separately from the stars, each show gets an expected funnel using Souveno's own conversion targets: exhibiting captures 0.5% of ICP-relevant visitors (reach capped at 60,000); visiting means 60 booths a day for up to 3 days with 50% sharing details; then 35% qualify, 50% of those take a demo, and 30% of demos become paid pilots (the validation report's target). The low estimate is half the high. 'Client probability' is the chance of at least one paid pilot from the low estimate: 1 − e^(−expected pilots). The funnel is computed for the lead product; the dashboard also shows the alternative product's funnel.
 
-## All 29 shows, ranked
+## All 29 shows, ranked (mode as of 11 Sep 2026: exhibit wherever Souveno has business — 20 stalls, 9 visits)
 
 | Show | City | Start | Quote fit /40 | Vision fit /40 | ICP counted /40 | Footfall /15 | Decision makers /15 | Geography /10 | Low competition /10 | Timing /10 | Total | Stars | Lead with | Mode |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -79,18 +79,18 @@ Separately from the stars, each show gets an expected funnel using Souveno's own
 | Indexpo Hyderabad 2027 (Industrial & Engineering Expo) | Hyderabad | 2027-09-03 | 36 | 30 | 36 | 9 | 11 | 10 | 8 | 9 | **83** | **4.0** | Quote desk | exhibit |
 | Middle East Energy 2027 | Dubai | 2027-05-11 | 36 | 26 | 36 | 12 | 13 | 5 | 8 | 8 | **82** | **4.0** | Quote desk | exhibit |
 | India Warehousing Show 2027 | New Delhi | 2027-06-24 | 24 | 38 | 38 | 9 | 12 | 7 | 8 | 8 | **82** | **4.0** | Vision AI | exhibit |
-| IMTEX 2027 + Tooltech + Digital Manufacturing | Bengaluru | 2027-01-21 | 30 | 34 | 34 | 13 | 13 | 7 | 8 | 6 | **81** | **4.0** | Both | visit |
+| IMTEX 2027 + Tooltech + Digital Manufacturing | Bengaluru | 2027-01-21 | 30 | 34 | 34 | 13 | 13 | 7 | 8 | 6 | **81** | **4.0** | Both | exhibit |
 | ACETECH Hyderabad 2027 | Hyderabad | 2027-01-22 | 34 | 26 | 34 | 11 | 11 | 10 | 8 | 7 | **81** | **4.0** | Quote desk | exhibit |
-| International Hardware Fair India 2026 | New Delhi | 2026-10-23 | 36 | 16 | 36 | 9 | 12 | 7 | 8 | 8 | **80** | **4.0** | Quote desk | visit |
-| WAREMAT Expo 2026 | Hyderabad | 2026-10-08 | 22 | 38 | 38 | 6 | 9 | 10 | 8 | 8 | **79** | **4.0** | Vision AI | visit |
+| International Hardware Fair India 2026 | New Delhi | 2026-10-23 | 36 | 16 | 36 | 9 | 12 | 7 | 8 | 8 | **80** | **4.0** | Quote desk | exhibit |
+| WAREMAT Expo 2026 | Hyderabad | 2026-10-08 | 22 | 38 | 38 | 6 | 9 | 10 | 8 | 8 | **79** | **4.0** | Vision AI | exhibit |
 | EngiExpo Surat 2027 | Surat | 2027-02-06 | 36 | 30 | 36 | 11 | 11 | 5 | 8 | 8 | **79** | **4.0** | Quote desk | exhibit |
-| Indexpo Mumbai 2027 (Industrial & Engineering Expo) | Mumbai | 2027-06-03 | 34 | 30 | 34 | 9 | 11 | 7 | 8 | 9 | **78** | **4.0** | Both | visit |
-| Gulfood Manufacturing 2026 | Dubai | 2026-11-03 | 26 | 34 | 34 | 12 | 11 | 5 | 7 | 8 | **77** | **4.0** | Vision AI | visit |
-| EngiExpo Jaipur 2027 | Jaipur | 2027-08-28 | 34 | 28 | 34 | 11 | 11 | 6 | 8 | 7 | **77** | **4.0** | Quote desk | visit |
-| PAPEXPO 2026 | Hyderabad | 2026-10-01 | 30 | 18 | 30 | 8 | 10 | 10 | 8 | 9 | **75** | **4.0** | Quote desk | visit |
-| Intersec Dubai 2027 | Dubai | 2027-01-12 | 6 | 34 | 34 | 12 | 11 | 5 | 5 | 8 | **75** | **4.0** | Vision AI | visit |
-| India Automation & Robotics Expo 2027 | Bengaluru | 2027-04-09 | 26 | 34 | 34 | 8 | 11 | 7 | 7 | 8 | **75** | **4.0** | Vision AI | visit |
-| IFSEC India 2026 | New Delhi | 2026-12-03 | 8 | 34 | 34 | 9 | 11 | 7 | 5 | 8 | **74** | **3.5** | Vision AI | visit |
+| Indexpo Mumbai 2027 (Industrial & Engineering Expo) | Mumbai | 2027-06-03 | 34 | 30 | 34 | 9 | 11 | 7 | 8 | 9 | **78** | **4.0** | Both | exhibit |
+| Gulfood Manufacturing 2026 | Dubai | 2026-11-03 | 26 | 34 | 34 | 12 | 11 | 5 | 7 | 8 | **77** | **4.0** | Vision AI | exhibit |
+| EngiExpo Jaipur 2027 | Jaipur | 2027-08-28 | 34 | 28 | 34 | 11 | 11 | 6 | 8 | 7 | **77** | **4.0** | Quote desk | exhibit |
+| PAPEXPO 2026 | Hyderabad | 2026-10-01 | 30 | 18 | 30 | 8 | 10 | 10 | 8 | 9 | **75** | **4.0** | Quote desk | exhibit |
+| Intersec Dubai 2027 | Dubai | 2027-01-12 | 6 | 34 | 34 | 12 | 11 | 5 | 5 | 8 | **75** | **4.0** | Vision AI | exhibit |
+| India Automation & Robotics Expo 2027 | Bengaluru | 2027-04-09 | 26 | 34 | 34 | 8 | 11 | 7 | 7 | 8 | **75** | **4.0** | Vision AI | exhibit |
+| IFSEC India 2026 | New Delhi | 2026-12-03 | 8 | 34 | 34 | 9 | 11 | 7 | 5 | 8 | **74** | **3.5** | Vision AI | exhibit |
 | India Pharma Expo 2027 | Hyderabad | 2027-03-11 | 22 | 30 | 30 | 8 | 10 | 10 | 8 | 7 | **73** | **3.5** | Vision AI | visit |
 | Big 5 Global 2026 | Dubai | 2026-11-23 | 26 | 32 | 32 | 13 | 11 | 5 | 6 | 4 | **71** | **3.5** | Vision AI | visit |
 | Big 5 Saudi 2027 (formerly Big 5 Construct Saudi) | Riyadh | 2027-04-19 | 26 | 32 | 32 | 12 | 11 | 3 | 7 | 5 | **70** | **3.5** | Vision AI | visit |

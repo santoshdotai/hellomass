@@ -367,7 +367,8 @@ def test_mode_toggle_travellers_and_subsidies(client):
     subs = client.get("/api/expo/subsidies").json()
     by = {r["event_id"]: r for r in subs["events"]}
     assert "pms" in by["elecrama-2027"]["schemes"] and by["elecrama-2027"]["estimated_refund_inr"][1] > 0
-    assert by["hardware-fair-india-2026"]["schemes"] == [] and by["hardware-fair-india-2026"]["estimated_refund_inr"] == [0, 0]
+    assert by["india-pharma-expo-2027"]["schemes"] == [] and by["india-pharma-expo-2027"]["estimated_refund_inr"] == [0, 0]
+    assert "pms" in by["hardware-fair-india-2026"]["schemes"]  # flipped to exhibit on 11 Sep 2026
     one = client.get("/api/expo/subsidies/elecrama-2027").json()
     pms = next(s for s in one["schemes"] if s["key"] == "pms")
     assert pms["apply_by"] == "2027-01-21" and pms["status"] == "confirmed" and one["early_bird"]["deadline"] is None

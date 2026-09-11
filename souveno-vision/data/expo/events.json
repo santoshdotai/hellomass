@@ -76,7 +76,7 @@
       "venue_area": "Madhapur",
       "organiser": "Papexpo",
       "website": "https://papexpo.in/",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -101,10 +101,11 @@
       },
       "why": "Packaging converters and paper traders quote on WhatsApp all day (size x material x qty). Home city, zero travel cost.",
       "stall": {
-        "recommend": "visit only (walk every packaging-machinery row; exhibitors are the ICP)",
-        "hall_hint": "Single hall; converters cluster near the machinery demos",
-        "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 9500
+        "recommend": "exhibit 9 sqm shell in the packaging-machinery hall (URGENT: show opens 1 Oct — call HITEX/organiser today; late-booking rates apply)",
+        "hall_hint": "HITEX Hall 1, corner on the row nearest the machinery demos where converters cluster",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 8000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": null,
@@ -147,7 +148,7 @@
       "venue_area": "Madhapur",
       "organiser": "Midaas Touch Events and Trade Fairs",
       "website": "https://hitex.co.in/events/waremat-expo-2026/index.html",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -172,10 +173,11 @@
       },
       "why": "Distributors and 3PL owners with stock-aware quoting pain. Cheap half-day visit.",
       "stall": {
-        "recommend": "visit only",
-        "hall_hint": "n/a",
-        "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 9500
+        "recommend": "exhibit 9 sqm with a live gate-camera / stock-count demo on a screen (URGENT: show opens 8 Oct — book this week)",
+        "hall_hint": "Warehouse-automation row nearest the entrance; ask for a corner",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 8500,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": null,
@@ -218,7 +220,7 @@
       "venue_area": "ITO / Supreme Court metro",
       "organiser": "Koelnmesse India",
       "website": "https://www.hardwarefair-india.com/",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -243,10 +245,11 @@
       },
       "why": "Hardware and fastener distributors from Delhi NCR, Ludhiana, Jalandhar and Rajkot in one hall: ICP segment A, the highest-priority cluster in the validation report.",
       "stall": {
-        "recommend": "visit this year; exhibit in 2027 if Oct pipeline needs NCR",
-        "hall_hint": "Halls 5-6 lower ground; corner stall near Gate 10 entry",
+        "recommend": "exhibit 9 sqm shell; the only quote-desk software on a floor of hardware & fastener distributors (book this week: 6 weeks out)",
+        "hall_hint": "Halls 5-6 lower ground; corner stall near the Gate 10 entry",
         "suggested_sqm": 9,
-        "shell_rate_inr_sqm": 11000
+        "shell_rate_inr_sqm": 12000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": "DEL",
@@ -1093,7 +1096,7 @@
       "venue_area": "Tumkur Road, Madavara",
       "organiser": "IMTMA",
       "website": "https://www.imtex.in/",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -1119,10 +1122,11 @@
       },
       "why": "Machinery makers (segment E) with 2-20 high-ticket RFQs a day; Digital Manufacturing pavilion is where they look for software. Visit the last 3 days after Plastivision and ACETECH.",
       "stall": {
-        "recommend": "visit 25-27 Jan; consider a Digital Manufacturing pavilion pod in 2029",
-        "hall_hint": "Digital Manufacturing pavilion (Hall 5 in 2025 layout)",
-        "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 15000
+        "recommend": "exhibit 12 sqm in the Digital Manufacturing pavilion (ask IMTMA today: halls sell out a year ahead)",
+        "hall_hint": "Digital Manufacturing pavilion (Hall 5 in the 2025 layout); corner on the aisle from the main entrance",
+        "suggested_sqm": 12,
+        "shell_rate_inr_sqm": 15000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": "BLR",
@@ -1634,7 +1638,7 @@
       "venue_area": "Tumkur Road, Madavara",
       "organiser": "BIEC / IMTMA",
       "website": "https://indiaautomationandroboticsexpo.com/",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -1659,10 +1663,11 @@
       },
       "why": "System integrators and machine builders looking for Industry 4.0 software; good for the Vision AI and agentic OS story.",
       "stall": {
-        "recommend": "visit; exhibit in 2028 if Vision AI is GA",
-        "hall_hint": "Hall 3",
-        "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 12000
+        "recommend": "exhibit 9 sqm in the Industry 4.0 / machine-vision zone with a live performance-report demo",
+        "hall_hint": "Hall 3, Industry 4.0 / vision zone near the entrance",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 9500,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": "BLR",
@@ -1916,7 +1921,7 @@
       "venue_area": "Goregaon East",
       "organiser": "Indore Infoline",
       "website": "https://indexpo.co.in/mumbai-expo/",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -1941,10 +1946,11 @@
       },
       "why": "Same organiser and audience profile as Indexpo Hyderabad, so your Sept-2026 lead data is the benchmark. Walk it during Automation Expo.",
       "stall": {
-        "recommend": "visit (stall already at Automation Expo same week)",
-        "hall_hint": "n/a",
-        "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 9000
+        "recommend": "exhibit 9 sqm; same venue and week as the Automation Expo stall, so one team covers both",
+        "hall_hint": "NESCO Hall 4 corner nearest the Automation Expo halls",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 9000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": "BOM",
@@ -1986,7 +1992,7 @@
       "venue_area": "Sitapura",
       "organiser": "2way Advertising (EngiExpo)",
       "website": "https://engiexpo.com/",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -2011,10 +2017,11 @@
       },
       "why": "Rajasthan marble-machinery, stone and hardware traders; decide in June based on EngiExpo Ahmedabad/Surat conversion.",
       "stall": {
-        "recommend": "decide by June 2027",
-        "hall_hint": "JECC Hall A near Novotel entrance",
+        "recommend": "exhibit 9 sqm; Rajasthan stone, marble-machinery and hardware traders",
+        "hall_hint": "JECC Hall A near the Novotel entrance",
         "suggested_sqm": 9,
-        "shell_rate_inr_sqm": 8000
+        "shell_rate_inr_sqm": 8000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": "JAI",
@@ -2155,7 +2162,7 @@
       "venue_area": "Trade Centre 2",
       "organiser": "DWTC",
       "website": "https://gulfoodmanufacturing.com/",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -2180,10 +2187,11 @@
       },
       "why": "Packaging converters, processing-machinery makers and F&B distributors from the whole GCC and India; the Indian pavilion alone has 200+ exhibitors who quote on WhatsApp. First Gulf pilot hunting ground with no clash.",
       "stall": {
-        "recommend": "visit 2 days; walk the packaging and India pavilions",
-        "hall_hint": "Sheikh Saeed halls (packaging) and the India pavilion",
-        "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 45000
+        "recommend": "exhibit 9 sqm in the India pavilion / Packaging & Processing hall (7 weeks out: ask DWTC & the India-pavilion organiser now; full payment likely due at booking)",
+        "hall_hint": "Za'abeel Halls (packaging & processing); India pavilion if a pod is free",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 43000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": "DXB",
@@ -2428,7 +2436,7 @@
       "venue_area": "ITO / Supreme Court metro",
       "organiser": "Informa Markets India",
       "website": "https://ifsecindia.com/",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -2453,10 +2461,11 @@
       },
       "why": "Every CCTV dealer and security system integrator in India walks IFSEC: they already own the cameras in factories, warehouses and sites. Souveno Vision AI rides on their installs; this is the channel-partner show for Vision AI, not a quote-desk show.",
       "stall": {
-        "recommend": "visit; meet 40 system integrators and 5 camera OEM distributors; exhibit in 2027 once 3 SI partners are signed",
-        "hall_hint": "Video surveillance halls; look for Hikvision/CP Plus/Dahua distributor stands",
-        "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 12000
+        "recommend": "exhibit 9 sqm in the video-analytics / AI zone; Vision AI on the cameras every integrator on this floor installs",
+        "hall_hint": "Bharat Mandapam: video analytics / AI zone nearest the main entrance",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 11000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": "DEL",
@@ -2616,7 +2625,7 @@
       "venue_area": "Trade Centre 2",
       "organiser": "Messe Frankfurt Middle East",
       "website": "https://intersecglobal.ae.messefrankfurt.com/dubai/en.html",
-      "mode": "visit",
+      "mode": "exhibit",
       "tentative": false,
       "footfall_history": [
         {
@@ -2641,10 +2650,11 @@
       },
       "why": "The world's largest security show, same dates and venue as Gulf Print & Pack: one Dubai trip covers both. Gulf system integrators and facility-management companies buy video analytics for sites, warehouses and gates; Vision AI channel partners for the UAE.",
       "stall": {
-        "recommend": "visit (shared trip with Gulf Print & Pack, 12-14 Jan); target 30 UAE system integrators",
-        "hall_hint": "Commercial & perimeter security halls; video analytics zone",
-        "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 50000
+        "recommend": "exhibit 9 sqm in the India pavilion or the Commercial Security hall; Vision AI for Gulf system integrators",
+        "hall_hint": "DWTC Sheikh Saeed Halls (commercial security & video analytics); India pavilion pod if available",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 41000,
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
       },
       "travel": {
         "airport": "DXB",
