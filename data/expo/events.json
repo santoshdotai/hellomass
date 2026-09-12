@@ -230,7 +230,14 @@
       "sectors": [
         "printing",
         "plastics"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "info@papexpo.in",
+        "phone": "+91 63097 91291",
+        "org": "Papexpo",
+        "how": "email or Book-a-Stall form on papexpo.in",
+        "source": "https://papexpo.in/contact/ (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "waremat-2026",
@@ -306,7 +313,14 @@
       "sectors": [
         "logistics",
         "automation"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "waremat@midaastouch.in",
+        "phone": "+91 96000 47460 (Vivekanandhan D) / +91 89250 10711 (Kiran Devi O) / +91 91501 01489 (Gowri Sankar D)",
+        "org": "Midaas Touch Events and Trade Fairs LLP",
+        "how": "email (space booking) or Book Your Space on waremat.in",
+        "source": "https://waremat.in/contact/ (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "hardware-fair-india-2026",
@@ -415,7 +429,14 @@
       "sectors": [
         "hardware",
         "construction"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "info@koelnmesse-india.com",
+        "phone": "+91 22 6204 4800",
+        "org": "Koelnmesse India Pvt Ltd",
+        "how": "email; director s.malik@koelnmesse-india.com also listed",
+        "source": "https://hardwarefair-india.com/contact.php (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "bts-2026",
@@ -1318,7 +1339,14 @@
       "sectors": [
         "engineering",
         "automation"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "info@imtex.in",
+        "phone": "+91 80 6624 6600",
+        "org": "IMTMA",
+        "how": "email; space application form (Guidelines & Application PDF) on imtex.in",
+        "source": "https://www.imtex.in/contact.php (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "engiexpo-surat-2027",
@@ -1515,10 +1543,11 @@
         "https://www.electronicsmedia.info/2026/04/16/elecrama-2027-dates-and-venue/"
       ],
       "exhibitor_contact": {
-        "email": "response@elecrama.org",
-        "phone": "",
-        "org": "IEEMA",
-        "how": "email + Exhibit Enquiry Form on elecrama.com"
+        "email": "mumbai@ieema.org",
+        "phone": "+91 22 2493 0532 / 6528 / 6529",
+        "org": "IEEMA (Mumbai office)",
+        "how": "email; response@elecrama.org (published on elecrama.com) BOUNCED on 11 Sep 2026 (domain not found); booking portal booking.elecrama.com",
+        "source": "https://ieema.org/exhibitions/ (organiser desk 2026-09-12)"
       },
       "icp_vision": [
         "F",
@@ -1694,7 +1723,14 @@
       },
       "sectors": [
         "ai"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "enquiry@startupmahakumbh.org",
+        "phone": "",
+        "org": "Startup Mahakumbh secretariat (ASSOCHAM)",
+        "how": "email; secretariat@startupmahakumbh.org also listed",
+        "source": "https://startupmahakumbh.org/contact.php (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "convergence-india-2027",
@@ -1782,7 +1818,14 @@
       "sectors": [
         "ai",
         "electronics"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "pramitk@eigroup.in",
+        "phone": "+91 98110 78179",
+        "org": "Exhibitions India Group",
+        "how": "email or Space Booking Form 2027 on convergenceindia.org",
+        "source": "https://www.convergenceindia.org/contact-us.aspx (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "india-automation-robotics-2027",
@@ -1870,7 +1913,14 @@
       "sectors": [
         "automation",
         "ai"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "exhibitions@mediaday.co.in",
+        "phone": "",
+        "org": "Media Day (organiser); venue BIEC",
+        "how": "email or Book Your Stall form on indiaautomationandroboticsexpo.com",
+        "source": "https://indiaautomationandroboticsexpo.com/book-your-stall/ (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "fastener-fair-india-2027",
@@ -1953,9 +2003,10 @@
       ],
       "exhibitor_contact": {
         "email": "",
-        "phone": "RX India, DLF Cyber City, Gurugram",
+        "phone": "RX India, Gurugram",
         "org": "RX India",
-        "how": "exhibit enquiry form on fastenerfairindia.com (use the bookmarklet)"
+        "how": "no address published; exhibit enquiry form on fastenerfairindia.com. Covered in the RX India mail to abhishek.gaurav1@rxglobal.com (India Warehousing Show) on 12 Sep 2026",
+        "source": "organiser desk 2026-09-12"
       },
       "icp_vision": [
         "F",
@@ -2426,7 +2477,14 @@
       "sectors": [
         "food",
         "automation"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "",
+        "phone": "",
+        "org": "DWTC / Kaoun International",
+        "how": "no exhibitor-sales address published (only support@gulfoodmanufacturing.com for registration support); use the exhibit enquiry form on gulfoodmanufacturing.com",
+        "source": "organiser desk 2026-09-12"
+      }
     },
     {
       "id": "middle-east-energy-2027",
@@ -2523,7 +2581,14 @@
       "sectors": [
         "electrical",
         "energy"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "info@middleeast-energy.com",
+        "phone": "+971 4 408 2888",
+        "org": "Informa Markets (sales team); India pavilion via EEPC India",
+        "how": "email or Book-a-stand form middleeast-energy.com/en/forms/book-a-stand.html",
+        "source": "https://www.middleeast-energy.com/en/forms/book-a-stand.html (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "big5-saudi-2027",
@@ -2706,7 +2771,14 @@
       },
       "sectors": [
         "security"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "prashant.jain@informa.com",
+        "phone": "+91 99992 24986 (Prashant Jain) / +91 98117 64515 (Sanjay Khandelwal, sanjay.khandelwal@informa.com)",
+        "org": "Informa Markets India",
+        "how": "email (space booking & sponsorship) or Book Your Space form on ifsecindia.com",
+        "source": "https://ifsecindia.com/contact-us (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "india-warehousing-show-2027",
@@ -2803,7 +2875,14 @@
       },
       "sectors": [
         "logistics"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "abhishek.gaurav1@rxglobal.com",
+        "phone": "+91 96509 58256",
+        "org": "RX India (Sales Manager)",
+        "how": "email or exhibitor enquiry form forms.rxindiaservices.com/iwls-exhienq",
+        "source": "https://www.indiawarehousingshow.com/en-gb/about-india-warehousing-show.html (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "intersec-dubai-2027",
@@ -2890,7 +2969,14 @@
       },
       "sectors": [
         "security"
-      ]
+      ],
+      "exhibitor_contact": {
+        "email": "intersecglobal@uae.messefrankfurt.com",
+        "phone": "+971 4 389 4500",
+        "org": "Messe Frankfurt Middle East",
+        "how": "email or Enquire-to-Exhibit form",
+        "source": "https://intersec.ae.messefrankfurt.com/dubai/en/contact.html (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "imc-2026",
@@ -2991,7 +3077,14 @@
         "electronics"
       ],
       "circuit": "ai",
-      "purpose": "Be seen among CPaaS / WhatsApp platform vendors; find a BSP partner; startup pod route for 2027."
+      "purpose": "Be seen among CPaaS / WhatsApp platform vendors; find a BSP partner; startup pod route for 2027.",
+      "exhibitor_contact": {
+        "email": "info@indiamobilecongress.com",
+        "phone": "",
+        "org": "India Mobile Congress / Aspire by IMC",
+        "how": "email; Apply Now on imcaspire.com",
+        "source": "https://www.imcaspire.com/contact (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "techsparks-2026",
@@ -3089,7 +3182,14 @@
         "ai"
       ],
       "circuit": "ai",
-      "purpose": "Founder/investor visibility; Tech30 or showcase slot; press."
+      "purpose": "Founder/investor visibility; Tech30 or showcase slot; press.",
+      "exhibitor_contact": {
+        "email": "",
+        "phone": "",
+        "org": "YourStory Media",
+        "how": "no address published; startup showcase via the Tech30 / showcase application on techsparks.yourstory.com/2026 and tech30.yourstory.com",
+        "source": "organiser desk 2026-09-12"
+      }
     },
     {
       "id": "global-ai-show-abudhabi-2026",
@@ -3334,7 +3434,14 @@
         "ai"
       ],
       "circuit": "ai",
-      "purpose": "State government and T-AIM visibility at home; showcase pod."
+      "purpose": "State government and T-AIM visibility at home; showcase pod.",
+      "exhibitor_contact": {
+        "email": "",
+        "phone": "",
+        "org": "Govt. of Telangana / T-Hub",
+        "how": "no showcase-pod address published; use https://www.t-hub.co/contact-us",
+        "source": "organiser desk 2026-09-12"
+      }
     },
     {
       "id": "tie-global-summit-2026",
@@ -3432,7 +3539,14 @@
         "ai"
       ],
       "circuit": "ai",
-      "purpose": "Investor and mentor network; TiE Hyderabad delegation."
+      "purpose": "Investor and mentor network; TiE Hyderabad delegation.",
+      "exhibitor_contact": {
+        "email": "exhibit@tieglobalsummit.org",
+        "phone": "",
+        "org": "TiE Global Summit (TiE Indore)",
+        "how": "email (For Exhibitors)",
+        "source": "https://tieglobalsummit.org/old/contact-us/ (organiser desk 2026-09-12)"
+      }
     },
     {
       "id": "saasboomi-annual-2027",
@@ -3619,7 +3733,14 @@
         "ai"
       ],
       "circuit": "ai",
-      "purpose": "Enterprise CIO visibility; Nasscom Emerge membership route."
+      "purpose": "Enterprise CIO visibility; Nasscom Emerge membership route.",
+      "exhibitor_contact": {
+        "email": "",
+        "phone": "",
+        "org": "Nasscom",
+        "how": "no startup-showcase address published on nasscom.in/ntlf (only speakers@nasscom.in); watch the NTLF 2027 page for the startup application",
+        "source": "organiser desk 2026-09-12"
+      }
     },
     {
       "id": "indiasoft-2027",
@@ -3735,10 +3856,11 @@
       "circuit": "ai",
       "purpose": "Exhibit among Indian AI/IT vendors in front of foreign buyer delegations; ESC membership + MAI route.",
       "exhibitor_contact": {
-        "email": "",
-        "phone": "ESC India, New Delhi",
+        "email": "indiasoft@escindia.com",
+        "phone": "+91 11 4748 0000",
         "org": "ESC India",
-        "how": "exhibitor registration on indiasoft.org (opened July 2026)"
+        "how": "email or exhibitor registration on indiasoft.org (opened July 2026)",
+        "source": "https://indiasoft.org/contact-us-2/ (organiser desk 2026-09-12)"
       }
     },
     {
