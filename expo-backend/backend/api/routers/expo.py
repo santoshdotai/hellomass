@@ -189,6 +189,7 @@ def events(db: Session = Depends(get_db)):
         ev["travel_plan"] = planner.travel_plan(ev)
         ev["subsidy_info"] = subsidy_engine.for_event(ev)
     summary["payment_mode"] = approval_engine.sync_mode(db)
+    summary["sectors"] = meta().get("sectors", {})
     return summary
 
 
