@@ -466,7 +466,10 @@ def test_subsidy_application_desk(client):
     assert pv["status"] == "blocked_not_listed" and "not on the DC-MSME approved list" in pv["next_action"]
     el = next(r for r in d["items"] if r["id"] == "elecrama-2027--pms")
     assert el["prefilled"]["Udyam Registration Number"] == "{{udyam_number}}" and any(m["key"] == "udyam_number" for m in el["missing_info"])
-    assert el["email"]["to"] == "response@elecrama.org" and "PMS" in el["email"]["subject"]
+    from backend.core.expo.catalog import get_event
+    # the organiser desk may replace a bounced address; the mail must always go to the catalogue contact
+    assert el["email"]["to"] == get_event("elecrama-2027")["exhibitor_contact"]["email"] and "@" in el["email"]["to"]
+    assert "PMS" in el["email"]["subject"]
     # intake: secrets are dropped, facts are stored and flow into the pre-filled forms
     r = client.put("/api/expo/settings/company", json={"udyam_number": "UDYAM-TS-20-0000001", "password": "nope", "bank_ifsc": "HDFC0000001"}).json()
     assert "udyam_number" in r["saved"] and "password" not in r["saved"]
