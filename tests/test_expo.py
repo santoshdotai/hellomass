@@ -493,3 +493,12 @@ def test_ai_circuit_and_skipped(client):
     assert not any(e["id"] == "gain-riyadh-2027" for e in d["events"])  # skipped shows stay out of the plan
     assert client.get("/api/expo/events/gain-riyadh-2027").status_code == 200  # but remain addressable
     assert "ai" in d["circuits"]
+
+
+def test_stall_negotiation(client):
+    r = client.post("/api/expo/events/plastivision-2027/negotiate", json={"quoted_rate_inr_sqm": 14000, "sqm": 12, "includes": ["fascia", "carpet"], "offered_stalls": ["H1-A21", "H1-B04"]}).json()
+    assert r["verdict"] in ("counter", "escalate") and r["target_rate_inr_sqm"] < 14000 and r["walk_away_rate_inr_sqm"] > r["estimate_rate_inr_sqm"]
+    assert "H1-A21" in r["reply"] and "advance follows" in r["reply"] and not any("fascia" in a for a in r["asks"])
+    ok = client.post("/api/expo/events/plastivision-2027/negotiate", json={"quoted_rate_inr_sqm": 9000}).json()
+    assert ok["verdict"] == "accept" and "works for us" in ok["reply"]
+    assert client.post("/api/expo/events/nope/negotiate", json={"quoted_rate_inr_sqm": 1}).status_code == 404
