@@ -475,3 +475,11 @@ def test_subsidy_application_desk(client):
     assert client.put("/api/expo/applications/elecrama-2027--pms/status", json={"status": "submitted", "reference": "PMS/2026/123"}).json()["status"] == "submitted"
     assert next(r for r in client.get("/api/expo/applications").json()["items"] if r["id"] == "elecrama-2027--pms")["status"] == "submitted"
     assert client.put("/api/expo/applications/x--pms/status", json={"status": "bogus"}).status_code == 400
+
+
+def test_sectors_on_events(client):
+    d = client.get("/api/expo/events").json()
+    assert "plastics" in d["sectors"] and d["sectors"]["ai"]["label"].startswith("AI")
+    by = {e["id"]: e for e in d["events"]}
+    assert by["plastivision-2027"]["sectors"] == ["plastics"] and "ai" in by["bts-2026"]["sectors"]
+    assert all(e.get("sectors") for e in d["events"])

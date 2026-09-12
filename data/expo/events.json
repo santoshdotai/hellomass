@@ -90,6 +90,64 @@
       "travel_email_used_for": "flights, hotels, e-tickets, booking confirmations, visa",
       "payment": "Souveno current account (net banking / NEFT / its debit card) for everything, in both modes",
       "set_on": "2026-09-11"
+    },
+    "sectors": {
+      "construction": {
+        "label": "Construction & building materials",
+        "icon": "🏗️"
+      },
+      "ai": {
+        "label": "AI, software & startups",
+        "icon": "🤖"
+      },
+      "electronics": {
+        "label": "Electronics & telecom",
+        "icon": "📡"
+      },
+      "electrical": {
+        "label": "Electrical & power",
+        "icon": "⚡"
+      },
+      "plastics": {
+        "label": "Plastics, polymers & packaging",
+        "icon": "🧴"
+      },
+      "engineering": {
+        "label": "Engineering, machine tools & industrial",
+        "icon": "⚙️"
+      },
+      "automation": {
+        "label": "Automation & robotics",
+        "icon": "🦾"
+      },
+      "hardware": {
+        "label": "Hardware, tools & fasteners",
+        "icon": "🔩"
+      },
+      "printing": {
+        "label": "Printing, paper & packaging",
+        "icon": "🖨️"
+      },
+      "food": {
+        "label": "Food & beverage manufacturing",
+        "icon": "🍽️"
+      },
+      "pharma": {
+        "label": "Pharma & chemicals",
+        "icon": "💊"
+      },
+      "security": {
+        "label": "Security, surveillance & fire",
+        "icon": "🎥"
+      },
+      "logistics": {
+        "label": "Warehousing, logistics & supply chain",
+        "icon": "📦"
+      },
+      "energy": {
+        "label": "Energy, solar & utilities",
+        "icon": "🔋"
+      }
     }
   },
   "events": [
@@ -162,7 +220,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "printing",
+        "plastics"
+      ]
     },
     {
       "id": "waremat-2026",
@@ -234,7 +296,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "logistics",
+        "automation"
+      ]
     },
     {
       "id": "hardware-fair-india-2026",
@@ -339,7 +405,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "hardware",
+        "construction"
+      ]
     },
     {
       "id": "bts-2026",
@@ -431,7 +501,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": "Karnataka startup pavilion pods are subsidised for DPIIT startups; Telangana startups usually go via T-Hub delegation."
-      }
+      },
+      "sectors": [
+        "ai",
+        "electronics"
+      ]
     },
     {
       "id": "engiexpo-pune-2026",
@@ -543,7 +617,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "engineering",
+        "hardware"
+      ]
     },
     {
       "id": "big5-global-2026",
@@ -636,7 +714,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "construction"
+      ]
     },
     {
       "id": "gitex-global-2026",
@@ -729,7 +810,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": "India pavilion via ESC India / STPI; Expand North Star startup pods are subsidised for accelerator-backed startups."
-      }
+      },
+      "sectors": [
+        "ai",
+        "electronics"
+      ]
     },
     {
       "id": "engiexpo-ahmedabad-2026",
@@ -841,7 +926,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "engineering",
+        "plastics"
+      ]
     },
     {
       "id": "gulf-print-pack-2027",
@@ -922,7 +1011,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "printing",
+        "plastics"
+      ]
     },
     {
       "id": "plastivision-2027",
@@ -1039,7 +1132,10 @@
         "notes": "AIPMA offers member rates; AIPMA membership (₹ few thousand/yr) usually pays for itself on the stall discount. Ask for the 'Plastivision 2027 space booking form' and member tariff. | 11 Sep 2026: Santosh checked my.msme.gov.in — Plastivision India 2027 is NOT in the PMS Trade Fairs Domestic list, so no PMS reimbursement can be counted on. Ask AIPMA (plastivision.org/msme-subsidy.php, MSME desk) whether they have applied for DC-MSME approval / run an MSME pavilion for 2027; re-check the list every 3 days.",
         "pms_listed": "no",
         "pms_list_checked": "2026-09-11"
-      }
+      },
+      "sectors": [
+        "plastics"
+      ]
     },
     {
       "id": "acetech-hyderabad-2027",
@@ -1114,7 +1210,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "construction"
+      ]
     },
     {
       "id": "imtex-2027",
@@ -1209,7 +1308,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "engineering",
+        "automation"
+      ]
     },
     {
       "id": "engiexpo-surat-2027",
@@ -1308,7 +1411,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "engineering"
+      ]
     },
     {
       "id": "elecrama-2027",
@@ -1420,7 +1526,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": "IEEMA (organiser) runs an Indian MSME pavilion in some editions; ask response@elecrama.org whether a subsidised MSME/startup pod exists for 2027. Space booking guidance from the agent: book by October 2026."
-      }
+      },
+      "sectors": [
+        "electrical",
+        "energy"
+      ]
     },
     {
       "id": "india-pharma-expo-2027",
@@ -1490,7 +1600,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "pharma"
+      ]
     },
     {
       "id": "startup-mahakumbh-2027",
@@ -1572,7 +1685,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": "DPIIT-recognised startups can apply for a subsidised pod in the B2B/Deeptech pavilion; slots open ~Dec 2026."
-      }
+      },
+      "sectors": [
+        "ai"
+      ]
     },
     {
       "id": "convergence-india-2027",
@@ -1656,7 +1772,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": "AI Bharat Expo startup pods are subsidised for DPIIT startups; ask the organiser (Exhibitions India Group)."
-      }
+      },
+      "sectors": [
+        "ai",
+        "electronics"
+      ]
     },
     {
       "id": "india-automation-robotics-2027",
@@ -1740,7 +1860,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "automation",
+        "ai"
+      ]
     },
     {
       "id": "fastener-fair-india-2027",
@@ -1839,7 +1963,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "hardware",
+        "engineering"
+      ]
     },
     {
       "id": "automation-expo-2027",
@@ -1939,7 +2067,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "automation",
+        "electrical"
+      ]
     },
     {
       "id": "indexpo-mumbai-2027",
@@ -2010,7 +2142,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "engineering"
+      ]
     },
     {
       "id": "engiexpo-jaipur-2027",
@@ -2104,7 +2239,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "engineering"
+      ]
     },
     {
       "id": "indexpo-hyderabad-2027",
@@ -2180,7 +2318,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": "Home show; PMS + Telangana reimbursements apply. Agent will confirm the 2027 dates with Indore Infoline."
-      }
+      },
+      "sectors": [
+        "engineering"
+      ]
     },
     {
       "id": "gulfood-manufacturing-2026",
@@ -2275,7 +2416,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "food",
+        "automation"
+      ]
     },
     {
       "id": "middle-east-energy-2027",
@@ -2368,7 +2513,11 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": "India pavilion is organised by EEPC India / IEEMA in past editions with MAI-supported stall rates; joining the pavilion is the cheapest route and doubles as the IC/MAI delegation."
-      }
+      },
+      "sectors": [
+        "electrical",
+        "energy"
+      ]
     },
     {
       "id": "big5-saudi-2027",
@@ -2450,7 +2599,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": "India pavilion normally via FIEO/EEPC; only relevant if Souveno decides to exhibit."
-      }
+      },
+      "sectors": [
+        "construction"
+      ]
     },
     {
       "id": "ifsec-india-2026",
@@ -2545,7 +2697,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "security"
+      ]
     },
     {
       "id": "india-warehousing-show-2027",
@@ -2639,7 +2794,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "logistics"
+      ]
     },
     {
       "id": "intersec-dubai-2027",
@@ -2723,7 +2881,10 @@
         "sources": [],
         "last_checked": "2026-09-11",
         "notes": ""
-      }
+      },
+      "sectors": [
+        "security"
+      ]
     }
   ]
 }
