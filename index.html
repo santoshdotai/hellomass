@@ -28,6 +28,7 @@
   <nav class="main-nav" id="expoNav">
     <button class="nav-btn active" data-view="overview" data-icon="🏠">Overview</button>
     <button class="nav-btn" data-view="events" data-icon="🎪">Events</button>
+    <button class="nav-btn" data-view="ai" data-icon="🤖">AI circuit</button>
     <button class="nav-btn" data-view="itinerary" data-icon="📅">Itinerary</button>
     <button class="nav-btn" data-view="approvals" data-icon="✅">Approvals <span id="apBadge" class="pill hidden"></span></button>
     <button class="nav-btn" data-view="funnel" data-icon="📈">Live Funnel</button>
@@ -63,6 +64,14 @@
       <span class="muted">Stars, client probability and budgets are the agent's estimates from organiser figures and Souveno's own funnel assumptions.</span>
     </div>
     <div id="eventGrid" class="event-grid"></div>
+  </section>
+
+  <section id="view-ai" class="view">
+    <div class="banner" id="aiBlurb"></div>
+    <section class="kpi-row" id="aiKpis"></section>
+    <div class="panel"><h3>The AI circuit, in date order</h3><div class="tablewrap" id="aiTimeline"></div></div>
+    <div id="aiCards" class="event-grid"></div>
+    <div class="panel"><h3>Considered and skipped</h3><p class="muted">Listed so the choice stays visible; not in the itinerary, budget or approvals.</p><div id="aiSkipped"></div></div>
   </section>
 
   <section id="view-itinerary" class="view">

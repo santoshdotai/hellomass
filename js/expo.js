@@ -46,7 +46,7 @@
   // ---------------------------------------------------------------- nav
   // page history: every view (and event jump) is a browser history entry, so Back works on phone and desktop
   const HOME = 'overview';
-  const LOADERS = { overview: () => loadOverview(), funnel: () => { loadFunnel(); loadActuals(); }, approvals: loadApprovals, travel: loadTravellers, finance: loadFinance, settings: loadSettings, funds: loadFunds, stalls: loadFloorplan, leads: loadLeads, collab: loadCollabs };
+  const LOADERS = { overview: () => loadOverview(), ai: () => renderAi(), funnel: () => { loadFunnel(); loadActuals(); }, approvals: loadApprovals, travel: loadTravellers, finance: loadFinance, settings: loadSettings, funds: loadFunds, stalls: loadFloorplan, leads: loadLeads, collab: loadCollabs };
   function showView(v, push = true) {
     const b = $(`.nav-btn[data-view="${v}"]`); if (!b) return false;
     $$('#expoNav .nav-btn').forEach((x) => x.classList.toggle('active', x === b));
@@ -102,9 +102,13 @@
       if (view === 'list') { $('#eventGrid').innerHTML = `<div class="tablewrap"><table class="fin"><thead><tr><th>Show</th><th>Dates</th><th>City</th><th>Mode</th><th>★</th><th>Lead with</th><th>Cost</th><th>Clients</th><th>Stall</th><th>Flights</th><th>Hotel</th><th>Leads</th></tr></thead><tbody>${evs.map((e) => { const ev = e.evaluation, p = e.plan || {}; return `<tr><td>${evLink(e.id, e.name)}</td><td>${e.start} → ${e.end}</td><td>${esc(e.city)}</td><td>${e.mode}</td><td>${ev.stars.toFixed(1)}</td><td>${ev.lead_product === 'vision_ai' ? 'Vision AI' : ev.lead_product === 'both' ? 'both' : 'quote desk'}</td><td>${Array.isArray(ev.budget.total_inr) ? inr(ev.budget.total_inr[0]) + ' – ' + inr(ev.budget.total_inr[1]) : inr(ev.budget.total_inr)}</td><td>${ev.funnel.paid_pilots[0]}–${ev.funnel.paid_pilots[1]}</td><td>${p.stall_status || '—'} ${esc(p.stall_number || '')}</td><td>${p.flight_status || '—'}</td><td>${p.hotel_status || '—'}</td><td>${e.lead_count || 0}</td></tr>`; }).join('')}</tbody></table></div>`; return; }
       $('#eventGrid').innerHTML = kanban(['Not started', 'In progress', 'Booked'].map((t) => ({ title: t, items: evs.filter((e) => stage(e) === t).sort((a, b) => a.start.localeCompare(b.start)).map(mini) }))); return;
     }
-    $('#eventGrid').innerHTML = evs.map((e) => {
+    $('#eventGrid').innerHTML = evs.map((e) => eventCard(e)).join('');
+    bindCardButtons();
+  }
+  function bindCardButtons() { $$('.open-event').forEach((b) => { if (b.dataset.bound) return; b.dataset.bound = '1'; b.addEventListener('click', () => openEvent(b.closest('.event-card').dataset.id)); }); }
+  function eventCard(e, prefix = 'ev-') {
       const ev = e.evaluation, f = ev.funnel, b = ev.budget, p = e.plan;
-      return `<div class="event-card s${Math.floor(ev.stars)}" data-id="${e.id}" id="ev-${e.id}">
+      return `<div class="event-card s${Math.floor(ev.stars)}" data-id="${e.id}" id="${prefix}${e.id}">
         <div><span class="stars" title="${ev.total_score}/100">${starStr(ev.stars)}</span> <b>${ev.stars.toFixed(1)}</b>
           <span class="pill ${e.mode}">${e.mode}</span>${e.tentative ? '<span class="pill tentative">dates TBA</span>' : ''} <span class="pill" title="quote desk ${ev.quote_fit}/40 · Vision AI ${ev.vision_fit}/40">lead with: ${ev.lead_product === 'both' ? 'both products' : ev.lead_product === 'vision_ai' ? 'Vision AI' : 'WhatsApp quote desk'}</span></div>
         <h4>${esc(e.name)}</h4>
@@ -118,9 +122,8 @@
         <div><span class="pill ${p.stall_status}">stall: ${p.stall_status}</span><span class="pill ${p.flight_status}">flights: ${p.flight_status}</span><span class="pill ${p.hotel_status}">hotel: ${p.hotel_status}</span><span class="pill">${e.lead_count} leads</span></div>
         <div class="row-actions"><button class="btn secondary open-event">Details, stall &amp; booking</button><a class="btn ghost" target="_blank" href="${e.website}">Site</a></div>
       </div>`;
-    }).join('');
-    $$('.open-event').forEach((b) => b.addEventListener('click', () => openEvent(b.closest('.event-card').dataset.id)));
-  }
+    }
+
   $('#sortEvents').addEventListener('change', renderEvents);
   $('#filterMode').addEventListener('change', renderEvents);
 
@@ -547,6 +550,19 @@
     } catch (e) { alert(e.message); }
   });
 
+
+
+  // ---------------------------------------------------------------- AI circuit
+  function renderAi() {
+    const host = $('#aiCards'); if (!host || !state.catalog) return;
+    const C = (state.catalog.circuits || {}).ai || {}; const evs = state.catalog.events.filter((e) => e.circuit === 'ai').slice().sort((a, b) => a.start.localeCompare(b.start)); const sk = state.catalog.skipped || [];
+    $('#aiBlurb').innerHTML = `<b>${esc(C.label || 'AI circuit')}</b> — ${esc(C.blurb || '')}`;
+    const ex = evs.filter((e) => e.mode === 'exhibit'), lo = evs.reduce((x, e) => x + e.evaluation.budget.total_inr[0], 0), hi = evs.reduce((x, e) => x + e.evaluation.budget.total_inr[1], 0), nx = evs.find((e) => daysAway(e.end) >= 0);
+    $('#aiKpis').innerHTML = [['AI-circuit shows', evs.length], ['Exhibit / visit', `${ex.length} / ${evs.length - ex.length}`], ['Budget, all AI shows', `${inr(lo)}–${inr(hi)}`], ['Next', nx ? `${esc(nx.name.split(' ').slice(0, 3).join(' '))} · ${daysAway(nx.start)} d` : '—'], ['Skipped on purpose', sk.length]].map(([l, v]) => `<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+    $('#aiTimeline').innerHTML = `<table class="fin" style="min-width:720px"><thead><tr><th>Dates</th><th>Show</th><th>City</th><th>Mode</th><th>★</th><th>Why go</th><th>Budget</th></tr></thead><tbody>${evs.map((e) => `<tr><td>${e.start}${e.tentative ? ' <span class="pill tentative">TBA</span>' : ''}</td><td>${evLink(e.id, e.name)}</td><td>${esc(e.city)}</td><td><span class="pill ${e.mode}">${e.mode}</span></td><td>${e.evaluation.stars.toFixed(1)}</td><td>${esc(e.purpose || '')}</td><td>${rngI(e.evaluation.budget.total_inr)}</td></tr>`).join('')}</tbody></table>`;
+    host.innerHTML = evs.map((e) => eventCard(e, 'ai-')).join(''); bindCardButtons();
+    $('#aiSkipped').innerHTML = sk.length ? sk.map((x) => `<div class="mrow"><span><b>${esc(x.name)}</b> · ${x.start} → ${x.end} · ${esc(x.city)}<br><span class="muted">${esc(x.why || '')}</span><br><span class="muted">${esc((x.stall || {}).recommend || '')}</span></span><b><a target="_blank" rel="noopener" href="${x.website}">site</a></b></div>`).join('') : '<div class="muted">—</div>';
+  }
 
   // ---------------------------------------------------------------- overview / homepage with live metrics
   const OV = { nx: null, liveNow: null, syncedAt: null, ok: true };
