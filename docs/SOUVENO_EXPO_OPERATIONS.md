@@ -55,6 +55,25 @@ Scoring: ICP fit 40 (best of quote-desk fit and Vision AI fit) + footfall 15 + d
 
 Views: cards, list, kanban by booking stage, organiser pipeline. Click any show name anywhere to jump to its card.
 
+
+## 1b. AI circuit — being seen as an AI vendor (added 12 Sep 2026)
+
+The customer circuit above is where the quote desk and Vision AI find buyers. The AI circuit is a different job: founder, investor, CXO and government rooms where Souveno is seen among AI vendors, plus one exhibition with foreign buyer delegations. It has its own tab on both dashboards.
+
+| Dates | Show | City | Mode | Why go | Budget (2 pax) |
+|---|---|---|---|---|---|
+| 7–10 Oct 2026 | India Mobile Congress | New Delhi (Yashobhoomi) | visit | CPaaS / WhatsApp platform vendors, BSP partner, ASPIRE startup pod in 2027 | ₹76,500–1,01,500 |
+| 13–15 Oct 2026 | TechSparks (YourStory) | Bengaluru | visit | Founder/investor room, Tech30 showcase, press | ₹48,000–64,000 |
+| Dec 2026 (TBA) | Telangana Rising Global Summit | Hyderabad | visit | State government, T-AIM, showcase pod at home | ₹6,000 |
+| 13–15 Dec 2026 | TiE Global Summit | Indore | visit | Investors and mentors via TiE Hyderabad delegation | ₹54,000–74,000 |
+| Feb 2027 (TBA) | SaaSBoomi Annual | Chennai | visit | SaaS/AI founder peers and investors | ₹48,000–64,000 |
+| Feb 2027 (TBA) | Nasscom NTLF | Mumbai | visit | Enterprise CIOs; Nasscom Emerge slot | ₹53,000–72,000 |
+| 23–25 Mar 2027 | **IndiaSoft (ESC)** | New Delhi (Bharat Mandapam) | **exhibit** | Foreign buyer delegations, ESC membership + MAI, same days as Convergence India | ₹1,79,500–1,95,500 |
+
+Considered and skipped (kept out of the itinerary, budget and approvals): AI Everything / Global AI Show Abu Dhabi (Oct 2026), World AI Expo Dubai (Nov 2026, clashes with Bengaluru Tech Summit; GITEX covers Dubai), GAIN Riyadh 2027 (only with a Saudi partner in hand).
+
+Rules: visits are one day unless a showcase slot is won; nothing is booked without the Approve tap; DPIIT is needed for most free startup pods, so incorporation as a Pvt Ltd / LLP unlocks them.
+
 ## 2. Flights section
 
 * Every away show gets a flight proposal: HYD → destination the evening before, return after 19:00 on the last day, 2 travellers, economy, direct preferred.

@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from backend.core.expo import finance, floorplan, planner, scoring, subsidy  # noqa: E402
 from backend.core.expo import funds as fe  # noqa: E402
 from backend.core.expo import applications as ae  # noqa: E402
-from backend.core.expo.catalog import list_events, meta  # noqa: E402
+from backend.core.expo.catalog import list_events, meta, skipped_events  # noqa: E402
 from backend.core.expo.playbook import playbook  # noqa: E402
 
 
@@ -24,7 +24,7 @@ def build() -> dict:
     for e in evs:
         r = scoring.evaluate(e)
         tp = planner.travel_plan(e)
-        rows.append({**{k: e[k] for k in ("id", "name", "edition", "category", "icp", "start", "end", "city", "venue", "venue_area", "organiser", "website", "mode", "tentative", "footfall_history", "expected", "why", "stall", "sectors") if k in e},
+        rows.append({**{k: e[k] for k in ("id", "name", "edition", "category", "icp", "start", "end", "city", "venue", "venue_area", "organiser", "website", "mode", "tentative", "footfall_history", "expected", "why", "stall", "sectors", "circuit", "purpose", "attend") if k in e},
                      "icp_vision": e.get("icp_vision", []), "stars": r["stars"], "total": r["total_score"], "lead_product": r["lead_product"], "quote_fit": r["quote_fit"], "vision_fit": r["vision_fit"],
                      "components": r["components"], "explain": r["explain"], "funnel": r["funnel"], "funnel_alt": r["funnel_alt"], "budget": r["budget"], "cpc": r["cost_per_expected_client_inr"],
                      "travel": tp, "hotels": (e.get("travel") or {}).get("hotels", []), "airport": (e.get("travel") or {}).get("airport"), "fare": (e.get("travel") or {}).get("flight_oneway_inr", [0, 0]),
@@ -38,9 +38,9 @@ def build() -> dict:
         if rec and lay:
             plans[e["id"]] = {"svg": rec.get("svg") or floorplan.to_svg(lay), "top": rec.get("top", []), "avoid": rec.get("avoid", []), "stall_count": rec.get("stall_count", len(lay.stalls)), "name": rec.get("name", lay.name)}
     m = meta()
-    return {"meta": {"prepared_on": date.today().isoformat(), "sectors": m.get("sectors", {}), "icp": m.get("icp_segments"), "icp_segments": m.get("icp_segments"), "assumptions": m.get("funnel_assumptions"),
+    return {"meta": {"prepared_on": date.today().isoformat(), "sectors": m.get("sectors", {}), "circuits": m.get("circuits", {}), "icp": m.get("icp_segments"), "icp_segments": m.get("icp_segments"), "assumptions": m.get("funnel_assumptions"),
                      "company": {**planner.SOUVENO_PROFILE, "company_email": "souveno30@gmail.com", "travel_email": "santoshdotai@gmail.com", "payment": "Souveno current account"}},
-            "events": rows, "itinerary": planner.attend_all_itinerary(evs), "clashes": planner.clashes(evs), "playbook": playbook(), "floorplans": plans,
+            "events": rows, "skipped": [{k: e.get(k) for k in ("id", "name", "start", "end", "city", "venue", "mode", "why", "stall", "purpose", "website", "sectors", "circuit")} for e in skipped_events()], "itinerary": planner.attend_all_itinerary(evs), "clashes": planner.clashes(evs), "playbook": playbook(), "floorplans": plans,
             "finance": finance.all_horizons(), "funds": fe.funds("all"), "pavilions": fe.pavilions(), "applications": ae.applications()}
 
 

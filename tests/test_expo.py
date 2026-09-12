@@ -483,3 +483,13 @@ def test_sectors_on_events(client):
     by = {e["id"]: e for e in d["events"]}
     assert by["plastivision-2027"]["sectors"] == ["plastics"] and "ai" in by["bts-2026"]["sectors"]
     assert all(e.get("sectors") for e in d["events"])
+
+
+def test_ai_circuit_and_skipped(client):
+    d = client.get("/api/expo/events").json()
+    ai = [e for e in d["events"] if e.get("circuit") == "ai"]
+    assert len(ai) == 7 and sum(1 for e in ai if e["mode"] == "exhibit") == 1
+    assert {e["id"] for e in d["skipped"]} == {"world-ai-expo-dubai-2026", "global-ai-show-abudhabi-2026", "gain-riyadh-2027"}
+    assert not any(e["id"] == "gain-riyadh-2027" for e in d["events"])  # skipped shows stay out of the plan
+    assert client.get("/api/expo/events/gain-riyadh-2027").status_code == 200  # but remain addressable
+    assert "ai" in d["circuits"]
