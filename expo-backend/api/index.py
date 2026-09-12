@@ -39,11 +39,13 @@ def _bootstrap() -> Path:
         top = members[0].name.split("/")[0]
         for m in members:
             rel = m.name[len(top) + 1:]
-            if not rel.startswith(SUBDIR + "/"):
+            if SUBDIR and not rel.startswith(SUBDIR + "/"):
+                continue
+            if not rel:
                 continue
             m.name = rel
             tf.extract(m, cache)
-    return cache / SUBDIR
+    return cache / SUBDIR if SUBDIR else cache
 
 
 if (ROOT / "backend" / "main.py").exists():
