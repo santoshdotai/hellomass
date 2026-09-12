@@ -19,6 +19,7 @@ from backend.core.expo import calibration as calibration_engine
 from backend.core.expo import voice as voice_engine
 from backend.core.expo import funds as funds_engine
 from backend.core.expo import applications as app_engine
+from backend.core.expo import negotiation
 from backend.core.expo import cards as card_engine
 from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
@@ -858,6 +859,23 @@ def put_fund_status(fund_id: str, body: FundStatus, db: Session = Depends(get_db
 @router.get("/pavilions")
 def list_pavilions():
     return funds_engine.pavilions()
+
+
+# ---------------------------------------------------------------- stall negotiation
+class Quote(BaseModel):
+    quoted_rate_inr_sqm: float
+    sqm: Optional[float] = None
+    includes: list[str] = []
+    msme_rate_inr_sqm: Optional[float] = None
+    early_bird_rate_inr_sqm: Optional[float] = None
+    offered_stalls: list[str] = []
+
+
+@router.post("/events/{event_id}/negotiate")
+def negotiate(event_id: str, body: Quote):
+    """Turn an organiser's quote into target / walk-away prices, the asks and a reply draft."""
+    _require_event(event_id)
+    return negotiation.evaluate_quote(event_id, body.quoted_rate_inr_sqm, body.sqm, body.includes, body.msme_rate_inr_sqm, body.early_bird_rate_inr_sqm, body.offered_stalls)
 
 
 # ---------------------------------------------------------------- subsidy application desk

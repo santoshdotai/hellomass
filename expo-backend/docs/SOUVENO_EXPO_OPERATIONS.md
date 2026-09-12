@@ -262,3 +262,15 @@ Priority 1 = apply now, 2 = this quarter, 3 = if pilots exist, 4–5 = parked. P
 4. Call HITEX for PAPEXPO and WAREMAT stalls; apply for PMS on my.msme.gov.in for both.
 5. Apply: DPIIT (if not done), T-Hub, SISFS, T-AIM Revv Up, Hub71; join ESC India and EEPC India for the pavilions.
 6. Approve the flights inside their windows: Hardware Fair India (by 22 Sep), Gulfood Manufacturing (now), Bengaluru Tech Summit (17 Oct).
+
+
+## 14. Nightly organiser desk (added 12 Sep 2026)
+
+Two routines run every night on the company mailbox souveno30@gmail.com:
+
+| Time (IST) | Routine | What it does |
+|---|---|---|
+| 23:00 | Stall enquiries | For every exhibit show (customer circuit and AI circuit) whose organiser stage is "not contacted": find the organiser's exhibitor-sales address if the catalogue lacks it, send the space enquiry (rate card, floor plan, MSME/startup/early-bird rates, DC-MSME approval, proforma format), record the address in `exhibitor_contact`, set `plans/<eventId>.organiserStage = "enquiry sent"`. One enquiry per organiser, ever; follow-up nudge after 7 silent days, at most twice. |
+| 00:01 | Replies & negotiation | Reads the previous day's organiser mail, extracts rate, stall options, early-bird and MSME rates, picks the best stall (corner / main aisle near the entrance; `floorplan.recommend` where a venue is modelled; favourable numbers), runs `POST /api/expo/events/{id}/negotiate` (or `negotiation.evaluate_quote`) and replies in the thread with the counter-offer and asks. Updates the organiser stage, the `approvals/<eventId>--stall_advance` amount and the dashboard, then e-mails Santosh a summary. |
+
+Negotiation rules (`backend/core/expo/negotiation.py`): open 18% below the best listed rate, accept anything 12% below it or at/under the catalogue estimate, walk away 10% above the estimate and hand the thread to Santosh. Always ask for the free extras (fascia, furniture, power, badges, listing, seminar pass, two instalments). The agent never confirms a booking or a payment: the advance follows only after the proforma matches and Santosh taps Approve.
