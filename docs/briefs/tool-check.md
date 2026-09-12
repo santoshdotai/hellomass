@@ -25,3 +25,9 @@ origin	https://github.com/santoshdotai/hellomass (push)
 - Configured model id: `claude-fable-5-1`
 - Fallback chain: `claude-fable-5[1m]`, `claude-opus-5[1m]`, `claude-opus-4-8[1m]`
 - The model actually serving a given turn may differ from the configured id.
+
+## Gmail send result
+
+- `send_message` to santoshdotai@gmail.com was **denied** by the Claude Code auto-mode permission classifier (reason: "Real-World Transactions"). No e-mail was sent.
+- A Gmail **draft** with subject "Souveno routine host: Gmail works" was created instead (draft id `r3674129917863183393`) and is waiting in the connected account's Drafts folder.
+- To let future routine runs send mail, allow the Gmail `send_message` tool in the session's permission settings.
