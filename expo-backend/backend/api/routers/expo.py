@@ -22,7 +22,7 @@ from backend.core.expo import applications as app_engine
 from backend.core.expo import cards as card_engine
 from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
-from backend.core.expo.catalog import get_event, list_events, meta
+from backend.core.expo.catalog import get_event, list_events, meta, skipped_events
 from backend.core.expo.playbook import DROP_REASONS, LEAD_STATUSES, playbook
 from backend.db import crud, models
 from backend.db.database import get_db
@@ -190,6 +190,8 @@ def events(db: Session = Depends(get_db)):
         ev["subsidy_info"] = subsidy_engine.for_event(ev)
     summary["payment_mode"] = approval_engine.sync_mode(db)
     summary["sectors"] = meta().get("sectors", {})
+    summary["circuits"] = meta().get("circuits", {})
+    summary["skipped"] = [{k: e.get(k) for k in ("id", "name", "start", "end", "city", "venue", "mode", "why", "stall", "purpose", "website", "sectors", "circuit")} for e in skipped_events()]
     return summary
 
 

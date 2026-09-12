@@ -148,6 +148,12 @@
         "label": "Energy, solar & utilities",
         "icon": "🔋"
       }
+    },
+    "circuits": {
+      "ai": {
+        "label": "AI circuit",
+        "blurb": "Shows where Souveno is seen as an AI vendor among AI vendors: founder, investor, CXO and government rooms, plus the one exhibition (IndiaSoft) with foreign buyer delegations. Different job from the customer circuit: visibility, partners, pods and press rather than quote-desk leads."
+      }
     }
   },
   "events": [
@@ -2885,6 +2891,944 @@
       "sectors": [
         "security"
       ]
+    },
+    {
+      "id": "imc-2026",
+      "name": "India Mobile Congress 2026",
+      "edition": "10th edition — Asia's largest digital technology forum",
+      "category": "Telecom, AI, semiconductors, deep-tech, startups",
+      "icp": [
+        "X",
+        "A"
+      ],
+      "start": "2026-10-07",
+      "end": "2026-10-10",
+      "city": "New Delhi",
+      "venue": "Yashobhoomi (India International Convention & Expo Centre)",
+      "venue_area": "Dwarka Sector 25",
+      "organiser": "DoT + COAI",
+      "website": "https://www.indiamobilecongress.com/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 150000,
+          "exhibitors": 300,
+          "note": "organiser: 1.5 lakh attendees, 300+ exhibitors, 1,500 use cases (2025)"
+        }
+      ],
+      "expected": {
+        "visitors": 150000,
+        "exhibitors": 300
+      },
+      "score": {
+        "icp_fit": 10,
+        "footfall": 14,
+        "decision_makers": 8,
+        "geography_cost": 6,
+        "competition_noise": 2,
+        "timing_fit": 4,
+        "vision_fit": 18
+      },
+      "why": "AI-circuit visibility, not a buyer show. Every WhatsApp-automation and CPaaS vendor is here (Meta, Gupshup, Netcore). Go for BSP partnerships, telco startup programmes and the ASPIRE startup pavilion (needs DPIIT for a free pod). Clashes with WAREMAT (8–10 Oct): fly for day 4 only if WAREMAT is staffed.",
+      "stall": {
+        "recommend": "do not exhibit this year; 1-day pass. Apply for an ASPIRE startup pod in 2027 once DPIIT is in place",
+        "hall_hint": "ASPIRE startup zone, Meta/Gupshup/telco pavilions",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 18000
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Holiday Inn New Delhi International Airport",
+            "area": "Aerocity",
+            "tier": "mid",
+            "inr_night": [
+              7500,
+              10500
+            ],
+            "km_to_venue": 6,
+            "why": "Airport Express metro to Yashobhoomi (Dwarka Sector 25) in 10 min"
+          },
+          {
+            "name": "Bloomrooms @ Janakpuri",
+            "area": "Janakpuri",
+            "tier": "budget",
+            "inr_night": [
+              3500,
+              4800
+            ],
+            "km_to_venue": 9,
+            "why": "Blue Line + Airport line to Dwarka"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.indiamobilecongress.com/",
+        "https://www.cgihcmc.gov.in/page/07-10-october-2026-india-mobile-congress-2026-in-new-delhi-india/"
+      ],
+      "icp_vision": [
+        "S",
+        "R"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": ""
+      },
+      "sectors": [
+        "ai",
+        "electronics"
+      ],
+      "circuit": "ai",
+      "purpose": "Be seen among CPaaS / WhatsApp platform vendors; find a BSP partner; startup pod route for 2027."
+    },
+    {
+      "id": "techsparks-2026",
+      "name": "TechSparks 2026",
+      "edition": "YourStory's flagship founder summit — theme 'The New Tech Order'",
+      "category": "Startups, founders, investors, AI",
+      "icp": [
+        "X"
+      ],
+      "start": "2026-10-13",
+      "end": "2026-10-15",
+      "city": "Bengaluru",
+      "venue": "Taj Yeshwantpur",
+      "venue_area": "Yeshwantpur",
+      "organiser": "YourStory Media",
+      "website": "https://techsparks.yourstory.com/2026/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 5000,
+          "exhibitors": 60,
+          "note": "agent estimate: ~5,000 delegates, ~60 startup showcase booths"
+        }
+      ],
+      "expected": {
+        "visitors": 5000,
+        "exhibitors": 60
+      },
+      "score": {
+        "icp_fit": 8,
+        "footfall": 5,
+        "decision_makers": 9,
+        "geography_cost": 8,
+        "competition_noise": 3,
+        "timing_fit": 6,
+        "vision_fit": 10
+      },
+      "why": "Founder and investor room. Worth one day for a Tech30 / startup showcase application, angel conversations and press. Zero customers for the quote desk.",
+      "stall": {
+        "recommend": "delegate pass; apply for the startup showcase (free/low-cost booth if selected)",
+        "hall_hint": "Startup showcase floor, investor lounge",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 0
+      },
+      "travel": {
+        "airport": "BLR",
+        "flight_oneway_inr": [
+          3500,
+          5500
+        ],
+        "hotels": [
+          {
+            "name": "Taj Yeshwantpur (venue hotel)",
+            "area": "Yeshwantpur",
+            "tier": "premium",
+            "inr_night": [
+              9500,
+              13500
+            ],
+            "km_to_venue": 0,
+            "why": "The conference is in this hotel"
+          },
+          {
+            "name": "Holiday Inn Express Bengaluru Yeshwantpur",
+            "area": "Yeshwantpur",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7500
+            ],
+            "km_to_venue": 1,
+            "why": "Walkable; Green Line metro"
+          }
+        ]
+      },
+      "sources": [
+        "https://yourstory.com/2026/06/techsparks-2026-bengaluru-new-tech-order-entrepreneurs-startup-ecosystem",
+        "https://techsparks.yourstory.com/2026/"
+      ],
+      "icp_vision": [
+        "S"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": ""
+      },
+      "sectors": [
+        "ai"
+      ],
+      "circuit": "ai",
+      "purpose": "Founder/investor visibility; Tech30 or showcase slot; press."
+    },
+    {
+      "id": "global-ai-show-abudhabi-2026",
+      "name": "Global AI Show Abu Dhabi 2026",
+      "edition": "4th edition, alongside Global Blockchain Show",
+      "category": "AI vendors, enterprise AI buyers, Gulf government",
+      "icp": [
+        "X"
+      ],
+      "start": "2026-10-27",
+      "end": "2026-10-28",
+      "city": "Abu Dhabi",
+      "venue": "ADNEC Centre",
+      "venue_area": "Abu Dhabi",
+      "organiser": "VAP Group",
+      "website": "https://www.globalaishow.com/abu-dhabi/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 10000,
+          "exhibitors": 200,
+          "note": "organiser: 10,000+ attendees, 250 speakers, 200+ exhibitors"
+        }
+      ],
+      "expected": {
+        "visitors": 10000,
+        "exhibitors": 200
+      },
+      "score": {
+        "icp_fit": 8,
+        "footfall": 6,
+        "decision_makers": 9,
+        "geography_cost": 3,
+        "competition_noise": 2,
+        "timing_fit": 3,
+        "vision_fit": 14
+      },
+      "why": "Gulf AI vendor stage two days after Hardware Fair India ends; only if a Gulf reseller conversation is already live. Otherwise skip — GITEX in December covers the same room at scale.",
+      "stall": {
+        "recommend": "skip unless a Gulf partner meeting is booked; visitor pass",
+        "hall_hint": "Startup zone",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 45000
+      },
+      "travel": {
+        "airport": "AUH",
+        "flight_oneway_inr": [
+          16000,
+          26000
+        ],
+        "hotels": [
+          {
+            "name": "Aloft Abu Dhabi",
+            "area": "ADNEC",
+            "tier": "mid",
+            "inr_night": [
+              9000,
+              13000
+            ],
+            "km_to_venue": 0.2,
+            "why": "Attached to ADNEC"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.globalaishow.com/abu-dhabi/",
+        "https://www.cantonfair.net/event/66667-global-ai-show-abu-dhabi"
+      ],
+      "icp_vision": [
+        "S",
+        "R"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": ""
+      },
+      "sectors": [
+        "ai"
+      ],
+      "circuit": "ai",
+      "purpose": "Gulf AI-vendor visibility; reseller hunting.",
+      "attend": "skip"
+    },
+    {
+      "id": "world-ai-expo-dubai-2026",
+      "name": "World AI Expo Dubai 2026",
+      "edition": "With the World Entrepreneur & Investor Summit on 19 Nov",
+      "category": "AI vendors, investors, enterprise buyers",
+      "icp": [
+        "X"
+      ],
+      "start": "2026-11-17",
+      "end": "2026-11-18",
+      "city": "Dubai",
+      "venue": "Dubai (venue to be confirmed)",
+      "venue_area": "Dubai",
+      "organiser": "World AI Expo",
+      "website": "https://worldaiexpo.io/",
+      "mode": "visit",
+      "tentative": true,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 4000,
+          "exhibitors": 80,
+          "note": "agent estimate from organiser claims"
+        }
+      ],
+      "expected": {
+        "visitors": 4000,
+        "exhibitors": 80
+      },
+      "score": {
+        "icp_fit": 8,
+        "footfall": 4,
+        "decision_makers": 8,
+        "geography_cost": 3,
+        "competition_noise": 3,
+        "timing_fit": 2,
+        "vision_fit": 12
+      },
+      "why": "Clashes with Bengaluru Tech Summit and sits three weeks before GITEX. Listed so the choice is visible; GITEX wins.",
+      "stall": {
+        "recommend": "skip; GITEX Global (7–11 Dec) is the Dubai AI stage",
+        "hall_hint": "—",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 40000
+      },
+      "travel": {
+        "airport": "DXB",
+        "flight_oneway_inr": [
+          14000,
+          22000
+        ],
+        "hotels": [
+          {
+            "name": "ibis Al Barsha",
+            "area": "Al Barsha",
+            "tier": "budget",
+            "inr_night": [
+              6000,
+              8500
+            ],
+            "km_to_venue": 10,
+            "why": "Metro"
+          }
+        ]
+      },
+      "sources": [
+        "https://worldaiexpo.io/event-details/"
+      ],
+      "icp_vision": [
+        "S",
+        "R"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": ""
+      },
+      "sectors": [
+        "ai"
+      ],
+      "circuit": "ai",
+      "purpose": "Reference only; GITEX is the better Dubai bet.",
+      "attend": "skip"
+    },
+    {
+      "id": "telangana-rising-2026",
+      "name": "Telangana Rising Global Summit 2026",
+      "edition": "State investment summit — AI, GCCs, future city",
+      "category": "Investors, government, GCC heads, AI policy",
+      "icp": [
+        "X"
+      ],
+      "start": "2026-12-08",
+      "end": "2026-12-09",
+      "city": "Hyderabad",
+      "venue": "Bharat Future City / HICC (to be confirmed)",
+      "venue_area": "Hyderabad",
+      "organiser": "Govt. of Telangana",
+      "website": "https://www.telangana.gov.in/",
+      "mode": "visit",
+      "tentative": true,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 8000,
+          "exhibitors": 100,
+          "note": "agent estimate; dates to be confirmed by the state"
+        }
+      ],
+      "expected": {
+        "visitors": 8000,
+        "exhibitors": 100
+      },
+      "score": {
+        "icp_fit": 10,
+        "footfall": 6,
+        "decision_makers": 11,
+        "geography_cost": 10,
+        "competition_noise": 4,
+        "timing_fit": 7,
+        "vision_fit": 14
+      },
+      "why": "Home-city government stage. The route to T-AIM, Telangana AI Mission cohorts and state pilot programmes for Vision AI (attendance, gates). Free to attend; ask T-Hub for a startup showcase slot.",
+      "stall": {
+        "recommend": "attend; ask T-Hub / TGIC for a showcase pod",
+        "hall_hint": "Startup / T-Hub pavilion",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 0
+      },
+      "travel": {},
+      "sources": [
+        "https://pccrealty.in/telangana-global-investment-summit-2026-future-city-hyderabad/"
+      ],
+      "icp_vision": [
+        "S",
+        "K"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": "Free showcase pods usually go through T-Hub / T-AIM; DPIIT not required for state programmes."
+      },
+      "sectors": [
+        "ai"
+      ],
+      "circuit": "ai",
+      "purpose": "State government and T-AIM visibility at home; showcase pod."
+    },
+    {
+      "id": "tie-global-summit-2026",
+      "name": "TiE Global Summit 2026",
+      "edition": "11th edition — 'The Next Decade'",
+      "category": "Founders, investors, TiE charter members",
+      "icp": [
+        "X"
+      ],
+      "start": "2026-12-13",
+      "end": "2026-12-15",
+      "city": "Indore",
+      "venue": "Brilliant Convention Centre (to be confirmed)",
+      "venue_area": "Indore",
+      "organiser": "TiE Global / TiE Indore",
+      "website": "https://tieglobalsummit.org/",
+      "mode": "visit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2025,
+          "visitors": 6000,
+          "exhibitors": 100,
+          "note": "TiE reports ~6,000 delegates at TGS Jaipur (Jan 2026)"
+        }
+      ],
+      "expected": {
+        "visitors": 6000,
+        "exhibitors": 100
+      },
+      "score": {
+        "icp_fit": 9,
+        "footfall": 5,
+        "decision_makers": 10,
+        "geography_cost": 5,
+        "competition_noise": 4,
+        "timing_fit": 5,
+        "vision_fit": 10
+      },
+      "why": "Investor and mentor room; go via the TiE Hyderabad delegation if it forms (subsidised passes). Overlaps GITEX week; take it only if GITEX is dropped.",
+      "stall": {
+        "recommend": "delegate pass via TiE Hyderabad; startup expo pod if offered",
+        "hall_hint": "Startup expo",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 8000
+      },
+      "travel": {
+        "airport": "IDR",
+        "flight_oneway_inr": [
+          5500,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Sayaji Hotel Indore",
+            "area": "Vijay Nagar",
+            "tier": "mid",
+            "inr_night": [
+              5000,
+              7000
+            ],
+            "km_to_venue": 3,
+            "why": "Near the convention centre"
+          },
+          {
+            "name": "Radisson Blu Indore",
+            "area": "Vijay Nagar",
+            "tier": "premium",
+            "inr_night": [
+              7500,
+              10000
+            ],
+            "km_to_venue": 3,
+            "why": "Delegate hotel"
+          }
+        ]
+      },
+      "sources": [
+        "https://tieglobalsummit.org/",
+        "https://events.tie.org/TiEGlobalSummit2026"
+      ],
+      "icp_vision": [
+        "S"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": ""
+      },
+      "sectors": [
+        "ai"
+      ],
+      "circuit": "ai",
+      "purpose": "Investor and mentor network; TiE Hyderabad delegation."
+    },
+    {
+      "id": "saasboomi-annual-2027",
+      "name": "SaaSBoomi Annual 2027",
+      "edition": "India's SaaS & AI founder community summit (2026 edition was 18–20 Feb)",
+      "category": "SaaS and AI founders, investors",
+      "icp": [
+        "X"
+      ],
+      "start": "2027-02-17",
+      "end": "2027-02-19",
+      "city": "Chennai",
+      "venue": "Chennai (venue to be announced)",
+      "venue_area": "Chennai",
+      "organiser": "SaaSBoomi",
+      "website": "https://saasboomi.org/",
+      "mode": "visit",
+      "tentative": true,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 2500,
+          "exhibitors": 40,
+          "note": "agent estimate; invite-only founder summit"
+        }
+      ],
+      "expected": {
+        "visitors": 2500,
+        "exhibitors": 40
+      },
+      "score": {
+        "icp_fit": 8,
+        "footfall": 3,
+        "decision_makers": 9,
+        "geography_cost": 8,
+        "competition_noise": 3,
+        "timing_fit": 5,
+        "vision_fit": 8
+      },
+      "why": "Peer founders and SaaS investors; apply early — passes are curated. Useful for pricing/GTM playbooks, not customers.",
+      "stall": {
+        "recommend": "apply for a founder pass; no stall",
+        "hall_hint": "—",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 0
+      },
+      "travel": {
+        "airport": "MAA",
+        "flight_oneway_inr": [
+          3500,
+          5500
+        ],
+        "hotels": [
+          {
+            "name": "Feathers Chennai",
+            "area": "Manapakkam",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7500
+            ],
+            "km_to_venue": 8,
+            "why": "Near the trade-centre belt"
+          }
+        ]
+      },
+      "sources": [
+        "https://saasboomi.org/",
+        "https://saasboomi.org/events/annual-25/"
+      ],
+      "icp_vision": [
+        "S"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": ""
+      },
+      "sectors": [
+        "ai"
+      ],
+      "circuit": "ai",
+      "purpose": "Founder peer network; SaaS/AI investor access."
+    },
+    {
+      "id": "ntlf-2027",
+      "name": "Nasscom Technology & Leadership Forum 2027",
+      "edition": "NTLF — India's flagship tech-industry forum (2026 edition was 24–25 Feb, Fairmont Mumbai)",
+      "category": "IT services CEOs, CIOs, enterprise tech buyers, policy",
+      "icp": [
+        "X",
+        "A"
+      ],
+      "start": "2027-02-24",
+      "end": "2027-02-25",
+      "city": "Mumbai",
+      "venue": "Fairmont Mumbai (to be confirmed)",
+      "venue_area": "Mumbai",
+      "organiser": "Nasscom",
+      "website": "https://www.nasscom.in/ntlf/",
+      "mode": "visit",
+      "tentative": true,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 2500,
+          "exhibitors": 30,
+          "note": "agent estimate; CXO forum"
+        }
+      ],
+      "expected": {
+        "visitors": 2500,
+        "exhibitors": 30
+      },
+      "score": {
+        "icp_fit": 10,
+        "footfall": 3,
+        "decision_makers": 13,
+        "geography_cost": 7,
+        "competition_noise": 4,
+        "timing_fit": 4,
+        "vision_fit": 12
+      },
+      "why": "CXO room. Enterprise CIOs of manufacturing groups attend; a Nasscom DeepTech / Emerge startup slot is the way in (needs Nasscom membership). Clashes with ELECRAMA (20–24 Feb) — day 2 only.",
+      "stall": {
+        "recommend": "Nasscom Emerge startup slot if selected; otherwise skip",
+        "hall_hint": "Emerge showcase",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 0
+      },
+      "travel": {
+        "airport": "BOM",
+        "flight_oneway_inr": [
+          5000,
+          7500
+        ],
+        "hotels": [
+          {
+            "name": "Holiday Inn Mumbai International Airport",
+            "area": "Andheri East",
+            "tier": "mid",
+            "inr_night": [
+              8000,
+              11000
+            ],
+            "km_to_venue": 8,
+            "why": "Airport side; 25 min to BKC/Fairmont"
+          },
+          {
+            "name": "FabHotel Andheri East",
+            "area": "Andheri East",
+            "tier": "budget",
+            "inr_night": [
+              3500,
+              5000
+            ],
+            "km_to_venue": 8,
+            "why": "Metro Line 1 / 7"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.nasscom.in/ntlf/",
+        "https://community.nasscom.in/index.php/event/nasscom-technology-and-leadership-forum-2026"
+      ],
+      "icp_vision": [
+        "S",
+        "F"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": ""
+      },
+      "sectors": [
+        "ai"
+      ],
+      "circuit": "ai",
+      "purpose": "Enterprise CIO visibility; Nasscom Emerge membership route."
+    },
+    {
+      "id": "indiasoft-2027",
+      "name": "IndiaSoft 2027",
+      "edition": "27th edition — International IT Exhibition & Conference, theme 'Business Beyond Boundaries'",
+      "category": "IT & software exhibition with foreign buyer delegations",
+      "icp": [
+        "X",
+        "A",
+        "E"
+      ],
+      "start": "2027-03-23",
+      "end": "2027-03-25",
+      "city": "New Delhi",
+      "venue": "Bharat Mandapam (Pragati Maidan)",
+      "venue_area": "Pragati Maidan",
+      "organiser": "ESC India + Ministry of Commerce",
+      "website": "https://www.indiasoft.org/",
+      "mode": "exhibit",
+      "tentative": false,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 12000,
+          "exhibitors": 1500,
+          "note": "ESC: 1,500+ Indian tech companies, 250+ startups, buyer delegations from 80+ countries (organiser figures)"
+        }
+      ],
+      "expected": {
+        "visitors": 13000,
+        "exhibitors": 1500
+      },
+      "score": {
+        "icp_fit": 16,
+        "footfall": 11,
+        "decision_makers": 11,
+        "geography_cost": 7,
+        "competition_noise": 3,
+        "timing_fit": 8,
+        "vision_fit": 16
+      },
+      "why": "The one AI-circuit show worth a stall: ESC's own exhibition, foreign buyer delegations (Africa, Middle East, ASEAN distributors and system integrators), and it runs the same days as Convergence India next door. ESC membership + MAI can subsidise the stall; this is also the fastest way into the ESC ecosystem for Gulf pavilions later.",
+      "stall": {
+        "recommend": "exhibit — 9 sqm shell in the startup / AI zone; visit Convergence India in the same complex",
+        "hall_hint": "AI & startup pavilion, near the buyer-seller meeting lounge",
+        "suggested_sqm": 9,
+        "shell_rate_inr_sqm": 9000
+      },
+      "travel": {
+        "airport": "DEL",
+        "flight_oneway_inr": [
+          6000,
+          8500
+        ],
+        "hotels": [
+          {
+            "name": "Bloomrooms @ New Delhi Railway Station",
+            "area": "Paharganj / NDLS",
+            "tier": "budget",
+            "inr_night": [
+              3200,
+              4200
+            ],
+            "km_to_venue": 5,
+            "why": "Metro to Supreme Court station in 12 min"
+          },
+          {
+            "name": "Hotel Palace Heights",
+            "area": "Connaught Place",
+            "tier": "mid",
+            "inr_night": [
+              5500,
+              7000
+            ],
+            "km_to_venue": 4,
+            "why": "Walk to Rajiv Chowk metro"
+          },
+          {
+            "name": "The Lalit New Delhi",
+            "area": "Barakhamba",
+            "tier": "premium",
+            "inr_night": [
+              9500,
+              13000
+            ],
+            "km_to_venue": 2.5,
+            "why": "Closest full-service hotel to Bharat Mandapam"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.indianembassyalgiers.gov.in/section/news/27th-edition-of-the-international-it-exhibition-and-conference-indiasoft-2027-23-25-march-2027-new-delhi/",
+        "https://eoiyerevan.gov.in/wn-17-07-2026-02.php"
+      ],
+      "icp_vision": [
+        "S",
+        "F",
+        "W"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": "ESC members get subsidised space; PMS applies only if listed by DC-MSME (check). Startup pods for DPIIT startups."
+      },
+      "sectors": [
+        "ai",
+        "electronics"
+      ],
+      "circuit": "ai",
+      "purpose": "Exhibit among Indian AI/IT vendors in front of foreign buyer delegations; ESC membership + MAI route.",
+      "exhibitor_contact": {
+        "email": "",
+        "phone": "ESC India, New Delhi",
+        "org": "ESC India",
+        "how": "exhibitor registration on indiasoft.org (opened July 2026)"
+      }
+    },
+    {
+      "id": "gain-riyadh-2027",
+      "name": "Global AI Summit (GAIN) Riyadh 2027",
+      "edition": "5th edition (2026 edition: 15–17 Sep 2026, KAICC) — dates to be announced",
+      "category": "Government AI, enterprise AI, Gulf buyers",
+      "icp": [
+        "X"
+      ],
+      "start": "2027-09-14",
+      "end": "2027-09-16",
+      "city": "Riyadh",
+      "venue": "King Abdulaziz International Conference Center",
+      "venue_area": "Riyadh",
+      "organiser": "SDAIA",
+      "website": "https://globalaisummit.org/",
+      "mode": "visit",
+      "tentative": true,
+      "footfall_history": [
+        {
+          "year": 2026,
+          "visitors": 18000,
+          "exhibitors": 150,
+          "note": "SDAIA target for 2026: 18,000 participants, 300 speakers"
+        }
+      ],
+      "expected": {
+        "visitors": 18000,
+        "exhibitors": 150
+      },
+      "score": {
+        "icp_fit": 9,
+        "footfall": 8,
+        "decision_makers": 11,
+        "geography_cost": 2,
+        "competition_noise": 3,
+        "timing_fit": 4,
+        "vision_fit": 16
+      },
+      "why": "Saudi government AI stage; Vision AI for gates/attendance fits Vision 2030 buyers, but only with a Saudi partner in hand. Needs a business visa 21 days ahead. Listed for the 2027-28 plan.",
+      "stall": {
+        "recommend": "visit only with a Saudi reseller meeting booked",
+        "hall_hint": "India pavilion if ESC/IEEMA organises one",
+        "suggested_sqm": 0,
+        "shell_rate_inr_sqm": 60000
+      },
+      "travel": {
+        "airport": "RUH",
+        "flight_oneway_inr": [
+          18000,
+          28000
+        ],
+        "hotels": [
+          {
+            "name": "Holiday Inn Riyadh Al Qasr",
+            "area": "Olaya",
+            "tier": "mid",
+            "inr_night": [
+              9000,
+              13000
+            ],
+            "km_to_venue": 6,
+            "why": "Business district"
+          }
+        ]
+      },
+      "sources": [
+        "https://www.spa.gov.sa/en/N2442987",
+        "https://www.arabnews.com/node/2622473/saudi-arabia"
+      ],
+      "icp_vision": [
+        "S",
+        "R"
+      ],
+      "subsidy": {
+        "status": "to_verify",
+        "early_bird_deadline": null,
+        "early_bird_note": "",
+        "scheme_overrides": {},
+        "sources": [],
+        "last_checked": "2026-09-12",
+        "notes": ""
+      },
+      "sectors": [
+        "ai"
+      ],
+      "circuit": "ai",
+      "purpose": "Gulf government AI buyers; 2027-28 plan.",
+      "attend": "skip"
     }
   ]
 }

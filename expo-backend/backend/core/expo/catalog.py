@@ -25,8 +25,15 @@ def load_catalog(path: Path | None = None) -> dict[str, Any]:
     return _load(str(path or CATALOG_PATH))
 
 
-def list_events(path: Path | None = None) -> list[dict[str, Any]]:
-    return sorted(load_catalog(path)["events"], key=lambda e: (e["start"], e["end"]))
+def list_events(path: Path | None = None, include_skipped: bool = False) -> list[dict[str, Any]]:
+    """Events in date order. Shows marked `attend: "skip"` (considered, listed for the
+    record, not in the plan) are left out unless include_skipped is set."""
+    rows = sorted(load_catalog(path)["events"], key=lambda e: (e["start"], e["end"]))
+    return rows if include_skipped else [e for e in rows if e.get("attend") != "skip"]
+
+
+def skipped_events(path: Path | None = None) -> list[dict[str, Any]]:
+    return [e for e in list_events(path, include_skipped=True) if e.get("attend") == "skip"]
 
 
 def get_event(event_id: str, path: Path | None = None) -> dict[str, Any] | None:
