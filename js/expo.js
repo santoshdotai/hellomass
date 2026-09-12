@@ -38,6 +38,10 @@
   const starStr = (s) => '★'.repeat(Math.floor(s)) + (s % 1 ? '½' : '') + '☆'.repeat(5 - Math.ceil(s));
 
   const state = { catalog: null, playbook: null, leads: [], collabs: [] };
+  const sectorLabel = (k) => ((state.catalog && state.catalog.sectors || {})[k] || {}).label || k;
+  const sectorIcon = (k) => ((state.catalog && state.catalog.sectors || {})[k] || {}).icon || '';
+  const sectorPills = (e) => (e.sectors || []).map((k) => `<span class="pill sector" data-sector="${k}">${sectorIcon(k)} ${esc(sectorLabel(k))}</span>`).join('');
+  document.addEventListener('click', (ev) => { const p = ev.target.closest('.pill.sector'); if (!p) return; const sel = $('#filterSector'); if (!sel) return; sel.value = p.dataset.sector; showView('events'); renderEvents(); });
 
   // ---------------------------------------------------------------- nav
   // page history: every view (and event jump) is a browser history entry, so Back works on phone and desktop
@@ -73,6 +77,7 @@
       ['Budget, all shows', `${inr(lo)}–${inr(hi)}`], ['Expected paid pilots (low)', Math.round(pilots)],
       ['Leads captured so far', leads], ['Date clashes', state.catalog.clashes.length],
     ].map(([l, v]) => `<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+    const sec = state.catalog.sectors || {}; const fs = $('#filterSector'); if (fs && fs.options.length <= 1) { fs.innerHTML = '<option value="">all sectors</option>' + Object.entries(sec).map(([k, v]) => `<option value="${k}">${v.icon} ${esc(v.label)} (${evs.filter((e) => (e.sectors || []).includes(k)).length})</option>`).join(''); fs.addEventListener('change', renderEvents); }
     renderEvents();
     renderItinerary();
     renderTravel();
@@ -82,8 +87,9 @@
   }
 
   function renderEvents() {
-    const sort = $('#sortEvents').value, mode = $('#filterMode').value;
-    let evs = state.catalog.events.filter((e) => !mode || e.mode === mode);
+    const sort = $('#sortEvents').value, mode = $('#filterMode').value, sector = $('#filterSector').value;
+    let evs = state.catalog.events.filter((e) => (!mode || e.mode === mode) && (!sector || (e.sectors || []).includes(sector)));
+    const sn = $('#sectorNote'); if (sn) sn.innerHTML = sector ? `<b>${esc(sectorLabel(sector))}</b>: ${evs.length} show${evs.length === 1 ? '' : 's'} · ${evs.filter((e) => e.mode === 'exhibit').length} exhibit · ${evs.filter((e) => e.mode === 'visit').length} visit${evs.length ? '' : ' — none in the catalogue yet'}` : '';
     if (sort === 'date') evs = evs.slice().sort((a, b) => a.start.localeCompare(b.start));
     if (sort === 'cost') evs = evs.slice().sort((a, b) => (a.evaluation.cost_per_expected_client_inr || 9e9) - (b.evaluation.cost_per_expected_client_inr || 9e9));
     VIEW_RENDER.events = renderEvents;
@@ -103,7 +109,7 @@
           <span class="pill ${e.mode}">${e.mode}</span>${e.tentative ? '<span class="pill tentative">dates TBA</span>' : ''} <span class="pill" title="quote desk ${ev.quote_fit}/40 · Vision AI ${ev.vision_fit}/40">lead with: ${ev.lead_product === 'both' ? 'both products' : ev.lead_product === 'vision_ai' ? 'Vision AI' : 'WhatsApp quote desk'}</span></div>
         <h4>${esc(e.name)}</h4>
         <div class="meta">${e.start} → ${e.end} · ${esc(e.city)} · ${esc(e.venue)}</div>
-        <div class="meta">${esc(e.category)} · ICP ${e.icp.join(', ')}</div>
+        <div class="meta">${esc(e.category)} · ICP ${e.icp.join(', ')}</div><div class="statusline">${sectorPills(e)}</div>
         <div class="whybox"><b>${esc(ev.explain.headline)}</b><ul>${ev.explain.lines.map((l) => `<li>${esc(l)}</li>`).join('')}</ul><div class="ff">${esc(ev.explain.footfall_expected)}</div><div class="ff">${esc(ev.explain.reach)}</div></div>
         ${subsidyBox(e.subsidy_info)}
         <div class="bar-row"><span>Client probability</span><div class="bar"><i style="width:${f.client_probability_pct}%"></i></div><b>${f.client_probability_pct}%</b></div>

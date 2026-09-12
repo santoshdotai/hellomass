@@ -34,7 +34,7 @@ __CSS__
 </section>
 <section class="tab view" id="t-events">
   <div class="toolbar"><label>Sort <select id="sort"><option value="stars">by stars</option><option value="date">by date</option><option value="cpc">by cost per client</option></select></label>
-  <label>Mode <select id="mode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label> <span id="evViews"></span>
+  <label>Mode <select id="mode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label> <label>Sector <select id="sector"><option value="">all sectors</option></select></label> <span id="sectorNote" class="meta"></span> <span id="evViews"></span>
   <span>Stars = ICP fit 40 (best of WhatsApp quote desk and Vision AI) · footfall 15 · decision-makers 15 · geography 10 · low competition 10 · timing 10. Probability = chance of at least one paid pilot from the low estimate.</span></div>
   <div class="grid" id="events"></div>
 </section>
@@ -178,8 +178,9 @@ function kpis(){
 
 // ---------------------------------------------------------------- events
 function renderEvents(){
-  const sort=$('#sort').value, mode=$('#mode').value;
-  let evs=EV.filter(e=>!mode||e.mode===mode);
+  const sort=$('#sort').value, mode=$('#mode').value, sector=$('#sector').value;
+  let evs=EV.filter(e=>(!mode||e.mode===mode)&&(!sector||(e.sectors||[]).includes(sector)));
+  const sn=$('#sectorNote');if(sn)sn.innerHTML=sector?`<b>${esc(sectorLabel(sector))}</b>: ${evs.length} show${evs.length===1?'':'s'} · ${evs.filter(e=>e.mode==='exhibit').length} exhibit · ${evs.filter(e=>e.mode==='visit').length} visit${evs.length?'':' — none in the catalogue yet; ask the agent to research this sector'}`:'';
   if(sort==='stars')evs=evs.slice().sort((a,b)=>b.total-a.total||a.start.localeCompare(b.start));
   if(sort==='date')evs=evs.slice().sort((a,b)=>a.start.localeCompare(b.start));
   if(sort==='cpc')evs=evs.slice().sort((a,b)=>(a.cpc||9e9)-(b.cpc||9e9));
@@ -196,7 +197,7 @@ function renderEvents(){
       <div><span class="stars">${stars(e.stars)}</span> <span class="big">${e.stars.toFixed(1)}</span> <span class="meta mono">${e.total}/100</span> <span class="pill ${e.mode}">${e.mode}</span>${e.tentative?'<span class="pill">dates TBA</span>':''} <span class="pill" title="quote desk ${e.quote_fit}/40 · Vision AI ${e.vision_fit}/40">lead with: ${e.lead_product==='both'?'both products':e.lead_product==='vision_ai'?'Vision AI':'WhatsApp quote desk'}</span></div>
       <h2>${esc(e.name)}</h2>
       <div class="statusline"><span class="pill ${daysAway(e.start)<0?'':daysAway(e.start)<=30?'searching':''}">${daysAway(e.end)<0?'done':daysAway(e.start)<=0?'live now':'in '+daysAway(e.start)+' days'}</span>${e.mode==='exhibit'?`<span class="pill ${p.stallStatus==='booked'?'booked':''}">stall: ${p.stallStatus||orgStage(e)}</span>`:''}${e.travel&&e.travel.needs_travel?`<span class="pill ${p.flightStatus==='booked'?'booked':''}">✈ ${p.flightStatus||'not started'}</span><span class="pill ${p.hotelStatus==='booked'?'booked':''}">🏨 ${p.hotelStatus||'not started'}</span>`:'<span class="pill">home city</span>'}${n?`<span class="pill booked">${n} leads</span>`:''}${(e.subsidy&&e.subsidy.schemes||[]).some(s=>s.key==='pms'&&s.days_to_apply!=null&&s.days_to_apply<=14&&s.days_to_apply>=-30)?'<span class="pill searching">PMS apply now</span>':''}</div>
-      <div class="meta mono">${e.start} → ${e.end}</div><div class="meta">${esc(e.venue)}, ${esc(e.city)} · ${esc(e.category)} · ICP ${e.icp.join(', ')}</div>
+      <div class="meta mono">${e.start} → ${e.end}</div><div class="meta">${esc(e.venue)}, ${esc(e.city)} · ${esc(e.category)} · ICP ${e.icp.join(', ')}</div><div class="statusline">${(e.sectors||[]).map(k=>`<span class="pill sector" data-sector="${k}">${sectorIcon(k)} ${esc(sectorLabel(k))}</span>`).join('')}</div>
       <div class="whybox"><b>${esc(e.explain.headline)}</b><ul>${e.explain.lines.map(l=>`<li>${esc(l)}</li>`).join('')}</ul><div class="ff">${esc(e.explain.footfall_expected)}</div><div class="ff">${esc(e.explain.reach)}</div></div>
       ${subsidyBox(e.subsidy)}
       <div class="row"><span>Client probability</span><div class="bar"><i class="acc" style="width:${f.client_probability_pct}%"></i></div><b>${f.client_probability_pct}%</b></div>
@@ -573,6 +574,9 @@ function rerender(){kpis();renderHero();renderLive();renderOverview();renderEven
 // ---------------------------------------------------------------- boot
 const opts=EV.slice().sort((a,b)=>a.start.localeCompare(b.start)).map(e=>`<option value="${e.id}">${esc(e.name)} (${e.start})</option>`).join('');
 $('#fEvent').innerHTML+=opts;$('#capEvent').innerHTML=opts+'<option value="walk-in">Walk-in / other</option>';$('#colEvent').innerHTML=opts+'<option value="walk-in">Other</option>';$('#fpEvent').innerHTML=EV.filter(e=>(DATA.floorplans||{})[e.id]).sort((a,b)=>b.total-a.total).map(e=>`<option value="${e.id}">${esc(e.name)} (${e.mode})</option>`).join('');renderFloorplan();
+const SECTORS=(DATA.meta||{}).sectors||{};function sectorLabel(k){return (SECTORS[k]||{}).label||k}function sectorIcon(k){return (SECTORS[k]||{}).icon||''}
+$('#sector').innerHTML='<option value="">all sectors</option>'+Object.entries(SECTORS).map(([k,v])=>{const n=EV.filter(e=>(e.sectors||[]).includes(k)).length;return `<option value="${k}">${v.icon} ${esc(v.label)} (${n})</option>`}).join('');$('#sector').addEventListener('change',renderEvents);
+document.addEventListener('click',ev=>{const p=ev.target.closest('.pill.sector');if(!p)return;$('#sector').value=p.dataset.sector;renderEvents();window.scrollTo({top:0,behavior:'instant'})});
 document.getElementById('showCount').textContent=EV.length;renderCalendar();renderPlaybook();localLoad();state.local=true;state.syncedAt=Date.now();rerender();
 (async()=>{const db=window.claude&&claude.use?await claude.use('db'):null;
   if(!db){banner('Not connected to the shared store: leads, partners and booking statuses are kept in this browser only.','');return}
