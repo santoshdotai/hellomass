@@ -155,6 +155,22 @@ label{font-size:12px;color:var(--ink2)}
 .card h2{font-size:16px}
 .card details summary{cursor:pointer;color:var(--accent-ink);font-weight:600;font-size:12px}
 .event-card h4{font-size:15px}
+/* "important to me, come back later" star + my notes (events, AI circuit, list & kanban views, Overview) */
+.flag-btn{border:1px solid var(--line2);background:#fff;color:#CBD5E1;width:30px;height:30px;border-radius:50%;font-size:17px;line-height:1;cursor:pointer;vertical-align:middle;padding:0;transition:transform .15s,color .2s,background .2s,box-shadow .2s;flex:none}
+.flag-btn:hover{transform:scale(1.12);color:var(--star);border-color:rgba(245,158,11,.5)}
+.flag-btn.on{background:linear-gradient(135deg,#FDE68A,#F59E0B);color:#fff;border-color:transparent;box-shadow:0 6px 14px -6px rgba(245,158,11,.8)}
+.flag-btn:active{transform:scale(.94)}
+.card.flagged,.event-card.flagged{border-color:rgba(245,158,11,.55);box-shadow:0 0 0 2px rgba(245,158,11,.25),var(--shadow),inset 0 1px 0 rgba(255,255,255,.8)}
+.card.flagged::before,.event-card.flagged::before{background:linear-gradient(90deg,#FDE68A,#F59E0B)}
+.flag-mark{color:var(--star);font-weight:700}
+.kcard.flagged{border-left:3px solid var(--star)}
+tr.flagged td{background:#FFFBEB}
+.ev-notes-wrap{display:flex;flex-direction:column;gap:4px;margin:2px 0}
+.ev-notes{width:100%;min-height:44px;resize:vertical;font-size:13px;line-height:1.45;padding:8px 10px;border-radius:10px;background:#FFFDF5;border:1px dashed rgba(217,119,6,.45)}
+.ev-notes:focus{background:#fff;border-style:solid}
+.ev-notes::placeholder{color:#B4A387}
+.note-snip{white-space:pre-wrap;font-size:12px;margin-top:2px}
+.flagged-list li{margin:8px 0}
 .flash{animation:flash 1.6s ease-out}
 
 /* banners & toolbar */
