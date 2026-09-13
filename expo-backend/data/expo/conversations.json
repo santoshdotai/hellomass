@@ -1,6 +1,54 @@
 {
   "items": [
     {
+      "eventId": "imtex-2027",
+      "organiser": "IMTMA",
+      "email": "info@imtex.in",
+      "stage": "follow-up sent",
+      "threadIds": [
+        "1a0970fedce9c698"
+      ],
+      "messages": [
+        {
+          "at": "2026-09-12T19:19:58Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "info@imtex.in",
+          "subject": "IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma (space application deadline 12 Jan 2027)",
+          "messageId": "1a0970fedce9c698",
+          "threadId": "1a0970fedce9c698",
+          "kind": "enquiry"
+        },
+        {
+          "at": "2026-09-13T20:31:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "info@imtex.in",
+          "subject": "Re: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "Priority follow-up sent on Santosh's instruction: 12 sqm shell scheme in the Digital Manufacturing pavilion, corner on the aisle from the main entrance; asked this week for the rate card + open-side surcharge + MSME / first-time rate, floor plan with free 12 sqm stalls, PMS status for 2027, space application form + proforma before the 12 Jan 2027 deadline.",
+          "messageId": "1a09c8aacb326776",
+          "threadId": "1a0970fedce9c698",
+          "kind": "nudge"
+        }
+      ],
+      "lastAt": "2026-09-13T20:31:00Z",
+      "lastDir": "out",
+      "count": 2,
+      "negotiation": {
+        "sqm": 12,
+        "to_get": [
+          "Rate card for the Digital Manufacturing pavilion (Indian shell scheme) + open-side surcharge",
+          "MSME / startup / first-time-exhibitor rate and its last date",
+          "Floor plan with free 12 sqm stalls marked",
+          "PMS (DC-MSME) status for 2027",
+          "Space application form + proforma before 12 Jan 2027"
+        ],
+        "next_step": "Wait for IMTMA's rate card (follow-up sent 13 Sep); if silent by 17 Sep, phone +91 80 6624 6600. Catalogue estimate ₹15,000/sqm → open at ₹6,000, settle up to ₹8,000, escalate above.",
+        "verdict": null
+      }
+    },
+    {
       "eventId": "papexpo-2026",
       "organiser": "PAPEXPO (Kranthika T, Project Manager, +91 63097 91291)",
       "email": "info@papexpo.in",
@@ -543,31 +591,6 @@
       ],
       "note": "one thread covers India Warehousing Show and Fastener Fair India",
       "lastAt": "2026-09-12T19:20:50Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "imtex-2027",
-      "organiser": "IMTMA",
-      "email": "info@imtex.in",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a0970fedce9c698"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-12T19:19:58Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "info@imtex.in",
-          "subject": "IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma (space application deadline 12 Jan 2027)",
-          "messageId": "1a0970fedce9c698",
-          "threadId": "1a0970fedce9c698",
-          "kind": "enquiry"
-        }
-      ],
-      "lastAt": "2026-09-12T19:19:58Z",
       "lastDir": "out",
       "count": 1
     },
