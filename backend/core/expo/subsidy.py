@@ -32,21 +32,21 @@ SCHEMES: dict[str, dict[str, Any]] = {
         "name": "MSME Procurement & Marketing Support (PMS) scheme — domestic trade fairs",
         "authority": "Ministry of MSME (DC-MSME), apply on my.msme.gov.in",
         "who": "Udyam-registered micro or small enterprise (manufacturing or service). Souveno qualifies as a service MSE.",
-        "benefit": "80% of stall space rent reimbursed (100% for SC/ST/women/NER/PwD-owned units). Ceiling: ₹30,000 rent + ₹15,000 contingency under the older MATU text; the 2021 PMS revision quotes up to ₹1.5 lakh per exhibitor per event including contingency — the portal shows which applies. ONLY fairs on the DC-MSME approved list (my.msme.gov.in → PMS → Trade Fairs Domestic) qualify; the Fair/Exhibition Selection Committee at DC-MSME decides that list.",
+        "benefit": "80% of stall space rent reimbursed (100% for SC/ST/women/NER/PwD/aspirational-district units), ceiling per enterprise per event ₹1.50 lakh in Metro/A-class cities, ₹1.00 lakh in B-class cities, ₹0.80 lakh elsewhere (incl. taxes); support is computed for up to 9 sqm; max two events per financial year. Verified 13 Sep 2026 from the revised (2021) PMS guidelines OM F.No. 5(1)/2021-2Z/PMS/SFC as reproduced by Vikaspedia, UP MSME 1-Connect, Stonemart and the Scribd copy of the DC-MSME OM (the ministry PDF is a scanned image; my.msme.gov.in is unreadable from the agent sandbox). The ₹30,000 + ₹15,000 figures are the superseded 2016 MATU text. ONLY fairs on the DC-MSME approved list (my.msme.gov.in → PMS → Trade Fairs Domestic) qualify; the Fair/Exhibition Selection Committee at DC-MSME decides that list.",
         "scope": "domestic_exhibit",
         "lead_days": 30,
         "claim_days_after": 30,
-        "apply_rule": "First check the fair appears in the Trade Fairs Domestic list on my.msme.gov.in (Udyam login). If it does: apply online at least 30 days before the show and submit the claim with stall-rent invoice, payment proof and photos within 30 days after it ends. If it does not: the organiser / industry association must get the fair approved by DC-MSME — ask them, and re-check the list every 3 days.",
+        "apply_rule": "First check the fair appears in the Trade Fairs Domestic list on my.msme.gov.in (Udyam login). If it does: apply online at least 30 days before the show (ni-msme says the PRISM pre-approval window opens 90 days before — apply as early as the portal allows) and submit the claim with stall-rent invoice, payment proof and photos within 30 days after it ends. If it does not: the organiser / industry association must get the fair approved by DC-MSME — ask them, and re-check the list every 3 days.",
         "link": "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
         "status": "confirmed",
         "fair_must_be_listed": True,
-        "sources": ["https://schemesmsme.com/procurement-and-marketing-support-pms-msme-2025-26/", "https://msme.gov.in/1-marketing-promotion-schemes"],
+        "sources": ["https://en.vikaspedia.in/viewcontent/schemesall/schemes-for-entrepreneurs/procurement-and-marketing-support/procurement-marketing-support-to-msmes?lgn=en", "https://msme1connect.up.gov.in/Home/SchemesList/32", "https://www.stonemart-india.in/pms-scheme", "https://www.scribd.com/document/743420419/OM-PMS-Scheme-Guidelines", "https://ramp.msme.gov.in/ramp/sites/default/files/2026-05/PMS_Scheme_Guidelines_0.pdf", "https://schemesmsme.com/procurement-and-marketing-support-pms-msme-2025-26/", "https://msme.gov.in/1-marketing-promotion-schemes"],
     },
     "telangana": {
         "name": "Telangana MSME Policy 2024 — marketing / trade-fair assistance",
         "authority": "Industries & Commerce Dept, Telangana (TS-iPASS / District Industries Centre, Hyderabad)",
         "who": "MSMEs registered in Telangana with Udyam + TS-iPASS acknowledgement.",
-        "benefit": "Reimbursement of stall rent for participation in national and international trade fairs (exact % and cap are in the operational guidelines — being verified).",
+        "benefit": "Reimbursement of stall rent for participation in national and international trade fairs (exact % and cap are in the operational guidelines under G.O.Ms. No. 16, Industries & Commerce (FP & MSME) Dept, 18 Sep 2024 — still being verified: the policy PDF and the TS-iPASS guidelines are unreadable from the agent sandbox; Startup Telangana separately lists up to 30% reimbursement of international trade-show marketing expenses).",
         "scope": "any_exhibit",
         "lead_days": 0,
         "claim_days_after": 90,
@@ -63,7 +63,7 @@ SCHEMES: dict[str, dict[str, Any]] = {
         "scope": "international",
         "lead_days": 120,
         "claim_days_after": 30,
-        "apply_rule": "The association applies in the ministry's call for proposals before the event. The last call (events up to 30 Sep 2026) closed on 5 May 2026; the next call for Oct 2026 – Mar 2027 events is what the 3-day follow-up watches.",
+        "apply_rule": "The association applies in the ministry's call for proposals before the event. The last call (events 1 Jun – 30 Sep 2026) closed on 5 May 2026 17:30; no call for Oct 2026 – Mar 2027 events was visible on 13 Sep 2026 — the 3-day follow-up keeps watching ic.msme.gov.in.",
         "link": "https://www.ic.msme.gov.in/",
         "status": "to_verify",
         "sources": ["https://www.ic.msme.gov.in/", "https://msme.gov.in/international-cooperation"],
@@ -99,6 +99,21 @@ SCHEMES: dict[str, dict[str, Any]] = {
 STARTUP_SHOWS = {"startup-mahakumbh-2027", "bts-2026", "convergence-india-2027", "gitex-global-2026"}
 
 
+PMS_CEILING_INR = {"metro_a": 150000, "b": 100000, "other": 80000}
+_METRO_A_CITIES = {"hyderabad", "mumbai", "new delhi", "delhi", "greater noida", "noida", "gurugram", "bengaluru", "chennai", "kolkata", "ahmedabad", "pune"}
+_B_CITIES = {"surat", "jaipur", "indore", "lucknow", "nagpur", "coimbatore", "kochi", "vadodara", "visakhapatnam", "bhopal"}
+
+
+def _city_class(ev: dict[str, Any]) -> str:
+    """City class for the PMS space-rent ceiling (Metro/A-class per the 2021 guidelines; NCR towns treated as Delhi)."""
+    city = (ev.get("city") or "").strip().lower()
+    if city in _METRO_A_CITIES:
+        return "metro_a"
+    if city in _B_CITIES:
+        return "b"
+    return "other"
+
+
 def _d(s: str) -> date:
     return date.fromisoformat(s)
 
@@ -128,7 +143,9 @@ def _estimate_refund(ev: dict[str, Any], key: str) -> tuple[int, int] | None:
     fare = tr.get("flight_oneway_inr") or [0, 0]
     airfare_two_pax = (fare[0] + fare[1]) * 2  # two travellers, return
     if key == "pms":
-        return (min(30000, round(rent * 0.8)), min(150000, round(rent * 0.8) + 25000))  # low: MATU cap; high: 2021 PMS ceiling
+        cap = PMS_CEILING_INR.get(_city_class(ev), 80000)  # 2021 PMS guidelines: ₹1.5 L metro/A, ₹1.0 L B-class, ₹0.8 L other
+        refund = min(cap, round(rent * 0.8))
+        return (refund, refund)
     if key == "telangana":
         return (round(rent * 0.25), round(rent * 0.5))  # guideline range being verified
     if key == "ic":

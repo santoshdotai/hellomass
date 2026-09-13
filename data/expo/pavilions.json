@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "prepared_on": "2026-09-11",
+    "prepared_on": "2026-09-13",
     "note": "Indian pavilions abroad are run by Export Promotion Councils (EEPC, ESC, IEEMA, ACMA, Plastindia, FIEO, TEPC, Pharmexcil, ELCINA), ITPO, NASSCOM and Startup India / MeitY. Stalls inside a pavilion cost a fraction of a direct booking and carry MAI / IC subsidy. Priority 1 = apply this month; 5 = parked. Dates marked 'to verify' are re-checked by the 3-day routine.",
     "how_to_apply": "1) Join the EPC (ESC India for software/AI: escindia.in; EEPC for engineering) — 12 months' membership unlocks MAI airfare reimbursement. 2) Watch the EPC circular for each fair (usually 4–6 months before). 3) Apply with the space form + 50% advance from the current account; keep invoices for the MAI/IC claim within 30 days after."
   },
@@ -20,7 +20,13 @@
       "support": "MAI via ESC India (2/3 of stall + airfare) after 12 months' membership; NASSCOM pod",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 12–15 Apr 2027, RECC Malham, Riyadh (600+ exhibitors) confirmed; ESC India runs a LEAP event page; 2027 pavilion circular / booking deadline not published.",
+      "sources": [
+        "https://onegiantleap.com/",
+        "https://escindia.in/blog/event/leap"
+      ]
     },
     {
       "id": "gitex-2026",
@@ -37,7 +43,13 @@
       "support": "MAI via ESC; Startup India pod",
       "status": "to_verify",
       "event_id": "gitex-global-2026",
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: GITEX Global 7–11 Dec 2026 (summit 7 Dec DWTC, exhibition 8–11 Dec Dubai Exhibition Centre, Expo City); ENS 8–10 Dec. ESC India pavilion (100+ companies) is the India route (an ESC page snippet showing 9–13 Nov is stale).",
+      "sources": [
+        "https://www.gitex.com/gitex-global-2026",
+        "https://www.escindia.in/upcoming-events/gitex-global/"
+      ]
     },
     {
       "id": "big5-2026",
@@ -54,7 +66,12 @@
       "support": "MAI via EEPC/CAPEXIL",
       "status": "to_verify",
       "event_id": "big5-global-2026",
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 23–26 Nov 2026 DWTC; India listed among the country pavilions; EEPC/CAPEXIL circular and rates not found.",
+      "sources": [
+        "https://www.dwtc.com/en/events/the-big-5-2026/"
+      ]
     },
     {
       "id": "mee-2027",
@@ -71,7 +88,12 @@
       "support": "MAI via EEPC; IC scheme via IEEMA delegation",
       "status": "to_verify",
       "event_id": "middle-east-energy-2027",
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 11–13 May 2027 at Dubai Exhibition Centre, Expo City (venue change); EEPC India ran the 2026 India Pavilion (14–16 Mar 2026, DWTC); 2027 circular not published.",
+      "sources": [
+        "https://eepcindia.com/event/2026/middle-east-energy/"
+      ]
     },
     {
       "id": "intersec-2027",
@@ -88,7 +110,12 @@
       "support": "MAI via ESC if pavilion exists",
       "status": "to_verify",
       "event_id": "intersec-dubai-2027",
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 12–14 Jan 2027 DWTC; 2026 had 1,180 exhibitors and 10 country pavilions; no India pavilion organiser (ESC/EEPC/ITPO) found for 2027.",
+      "sources": [
+        "https://www.zawya.com/en/press-release/events-and-conferences/intersec-2026-sets-new-global-benchmark-for-security-safety-and-fire-protection-in-dubai-cxmv6m3c"
+      ]
     },
     {
       "id": "gulfood-mfg-2026",
@@ -105,14 +132,19 @@
       "support": "IC scheme via association delegation",
       "status": "to_verify",
       "event_id": "gulfood-manufacturing-2026",
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 3–5 Nov 2026 DWTC (2,500+ exhibitors); no India pavilion organiser found (APEDA's pavilion is at Gulfood, Jan/Feb).",
+      "sources": [
+        "https://gulfoodmanufacturing.com/"
+      ]
     },
     {
       "id": "automechanika-dubai-2026",
       "fair": "Automechanika Dubai 2026",
       "city": "Dubai",
       "country": "UAE",
-      "next_dates": "2026-12 (to verify)",
+      "next_dates": "2026-11-10 → 2026-11-12",
       "india_pavilion_by": "ACMA India pavilion",
       "sector": "Auto components & aftermarket",
       "fit": 4,
@@ -122,7 +154,12 @@
       "support": "MAI via ACMA/EEPC",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 10–12 Nov 2026 at Dubai Exhibition Centre; the India Pavilion is organised by EEPC India (eepcindia-at-automechanika-dubai.com), rate 'subject to Government sanction'; booking deadline not read.",
+      "sources": [
+        "https://eepcindia-at-automechanika-dubai.com/"
+      ]
     },
     {
       "id": "big5-saudi-2027",
@@ -139,14 +176,19 @@
       "support": "MAI via EEPC",
       "status": "to_verify",
       "event_id": "big5-saudi-2027",
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 19–22 Apr 2027 Riyadh Front (a different week from LEAP 12–15 Apr); PMV segment moves to bauma Saudi Arabia; no India pavilion found.",
+      "sources": [
+        "https://www.big5constructsaudi.com/event-info/"
+      ]
     },
     {
       "id": "hannover-messe-2027",
       "fair": "Hannover Messe 2027",
       "city": "Hannover",
       "country": "Germany",
-      "next_dates": "2027-04 (to verify)",
+      "next_dates": "2027-04-05 → 2027-04-08",
       "india_pavilion_by": "EEPC India / Ministry of Commerce pavilion",
       "sector": "Industrial technology, automation",
       "fit": 3,
@@ -156,14 +198,19 @@
       "support": "MAI via EEPC",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 5–8 Apr 2027; EEPC India ran the 2026 India Pavilion (eepchannover.in); 2027 circular not published.",
+      "sources": [
+        "https://eepchannover.in/"
+      ]
     },
     {
       "id": "fastener-fair-stuttgart-2027",
       "fair": "Fastener Fair Global 2027",
       "city": "Stuttgart",
       "country": "Germany",
-      "next_dates": "2027-03 (to verify)",
+      "next_dates": "2027-04-06 → 2027-04-08",
       "india_pavilion_by": "EEPC India pavilion",
       "sector": "Fasteners",
       "fit": 3,
@@ -173,14 +220,19 @@
       "support": "MAI via EEPC",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 6–8 Apr 2027 Messe Stuttgart (88 Indian exhibitors listed in 2025); no EEPC pavilion circular found.",
+      "sources": [
+        "https://www.tradefairdates.com/Fastener-Fair-Global-M3229/Stuttgart.html"
+      ]
     },
     {
       "id": "k-2028",
       "fair": "K 2028",
       "city": "Düsseldorf",
       "country": "Germany",
-      "next_dates": "2028-10 (to verify)",
+      "next_dates": "2028-10-18 → 2028-10-25",
       "india_pavilion_by": "Plastindia Foundation pavilion",
       "sector": "Plastics & pipes",
       "fit": 3,
@@ -190,14 +242,19 @@
       "support": "MAI via Plastindia",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 18–25 Oct 2028 Düsseldorf; Plastindia Foundation's own show is a K-Alliance event; no India pavilion at K found.",
+      "sources": [
+        "https://www.k-online.com/"
+      ]
     },
     {
       "id": "web-summit-qatar-2027",
       "fair": "Web Summit Qatar 2027",
       "city": "Doha",
       "country": "Qatar",
-      "next_dates": "2027-02 (to verify)",
+      "next_dates": "2027-01-31 → 2027-02-03",
       "india_pavilion_by": "Startup India / MeitY pavilion",
       "sector": "Technology, startups",
       "fit": 3,
@@ -205,16 +262,21 @@
       "priority": 3,
       "link": "https://qatar.websummit.com/",
       "support": "Startup India pod",
-      "status": "to_verify",
+      "status": "not_eligible_yet",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 31 Jan–3 Feb 2027 DECC Doha; Startup India ran a DPIIT-only call for 2026; 2027 call not found — not eligible as a proprietorship.",
+      "sources": [
+        "https://qatar.websummit.com/"
+      ]
     },
     {
       "id": "vivatech-2027",
       "fair": "VivaTech 2027",
       "city": "Paris",
       "country": "France",
-      "next_dates": "2027-06 (to verify)",
+      "next_dates": "2027-06-16 → 2027-06-19",
       "india_pavilion_by": "ITPO India Pavilion (confirmed for 2026)",
       "sector": "Technology",
       "fit": 2,
@@ -224,14 +286,19 @@
       "support": "ITPO pod",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 16–19 Jun 2027 Paris Expo; ITPO India Pavilion confirmed for 2026 only.",
+      "sources": [
+        "https://dealroom.co/events/vivatech-2027/"
+      ]
     },
     {
       "id": "mwc-2027",
       "fair": "MWC Barcelona 2027",
       "city": "Barcelona",
       "country": "Spain",
-      "next_dates": "2027-03 (to verify)",
+      "next_dates": "2027-03-01 → 2027-03-04",
       "india_pavilion_by": "TEPC India pavilion",
       "sector": "Telecom, connectivity",
       "fit": 2,
@@ -241,7 +308,12 @@
       "support": "MAI via TEPC",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 1–4 Mar 2027 Fira Gran Via; TEPC ran the DoT-funded Bharat Pavilion at MWC 2026 via a circular dated 16 Dec 2025 — expect the 2027 circular around Dec 2026.",
+      "sources": [
+        "https://www.telecomepc.in/Home/content/Upcoming-Event/Upcoming-Events"
+      ]
     },
     {
       "id": "ciie-2026",
@@ -258,14 +330,19 @@
       "support": "MAI via FIEO",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 9th CIIE 5–10 Nov 2026 NECC Shanghai; only the 2018 FIEO India pavilion is documented; standard booth US$3,000–15,000 (third-party guide).",
+      "sources": [
+        "https://chinaguide.in/trade-fairs/ciie-shanghai/"
+      ]
     },
     {
       "id": "arab-health-2027",
       "fair": "Arab Health 2027",
       "city": "Dubai",
       "country": "UAE",
-      "next_dates": "2027-01 (to verify)",
+      "next_dates": "2027-01-25 → 2027-01-28",
       "india_pavilion_by": "Pharmexcil India pavilion",
       "sector": "Healthcare, pharma",
       "fit": 2,
@@ -275,7 +352,12 @@
       "support": "MAI via Pharmexcil",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: now 'WHX Dubai' (formerly Arab Health): 25–28 Jan 2027 across Dubai Exhibition Centre and DWTC; Pharmexcil ran the India Pavilion at WHX 2026 (9–12 Feb 2026); 2027 circular not published.",
+      "sources": [
+        "https://www.worldhealthexpo.com/events/healthcare/dubai/"
+      ]
     },
     {
       "id": "electronica-2026",
@@ -292,7 +374,12 @@
       "support": "MAI via ELCINA",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-11"
+      "last_checked": "2026-09-13",
+      "deadline": null,
+      "notes": "13 Sep 2026: 10–13 Nov 2026 Messe München; no ELCINA India pavilion circular found (ELCINA's activity is at electronica India, Bengaluru).",
+      "sources": [
+        "https://electronica.de/en/trade-fair/"
+      ]
     }
   ]
 }
