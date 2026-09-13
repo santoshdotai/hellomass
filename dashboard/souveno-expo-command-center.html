@@ -166,6 +166,22 @@ label{font-size:12px;color:var(--ink2)}
 .card h2{font-size:16px}
 .card details summary{cursor:pointer;color:var(--accent-ink);font-weight:600;font-size:12px}
 .event-card h4{font-size:15px}
+/* "important to me, come back later" star + my notes (events, AI circuit, list & kanban views, Overview) */
+.flag-btn{border:1px solid var(--line2);background:#fff;color:#CBD5E1;width:30px;height:30px;border-radius:50%;font-size:17px;line-height:1;cursor:pointer;vertical-align:middle;padding:0;transition:transform .15s,color .2s,background .2s,box-shadow .2s;flex:none}
+.flag-btn:hover{transform:scale(1.12);color:var(--star);border-color:rgba(245,158,11,.5)}
+.flag-btn.on{background:linear-gradient(135deg,#FDE68A,#F59E0B);color:#fff;border-color:transparent;box-shadow:0 6px 14px -6px rgba(245,158,11,.8)}
+.flag-btn:active{transform:scale(.94)}
+.card.flagged,.event-card.flagged{border-color:rgba(245,158,11,.55);box-shadow:0 0 0 2px rgba(245,158,11,.25),var(--shadow),inset 0 1px 0 rgba(255,255,255,.8)}
+.card.flagged::before,.event-card.flagged::before{background:linear-gradient(90deg,#FDE68A,#F59E0B)}
+.flag-mark{color:var(--star);font-weight:700}
+.kcard.flagged{border-left:3px solid var(--star)}
+tr.flagged td{background:#FFFBEB}
+.ev-notes-wrap{display:flex;flex-direction:column;gap:4px;margin:2px 0}
+.ev-notes{width:100%;min-height:44px;resize:vertical;font-size:13px;line-height:1.45;padding:8px 10px;border-radius:10px;background:#FFFDF5;border:1px dashed rgba(217,119,6,.45)}
+.ev-notes:focus{background:#fff;border-style:solid}
+.ev-notes::placeholder{color:#B4A387}
+.note-snip{white-space:pre-wrap;font-size:12px;margin-top:2px}
+.flagged-list li{margin:8px 0}
 .flash{animation:flash 1.6s ease-out}
 
 /* banners & toolbar */
@@ -481,11 +497,11 @@ ul.bets{list-style:none;padding:0}
 <div class="live" id="live"></div>
 <div class="kpis" id="kpis"></div>
   <div id="ovAttention"></div>
-  <div class="cols"><div class="panel"><h3>Next 30 days</h3><div id="ovTimeline"></div></div><div class="panel"><h3>Money</h3><div id="ovMoney"></div></div><div class="panel"><h3>Pipeline &amp; follow-ups</h3><div id="ovPipeline"></div></div><div class="panel"><h3>Best bets this year</h3><div id="ovBets"></div></div><div class="panel"><h3>Funds to apply this month</h3><div id="ovFunds"></div></div><div class="panel"><h3>Team &amp; travel</h3><div id="ovTravel"></div></div></div>
+  <div class="cols"><div class="panel"><h3>Next 30 days</h3><div id="ovTimeline"></div></div><div class="panel"><h3>Money</h3><div id="ovMoney"></div></div><div class="panel"><h3>Pipeline &amp; follow-ups</h3><div id="ovPipeline"></div></div><div class="panel"><h3>★ Flagged for later</h3><div id="ovFlagged"></div></div><div class="panel"><h3>Best bets this year</h3><div id="ovBets"></div></div><div class="panel"><h3>Funds to apply this month</h3><div id="ovFunds"></div></div><div class="panel"><h3>Team &amp; travel</h3><div id="ovTravel"></div></div></div>
 </section>
 <section class="tab view" id="t-events">
   <div class="toolbar"><label>Sort <select id="sort"><option value="stars">by stars</option><option value="date">by date</option><option value="cpc">by cost per client</option></select></label>
-  <label>Mode <select id="mode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label> <label>Sector <select id="sector"><option value="">all sectors</option></select></label> <span id="sectorNote" class="meta"></span> <span id="evViews"></span>
+  <label>Mode <select id="mode"><option value="">all</option><option value="exhibit">exhibit</option><option value="visit">visit</option></select></label> <label>Sector <select id="sector"><option value="">all sectors</option></select></label> <label>Show <select id="flagFilter"><option value="">everything</option><option value="flagged">★ flagged for later</option><option value="notes">with my notes</option></select></label> <span id="sectorNote" class="meta"></span> <span id="evViews"></span>
   <span>Stars = ICP fit 40 (best of WhatsApp quote desk and Vision AI) · footfall 15 · decision-makers 15 · geography 10 · low competition 10 · timing 10. Probability = chance of at least one paid pilot from the low estimate.</span></div>
   <div class="grid" id="events"></div>
 </section>
@@ -636,8 +652,9 @@ function kpis(){
 
 // ---------------------------------------------------------------- events
 function renderEvents(){
-  const sort=$('#sort').value, mode=$('#mode').value, sector=$('#sector').value;
-  let evs=EV.filter(e=>(!mode||e.mode===mode)&&(!sector||(e.sectors||[]).includes(sector)));
+  const ae=document.activeElement;if(ae&&ae.classList&&ae.classList.contains('ev-notes')){state.eventsDirty=true;return}// never replace a notes box while Santosh is typing in it
+  const sort=$('#sort').value, mode=$('#mode').value, sector=$('#sector').value, flag=($('#flagFilter')||{}).value||'';
+  let evs=EV.filter(e=>{const p=state.plans[e.id]||{};return (!mode||e.mode===mode)&&(!sector||(e.sectors||[]).includes(sector))&&(flag!=='flagged'||p.flagged)&&(flag!=='notes'||(p.notes||'').trim())});
   const sn=$('#sectorNote');if(sn)sn.innerHTML=sector?`<b>${esc(sectorLabel(sector))}</b>: ${evs.length} show${evs.length===1?'':'s'} · ${evs.filter(e=>e.mode==='exhibit').length} exhibit · ${evs.filter(e=>e.mode==='visit').length} visit${evs.length?'':' — none in the catalogue yet; ask the agent to research this sector'}`:'';
   if(sort==='stars')evs=evs.slice().sort((a,b)=>b.total-a.total||a.start.localeCompare(b.start));
   if(sort==='date')evs=evs.slice().sort((a,b)=>a.start.localeCompare(b.start));
@@ -647,19 +664,23 @@ function renderEvents(){
   if(view==='pipeline'){const ex=evs.filter(e=>e.mode==='exhibit');const mini=e=>{const st=orgStage(e),d=stalledDays(e),final=['stall allotted','badges / manual received'].includes(st);return `<div class="kcard">${evLink(e.id,e.name)}<span class="meta">${e.start} · ${esc(e.city)} · ${esc((e.contact||{}).org||e.organiser||'')}</span><br><select data-org="${e.id}">${ORG_STAGES.map(x=>`<option ${x===st?'selected':''}>${x}</option>`).join('')}</select>${d!=null&&d>=5&&!final?`<br><span class="stalled">stalled ${d} days — chase from souveno30@gmail.com</span>`:d!=null?`<br><span class="meta">${d} d in this stage</span>`:''}</div>`};$('#events').innerHTML=`<p class="meta">Organiser pipeline for the ${ex.length} exhibit shows. A stage older than 5 days turns red. All organiser mail goes from souveno30@gmail.com.</p>`+kanban(ORG_STAGES.map(t=>({title:t,items:ex.filter(e=>orgStage(e)===t).sort((a,b)=>a.start.localeCompare(b.start)).map(mini)})));$$('#events select[data-org]').forEach(sel=>sel.onchange=()=>savePlan(sel.dataset.org,{organiserStage:sel.value,organiserAt:new Date().toISOString()}));return}
   if(view!=='cards'){const fin=(DATA.finance||{})['12m'];const finBy={};if(fin)(fin.exhibits||[]).concat(fin.visits||[]).forEach(r=>finBy[r.id]=r);
     const stage=e=>{const p=state.plans[e.id]||{};const aps=state.approvals.filter(a=>a.eventId===e.id);if(p.stallStatus==='booked'||p.flightStatus==='booked'||aps.some(a=>a.status==='executed'))return 'Booked';if(aps.some(a=>a.status==='approved'))return 'Approved — to pay/book';if(aps.some(a=>a.status==='proposed'))return 'Proposed — waiting for your tap';return 'Not started'};
-    const mini=e=>{const r=finBy[e.id];const p=state.plans[e.id]||{};return `<div class="kcard">${evLink(e.id,e.name)}<b>${stars(e.stars)} ${e.stars.toFixed(1)} · ${e.mode}</b><span class="meta">${e.start} · ${esc(e.city)}</span><br><span class="meta">${e.lead_product==='vision_ai'?'Vision AI':e.lead_product==='both'?'both':'quote desk'} · ${r?'P&L '+rng(r.pl_inr):''}</span>${p.stallNumber?`<br><span class="meta">stall ${esc(p.stallNumber)}</span>`:''}</div>`};
-    if(view==='list'){$('#events').innerHTML=`<div class="tablewrap"><table class="fin"><thead><tr><th>Show</th><th>Dates</th><th>City</th><th>Mode</th><th>★</th><th>Lead with</th><th>Cost</th><th>Clients</th><th>P&amp;L (12m)</th><th>Stall</th><th>Flights</th><th>Hotel</th><th>Leads</th></tr></thead><tbody>${evs.map(e=>{const r=finBy[e.id],p=state.plans[e.id]||{},n=state.leads.filter(l=>l.eventId===e.id).length;return `<tr><td>${evLink(e.id,e.name)}</td><td>${e.start} → ${e.end}</td><td>${esc(e.city)}</td><td>${e.mode}</td><td>${e.stars.toFixed(1)}</td><td>${e.lead_product==='vision_ai'?'Vision AI':e.lead_product==='both'?'both':'quote desk'}</td><td>${rng(e.budget.total_inr)}</td><td>${e.funnel.paid_pilots[0]}–${e.funnel.paid_pilots[1]}</td><td><b>${r?rng(r.pl_inr):'—'}</b></td><td>${p.stallStatus||'—'} ${esc(p.stallNumber||'')}</td><td>${p.flightStatus||'—'}</td><td>${p.hotelStatus||'—'}</td><td>${n}</td></tr>`}).join('')}</tbody></table></div>`;return}
+    const mini=e=>{const r=finBy[e.id];const p=state.plans[e.id]||{};return `<div class="kcard${p.flagged?' flagged':''}">${p.flagged?'<span class="flag-mark">★</span> ':''}${evLink(e.id,e.name)}<b>${stars(e.stars)} ${e.stars.toFixed(1)} · ${e.mode}</b><span class="meta">${e.start} · ${esc(e.city)}</span><br><span class="meta">${e.lead_product==='vision_ai'?'Vision AI':e.lead_product==='both'?'both':'quote desk'} · ${r?'P&L '+rng(r.pl_inr):''}</span>${p.stallNumber?`<br><span class="meta">stall ${esc(p.stallNumber)}</span>`:''}</div>`};
+    if(view==='list'){$('#events').innerHTML=`<div class="tablewrap"><table class="fin"><thead><tr><th>Show</th><th>Dates</th><th>City</th><th>Mode</th><th>★</th><th>Lead with</th><th>Cost</th><th>Clients</th><th>P&amp;L (12m)</th><th>Stall</th><th>Flights</th><th>Hotel</th><th>Leads</th></tr></thead><tbody>${evs.map(e=>{const r=finBy[e.id],p=state.plans[e.id]||{},n=state.leads.filter(l=>l.eventId===e.id).length;return `<tr class="${p.flagged?'flagged':''}"><td>${p.flagged?'<span class="flag-mark">★</span> ':''}${evLink(e.id,e.name)}${(p.notes||'').trim()?`<div class="meta note-snip">${esc(p.notes.trim().slice(0,90))}${p.notes.trim().length>90?'…':''}</div>`:''}</td><td>${e.start} → ${e.end}</td><td>${esc(e.city)}</td><td>${e.mode}</td><td>${e.stars.toFixed(1)}</td><td>${e.lead_product==='vision_ai'?'Vision AI':e.lead_product==='both'?'both':'quote desk'}</td><td>${rng(e.budget.total_inr)}</td><td>${e.funnel.paid_pilots[0]}–${e.funnel.paid_pilots[1]}</td><td><b>${r?rng(r.pl_inr):'—'}</b></td><td>${p.stallStatus||'—'} ${esc(p.stallNumber||'')}</td><td>${p.flightStatus||'—'}</td><td>${p.hotelStatus||'—'}</td><td>${n}</td></tr>`}).join('')}</tbody></table></div>`;return}
     const cols=['Not started','Proposed — waiting for your tap','Approved — to pay/book','Booked'].map(t=>({title:t,items:evs.filter(e=>stage(e)===t).sort((a,b)=>a.start.localeCompare(b.start)).map(mini)}));$('#events').innerHTML=kanban(cols);return}
   $('#events').innerHTML=evs.map(e=>eventCard(e)).join('');
   bindPlanInputs();
 }
-function bindPlanInputs(){$$('[data-plan]').forEach(el=>{if(el.dataset.bound)return;el.dataset.bound='1';el.addEventListener('change',()=>savePlan(el.dataset.ev,{[el.dataset.plan]:el.value}))})}
+function bindPlanInputs(){$$('[data-plan]').forEach(el=>{if(el.dataset.bound)return;el.dataset.bound='1';el.addEventListener('change',()=>savePlan(el.dataset.ev,{[el.dataset.plan]:el.value}));if(el.classList.contains('ev-notes'))el.addEventListener('blur',()=>{if(state.eventsDirty){state.eventsDirty=false;setTimeout(()=>{renderEvents();renderAi()},50)}})});
+  $$('.flag-btn[data-flag]').forEach(b=>{if(b.dataset.bound)return;b.dataset.bound='1';b.addEventListener('click',()=>{const id=b.dataset.flag,on=!((state.plans[id]||{}).flagged);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');savePlan(id,{flagged:on,flaggedAt:on?new Date().toISOString():''})})})}
+function renderFlagged(){const host=$('#ovFlagged');if(!host)return;const fl=EV.filter(e=>(state.plans[e.id]||{}).flagged).sort((a,b)=>a.start.localeCompare(b.start));
+  host.innerHTML=fl.length?`<ul class="bets flagged-list">${fl.map(e=>{const p=state.plans[e.id]||{};return `<li><span class="flag-mark">★</span> ${evLink(e.id,e.name)} <span class="meta">${e.start} · ${esc(e.city)} · ${e.mode}</span>${(p.notes||'').trim()?`<div class="meta note-snip">${esc(p.notes.trim().slice(0,140))}${p.notes.trim().length>140?'…':''}</div>`:''}</li>`}).join('')}</ul>`:'<p class="meta">Nothing flagged yet. Tap the ★ on any event card to keep it here until you come back to it.</p>'}
 function eventCard(e,prefix='ev-'){const f=e.funnel,b=e.budget,p=state.plans[e.id]||{},n=state.leads.filter(l=>l.eventId===e.id).length,fh=e.footfall_history[0];
-    return `<article class="card s${Math.floor(e.stars)}" id="${prefix}${e.id}">
-      <div><span class="stars">${stars(e.stars)}</span> <span class="big">${e.stars.toFixed(1)}</span> <span class="meta mono">${e.total}/100</span> <span class="pill ${e.mode}">${e.mode}</span>${e.tentative?'<span class="pill">dates TBA</span>':''} <span class="pill" title="quote desk ${e.quote_fit}/40 · Vision AI ${e.vision_fit}/40">lead with: ${e.lead_product==='both'?'both products':e.lead_product==='vision_ai'?'Vision AI':'WhatsApp quote desk'}</span></div>
+    return `<article class="card s${Math.floor(e.stars)}${p.flagged?' flagged':''}" id="${prefix}${e.id}">
+      <div><button type="button" class="flag-btn${p.flagged?' on':''}" data-flag="${e.id}" aria-pressed="${p.flagged?'true':'false'}" title="${p.flagged?'Flagged: important to me, come back later. Tap to clear.':'Flag as important to me — I will come back to this'}">★</button> <span class="stars">${stars(e.stars)}</span> <span class="big">${e.stars.toFixed(1)}</span> <span class="meta mono">${e.total}/100</span> <span class="pill ${e.mode}">${e.mode}</span>${e.tentative?'<span class="pill">dates TBA</span>':''} <span class="pill" title="quote desk ${e.quote_fit}/40 · Vision AI ${e.vision_fit}/40">lead with: ${e.lead_product==='both'?'both products':e.lead_product==='vision_ai'?'Vision AI':'WhatsApp quote desk'}</span></div>
       <h2>${esc(e.name)}</h2>
       <div class="statusline"><span class="pill ${daysAway(e.start)<0?'':daysAway(e.start)<=30?'searching':''}">${daysAway(e.end)<0?'done':daysAway(e.start)<=0?'live now':'in '+daysAway(e.start)+' days'}</span>${e.mode==='exhibit'?`<span class="pill ${p.stallStatus==='booked'?'booked':''}">stall: ${p.stallStatus||orgStage(e)}</span>`:''}${e.travel&&e.travel.needs_travel?`<span class="pill ${p.flightStatus==='booked'?'booked':''}">✈ ${p.flightStatus||'not started'}</span><span class="pill ${p.hotelStatus==='booked'?'booked':''}">🏨 ${p.hotelStatus||'not started'}</span>`:'<span class="pill">home city</span>'}${n?`<span class="pill booked">${n} leads</span>`:''}${(e.subsidy&&e.subsidy.schemes||[]).some(s=>s.key==='pms'&&s.days_to_apply!=null&&s.days_to_apply<=14&&s.days_to_apply>=-30)?'<span class="pill searching">PMS apply now</span>':''}</div>
       <div class="meta mono">${e.start} → ${e.end}</div><div class="meta">${esc(e.venue)}, ${esc(e.city)} · ${esc(e.category)} · ICP ${e.icp.join(', ')}</div><div class="statusline">${(e.sectors||[]).map(k=>`<span class="pill sector" data-sector="${k}">${sectorIcon(k)} ${esc(sectorLabel(k))}</span>`).join('')}</div>
+      <label class="ev-notes-wrap"><span class="eyebrow">My notes${p.flagged&&p.flaggedAt?' · flagged '+p.flaggedAt.slice(0,10):''}</span><textarea class="ev-notes" data-plan="notes" data-ev="${e.id}" rows="2" placeholder="Why it matters to me, who to meet, what to ask… (saves when you tap away)">${esc(p.notes||'')}</textarea></label>
       <div class="whybox"><b>${esc(e.explain.headline)}</b><ul>${e.explain.lines.map(l=>`<li>${esc(l)}</li>`).join('')}</ul><div class="ff">${esc(e.explain.footfall_expected)}</div><div class="ff">${esc(e.explain.reach)}</div></div>
       ${subsidyBox(e.subsidy)}
       <div class="row"><span>Client probability</span><div class="bar"><i class="acc" style="width:${f.client_probability_pct}%"></i></div><b>${f.client_probability_pct}%</b></div>
@@ -682,7 +703,7 @@ function eventCard(e,prefix='ev-'){const f=e.funnel,b=e.budget,p=state.plans[e.i
         </div>
       </details></article>`;}
 
-$('#sort').addEventListener('change',renderEvents);$('#mode').addEventListener('change',renderEvents);
+$('#sort').addEventListener('change',renderEvents);$('#mode').addEventListener('change',renderEvents);if($('#flagFilter'))$('#flagFilter').addEventListener('change',renderEvents);
 
 // ---------------------------------------------------------------- calendar
 function renderCalendar(){const tc=$('#teamConflicts');const conf=staffConflicts();if(tc)tc.innerHTML=conf.length?'<b class="stalled">Staffing conflicts:</b> '+conf.map(esc).join(' · '):'No staffing conflicts.';const tn=$('#teamNames');if(tn&&!tn.value)tn.value=team().map(m=>m.name).join(', ');const cl=$('#clashes');if(cl&&conf.length)setTimeout(()=>{cl.innerHTML+=' · <b class="stalled">Staff conflicts: '+conf.length+'</b> (see Settings → Team)'},0);
@@ -915,6 +936,7 @@ function renderOverview(){const host=$('#ovAttention');if(!host)return;const tod
   const order={bad:0,warn:1,info:2};att.sort((a,b)=>order[a.lvl]-order[b.lvl]);
   host.innerHTML=`<div class="panel attn"><h3>Needs your attention <span class="pill ${att.some(a=>a.lvl==='bad')?'':'booked'}">${att.length}</span></h3>${att.length?`<ul>${att.slice(0,12).map(a=>`<li class="${a.lvl}"><span class="dot"></span>${a.ev?evLink(a.ev,a.t):a.go?`<a class="golink2" data-go="${a.go}" href="#">${esc(a.t)}</a>`:esc(a.t)}</li>`).join('')}</ul>${att.length>12?`<p class="meta">+${att.length-12} more</p>`:''}`:'<p class="meta">Nothing urgent. Everything is inside its window.</p>'}</div>`;
   $$('#ovAttention [data-go]').forEach(a=>a.onclick=ev=>{ev.preventDefault();const b=$(`#nav button[data-t="${a.dataset.go}"]`);if(b)b.click()});
+  renderFlagged();
   // timeline next 30 days
   const items=[];EV.forEach(e=>{const ds=d(e.start),de=d(e.end);if(de>=0&&ds<=30)items.push({date:e.start,k:'🎪',t:`${e.name} (${e.mode}, ${e.city})`,ev:e.id});if(e.travel&&e.travel.needs_travel){const o=d(e.travel.outbound.date),r=d(e.travel.return.date);if(o>=0&&o<=30)items.push({date:e.travel.outbound.date,k:'✈️',t:`Fly ${e.travel.outbound.route} for ${e.name.split(' ').slice(0,2).join(' ')}`,ev:e.id});if(r>=0&&r<=30)items.push({date:e.travel.return.date,k:'✈️',t:`Return ${e.travel.return.route}`,ev:e.id})}(e.subsidy&&e.subsidy.schemes||[]).forEach(s=>{if(s.apply_by&&s.days_to_apply!=null&&s.days_to_apply>=0&&s.days_to_apply<=30)items.push({date:s.apply_by,k:'💰',t:`Apply: ${s.name.split(' — ')[0]} for ${e.name.split(' ').slice(0,2).join(' ')}`,ev:e.id})})});
   state.approvals.filter(a=>a.status==='proposed'&&a.deadline&&d(a.deadline)>=0&&d(a.deadline)<=30).forEach(a=>items.push({date:a.deadline,k:'✅',t:`Decide: ${a.title}`,go:'approvals'}));

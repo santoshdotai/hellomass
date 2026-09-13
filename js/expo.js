@@ -87,8 +87,8 @@
   }
 
   function renderEvents() {
-    const sort = $('#sortEvents').value, mode = $('#filterMode').value, sector = $('#filterSector').value;
-    let evs = state.catalog.events.filter((e) => (!mode || e.mode === mode) && (!sector || (e.sectors || []).includes(sector)));
+    const sort = $('#sortEvents').value, mode = $('#filterMode').value, sector = $('#filterSector').value, flag = ($('#filterFlag') || {}).value || '';
+    let evs = state.catalog.events.filter((e) => (!mode || e.mode === mode) && (!sector || (e.sectors || []).includes(sector)) && (flag !== 'flagged' || (e.plan || {}).flagged) && (flag !== 'notes' || ((e.plan || {}).notes || '').trim()));
     const sn = $('#sectorNote'); if (sn) sn.innerHTML = sector ? `<b>${esc(sectorLabel(sector))}</b>: ${evs.length} show${evs.length === 1 ? '' : 's'} · ${evs.filter((e) => e.mode === 'exhibit').length} exhibit · ${evs.filter((e) => e.mode === 'visit').length} visit${evs.length ? '' : ' — none in the catalogue yet'}` : '';
     if (sort === 'date') evs = evs.slice().sort((a, b) => a.start.localeCompare(b.start));
     if (sort === 'cost') evs = evs.slice().sort((a, b) => (a.evaluation.cost_per_expected_client_inr || 9e9) - (b.evaluation.cost_per_expected_client_inr || 9e9));
@@ -98,22 +98,45 @@
     $('#eventGrid').classList.toggle('event-grid', view === 'cards');
     if (view !== 'cards') {
       const stage = (e) => { const p = e.plan || {}; if (p.stall_status === 'booked' || p.flight_status === 'booked') return 'Booked'; if (p.stall_status === 'enquired' || p.flight_status === 'searching' || p.hotel_status === 'searching') return 'In progress'; return 'Not started'; };
-      const mini = (e) => `<div class="kcard">${evLink(e.id, e.name)}<b>${starStr(e.evaluation.stars)} ${e.evaluation.stars.toFixed(1)} · ${e.mode}</b><span class="muted">${e.start} · ${esc(e.city)}</span><br><span class="muted">${e.evaluation.lead_product === 'vision_ai' ? 'Vision AI' : e.evaluation.lead_product === 'both' ? 'both' : 'quote desk'} · clients ${e.evaluation.funnel.paid_pilots[0]}–${e.evaluation.funnel.paid_pilots[1]}</span>${e.plan && e.plan.stall_number ? `<br><span class="muted">stall ${esc(e.plan.stall_number)}</span>` : ''}</div>`;
-      if (view === 'list') { $('#eventGrid').innerHTML = `<div class="tablewrap"><table class="fin"><thead><tr><th>Show</th><th>Dates</th><th>City</th><th>Mode</th><th>★</th><th>Lead with</th><th>Cost</th><th>Clients</th><th>Stall</th><th>Flights</th><th>Hotel</th><th>Leads</th></tr></thead><tbody>${evs.map((e) => { const ev = e.evaluation, p = e.plan || {}; return `<tr><td>${evLink(e.id, e.name)}</td><td>${e.start} → ${e.end}</td><td>${esc(e.city)}</td><td>${e.mode}</td><td>${ev.stars.toFixed(1)}</td><td>${ev.lead_product === 'vision_ai' ? 'Vision AI' : ev.lead_product === 'both' ? 'both' : 'quote desk'}</td><td>${Array.isArray(ev.budget.total_inr) ? inr(ev.budget.total_inr[0]) + ' – ' + inr(ev.budget.total_inr[1]) : inr(ev.budget.total_inr)}</td><td>${ev.funnel.paid_pilots[0]}–${ev.funnel.paid_pilots[1]}</td><td>${p.stall_status || '—'} ${esc(p.stall_number || '')}</td><td>${p.flight_status || '—'}</td><td>${p.hotel_status || '—'}</td><td>${e.lead_count || 0}</td></tr>`; }).join('')}</tbody></table></div>`; return; }
+      const mini = (e) => `<div class="kcard${(e.plan || {}).flagged ? ' flagged' : ''}">${(e.plan || {}).flagged ? '<span class="flag-mark">★</span> ' : ''}${evLink(e.id, e.name)}<b>${starStr(e.evaluation.stars)} ${e.evaluation.stars.toFixed(1)} · ${e.mode}</b><span class="muted">${e.start} · ${esc(e.city)}</span><br><span class="muted">${e.evaluation.lead_product === 'vision_ai' ? 'Vision AI' : e.evaluation.lead_product === 'both' ? 'both' : 'quote desk'} · clients ${e.evaluation.funnel.paid_pilots[0]}–${e.evaluation.funnel.paid_pilots[1]}</span>${e.plan && e.plan.stall_number ? `<br><span class="muted">stall ${esc(e.plan.stall_number)}</span>` : ''}</div>`;
+      if (view === 'list') { $('#eventGrid').innerHTML = `<div class="tablewrap"><table class="fin"><thead><tr><th>Show</th><th>Dates</th><th>City</th><th>Mode</th><th>★</th><th>Lead with</th><th>Cost</th><th>Clients</th><th>Stall</th><th>Flights</th><th>Hotel</th><th>Leads</th></tr></thead><tbody>${evs.map((e) => { const ev = e.evaluation, p = e.plan || {}; return `<tr class="${p.flagged ? 'flagged' : ''}"><td>${p.flagged ? '<span class="flag-mark">★</span> ' : ''}${evLink(e.id, e.name)}${(p.notes || '').trim() ? `<div class="muted note-snip">${esc(p.notes.trim().slice(0, 90))}${p.notes.trim().length > 90 ? '…' : ''}</div>` : ''}</td><td>${e.start} → ${e.end}</td><td>${esc(e.city)}</td><td>${e.mode}</td><td>${ev.stars.toFixed(1)}</td><td>${ev.lead_product === 'vision_ai' ? 'Vision AI' : ev.lead_product === 'both' ? 'both' : 'quote desk'}</td><td>${Array.isArray(ev.budget.total_inr) ? inr(ev.budget.total_inr[0]) + ' – ' + inr(ev.budget.total_inr[1]) : inr(ev.budget.total_inr)}</td><td>${ev.funnel.paid_pilots[0]}–${ev.funnel.paid_pilots[1]}</td><td>${p.stall_status || '—'} ${esc(p.stall_number || '')}</td><td>${p.flight_status || '—'}</td><td>${p.hotel_status || '—'}</td><td>${e.lead_count || 0}</td></tr>`; }).join('')}</tbody></table></div>`; return; }
       $('#eventGrid').innerHTML = kanban(['Not started', 'In progress', 'Booked'].map((t) => ({ title: t, items: evs.filter((e) => stage(e) === t).sort((a, b) => a.start.localeCompare(b.start)).map(mini) }))); return;
     }
     $('#eventGrid').innerHTML = evs.map((e) => eventCard(e)).join('');
     bindCardButtons();
   }
-  function bindCardButtons() { $$('.open-event').forEach((b) => { if (b.dataset.bound) return; b.dataset.bound = '1'; b.addEventListener('click', () => openEvent(b.closest('.event-card').dataset.id)); }); }
+  function bindCardButtons() {
+    $$('.open-event').forEach((b) => { if (b.dataset.bound) return; b.dataset.bound = '1'; b.addEventListener('click', () => openEvent(b.closest('.event-card').dataset.id)); });
+    $$('.flag-btn[data-flag]').forEach((b) => { if (b.dataset.bound) return; b.dataset.bound = '1'; b.addEventListener('click', async () => { const id = b.dataset.flag, e = state.catalog.events.find((x) => x.id === id); if (!e) return; const on = !(e.plan || {}).flagged; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); await savePlanPatch(id, { flagged: on, flagged_at: on ? new Date().toISOString() : '' }); }); });
+    $$('.ev-notes[data-notes]').forEach((t) => { if (t.dataset.bound) return; t.dataset.bound = '1'; t.addEventListener('change', () => savePlanPatch(t.dataset.notes, { notes: t.value })); });
+  }
+  // save one or two plan fields and keep the page in sync without a full reload (typing in another card is never interrupted)
+  async function savePlanPatch(id, patch) {
+    try {
+      const plan = await api('/api/expo/plans/' + id, { method: 'PUT', body: JSON.stringify(patch) });
+      const e = state.catalog.events.find((x) => x.id === id); if (e) e.plan = plan;
+      const card = document.getElementById('ev-' + id) || document.getElementById('ai-' + id);
+      if (card) { card.classList.toggle('flagged', !!plan.flagged); const eb = card.querySelector('.ev-notes-wrap .eyebrow'); if (eb) eb.textContent = 'My notes' + (plan.flagged && plan.flagged_at ? ' · flagged ' + plan.flagged_at.slice(0, 10) : ''); }
+      if (($('#filterFlag') || {}).value && !document.activeElement.classList.contains('ev-notes')) renderEvents();
+      renderFlagged();
+    } catch (err) { alert('Could not save: ' + err.message); }
+  }
+  // Overview panel: everything starred, soonest first, with the note
+  function renderFlagged() {
+    const host = $('#ovFlagged'); if (!host || !state.catalog) return;
+    const fl = state.catalog.events.filter((e) => (e.plan || {}).flagged).sort((a, b) => a.start.localeCompare(b.start));
+    host.className = '';
+    host.innerHTML = fl.length ? `<ul class="bets flagged-list">${fl.map((e) => `<li><span class="flag-mark">★</span> ${evLink(e.id, e.name)} <span class="muted">${e.start} · ${esc(e.city)} · ${e.mode}</span>${(e.plan.notes || '').trim() ? `<div class="muted note-snip">${esc(e.plan.notes.trim().slice(0, 140))}${e.plan.notes.trim().length > 140 ? '…' : ''}</div>` : ''}</li>`).join('')}</ul>` : '<div class="muted">Nothing flagged yet. Tap the ★ on any event card to keep it here until you come back to it.</div>';
+  }
   function eventCard(e, prefix = 'ev-') {
       const ev = e.evaluation, f = ev.funnel, b = ev.budget, p = e.plan;
-      return `<div class="event-card s${Math.floor(ev.stars)}" data-id="${e.id}" id="${prefix}${e.id}">
-        <div><span class="stars" title="${ev.total_score}/100">${starStr(ev.stars)}</span> <b>${ev.stars.toFixed(1)}</b>
+      return `<div class="event-card s${Math.floor(ev.stars)}${p.flagged ? ' flagged' : ''}" data-id="${e.id}" id="${prefix}${e.id}">
+        <div><button type="button" class="flag-btn${p.flagged ? ' on' : ''}" data-flag="${e.id}" title="${p.flagged ? 'Flagged: important to me, come back later. Tap to clear.' : 'Flag as important to me — I will come back to this'}" aria-pressed="${p.flagged ? 'true' : 'false'}">★</button> <span class="stars" title="${ev.total_score}/100">${starStr(ev.stars)}</span> <b>${ev.stars.toFixed(1)}</b>
           <span class="pill ${e.mode}">${e.mode}</span>${e.tentative ? '<span class="pill tentative">dates TBA</span>' : ''} <span class="pill" title="quote desk ${ev.quote_fit}/40 · Vision AI ${ev.vision_fit}/40">lead with: ${ev.lead_product === 'both' ? 'both products' : ev.lead_product === 'vision_ai' ? 'Vision AI' : 'WhatsApp quote desk'}</span></div>
         <h4>${esc(e.name)}</h4>
         <div class="meta">${e.start} → ${e.end} · ${esc(e.city)} · ${esc(e.venue)}</div>
         <div class="meta">${esc(e.category)} · ICP ${e.icp.join(', ')}</div><div class="statusline">${sectorPills(e)}</div>
+        <label class="ev-notes-wrap"><span class="eyebrow">My notes${p.flagged && p.flagged_at ? ' · flagged ' + p.flagged_at.slice(0, 10) : ''}</span><textarea class="ev-notes" data-notes="${e.id}" rows="2" placeholder="Why it matters to me, who to meet, what to ask… (saves when you tap away)">${esc(p.notes || '')}</textarea></label>
         <div class="whybox"><b>${esc(ev.explain.headline)}</b><ul>${ev.explain.lines.map((l) => `<li>${esc(l)}</li>`).join('')}</ul><div class="ff">${esc(ev.explain.footfall_expected)}</div><div class="ff">${esc(ev.explain.reach)}</div></div>
         ${subsidyBox(e.subsidy_info)}
         <div class="bar-row"><span>Client probability</span><div class="bar"><i style="width:${f.client_probability_pct}%"></i></div><b>${f.client_probability_pct}%</b></div>
@@ -126,6 +149,7 @@
 
   $('#sortEvents').addEventListener('change', renderEvents);
   $('#filterMode').addEventListener('change', renderEvents);
+  if ($('#filterFlag')) $('#filterFlag').addEventListener('change', renderEvents);
 
   async function openEvent(id) {
     const d = await api('/api/expo/events/' + id);
@@ -643,6 +667,7 @@
     const season = evs.reduce((x, e) => [x[0] + e.evaluation.budget.total_inr[0], x[1] + e.evaluation.budget.total_inr[1]], [0, 0]); const sub = evs.reduce((x, e) => { const r = (e.subsidy_info || {}).estimated_refund_inr || [0, 0]; return [x[0] + r[0], x[1] + r[1]]; }, [0, 0]);
     $('#ovMoney').className = ''; $('#ovMoney').innerHTML = `<div class="mrow"><span>Paid so far</span><b>${inr(sum(done))}</b></div><div class="mrow"><span>Approved, to pay</span><b>${inr(sum(appr))}</b></div><div class="mrow"><span>Waiting for your tap</span><b>${inr(sum(pend))}</b></div><div class="mrow"><span>Season budget (${evs.length} shows)</span><b>${rngI(season)}</b></div><div class="mrow"><span>Subsidy money back (est.)</span><b class="good">${rngI(sub)}</b></div><div class="mrow"><span>Expected revenue, 12 months</span><b>${rngI(tt.revenue_inr)}</b></div><div class="mrow"><span>Expected P&amp;L, 12 months</span><b class="good">${rngI(tt.pl_inr)}</b></div><div class="mrow"><span>Expected clients</span><b>${tt.conversions[0]}–${tt.conversions[1]}</b></div><div class="muted">Payment mode: ${ap.payment_mode}. Paid = approvals marked Done.</div>`;
     // bets + pipeline
+    renderFlagged();
     $('#ovBets').className = ''; $('#ovBets').innerHTML = `<ol class="bets">${(fin.best_bets || []).map((b) => `<li>${evLink(b.id, b.name)}<br><span class="muted">${b.mode} · ${b.lead_product === 'vision_ai' ? 'Vision AI' : b.lead_product === 'both' ? 'both products' : 'quote desk'} · P&amp;L ${rngI(b.pl_inr)}</span></li>`).join('')}</ol>`;
     const sts = state.playbook ? state.playbook.lead_statuses : []; $('#ovPipeline').className = ''; $('#ovPipeline').innerHTML = `<div class="mrow"><span>Leads captured</span><b>${dash.leads_generated}</b></div>${sts.map((s) => `<div class="mrow"><span>${s.label}</span><b>${(dash.by_status || {})[s.key] || 0}</b></div>`).join('')}<div class="mrow"><span>Partners / collaborations</span><b>${(dash.collaborations || []).length}</b></div>`;
     $$('#view-overview [data-go]').forEach((a) => a.addEventListener('click', (ev) => { ev.preventDefault(); const b = $(`.nav-btn[data-view="${a.dataset.go}"]`); if (b) b.click(); }));
