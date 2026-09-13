@@ -14,6 +14,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from backend.core.expo import finance, floorplan, planner, scoring, subsidy  # noqa: E402
 from backend.core.expo import funds as fe  # noqa: E402
 from backend.core.expo import applications as ae  # noqa: E402
+from backend.core.expo import conversations as ce  # noqa: E402
+from backend.core.expo import negotiation as ne  # noqa: E402
 from backend.core.expo.catalog import list_events, meta, skipped_events  # noqa: E402
 from backend.core.expo.playbook import playbook  # noqa: E402
 
@@ -41,7 +43,8 @@ def build() -> dict:
     return {"meta": {"prepared_on": date.today().isoformat(), "sectors": m.get("sectors", {}), "circuits": m.get("circuits", {}), "icp": m.get("icp_segments"), "icp_segments": m.get("icp_segments"), "assumptions": m.get("funnel_assumptions"),
                      "company": {**planner.SOUVENO_PROFILE, "company_email": "souveno30@gmail.com", "travel_email": "santoshdotai@gmail.com", "payment": "Souveno current account"}},
             "events": rows, "skipped": [{k: e.get(k) for k in ("id", "name", "start", "end", "city", "venue", "mode", "why", "stall", "purpose", "website", "sectors", "circuit")} for e in skipped_events()], "itinerary": planner.attend_all_itinerary(evs), "clashes": planner.clashes(evs), "playbook": playbook(), "floorplans": plans,
-            "finance": finance.all_horizons(), "funds": fe.funds("all"), "pavilions": fe.pavilions(), "applications": ae.applications()}
+            "finance": finance.all_horizons(), "funds": fe.funds("all"), "pavilions": fe.pavilions(), "applications": ae.applications(),
+            "conversations": ce.all_conversations(), "negotiation_rules": ne.DEFAULT_RULES}
 
 
 if __name__ == "__main__":
