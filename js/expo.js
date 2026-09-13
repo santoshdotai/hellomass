@@ -35,6 +35,15 @@
 
   const linkify = (t) => esc(t).replace(/(https?:\/\/[^\s)]+)/g, (u) => `<a target="_blank" rel="noopener" href="${u}">${u.replace(/^https?:\/\//, '').slice(0, 48)}…</a>`);
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// ---------------------------------------------------------------- in-page dialogs (the artifact runs in a sandboxed frame where confirm()/prompt() are silently blocked)
+  function ask(o){return new Promise(res=>{let host=document.getElementById('sheet');if(!host){host=document.createElement('div');host.id='sheet';host.className='sheet';document.body.appendChild(host)}
+  const fields=(o.fields||[]).map(f=>`<label>${esc(f.label||'')}${f.type==='textarea'?`<textarea name="${f.name}" rows="${f.rows||3}" placeholder="${esc(f.placeholder||'')}"${f.readonly?' readonly':''}>${esc(f.value==null?'':f.value)}</textarea>`:`<input name="${f.name}" type="${f.type||'text'}" value="${esc(f.value==null?'':f.value)}" placeholder="${esc(f.placeholder||'')}"${f.inputmode?` inputmode="${f.inputmode}"`:''}${f.required?' required':''}>`}</label>`).join('');
+  host.innerHTML=`<div class="sheet-back"></div><form class="sheet-box" role="dialog" aria-modal="true"><h2>${esc(o.title||'')}</h2>${o.text?`<p class="meta">${esc(o.text)}</p>`:''}${fields}<div class="row-actions"><button type="submit" class="btn primary">${esc(o.ok||'OK')}</button>${o.cancel===false?'':`<button type="button" class="btn ghost" data-cancel>${esc(o.cancel||'Cancel')}</button>`}</div></form>`;
+  host.classList.add('show');const form=host.querySelector('form');const done=v=>{host.classList.remove('show');host.innerHTML='';document.removeEventListener('keydown',onKey);res(v)};const onKey=e=>{if(e.key==='Escape')done(null)};document.addEventListener('keydown',onKey);
+  const c=host.querySelector('[data-cancel]');if(c)c.onclick=()=>done(null);host.querySelector('.sheet-back').onclick=()=>done(null);
+  form.onsubmit=e=>{e.preventDefault();done(o.fields&&o.fields.length?Object.fromEntries(new FormData(form).entries()):true)};
+  const fi=form.querySelector('input:not([readonly]),textarea:not([readonly])');setTimeout(()=>(fi||form.querySelector('button')).focus(),40)})}
   const starStr = (s) => '★'.repeat(Math.floor(s)) + (s % 1 ? '½' : '') + '☆'.repeat(5 - Math.ceil(s));
 
   const state = { catalog: null, playbook: null, leads: [], collabs: [] };
@@ -439,7 +448,7 @@
   })();
   function renderModeSeg(d) {
     const m = d.payment_mode || 'manual';
-    for (const id of ['#modeSeg', '#modeSegAp']) { const seg = $(id); if (!seg) continue; $$('button', seg).forEach((b) => { b.classList.toggle('on', b.dataset.m === m); b.onclick = async () => { if (b.dataset.m === m) return; if (!confirm(`Switch to ${b.dataset.m.toUpperCase()} mode?`)) return; await api('/api/expo/settings/payment-mode', { method: 'PUT', body: JSON.stringify({ mode: b.dataset.m }) }); loadSettings(); loadApprovals(); }; }); }
+    for (const id of ['#modeSeg', '#modeSegAp']) { const seg = $(id); if (!seg) continue; $$('button', seg).forEach((b) => { b.classList.toggle('on', b.dataset.m === m); b.onclick = async () => { if (b.dataset.m === m) return; if (!await ask({ title: `Switch to ${b.dataset.m.toUpperCase()} mode?`, ok: 'Switch' })) return; await api('/api/expo/settings/payment-mode', { method: 'PUT', body: JSON.stringify({ mode: b.dataset.m }) }); loadSettings(); loadApprovals(); }; }); }
     const info = $('#modeInfo'); if (info) info.textContent = m === 'manual' ? 'Manual: you approve, then pay from the Souveno bank app or open the pre-filled Skyscanner / Booking.com link, book with the Souveno e-mail, and tap Done with the UTR / PNR / confirmation number.' : 'Automate: you approve; the agent books flights via Duffel with your saved frequent-flyer numbers when DUFFEL_ACCESS_TOKEN is set, otherwise opens the pre-filled Skyscanner / Booking.com link; then it reads the confirmation e-mail and marks the item Done. Nothing is charged without your Approve tap.';
   }
   async function loadSettings() {
@@ -514,11 +523,11 @@
       const id = b.closest('.ap').dataset.id, act = b.dataset.act;
       try {
         if (act === 'copyref') { const uid = b.textContent.replace('Copy reference ', '').trim(); try { await navigator.clipboard.writeText(uid); b.textContent = 'Copied ' + uid; } catch { prompt('Copy this reference', uid); } return; }
-        if (act === 'approve') { if (!confirm('Approve this booking? Nothing is paid automatically: you get a step-by-step checklist to pay or book yourself, then tap Done.')) return; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'approve', execute: true }) }); }
-        if (act === 'reject') { const notes = prompt('Reason (optional)') || ''; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'reject', notes }) }); }
-        if (act === 'edit') { const v = prompt('Corrected amount in INR (from the organiser rate card / actual fare)'); if (!v) return; await api(`/api/expo/approvals/${id}`, { method: 'PATCH', body: JSON.stringify({ amount_inr: Number(v), details: { rate_status: 'corrected by you' } }) }); }
+        if (act === 'approve') { if (!await ask({ title: 'Approve this booking?', text: 'Nothing is paid automatically: you get a step-by-step checklist to pay or book yourself, then tap Done with the reference.', ok: 'Approve' })) return; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'approve', execute: true }) }); }
+        if (act === 'reject') { const r = await ask({ title: 'Reject this proposal?', fields: [{ name: 'notes', label: 'Reason (optional)' }], ok: 'Reject' }); if (!r) return; const notes = r.notes || ''; await api(`/api/expo/approvals/${id}/decide`, { method: 'POST', body: JSON.stringify({ decision: 'reject', notes }) }); }
+        if (act === 'edit') { const r = await ask({ title: 'Edit amount', text: 'Corrected amount from the organiser rate card or the actual fare.', fields: [{ name: 'amount', label: 'Amount in INR', type: 'number', inputmode: 'numeric', required: true }], ok: 'Save amount' }); if (!r || !Number(r.amount)) return; await api(`/api/expo/approvals/${id}`, { method: 'PATCH', body: JSON.stringify({ amount_inr: Math.round(Number(r.amount)), details: { rate_status: 'corrected by you' } }) }); }
         if (act === 'execute') await api(`/api/expo/approvals/${id}/execute`, { method: 'POST' });
-        if (act === 'done') { const ref = prompt('Reference (UTR for a payment, PNR for a flight, confirmation number for a hotel, visa number)'); if (ref === null) return; await api(`/api/expo/approvals/${id}/mark-done?reference=${encodeURIComponent(ref)}&note=${encodeURIComponent(ref)}`, { method: 'POST' }); }
+        if (act === 'done') { const r = await ask({ title: 'Mark as done', fields: [{ name: 'ref', label: 'Reference (UTR for a payment, PNR for a flight, confirmation number for a hotel, visa number)' }], ok: 'Done' }); if (!r) return; const ref = r.ref || ''; await api(`/api/expo/approvals/${id}/mark-done?reference=${encodeURIComponent(ref)}&note=${encodeURIComponent(ref)}`, { method: 'POST' }); }
       } catch (e) { alert(e.message); }
       loadApprovals(); loadCatalog();
     }));
