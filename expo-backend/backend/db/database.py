@@ -23,3 +23,23 @@ def get_db():
 def init_db():
     from backend.db import models  # noqa: F401  (register models on Base)
     Base.metadata.create_all(bind=engine)
+    _add_missing_columns()
+
+
+# columns added after the first release; create_all() only creates tables, so add them in place
+_LATE_COLUMNS = {
+    "expo_event_plans": [("flagged", "BOOLEAN DEFAULT 0"), ("flagged_at", "VARCHAR DEFAULT ''")],
+}
+
+
+def _add_missing_columns() -> None:
+    from sqlalchemy import inspect, text
+    insp = inspect(engine)
+    with engine.begin() as conn:
+        for table, cols in _LATE_COLUMNS.items():
+            if table not in insp.get_table_names():
+                continue
+            have = {c["name"] for c in insp.get_columns(table)}
+            for name, ddl in cols:
+                if name not in have:
+                    conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {name} {ddl}"))

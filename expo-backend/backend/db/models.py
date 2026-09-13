@@ -172,7 +172,9 @@ class ExpoEventPlan(Base):
     registration_status = Column(String, default="not_started")  # not_started | form_filled | confirmed
     budget_approved_inr = Column(Integer, default=0)
     team = Column(String, default="Santosh, Mardan")
-    notes = Column(Text, default="")
+    notes = Column(Text, default="")  # free text Santosh writes on the event card
+    flagged = Column(Boolean, default=False)  # "important to me, come back later" star on the card
+    flagged_at = Column(String, default="")
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 
