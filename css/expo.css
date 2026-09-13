@@ -371,6 +371,21 @@ ul.bets{list-style:none;padding:0}
 .fp-wrap canvas{display:block;max-width:100%;cursor:crosshair}
 .bar i.acc{background:var(--accent)}
 
+/* in-page dialog sheet (replaces confirm()/prompt(), which sandboxed frames block) */
+.sheet{display:none;position:fixed;inset:0;z-index:60}
+.sheet.show{display:block}
+.sheet-back{position:absolute;inset:0;background:rgba(15,23,42,.45);backdrop-filter:blur(4px)}
+.sheet-box{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(440px,92vw);max-height:88vh;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;gap:10px;animation:rise .25s ease both}
+.sheet-box h2{font-size:17px}
+.sheet-box label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--ink2)}
+.sheet-box input,.sheet-box textarea{width:100%;font-size:15px}
+.sheet-box .row-actions{justify-content:flex-end;margin-top:4px}
+@media (max-width:640px){
+  .sheet-box{left:0;right:0;top:auto;bottom:0;transform:none;width:auto;max-height:80vh;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom))}
+  .sheet-box .row-actions{flex-direction:column-reverse}
+  .sheet-box .row-actions .btn{width:100%;justify-content:center;padding:12px}
+}
+
 /* modal (event detail) */
 .modal{position:fixed;inset:0;background:rgba(15,23,42,.45);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:50}
 .modal-box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;width:min(680px,94vw);max-height:90vh;overflow:auto;box-shadow:var(--shadow-lg)}
