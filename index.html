@@ -31,6 +31,7 @@
     <button class="nav-btn" data-view="ai" data-icon="🤖">AI circuit</button>
     <button class="nav-btn" data-view="itinerary" data-icon="📅">Itinerary</button>
     <button class="nav-btn" data-view="approvals" data-icon="✅">Approvals <span id="apBadge" class="pill hidden"></span></button>
+    <button class="nav-btn" data-view="conversations" data-icon="💬">Conversations <span id="convBadge" class="pill hidden"></span></button>
     <button class="nav-btn" data-view="funnel" data-icon="📈">Live Funnel</button>
     <button class="nav-btn" data-view="leads" data-icon="📇">Leads &amp; Cards</button>
     <button class="nav-btn" data-view="collab" data-icon="🤝">Collaborations</button>
@@ -187,6 +188,7 @@
   </section>
   <section id="view-settings" class="view">
     <div class="panel"><h3>Booking mode</h3><div class="seg" id="modeSeg"><button data-m="manual">MANUAL — I pay &amp; book</button><button data-m="automate">AUTOMATE — agent books</button></div><p class="hint" id="modeInfo"></p></div>
+    <div class="panel"><h3>Bargaining rules (per sqm)</h3><p class="muted">What the 00:01 desk and the Bargain button use. A first quote is never accepted.</p><div id="negRules"></div></div>
     <div class="panel"><h3>Connections</h3><div id="connections"></div></div>
   </section>
   <section id="view-finance" class="view">
@@ -194,6 +196,12 @@
       <div class="toolbar"><label>Show everything starting <select id="finHorizon"></select></label> <span id="finViews"></span> <span class="hint" id="finWindow"></span></div>
       <div id="finance"></div>
     </div>
+  </section>
+  <section id="view-conversations" class="view">
+    <div class="banner" id="convBlurb">Every mail the desks sent from souveno30@gmail.com, every reply and bounce, and where each price negotiation stands. Tap a fair for the full thread and the price table.</div>
+    <div class="toolbar" id="convTools"><label>Show <select id="convFilter"><option value="">all fairs written to</option><option value="replied">organiser replied</option><option value="negotiating">negotiating</option><option value="waiting">waiting for the organiser</option><option value="action">needs me</option></select></label><span id="convSum" class="muted"></span></div>
+    <div id="convList" class="muted">Loading…</div>
+    <div id="convDetail" hidden></div>
   </section>
   <section id="view-travel" class="view">
     <div class="panel card">
