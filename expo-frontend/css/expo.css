@@ -327,6 +327,34 @@ ul.bets{list-style:none;padding:0}
 .ap .acts,.ap .actions{display:flex;flex-direction:column;gap:6px;min-width:140px}
 .ap.proposed{border-left-color:var(--brand1)}.ap.approved{border-left-color:#F59E0B}.ap.executed{border-left-color:#10B981;opacity:.9}.ap.rejected{opacity:.55}.ap.failed{border-left-color:var(--bad)}
 
+/* conversations: organiser mail log + negotiation table */
+.conv-table td{vertical-align:top}
+.conv-link{color:var(--accent-ink);text-decoration:underline dotted;text-underline-offset:3px;cursor:pointer}
+.conv-table .stage{white-space:nowrap}
+.conv-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.conv-head h2{font-size:18px}
+.neg{width:100%;background:transparent;border:0;border-radius:0;overflow:visible;font-size:13px}
+.neg th{background:transparent;text-align:left;color:var(--ink3);font-weight:600;font-size:11px;letter-spacing:.06em;width:170px;padding:6px 8px 6px 0;vertical-align:top}
+.neg td{padding:6px 0;border-top:1px solid var(--line)}
+.neg td ul{margin:0;padding-left:16px}
+.neg .money{font-family:var(--display);font-weight:700;font-size:15px}
+.neg .money.counter{color:var(--warn)}.neg .money.agreed{color:var(--good)}
+.tl-msgs{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.msg{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);border-left:4px solid #CBD5E1}
+.msg.out{border-left-color:var(--brand1)}.msg.in{border-left-color:var(--good);background:#F6FFFB}.msg.bounce{border-left-color:var(--bad);background:#FFF7F7}
+.msg .ico{font-size:20px;line-height:1;padding-top:2px}
+.msg .who{font-size:11.5px;color:var(--ink3)}
+.msg .subj{font-weight:600;font-size:13px;margin:2px 0}
+.msg .snip{font-size:12.5px;color:var(--ink2);white-space:pre-wrap}
+.msg .open{font-size:11.5px}
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 12px}
+.rules-grid label{display:flex;flex-direction:column;gap:3px;font-size:12px}
+.band-pill{font-family:var(--mono);font-size:10.5px}
+@media (max-width:640px){
+  .neg th{width:120px}
+  .msg{grid-template-columns:28px 1fr;padding:8px 10px}
+}
+
 /* funds & application desk */
 .fund{display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:start;padding:12px 14px;margin-bottom:10px;font-size:13px;border-left:4px solid #CBD5E1}
 .fund.p5{border-left-color:#10B981}.fund.p4{border-left-color:#F59E0B}.fund.p3{border-left-color:#94A3B8}.fund.p2,.fund.p1{opacity:.75}

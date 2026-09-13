@@ -507,8 +507,34 @@ def test_ai_circuit_and_skipped(client):
 
 def test_stall_negotiation(client):
     r = client.post("/api/expo/events/plastivision-2027/negotiate", json={"quoted_rate_inr_sqm": 14000, "sqm": 12, "includes": ["fascia", "carpet"], "offered_stalls": ["H1-A21", "H1-B04"]}).json()
-    assert r["verdict"] in ("counter", "escalate") and r["target_rate_inr_sqm"] < 14000 and r["walk_away_rate_inr_sqm"] > r["estimate_rate_inr_sqm"]
+    assert r["verdict"] in ("counter", "escalate") and r["target_rate_inr_sqm"] < 14000 and r["walk_away_rate_inr_sqm"] >= r["target_rate_inr_sqm"]
     assert "H1-A21" in r["reply"] and "advance follows" in r["reply"] and not any("fascia" in a for a in r["asks"])
-    ok = client.post("/api/expo/events/plastivision-2027/negotiate", json={"quoted_rate_inr_sqm": 9000}).json()
-    assert ok["verdict"] == "accept" and "works for us" in ok["reply"]
+    # Santosh's bands: under 10k -> open at 5,000 (and always 1,000 under the quote); 10k-13k -> 6,000; a first quote is never accepted
+    r9 = client.post("/api/expo/events/plastivision-2027/negotiate", json={"quoted_rate_inr_sqm": 9000}).json()
+    assert r9["verdict"] == "counter" and r9["counter_rate_inr_sqm"] == 5000 and r9["walk_away_rate_inr_sqm"] == 6000 and r9["band"] == "below_10k"
+    r6 = client.post("/api/expo/events/papexpo-2026/negotiate", json={"quoted_rate_inr_sqm": 6000, "sqm": 9}).json()
+    assert r6["counter_rate_inr_sqm"] == 5000 and r6["advance_at_counter_inr"] == round(5000 * 9 * 1.18 * 0.5) and "₹5,000/sqm" in r6["reply"]
+    r13 = client.post("/api/expo/events/plastivision-2027/negotiate", json={"quoted_rate_inr_sqm": 13000}).json()
+    assert r13["verdict"] == "counter" and r13["counter_rate_inr_sqm"] == 6000 and r13["walk_away_rate_inr_sqm"] == 8000
+    assert r["counter_rate_inr_sqm"] == 6000  # 14,000 quote: open at our minimum, escalate if they will not come down
+    low = client.post("/api/expo/events/plastivision-2027/negotiate", json={"quoted_rate_inr_sqm": 4500}).json()
+    assert low["verdict"] == "accept" and "works for us" in low["reply"]
+    # later rounds: inside the ceiling after two counters -> accept; never under the ceiling -> escalate
+    from backend.core.expo import negotiation as ng
+    assert ng.next_move(6000, 5500, 1)["verdict"] == "counter" and ng.next_move(6000, 5500, 2)["verdict"] == "accept"
+    assert ng.next_move(13000, 9000, 2)["verdict"] == "escalate" and ng.next_move(13000, 7500, 2)["verdict"] == "accept"
+    # rules are editable in Settings and flow into the engine
+    assert client.put("/api/expo/settings/negotiation", json={"open_below_10k": 4500}).json()["rules"]["open_below_10k"] == 4500
+    assert client.post("/api/expo/events/plastivision-2027/negotiate", json={"quoted_rate_inr_sqm": 9000}).json()["counter_rate_inr_sqm"] == 4500
+    assert client.get("/api/expo/settings/negotiation").json()["defaults"]["open_below_10k"] == 5000
     assert client.post("/api/expo/events/nope/negotiate", json={"quoted_rate_inr_sqm": 1}).status_code == 404
+
+
+def test_conversations_desk(client):
+    d = client.get("/api/expo/conversations").json()
+    pap = next(c for c in d["items"] if c["eventId"] == "papexpo-2026")
+    assert pap["count"] >= 3 and pap["messages"][1]["dir"] == "in" and pap["negotiation"]["quoted_rate"] == 6000 and pap["eventName"]
+    # a desk appends a reply and updates the table; messages are deduplicated by id
+    r = client.put("/api/expo/conversations/papexpo-2026", json={"stage": "proforma received", "messages": [{"at": "2026-09-15T05:00:00Z", "dir": "in", "from": "info@papexpo.in", "subject": "Proforma", "snippet": "PI attached", "messageId": "m-new", "threadId": "1a0970f7858ae37e", "kind": "proforma"}, pap["messages"][0]], "negotiation": {"agreed_rate": 5500, "rounds": [{"at": "2026-09-15T05:00:00Z", "who": "organiser", "rate": 5500, "note": "revised"}]}}).json()
+    assert r["count"] == pap["count"] + 1 and r["stage"] == "proforma received" and r["lastDir"] == "in" and r["negotiation"]["agreed_rate"] == 5500 and r["negotiation"]["quoted_rate"] == 6000 and len(r["negotiation"]["rounds"]) == len(pap["negotiation"]["rounds"]) + 1
+    assert client.put("/api/expo/conversations/nope", json={}).status_code == 404

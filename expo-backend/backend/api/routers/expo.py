@@ -19,7 +19,7 @@ from backend.core.expo import calibration as calibration_engine
 from backend.core.expo import voice as voice_engine
 from backend.core.expo import funds as funds_engine
 from backend.core.expo import applications as app_engine
-from backend.core.expo import negotiation
+from backend.core.expo import conversations, negotiation
 from backend.core.expo import cards as card_engine
 from backend.core.expo import floorplan
 from backend.core.expo import planner, scoring
@@ -872,13 +872,50 @@ class Quote(BaseModel):
     msme_rate_inr_sqm: Optional[float] = None
     early_bird_rate_inr_sqm: Optional[float] = None
     offered_stalls: list[str] = []
+    round_no: int = 0  # counters already sent in this thread
+
+
+NEG_KEY = "expo_negotiation_rules"
+CONV_KEY = "expo_conversations"
 
 
 @router.post("/events/{event_id}/negotiate")
-def negotiate(event_id: str, body: Quote):
-    """Turn an organiser's quote into target / walk-away prices, the asks and a reply draft."""
+def negotiate(event_id: str, body: Quote, db: Session = Depends(get_db)):
+    """Turn an organiser's quote into our opening counter, the settle ceiling, the asks and a reply draft (Santosh's rules)."""
     _require_event(event_id)
-    return negotiation.evaluate_quote(event_id, body.quoted_rate_inr_sqm, body.sqm, body.includes, body.msme_rate_inr_sqm, body.early_bird_rate_inr_sqm, body.offered_stalls)
+    return negotiation.evaluate_quote(event_id, body.quoted_rate_inr_sqm, body.sqm, body.includes, body.msme_rate_inr_sqm, body.early_bird_rate_inr_sqm,
+                                      body.offered_stalls, body.round_no, crud.get_setting(db, NEG_KEY, {}) or {})
+
+
+@router.get("/settings/negotiation")
+def get_negotiation_rules(db: Session = Depends(get_db)):
+    return {"rules": negotiation.rules(crud.get_setting(db, NEG_KEY, {}) or {}), "defaults": negotiation.DEFAULT_RULES}
+
+
+@router.put("/settings/negotiation")
+def put_negotiation_rules(body: dict[str, Any], db: Session = Depends(get_db)):
+    cur = crud.get_setting(db, NEG_KEY, {}) or {}
+    for k, v in body.items():
+        if k in negotiation.DEFAULT_RULES:
+            cur[k] = int(v)
+    crud.set_setting(db, NEG_KEY, cur)
+    return {"rules": negotiation.rules(cur)}
+
+
+@router.get("/conversations")
+def list_conversations(db: Session = Depends(get_db)):
+    """Every organiser conversation: mails out, replies in, and the negotiation table per fair."""
+    return {"items": conversations.all_conversations(crud.get_setting(db, CONV_KEY, {}) or {})}
+
+
+@router.put("/conversations/{event_id}")
+def put_conversation(event_id: str, body: dict[str, Any], db: Session = Depends(get_db)):
+    """Append messages / update the negotiation table for one fair (the desks and the Bargain button use this)."""
+    _require_event(event_id)
+    cur = crud.get_setting(db, CONV_KEY, {}) or {}
+    cur[event_id] = conversations.merge(cur.get(event_id), {k: v for k, v in body.items() if k in ("messages", "negotiation", "stage", "organiser", "email", "threadIds", "note")})
+    crud.set_setting(db, CONV_KEY, cur)
+    return next(c for c in conversations.all_conversations(cur) if c["eventId"] == event_id)
 
 
 # ---------------------------------------------------------------- subsidy application desk

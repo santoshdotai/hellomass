@@ -9,3 +9,8 @@ These are the exact prompts behind the five scheduled routines. If a routine has
 | Souveno expo: 3-day subsidy, early-bird and confirmation follow-up | 09:30 every 3rd day | `0 4 */3 * *` | [3day-subsidy-followup.md](3day-subsidy-followup.md) |
 | Souveno expo: 8pm evening brief for tomorrow | 20:00 daily | `30 14 * * *` | [2000-evening-brief.md](2000-evening-brief.md) |
 | Souveno Expo Agent — Monday booking check | 09:00 Monday | `30 3 * * 1` | [monday-booking-check.md](monday-booking-check.md) |
+
+
+## Conversations log (added 13 Sep 2026)
+
+Both mail desks append every organiser mail (out, in, bounce) and the negotiation table to the dashboard db collection `conversations/<eventId>` and mirror it into `expo-backend/data/expo/conversations.json`. The Conversations tab on both surfaces reads them; the Bargain button on Approvals / Conversations writes `negotiation.pending_action = "counter at ₹x/sqm …"`, which the 00:01 desk sends in-thread. Bargaining rules: `settings/negotiation` in the db (defaults in `negotiation.DEFAULT_RULES`).
