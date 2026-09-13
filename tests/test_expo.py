@@ -152,6 +152,13 @@ def test_plan_update_roundtrip(client):
     r = client.put("/api/expo/plans/elecrama-2027", json={"decision": "exhibit", "stall_number": "H9-01", "flight_status": "booked"})
     assert r.status_code == 200 and r.json()["stall_number"] == "H9-01"
     assert client.get("/api/expo/plans/elecrama-2027").json()["flight_status"] == "booked"
+    # the "important to me" star and the free-text notes live on the same plan row
+    r = client.put("/api/expo/plans/elecrama-2027", json={"flagged": True, "flagged_at": "2026-09-13T10:00:00Z", "notes": "meet IEEMA desk; ask about MSME corner"}).json()
+    assert r["flagged"] is True and r["notes"].startswith("meet IEEMA")
+    ev = next(e for e in client.get("/api/expo/events").json()["events"] if e["id"] == "elecrama-2027")
+    assert ev["plan"]["flagged"] is True and ev["plan"]["notes"].startswith("meet IEEMA")
+    r = client.put("/api/expo/plans/elecrama-2027", json={"flagged": False}).json()
+    assert r["flagged"] is False and r["notes"].startswith("meet IEEMA")  # unflagging keeps the notes
 
 
 def test_calendar_ics_and_playbook(client):

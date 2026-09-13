@@ -47,6 +47,8 @@ class PlanUpdate(BaseModel):
     budget_approved_inr: Optional[int] = None
     team: Optional[str] = None
     notes: Optional[str] = None
+    flagged: Optional[bool] = None
+    flagged_at: Optional[str] = None
 
 
 class LeadIn(BaseModel):
@@ -160,11 +162,12 @@ def _plan_dict(p: models.ExpoEventPlan | None, event_id: str) -> dict[str, Any]:
     if not p:
         return {"event_id": event_id, "decision": "attend", "stall_number": "", "hall": "", "stall_status": "not_started",
                 "flight_status": "not_started", "hotel_status": "not_started", "registration_status": "not_started",
-                "budget_approved_inr": 0, "team": "Santosh, Mardan", "notes": ""}
+                "budget_approved_inr": 0, "team": "Santosh, Mardan", "notes": "", "flagged": False, "flagged_at": ""}
     return {"event_id": p.event_id, "decision": p.decision, "stall_number": p.stall_number, "hall": p.hall,
             "stall_status": p.stall_status, "flight_status": p.flight_status, "hotel_status": p.hotel_status,
             "registration_status": p.registration_status, "budget_approved_inr": p.budget_approved_inr,
-            "team": p.team, "notes": p.notes, "updated_at": p.updated_at.isoformat() if p.updated_at else None}
+            "team": p.team, "notes": p.notes or "", "flagged": bool(p.flagged), "flagged_at": p.flagged_at or "",
+            "updated_at": p.updated_at.isoformat() if p.updated_at else None}
 
 
 def _profile(db: Session) -> dict[str, str]:
