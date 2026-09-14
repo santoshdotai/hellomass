@@ -1,6 +1,112 @@
 {
   "items": [
     {
+      "eventId": "papexpo-2026",
+      "organiser": "PAPEXPO (Kranthika T, Project Manager, +91 63097 91291)",
+      "email": "info@papexpo.in",
+      "stage": "negotiating",
+      "threadIds": [
+        "1a0970f7858ae37e"
+      ],
+      "messages": [
+        {
+          "at": "2026-09-12T19:19:28Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "info@papexpo.in",
+          "subject": "PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "9 sqm shell scheme, corner / main aisle near the entrance; rate card, PMS, startup pod, booking form + proforma",
+          "messageId": "1a0970f7858ae37e",
+          "threadId": "1a0970f7858ae37e",
+          "kind": "enquiry"
+        },
+        {
+          "at": "2026-09-13T07:15:38Z",
+          "dir": "in",
+          "from": "info@papexpo.in",
+          "to": "souveno30@gmail.com",
+          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "Rate card: built-up stall min 9 sqm ₹6,000/sqm + 18% GST; bare stall min 18 sqm ₹7,500/sqm + GST. Not empanelled with MSME (no PMS). Updated Layout.pdf attached. 1st edition 100+ exhibitors, ~5,000 visitors.",
+          "messageId": "1a0999f28d3096ec",
+          "threadId": "1a0970f7858ae37e",
+          "kind": "rate card"
+        },
+        {
+          "at": "2026-09-13T18:33:45Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "info@papexpo.in",
+          "subject": "Re: Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "Accepted ₹6,000/sqm for 9 sqm built-up (before the 13 Sep bargaining rules); asked for a main-aisle corner in the first row (prefer 1/3/5/7/9/11), fascia with logo, table + 2 chairs + carpet + 2 spotlights, 5 A power, 2 extra badges, directory listing + social post, two instalments, booking form + proforma.",
+          "messageId": "1a09c0bf72ee42f9",
+          "threadId": "1a0970f7858ae37e",
+          "kind": "accept"
+        },
+        {
+          "at": "2026-09-13T20:42:12Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "info@papexpo.in",
+          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "Counter SENT by Santosh: budget ₹5,000/sqm for 9 sqm built-up (₹45,000 + GST), can confirm today, 50% advance against the proforma, balance before possession; same corner / main-aisle preference (1/3/5/7/9/11) and free extras; asked for the booking form + proforma at ₹5,000.",
+          "messageId": "1a09c81924993c71",
+          "threadId": "1a0970f7858ae37e",
+          "kind": "counter"
+        }
+      ],
+      "negotiation": {
+        "sqm": 9,
+        "quoted_rate": 6000,
+        "quoted_note": "built-up (shell) stall, min 9 sqm, + 18% GST; bare stall min 18 sqm at ₹7,500/sqm",
+        "regular_rate": null,
+        "msme_rate": null,
+        "our_counter_rate": 5000,
+        "agreed_rate": null,
+        "ceiling_rate": 6000,
+        "band": "below_10k",
+        "includes_free": [
+          "Built-up shell stall (walls, fascia, basic lighting) — exact inclusions not stated by the organiser"
+        ],
+        "optional_extras": [
+          "Bare stall, min 18 sqm at ₹7,500/sqm + GST (skip: too big)"
+        ],
+        "to_get": [
+          "Written list of what the built-up package includes",
+          "Corner / main-aisle stall number marked free on the Updated Layout",
+          "Fascia with Souveno logo, table + 2 chairs + carpet + 2 spotlights, 5 A power point",
+          "2 extra exhibitor badges, directory listing + one social post",
+          "Two instalments: 50% advance, balance before possession",
+          "Space-booking form and proforma invoice"
+        ],
+        "next_step": "Wait for PAPEXPO's answer to the ₹5,000 counter (rule: settle up to ₹6,000; they already quoted 6,000, so any figure between is a win); then proforma → Approve tap. Show opens 1 Oct: if no reply by 16 Sep, phone Kranthika +91 63097 91291.",
+        "verdict": "counter",
+        "pending_action": "",
+        "rounds": [
+          {
+            "at": "2026-09-13T07:15:38Z",
+            "who": "organiser",
+            "rate": 6000,
+            "note": "first quote, built-up min 9 sqm"
+          },
+          {
+            "at": "2026-09-13T18:33:45Z",
+            "who": "us",
+            "rate": 6000,
+            "note": "accepted (old rules) + asked for corner, free extras, two instalments, proforma"
+          },
+          {
+            "at": "2026-09-13T20:42:12Z",
+            "who": "us",
+            "rate": 5000,
+            "note": "counter sent by Santosh (13 Sep rules: quote under 10k → open at 5,000)"
+          }
+        ]
+      },
+      "lastAt": "2026-09-13T20:42:12Z",
+      "lastDir": "out",
+      "count": 4
+    },
+    {
       "eventId": "imtex-2027",
       "organiser": "IMTMA",
       "email": "info@imtex.in",
@@ -47,112 +153,6 @@
         "next_step": "Wait for IMTMA's rate card (follow-up sent 13 Sep); if silent by 17 Sep, phone +91 80 6624 6600. Catalogue estimate ₹15,000/sqm → open at ₹6,000, settle up to ₹8,000, escalate above.",
         "verdict": null
       }
-    },
-    {
-      "eventId": "papexpo-2026",
-      "organiser": "PAPEXPO (Kranthika T, Project Manager, +91 63097 91291)",
-      "email": "info@papexpo.in",
-      "stage": "negotiating",
-      "threadIds": [
-        "1a0970f7858ae37e"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-12T19:19:28Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "info@papexpo.in",
-          "subject": "PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme, corner / main aisle near the entrance; rate card, PMS, startup pod, booking form + proforma",
-          "messageId": "1a0970f7858ae37e",
-          "threadId": "1a0970f7858ae37e",
-          "kind": "enquiry"
-        },
-        {
-          "at": "2026-09-13T07:15:38Z",
-          "dir": "in",
-          "from": "info@papexpo.in",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Rate card: built-up stall min 9 sqm ₹6,000/sqm + 18% GST; bare stall min 18 sqm ₹7,500/sqm + GST. Not empanelled with MSME (no PMS). Updated Layout.pdf attached. 1st edition 100+ exhibitors, ~5,000 visitors.",
-          "messageId": "1a0999f28d3096ec",
-          "threadId": "1a0970f7858ae37e",
-          "kind": "rate card"
-        },
-        {
-          "at": "2026-09-13T18:33:45Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "info@papexpo.in",
-          "subject": "Re: Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Accepted ₹6,000/sqm for 9 sqm built-up (before the 13 Sep bargaining rules); asked for a main-aisle corner in the first row (prefer 1/3/5/7/9/11), fascia with logo, table + 2 chairs + carpet + 2 spotlights, 5 A power, 2 extra badges, directory listing + social post, two instalments, booking form + proforma.",
-          "messageId": "1a09c0bf72ee42f9",
-          "threadId": "1a0970f7858ae37e",
-          "kind": "accept"
-        },
-        {
-          "at": "2026-09-13T20:05:00Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "info@papexpo.in",
-          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "DRAFT (not sent): counter at ₹5,000/sqm for 9 sqm built-up (₹45,000 + GST), 50% advance against the proforma; same corner / main-aisle preference and free extras. Santosh presses Send in Gmail.",
-          "messageId": "1a09c75e39595f18",
-          "threadId": "1a0970f7858ae37e",
-          "kind": "counter (draft)"
-        }
-      ],
-      "negotiation": {
-        "sqm": 9,
-        "quoted_rate": 6000,
-        "quoted_note": "built-up (shell) stall, min 9 sqm, + 18% GST; bare stall min 18 sqm at ₹7,500/sqm",
-        "regular_rate": null,
-        "msme_rate": null,
-        "our_counter_rate": 5000,
-        "agreed_rate": null,
-        "ceiling_rate": 6000,
-        "band": "below_10k",
-        "includes_free": [
-          "Built-up shell stall (walls, fascia, basic lighting) — exact inclusions not stated by the organiser"
-        ],
-        "optional_extras": [
-          "Bare stall, min 18 sqm at ₹7,500/sqm + GST (skip: too big)"
-        ],
-        "to_get": [
-          "Written list of what the built-up package includes",
-          "Corner / main-aisle stall number marked free on the Updated Layout",
-          "Fascia with Souveno logo, table + 2 chairs + carpet + 2 spotlights, 5 A power point",
-          "2 extra exhibitor badges, directory listing + one social post",
-          "Two instalments: 50% advance, balance before possession",
-          "Space-booking form and proforma invoice"
-        ],
-        "next_step": "Send the Gmail draft (₹5,000/sqm) or keep ₹6,000; then wait for the proforma → Approve tap",
-        "verdict": "counter",
-        "pending_action": "₹5,000/sqm counter is DRAFTED in Gmail (reply in the PAPEXPO thread) — Santosh presses Send, or deletes it to keep the ₹6,000 acceptance",
-        "rounds": [
-          {
-            "at": "2026-09-13T07:15:38Z",
-            "who": "organiser",
-            "rate": 6000,
-            "note": "first quote, built-up min 9 sqm"
-          },
-          {
-            "at": "2026-09-13T18:33:45Z",
-            "who": "us",
-            "rate": 6000,
-            "note": "accepted (old rules) + asked for corner, free extras, two instalments, proforma"
-          },
-          {
-            "at": "2026-09-13T20:05:00Z",
-            "who": "us (draft)",
-            "rate": 5000,
-            "note": "counter drafted for Santosh under the 13 Sep rules"
-          }
-        ]
-      },
-      "lastAt": "2026-09-13T20:05:00Z",
-      "lastDir": "out",
-      "count": 4
     },
     {
       "eventId": "indiasoft-2027",
