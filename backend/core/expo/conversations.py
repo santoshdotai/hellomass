@@ -19,7 +19,7 @@ from backend.core.expo.catalog import get_event
 
 DATA_FILE = Path(__file__).resolve().parents[3] / "data" / "expo" / "conversations.json"
 NEG_FIELDS = ("sqm", "quoted_rate", "quoted_note", "regular_rate", "msme_rate", "our_counter_rate", "agreed_rate", "ceiling_rate", "band",
-              "includes_free", "optional_extras", "to_get", "next_step", "verdict", "pending_action", "rounds")
+              "includes_free", "optional_extras", "to_get", "next_step", "verdict", "pending_action", "suggested_reply", "rounds")
 
 
 def load_file() -> dict[str, dict[str, Any]]:
