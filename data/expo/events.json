@@ -1341,10 +1341,11 @@
       "why": "Machinery makers (segment E) with 2-20 high-ticket RFQs a day; Digital Manufacturing pavilion is where they look for software. Visit the last 3 days after Plastivision and ACETECH.",
       "stall": {
         "recommend": "exhibit 12 sqm in the Digital Manufacturing pavilion (ask IMTMA today: halls sell out a year ahead)",
-        "hall_hint": "Digital Manufacturing pavilion (Hall 5 in the 2025 layout); corner on the aisle from the main entrance",
+        "hall_hint": "Digital Manufacturing pavilion. NOTE: IMTMA does not let exhibitors choose the stall — there is no pre-layout, it is drawn after the 30 June deadline and circulated to registered exhibitors after 30 September 2026, so our corner / main-aisle preferences cannot be applied here",
         "suggested_sqm": 12,
         "shell_rate_inr_sqm": 15000,
-        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
+        "rate_status": "IMTMA reply 15 Sep 2026 (Prasant Panda, Joint Director Trade Fairs, +91 91640 08830): BOOKINGS CLOSED — the application deadline was 30 June 2026 and the show is over booked; they will consider us only if an exhibitor cancels. Minimum 12 sqm shell (raw space needs 30 sqm); no rate quoted yet, and the Indian MSME rate applies now that the Udyam certificate has been sent. Guidelines (G&A) and the Digital Manufacturing 2027 application form arrived with that mail"
       },
       "travel": {
         "airport": "BLR",
@@ -1393,8 +1394,8 @@
           "https://www.imtex.in/index.php?page=msme",
           "https://www.imtex.in/assets/files/IMTEX_2027_G&A.pdf"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | imtex.in has an MSME page (index.php?page=msme) recording that IMTEX/Tooltech/Digital Manufacturing 2023 were PMS-approved; nothing seen yet for 2027 — ask IMTMA (enquiry sent 12 Sep). IMTEX 2027 G&A (search snippet): space application deadline 12 Jan 2027, 12:00; tariff snippets conflict (₹12,200/sqm or ₹10,900/sqm Indian; US$365/sqm foreign shell); minimums IMTEX 15 sqm shell / Tooltech 12 sqm shell / 30 sqm raw; open-side surcharge 20/30/50%. Read the PDF before quoting.",
+        "last_checked": "2026-09-16",
+        "notes": "16 Sep 2026: IMTMA confirmed bookings are closed (deadline 30 June 2026, over booked) and we are effectively waitlisted against cancellations; application form still to be returned to prasant@imtma.in. They did not answer the PMS question. Udyam certificate sent 15 Sep, so the Indian MSME rate applies rather than the origin-of-exhibit rate. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | imtex.in has an MSME page (index.php?page=msme) recording that IMTEX/Tooltech/Digital Manufacturing 2023 were PMS-approved; nothing seen yet for 2027 — ask IMTMA (enquiry sent 12 Sep). IMTEX 2027 G&A (search snippet): space application deadline 12 Jan 2027, 12:00; tariff snippets conflict (₹12,200/sqm or ₹10,900/sqm Indian; US$365/sqm foreign shell); minimums IMTEX 15 sqm shell / Tooltech 12 sqm shell / 30 sqm raw; open-side surcharge 20/30/50%. Read the PDF before quoting.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
       },
@@ -3162,7 +3163,8 @@
         "recommend": "do not exhibit this year; 1-day pass. Apply for an ASPIRE startup pod in 2027 once DPIIT is in place",
         "hall_hint": "ASPIRE startup zone, Meta/Gupshup/telco pavilions",
         "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 18000
+        "shell_rate_inr_sqm": 18000,
+        "rate_status": "ASPIRE invitation by e-mail 14 Sep 2026 (project@indiamobilecongress.com, cc TCoE): startup pod of about 3.2 sqm in the ASPIRE Pavilion for a subsidised Rs 2,400 inclusive of GST, refunded in full if the application is not selected; includes fascia branding, Wi-Fi, exhibitor badges, e-directory listing, the Aspire Live Pitch shortlist, curated investor meetings and Startup World Cup - India entry. Selection is application-based and pods are limited; no deadline named. TCoE shared the pitch-deck template on 15 Sep"
       },
       "travel": {
         "airport": "DEL",
@@ -3212,8 +3214,8 @@
           "https://imc.tcoe.in/",
           "https://www.indiamobilecongress.com/aspire"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "7–10 Oct 2026 Yashobhoomi confirmed. ASPIRE startup/MSME pod applications closed 20 Aug 2026 (pods ~3.2 sqm, participant pays a fraction, balance under DoT TDIP) — 2026 is visit-only as planned; the 12 Sep enquiry asked about the 2027 cycle. Visitor passes open since 4 Sep."
+        "last_checked": "2026-09-16",
+        "notes": "16 Sep 2026: IMC 2026 (7-10 Oct, Yashobhoomi, New Delhi) invited us to the ASPIRE startup pavilion — a ~3.2 sqm pod at Rs 2,400 incl. GST, fully refundable if not selected. The catalogue still carries IMC as visit-only; if the pod is granted it becomes an exhibit and the travel plan changes. Application form and deck are Santosh's to submit. | 7–10 Oct 2026 Yashobhoomi confirmed. ASPIRE startup/MSME pod applications closed 20 Aug 2026 (pods ~3.2 sqm, participant pays a fraction, balance under DoT TDIP) — 2026 is visit-only as planned; the 12 Sep enquiry asked about the 2027 cycle. Visitor passes open since 4 Sep."
       },
       "sectors": [
         "ai",
