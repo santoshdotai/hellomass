@@ -157,11 +157,18 @@
           "kind": "nudge"
         }
       ],
-      "organiser": "Exhibitions India Group",
+      "organiser": "Exhibitions India Group (Pramit K; Tariq I added 14 Sep)",
       "stage": "enquiry sent",
       "threadIds": [
         "1a097117e2dc27ce"
-      ]
+      ],
+      "negotiation": {
+        "suggested_reply": "Dear Tariq,\n\nThank you, Pramit, for connecting us.\n\nRepeating our ask in short, for Convergence India 2027 with INDELXPO (23-25 March 2027, Bharat Mandapam, New Delhi). Souveno AI Solutions is a Hyderabad-based AI startup and Udyam-registered micro enterprise. We build a WhatsApp AI quote desk for manufacturers and distributors, and Vision AI for attendance, stock and vehicle counting.\n\nWe would like:\n1. The exhibitor rate card and floor plan with the free stalls marked, for a startup pod or a 9 sqm shell-scheme stall in the AI pavilion, preferably a corner or main-aisle position near the entrance.\n2. Any early-bird, MSME, startup or first-time-exhibitor rate, and the last date for each.\n3. Whether this edition is on the DC-MSME approved list for the Procurement & Marketing Support (PMS) scheme, or has an MSME pavilion, and the expected date if approval is pending.\n4. The startup / DPIIT pod or AI pavilion package, its eligibility and how to apply.\n5. The space-booking form and the proforma invoice format.\n\nHappy to take a call at your convenience.",
+        "next_step": "Santosh replies himself to Tariq I (tariqi@eigroup.in) with the five asks. Standing rule (Santosh, 15 Sep 2026): once an organiser replies the thread is his - the desk neither sends nor drafts into it. The 15 Sep desk ran before that rule landed and left a Gmail draft (draft r-6826281500707162441); it is Santosh's to send, edit or delete. The wording is kept here as the suggested reply. Nudge again if silent by 21 Sep.",
+        "pending_action": "",
+        "rounds": [],
+        "verdict": ""
+      }
     },
     {
       "count": 3,
@@ -216,7 +223,7 @@
           "Collect QR"
         ],
         "msme_rate": null,
-        "next_step": "Santosh sends the drafted 6,000/sqm counter (draft r-4461795481295143457). Ceiling 8,000/sqm: if RX will not come under it, stop and escalate — the package is roughly double our ceiling.",
+        "next_step": "Santosh replies himself: RX quoted the 2026 Mumbai edition, so ask for the 2027 Delhi rate card and counter at Rs 6,000/sqm unbundled. Standing rule (Santosh, 15 Sep 2026): once an organiser replies the thread is his - the desk neither sends nor drafts into it. The 15 Sep desk ran before that rule landed and left a Gmail draft (draft r-4461795481295143457); it is Santosh's to send, edit or delete. The wording is kept here as the suggested reply. Ceiling Rs 8,000/sqm - the package is about double that, so if RX will not unbundle the show is not worth it at their price.",
         "optional_extras": [
           "the branding, conference pass and lead app should be priced separately — asked for an unbundled shell rate"
         ],
@@ -248,7 +255,8 @@
           "corner or main-aisle stall near the entrance in the automation zone",
           "Fastener Fair India 2027 contact"
         ],
-        "verdict": "counter"
+        "verdict": "counter",
+        "suggested_reply": "Dear Abhishek,\n\nThank you for the IWLS 2026 package, the brochure and the Hall 3 floor plan.\n\nTwo things before we can take this forward.\n\n1. Edition. Our enquiry was for India Warehousing Show 2027 (24-26 June 2027, Yashobhoomi (IICC), Dwarka, New Delhi). The offer you sent is for IWLS 2026 at NESCO, Mumbai. Could you send the 2027 Delhi rate card and floor plan as well, so we can compare the two editions?\n\n2. Price. The package at Rs 1,37,257 + 18% GST for 9 sqm works out to about Rs 15,250/sqm, which is well above what we have budgeted. We are a first-time exhibitor and a Udyam-registered micro enterprise, and our approved budget for this show is Rs 6,000/sqm for a plain 9 sqm shell-scheme stall (Rs 54,000 + 18% GST), without the pathway standee branding and without the conference ticket. Could you quote the bare 9 sqm shell stall at that level, and separately price the branding, the lead-manager app and the conference pass as optional add-ons so we can decide on each?\n\nPlease also let us know:\n- any MSME, startup or first-time-exhibitor rate and its last date\n- whether either edition is on the DC-MSME approved list for the Procurement & Marketing Support (PMS) scheme, or has an MSME pavilion, and the expected approval date if it is pending\n- a corner or main-aisle stall within about 30 m of the entrance in the automation / supply-chain technology zone, with the free stalls marked\n- the contact for Fastener Fair India 2027 (22-24 April 2027, Bombay Exhibition Centre), which our earlier mail also asked about\n\nOnce a proforma invoice reflects an agreed rate and stall, our advance follows from the Souveno current account after our founder's sign-off."
       },
       "note": "one thread covers India Warehousing Show and Fastener Fair India",
       "organiser": "RX India — Abhishek Gaurav, Sales Manager, +91 96509 58256",
@@ -326,7 +334,7 @@
         "ceiling_rate": 6000,
         "includes_free": [],
         "msme_rate": 10000,
-        "next_step": "Santosh sends the drafted acceptance (draft r5895939586457510887). 5,000/sqm is at our opening ask, so no further bargaining; watch for the PMS approval notice, and compare 5,000 flat against 10,000 with the 80% refund before paying.",
+        "next_step": "Santosh replies himself: the Rs 5,000/sqm offer is at our opening ask, so accept it for 12 sqm and pin down the offer's last date plus whether we can switch to the MSME Rs 10,000 route with the 80% refund if PMS lands later. Standing rule (Santosh, 15 Sep 2026): once an organiser replies the thread is his - the desk neither sends nor drafts into it. The 15 Sep desk ran before that rule landed and left a Gmail draft (draft r5895939586457510887); it is Santosh's to send, edit or delete. The wording is kept here as the suggested reply. His 14 Sep question about AI software being an eligible category at Bengaluru is still open.",
         "optional_extras": [
           "MSME route at 10,000/sqm + GST with 80% PMS refund once approved (approval awaited)"
         ],
@@ -359,7 +367,8 @@
           "two instalments",
           "booking form and proforma invoice"
         ],
-        "verdict": "accept"
+        "verdict": "accept",
+        "suggested_reply": "Dear Mr. Agrawal,\n\nThank you for the special offer and for the clear position on the MSME approvals.\n\nThe offer price of Rs 5,000/sqm + 18% GST works for us. On that basis we would like to block 12 sqm at Indexpo Hyderabad 2027 (3-5 September 2027, HITEX) and, subject to the category confirmation in our last mail, 9 sqm at the Bengaluru edition.\n\nStall: please give us a corner or main-aisle position within about 30 m of the entrance, on the aisle between registration and the machine-tool anchors, not behind a pillar and not at a dead-end aisle. Where the numbering leaves a choice we would prefer 1, 3, 5, 7, 9 or 11. Please mark the free stalls on the floor plan.\n\nTwo things we would like in writing before the proforma:\n1. If the DC-MSME PMS approval comes through after we block space at Rs 5,000/sqm, can we move to the approved MSME rate of Rs 10,000/sqm and claim the 80% refund, or does the Rs 5,000 offer price stand outside the scheme? Please confirm which of the two leaves us better placed.\n2. The last date for the Rs 5,000/sqm offer.\n\nCould the stall also include:\n- fascia name board with the Souveno logo\n- 1 table, 2 chairs, carpet and 2 spotlights\n- a 5 A power point (we run a live demo)\n- 2 extra exhibitor badges\n- company listing in the show directory and one social post\n- payment in two instalments: 50% advance against the proforma, balance before possession\n\nPlease send the space-booking form and the proforma invoice with the stall number marked. Once the proforma reflects this, our advance follows from the Souveno current account after our founder's sign-off."
       },
       "note": "one thread covers Indexpo Hyderabad and Mumbai",
       "organiser": "Indore Infoline (Indexpo) — R.K. Agrawal, MD, +91 94250 54216",
@@ -442,7 +451,7 @@
           "shell scheme stall"
         ],
         "msme_rate": null,
-        "next_step": "Santosh sends the drafted 5,000/sqm counter (draft r6574993549448128029); settle up to 6,000/sqm, escalate above. PMS pending with DC-MSME.",
+        "next_step": "Santosh replies himself: counter at Rs 5,000/sqm for 9 sqm and ask for stall B11. Standing rule (Santosh, 15 Sep 2026): once an organiser replies the thread is his - the desk neither sends nor drafts into it. The 15 Sep desk ran before that rule landed and left a Gmail draft (draft r6574993549448128029); it is Santosh's to send, edit or delete. The wording is kept here as the suggested reply. Settle up to Rs 6,000/sqm; PMS approval still awaited.",
         "optional_extras": [
           "5% early-bird discount (INR 4,275 on 9 sqm)"
         ],
@@ -476,7 +485,8 @@
           "proforma invoice",
           "PMS approval confirmation with the listing reference"
         ],
-        "verdict": "counter"
+        "verdict": "counter",
+        "suggested_reply": "Dear Salman,\n\nThank you for the rate card, the stall options and the clear note on the PMS position.\n\nStall: of the two you offered we would take B11. It sits in the earlier row, closer to the entrance concourse, and we would like it as a corner or main-aisle position in the Industry 4.0 / machine-vision zone, not behind a pillar and not at a dead-end aisle. Please confirm B11 is still free and mark it on the floor plan.\n\nPrice: Rs 9,500/sqm (Rs 9,025 after the 5% early-bird) is above what we have budgeted for this show. As a first-time exhibitor and a Udyam-registered micro enterprise, we can commit at Rs 5,000/sqm for the 9 sqm shell scheme (Rs 45,000 + 18% GST). If an MSME, startup or first-time-exhibitor rate gets us there, please apply it.\n\nCould you also include in the package:\n- fascia name board with the Souveno logo\n- 1 table, 2 chairs, carpet and 2 spotlights\n- a 5 A power point (we run a live demo all three days)\n- 2 extra exhibitor badges\n- company listing in the show directory / app and one social post\n- payment in two instalments: 50% advance against the proforma, balance before possession\n\nOn PMS: please let us know as soon as the DC-MSME approval comes through, with the listing reference, since we must file our application 30 days before the show.\n\nA meeting at your Malakpet office suits us well; we are in Hyderabad and can come across any weekday.\n\nOnce the proforma invoice reflects the agreed rate and stall, our advance follows from the Souveno current account after our founder's sign-off."
       },
       "organiser": "Media Day Marketing (Salman, +91 85559 12484)",
       "stage": "negotiating",
