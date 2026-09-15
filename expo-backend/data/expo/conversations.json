@@ -578,6 +578,107 @@
       ]
     },
     {
+      "email": "events@nasscom.in",
+      "organiser": "Nasscom",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a0a11492480834f"
+      ],
+      "note": "no separate Emerge showcase address exists; events@nasscom.in is Nasscom's published address for NTLF startup slots and special startup pricing",
+      "messages": [
+        {
+          "at": "2026-09-14T18:01:15Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "events@nasscom.in",
+          "subject": "Nasscom Technology & Leadership Forum 2027 — startup showcase slot, eligibility and pricing",
+          "snippet": "startup showcase slot for NTLF 2027 (24-25 Feb, Mumbai): options and what each includes, special startup pricing, eligibility and last date, whether membership is required, proforma format",
+          "messageId": "1a0a11492480834f",
+          "threadId": "1a0a11492480834f",
+          "kind": "enquiry"
+        }
+      ],
+      "lastAt": "2026-09-14T18:01:15Z",
+      "lastDir": "out",
+      "count": 1,
+      "eventId": "ntlf-2027"
+    },
+    {
+      "count": 3,
+      "email": "marketing@abec.asia",
+      "eventId": "acetech-hyderabad-2027",
+      "lastAt": "2026-09-14T18:00:50Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-13T17:37:46Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd8b9546726e",
+          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma",
+          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a08fe1c7e01e8c6",
+          "to": "ranjeet.p@abec.asia"
+        },
+        {
+          "at": "2026-09-13T17:37:48Z",
+          "dir": "bounce",
+          "from": "mailer-daemon@googlemail.com",
+          "kind": "bounce",
+          "messageId": "1a09bd8be51e5457",
+          "snippet": "Address not found: ranjeet.p@abec.asia could not be delivered (550 5.1.1)",
+          "subject": "Delivery Status Notification (Failure)",
+          "threadId": "1a08fe1c7e01e8c6",
+          "to": "souveno30@gmail.com"
+        },
+        {
+          "at": "2026-09-14T18:00:50Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "marketing@abec.asia",
+          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "9 sqm shell scheme, corner or main aisle; rate card + floor plan, MSME/startup/early-bird rates, PMS approval, startup pod, booking form and proforma (re-send after the ranjeet.p bounce)",
+          "messageId": "1a0a11431e2316cc",
+          "threadId": "1a0a11431e2316cc",
+          "kind": "enquiry"
+        }
+      ],
+      "note": "ranjeet.p@abec.asia bounced 13 Sep; re-sent 14 Sep to marketing@abec.asia, the space-booking address on acetechexpo.com/contact-us (+91 86570 32669)",
+      "organiser": "ABEC / ET ACETECH",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a08fe1c7e01e8c6",
+        "1a0a11431e2316cc"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "prashant.jain@informa.com",
+      "eventId": "ifsec-india-2026",
+      "messages": [
+        {
+          "at": "2026-09-14T18:00:24Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "prashant.jain@informa.com (cc sanjay.khandelwal@informa.com)",
+          "subject": "IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "9 sqm shell scheme in the video-analytics / AI zone, corner or main aisle; rate card + floor plan, MSME/startup/early-bird rates, PMS approval, startup pod, booking form and proforma",
+          "messageId": "1a0a113ca4386e42",
+          "threadId": "1a09712891845ec5",
+          "kind": "enquiry"
+        }
+      ],
+      "note": "cc sanjay.khandelwal@informa.com; the send was blocked by the permission checker on 12 and 13 Sep and went through on 14 Sep",
+      "organiser": "Informa Markets India",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a09712891845ec5"
+      ],
+      "lastAt": "2026-09-14T18:00:24Z",
+      "lastDir": "out"
+    },
+    {
       "count": 5,
       "email": "info@papexpo.in",
       "eventId": "papexpo-2026",
@@ -852,43 +953,6 @@
       "stage": "enquiry sent",
       "threadIds": [
         "1a09711c6d48101f"
-      ]
-    },
-    {
-      "count": 2,
-      "email": "ranjeet.p@abec.asia",
-      "eventId": "acetech-hyderabad-2027",
-      "lastAt": "2026-09-13T17:37:48Z",
-      "lastDir": "bounce",
-      "messages": [
-        {
-          "at": "2026-09-13T17:37:46Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a09bd8b9546726e",
-          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma",
-          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a08fe1c7e01e8c6",
-          "to": "ranjeet.p@abec.asia"
-        },
-        {
-          "at": "2026-09-13T17:37:48Z",
-          "dir": "bounce",
-          "from": "mailer-daemon@googlemail.com",
-          "kind": "bounce",
-          "messageId": "1a09bd8be51e5457",
-          "snippet": "Address not found: ranjeet.p@abec.asia could not be delivered (550 5.1.1)",
-          "subject": "Delivery Status Notification (Failure)",
-          "threadId": "1a08fe1c7e01e8c6",
-          "to": "souveno30@gmail.com"
-        }
-      ],
-      "note": "needs a new ABEC contact before a re-send",
-      "organiser": "ABEC / ET ACETECH",
-      "stage": "bounced",
-      "threadIds": [
-        "1a08fe1c7e01e8c6"
       ]
     },
     {
@@ -1309,16 +1373,6 @@
       "threadIds": [
         "1a08fe0b965d53b4"
       ]
-    },
-    {
-      "count": 0,
-      "email": "prashant.jain@informa.com",
-      "eventId": "ifsec-india-2026",
-      "messages": [],
-      "note": "Gmail draft to prashant.jain@informa.com (cc sanjay.khandelwal@informa.com) is blocked from sending by the permission checker on 12 and 13 Sep: Santosh presses Send",
-      "organiser": "Informa Markets India",
-      "stage": "draft waiting for Santosh",
-      "threadIds": []
     }
   ]
 }
