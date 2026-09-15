@@ -1191,9 +1191,9 @@
       "negotiation": {
         "band": "below_10k",
         "ceiling_rate": 6000,
-        "next_step": "Desk sends the ₹5,000/sqm counter tonight; then wait for the organiser's answer",
+        "next_step": "EngiExpo have acknowledged but not sent a rate card. Santosh chases them when he chooses; the desks stay out of this thread. Our opening ask stays ₹5,000/sqm, settle up to ₹6,000.",
         "our_counter_rate": 5000,
-        "pending_action": "counter at ₹5,000/sqm requested by Santosh on 2026-09-13 — the 00:01 desk sends it in-thread",
+        "pending_action": "Santosh to send the ₹5,000/sqm counter himself if he wants it — EngiExpo acknowledged our mail on 11 Sep, so the thread is his and no desk writes into it.",
         "quoted_rate": 8500,
         "rounds": [
           {

@@ -274,3 +274,13 @@ Two routines run every night on the company mailbox souveno30@gmail.com:
 | 00:01 | Replies & negotiation | Reads the previous day's organiser mail, extracts rate, stall options, early-bird and MSME rates, picks the best stall (corner / main aisle near the entrance; `floorplan.recommend` where a venue is modelled; favourable numbers), runs `POST /api/expo/events/{id}/negotiate` (or `negotiation.evaluate_quote`) and replies in the thread with the counter-offer and asks. Updates the organiser stage, the `approvals/<eventId>--stall_advance` amount and the dashboard, then e-mails Santosh a summary. |
 
 Negotiation rules (`backend/core/expo/negotiation.py`): open 18% below the best listed rate, accept anything 12% below it or at/under the catalogue estimate, walk away 10% above the estimate and hand the thread to Santosh. Always ask for the free extras (fascia, furniture, power, badges, listing, seminar pass, two instalments). The agent never confirms a booking or a payment: the advance follows only after the proforma matches and Santosh taps Approve.
+
+
+## Who may write to an organiser (standing rule, 15 Sep 2026)
+
+Santosh handles every organiser conversation himself once it starts. The routines make **first contact only**:
+
+* The 11pm stall-enquiry desk may write to an organiser who has never been contacted, and may send at most two nudges into total silence, 7 days apart.
+* The moment an organiser replies, that thread is Santosh's. No desk sends or drafts anything into it again — no counter, no acceptance, no question.
+* The 00:01 desk still reads every reply, works out the price position under the bargaining rules, records it in the Conversations tab and mails the brief to santoshdotai@gmail.com with suggested wording. It never writes to the organiser.
+* The Bargain button on the dashboard produces a suggested counter for Santosh to send; it does not queue a mail.
