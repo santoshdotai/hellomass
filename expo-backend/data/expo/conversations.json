@@ -1,115 +1,166 @@
 {
   "items": [
     {
-      "eventId": "convergence-india-2027",
-      "organiser": "Exhibitions India Group (Pramit K; Tariq I added 14 Sep)",
-      "email": "pramitk@eigroup.in",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a097117e2dc27ce"
-      ],
+      "count": 6,
+      "email": "prasant@imtma.in",
+      "eventId": "imtex-2027",
+      "lastAt": "2026-09-15T14:04:57Z",
+      "lastDir": "out",
       "messages": [
         {
-          "at": "2026-09-12T19:21:41Z",
+          "at": "2026-09-12T19:19:58Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "pramitk@eigroup.in",
-          "subject": "Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
-          "snippet": "startup pod or 9 sqm in the AI pavilion; rate card, PMS, proforma",
-          "messageId": "1a097117e2dc27ce",
-          "threadId": "1a097117e2dc27ce",
-          "kind": "enquiry"
+          "kind": "enquiry",
+          "messageId": "1a0970fedce9c698",
+          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma (space application deadline 12 Jan 2027)",
+          "subject": "IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a0970fedce9c698",
+          "to": "info@imtex.in"
         },
         {
-          "at": "2026-09-14T05:08:37Z",
+          "at": "2026-09-13T20:31:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "nudge",
+          "messageId": "1a09c8aacb326776",
+          "snippet": "Priority follow-up sent on Santosh's instruction: 12 sqm shell scheme in the Digital Manufacturing pavilion, corner on the aisle from the main entrance; asked this week for the rate card + open-side surcharge + MSME / first-time rate, floor plan with free 12 sqm stalls, PMS status for 2027, space application form + proforma before the 12 Jan 2027 deadline.",
+          "subject": "Re: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a0970fedce9c698",
+          "to": "info@imtex.in"
+        },
+        {
+          "at": "2026-09-15T13:23:14Z",
           "dir": "in",
-          "from": "pramitk@eigroup.in",
+          "from": "prasant@imtma.in",
           "to": "souveno30@gmail.com",
-          "subject": "RE: Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
-          "snippet": "One line, '+++ Tariq': the enquiry was passed to Tariq I (tariqi@eigroup.in). No rates, no pavilion details yet.",
-          "messageId": "1a09e514ef12a71f",
-          "threadId": "1a097117e2dc27ce",
-          "kind": "reply"
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "kind": "rate card",
+          "snippet": "BOOKINGS CLOSED: registration deadline was 30 June 2026 and the show is over booked. Guidelines (G&A) and the Digital Manufacturing 2027 application form attached. Minimum 12 sqm shell (30 sqm for raw space). Main focus is metal-cutting machines; only products listed in the guidelines may be displayed. Send an MSME / Udyam / SSI / factory-licence certificate showing manufacturing activity in India, otherwise the rate follows the origin of the exhibit. No pre-layout; layout circulated to registered exhibitors after 30 Sep 2026 and exhibitors may NOT choose their stall. Send the filled application form; advance will be asked subject to availability.",
+          "messageId": "1a0a53cbaaa29e0e",
+          "threadId": "1a0970fedce9c698"
         },
         {
-          "at": "2026-09-15T05:23:00Z",
+          "at": "2026-09-15T13:31:44Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "tariqi@eigroup.in",
-          "subject": "Re: Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
-          "snippet": "DRAFT (not sent, Santosh presses Send): restated the five asks to Tariq — rate card and plan for a startup pod or 9 sqm AI-pavilion stall, early-bird / MSME / startup rates with last dates, PMS listing status, the startup / DPIIT pod package and eligibility, booking form and proforma.",
-          "messageId": "1a0a570480392d04",
-          "threadId": "1a097117e2dc27ce",
-          "kind": "nudge"
+          "to": "prasant@imtma.in",
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "kind": "question",
+          "snippet": "Santosh asked directly: the mail says you are fully booked but also asks for our details — which is it?",
+          "messageId": "1a0a5443199465e7",
+          "threadId": "1a0970fedce9c698"
+        },
+        {
+          "at": "2026-09-15T13:33:43Z",
+          "dir": "in",
+          "from": "prasant@imtma.in",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "kind": "reply",
+          "snippet": "\"We can consider your application, subject to any cancellation of participation.\" — i.e. we go on the waitlist and get space only if an exhibitor cancels.",
+          "messageId": "1a0a54611d7dc992",
+          "threadId": "1a0970fedce9c698"
+        },
+        {
+          "at": "2026-09-15T14:04:57Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "prasant@imtma.in",
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "kind": "documents",
+          "snippet": "Santosh sent the Udyam certificate (NEWUDYAM.pdf) so the Indian MSME rate applies. Application form still to be filled and returned.",
+          "messageId": "1a0a5629fd430fdf",
+          "threadId": "1a0970fedce9c698"
         }
       ],
-      "lastAt": "2026-09-15T05:23:00Z",
-      "lastDir": "out",
-      "count": 3,
       "negotiation": {
-        "next_step": "Wait for Tariq I (tariqi@eigroup.in) to send the rate card; if silent by 21 Sep, nudge again.",
-        "verdict": "",
-        "pending_action": "",
-        "rounds": []
-      }
+        "next_step": "Bookings are CLOSED (deadline was 30 June 2026) and IMTMA will only consider us if an exhibitor cancels. Send the filled application form to prasant@imtma.in; pay nothing until they confirm space. We cannot choose the stall — the layout goes out after 30 Sep. No bargaining room while waitlisted; if space opens at ₹10,000–13,000/sqm the rule opens at ₹6,000 and settles up to ₹8,000.",
+        "sqm": 12,
+        "to_get": [
+          "Fill and return the Digital Manufacturing 2027 application form attached to the 15 Sep mail",
+          "The per-sqm rate from the G&A PDF for a 12 sqm Indian shell stall",
+          "Written confirmation of our place on the cancellation waitlist",
+          "Whether Souveno's AI products are on the eligible-products list (the show's focus is metal-cutting machines)",
+          "PMS (DC-MSME) status for the 2027 edition"
+        ],
+        "verdict": "blocked",
+        "quoted_rate": null,
+        "quoted_note": "No rate in the mail — the numbers are in the attached IMTEX 2027 G&A (Final).pdf, which the agent cannot read. Catalogue estimate ₹15,000/sqm; published snippets suggest ₹10,900–12,200/sqm for an Indian shell stall plus a 20/30/50% open-side surcharge. Minimum 12 sqm shell, 30 sqm for raw space.",
+        "includes_free": [
+          "Not stated — shell-scheme inclusions are in the G&A PDF"
+        ],
+        "optional_extras": [
+          "Raw space, minimum 30 sqm (too big for us)",
+          "Open-side surcharge 20 / 30 / 50% for corner and island stalls"
+        ],
+        "pending_action": "Santosh: return the filled Digital Manufacturing 2027 application form (Udyam certificate already sent 15 Sep)",
+        "rounds": [
+          {
+            "at": "2026-09-15T13:33:43Z",
+            "who": "organiser",
+            "rate": null,
+            "note": "over booked; application considered only against a cancellation"
+          },
+          {
+            "at": "2026-09-15T13:33:43Z",
+            "who": "organiser",
+            "rate": null,
+            "note": "over booked; application considered only against a cancellation"
+          }
+        ]
+      },
+      "organiser": "IMTMA (Prasant Panda, Joint Director – Trade Fairs, +91 91640 08830)",
+      "stage": "waitlisted — application to send",
+      "threadIds": [
+        "1a0970fedce9c698"
+      ]
     },
     {
-      "eventId": "india-warehousing-show-2027",
-      "organiser": "RX India — Abhishek Gaurav, Sales Manager, +91 96509 58256",
+      "count": 3,
       "email": "abhishek.gaurav1@rxglobal.com",
-      "stage": "negotiating",
-      "threadIds": [
-        "1a09710b706adb78"
-      ],
+      "eventId": "india-warehousing-show-2027",
+      "lastAt": "2026-09-15T05:22:00Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-12T19:20:50Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "abhishek.gaurav1@rxglobal.com",
-          "subject": "India Warehousing Show 2027 (and Fastener Fair India 2027) — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "one RX India mail covers both shows; 9 sqm shell scheme, rate card, PMS, proforma",
+          "kind": "enquiry",
           "messageId": "1a09710b706adb78",
+          "snippet": "one RX India mail covers both shows; 9 sqm shell scheme, rate card, PMS, proforma",
+          "subject": "India Warehousing Show 2027 (and Fastener Fair India 2027) — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a09710b706adb78",
-          "kind": "enquiry"
+          "to": "abhishek.gaurav1@rxglobal.com"
         },
         {
           "at": "2026-09-15T04:03:28Z",
           "dir": "in",
           "from": "abhishek.gaurav1@rxglobal.com",
-          "to": "souveno30@gmail.com",
-          "subject": "RE: IWLS26, India Warehousing Show 2027 (and Fastener Fair India 2027) — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Offer is for IWLS 2026 at NESCO Mumbai, not the 2027 Delhi edition we asked about: package of a 9 sqm shell stall + pathway standee branding in front of Halls 2 and 3 + 1 conference ticket + Emperia lead-manager app + Collect QR for INR 1,37,257 + 18% GST (about 15,250/sqm). Brochure and Hall 3 floor plan attached. No MSME / PMS answer, no Fastener Fair contact.",
+          "kind": "rate card",
           "messageId": "1a0a33c059b04308",
+          "snippet": "Offer is for IWLS 2026 at NESCO Mumbai, not the 2027 Delhi edition we asked about: package of a 9 sqm shell stall + pathway standee branding in front of Halls 2 and 3 + 1 conference ticket + Emperia lead-manager app + Collect QR for INR 1,37,257 + 18% GST (about 15,250/sqm). Brochure and Hall 3 floor plan attached. No MSME / PMS answer, no Fastener Fair contact.",
+          "subject": "RE: IWLS26, India Warehousing Show 2027 (and Fastener Fair India 2027) — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0a33c059b04308",
-          "kind": "rate card"
+          "to": "souveno30@gmail.com"
         },
         {
           "at": "2026-09-15T05:22:00Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "abhishek.gaurav1@rxglobal.com",
-          "subject": "Re: IWLS26, India Warehousing Show 2027 (and Fastener Fair India 2027) — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "DRAFT (not sent, Santosh presses Send): pointed out the offer is for the 2026 Mumbai edition and asked for the 2027 Delhi rate card and plan; countered at 6,000/sqm for a plain 9 sqm shell (54,000 + GST) with the branding, conference pass and lead app priced separately as options; asked for MSME / first-time rates, PMS listing status, a corner stall near the entrance and the Fastener Fair India 2027 contact.",
+          "kind": "counter",
           "messageId": "1a0a5703eca144e8",
+          "snippet": "DRAFT (not sent, Santosh presses Send): pointed out the offer is for the 2026 Mumbai edition and asked for the 2027 Delhi rate card and plan; countered at 6,000/sqm for a plain 9 sqm shell (54,000 + GST) with the branding, conference pass and lead app priced separately as options; asked for MSME / first-time rates, PMS listing status, a corner stall near the entrance and the Fastener Fair India 2027 contact.",
+          "subject": "Re: IWLS26, India Warehousing Show 2027 (and Fastener Fair India 2027) — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0a33c059b04308",
-          "kind": "counter"
+          "to": "abhishek.gaurav1@rxglobal.com"
         }
       ],
-      "note": "one thread covers India Warehousing Show and Fastener Fair India",
-      "lastAt": "2026-09-15T05:22:00Z",
-      "lastDir": "out",
-      "count": 3,
       "negotiation": {
-        "sqm": 9,
-        "quoted_rate": 15251,
-        "quoted_note": "IWLS 2026 (NESCO Mumbai) package: 9 sqm shell + pathway standee branding + 1 conference ticket + Emperia lead app + Collect QR = INR 1,37,257 + 18% GST, i.e. about 15,250/sqm all-in; the 2027 Delhi edition we asked about was not quoted",
-        "regular_rate": 15251,
-        "msme_rate": null,
-        "our_counter_rate": 6000,
         "agreed_rate": null,
-        "ceiling_rate": 8000,
         "band": "above_13k",
+        "ceiling_rate": 8000,
         "includes_free": [
           "9 sqm shell stall",
           "pathway standee, double-sided 2ft x 6ft, in front of Halls 2 and 3",
@@ -117,9 +168,31 @@
           "Emperia lead-manager app",
           "Collect QR"
         ],
+        "msme_rate": null,
+        "next_step": "Santosh sends the drafted 6,000/sqm counter (draft r-4461795481295143457). Ceiling 8,000/sqm: if RX will not come under it, stop and escalate — the package is roughly double our ceiling.",
         "optional_extras": [
           "the branding, conference pass and lead app should be priced separately — asked for an unbundled shell rate"
         ],
+        "our_counter_rate": 6000,
+        "pending_action": "",
+        "quoted_note": "IWLS 2026 (NESCO Mumbai) package: 9 sqm shell + pathway standee branding + 1 conference ticket + Emperia lead app + Collect QR = INR 1,37,257 + 18% GST, i.e. about 15,250/sqm all-in; the 2027 Delhi edition we asked about was not quoted",
+        "quoted_rate": 15251,
+        "regular_rate": 15251,
+        "rounds": [
+          {
+            "at": "2026-09-15T04:03:28Z",
+            "note": "IWLS 2026 package quote, about 15,250/sqm all-in (wrong edition)",
+            "rate": 15251,
+            "who": "organiser"
+          },
+          {
+            "at": "2026-09-15T05:22:00Z",
+            "note": "opening counter drafted under the 13 Sep rules (quote above 13k -> open at 6,000, escalate if refused)",
+            "rate": 6000,
+            "who": "us"
+          }
+        ],
+        "sqm": 9,
         "to_get": [
           "rate card and floor plan for the 2027 Delhi edition (IICC Dwarka)",
           "unbundled 9 sqm shell rate",
@@ -128,108 +201,108 @@
           "corner or main-aisle stall near the entrance in the automation zone",
           "Fastener Fair India 2027 contact"
         ],
-        "next_step": "Santosh sends the drafted 6,000/sqm counter (draft r-4461795481295143457). Ceiling 8,000/sqm: if RX will not come under it, stop and escalate — the package is roughly double our ceiling.",
-        "verdict": "counter",
-        "pending_action": "",
-        "rounds": [
-          {
-            "at": "2026-09-15T04:03:28Z",
-            "who": "organiser",
-            "rate": 15251,
-            "note": "IWLS 2026 package quote, about 15,250/sqm all-in (wrong edition)"
-          },
-          {
-            "at": "2026-09-15T05:22:00Z",
-            "who": "us",
-            "rate": 6000,
-            "note": "opening counter drafted under the 13 Sep rules (quote above 13k -> open at 6,000, escalate if refused)"
-          }
-        ]
-      }
-    },
-    {
-      "eventId": "indexpo-hyderabad-2027",
-      "organiser": "Indore Infoline (Indexpo) — R.K. Agrawal, MD, +91 94250 54216",
-      "email": "iyp_ind@yahoo.co.in",
+        "verdict": "counter"
+      },
+      "note": "one thread covers India Warehousing Show and Fastener Fair India",
+      "organiser": "RX India — Abhishek Gaurav, Sales Manager, +91 96509 58256",
       "stage": "negotiating",
       "threadIds": [
-        "1a08fe1dcb5cc62c"
-      ],
+        "1a09710b706adb78"
+      ]
+    },
+    {
+      "count": 5,
+      "email": "iyp_ind@yahoo.co.in",
+      "eventId": "indexpo-hyderabad-2027",
+      "lastAt": "2026-09-15T05:21:00Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-13T17:37:48Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "iyp_ind@yahoo.co.in",
-          "subject": "Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
-          "snippet": "one mail covers both Indexpo editions (12 sqm); rate card, PMS, proforma",
+          "kind": "enquiry",
           "messageId": "1a09bd8c08ebf488",
+          "snippet": "one mail covers both Indexpo editions (12 sqm); rate card, PMS, proforma",
+          "subject": "Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
           "threadId": "1a08fe1dcb5cc62c",
-          "kind": "enquiry"
+          "to": "iyp_ind@yahoo.co.in"
         },
         {
           "at": "2026-09-14T05:58:26Z",
           "dir": "in",
           "from": "iyp_ind@yahoo.co.in",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
-          "snippet": "Reply carrying only the signature plus the 4-page Indexpo 2027 brochure (BROCHURE EXPO 2027-4 pages w.pdf); no rates in the body.",
+          "kind": "reply",
           "messageId": "1a09e7f08d2bf459",
+          "snippet": "Reply carrying only the signature plus the 4-page Indexpo 2027 brochure (BROCHURE EXPO 2027-4 pages w.pdf); no rates in the body.",
+          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
           "threadId": "1a08fe1dcb5cc62c",
-          "kind": "reply"
+          "to": "souveno30@gmail.com"
         },
         {
           "at": "2026-09-14T15:50:38Z",
           "dir": "in",
           "from": "iyp_ind@yahoo.co.in",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
-          "snippet": "Special offer price INR 5,000/sqm + 18% GST to block stall space now at Indexpo Bangalore and Hyderabad. MSME PMS approval for both is awaited (Raipur too). Once MSME-approved the rate is 10,000/sqm + GST with 80% refund subject to approval; organiser will notify.",
+          "kind": "rate card",
           "messageId": "1a0a09d114e75a16",
+          "snippet": "Special offer price INR 5,000/sqm + 18% GST to block stall space now at Indexpo Bangalore and Hyderabad. MSME PMS approval for both is awaited (Raipur too). Once MSME-approved the rate is 10,000/sqm + GST with 80% refund subject to approval; organiser will notify.",
+          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
           "threadId": "1a08fe1dcb5cc62c",
-          "kind": "rate card"
+          "to": "souveno30@gmail.com"
         },
         {
           "at": "2026-09-14T18:52:38Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "iyp_ind@yahoo.co.in",
-          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
-          "snippet": "Santosh asked whether AI software firms can participate in the Bengaluru edition, since the category is not in the brochure list, and which stalls are allotted to our category.",
+          "kind": "reply",
           "messageId": "1a0a143a44caa582",
+          "snippet": "Santosh asked whether AI software firms can participate in the Bengaluru edition, since the category is not in the brochure list, and which stalls are allotted to our category.",
+          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
           "threadId": "1a08fe1dcb5cc62c",
-          "kind": "reply"
+          "to": "iyp_ind@yahoo.co.in"
         },
         {
           "at": "2026-09-15T05:21:00Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "iyp_ind@yahoo.co.in",
-          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
-          "snippet": "DRAFT (not sent, Santosh presses Send): accept 5,000/sqm + GST, block 12 sqm at Hyderabad and 9 sqm at Bengaluru subject to the category answer; asked for a corner / main-aisle stall within 30 m of the entrance, the free stalls marked, the offer's last date, and whether we can move to the approved MSME rate of 10,000/sqm with the 80% refund if PMS lands after booking; asked for extras, two instalments, booking form and proforma.",
+          "kind": "accept",
           "messageId": "1a0a56fdb989751b",
+          "snippet": "DRAFT (not sent, Santosh presses Send): accept 5,000/sqm + GST, block 12 sqm at Hyderabad and 9 sqm at Bengaluru subject to the category answer; asked for a corner / main-aisle stall within 30 m of the entrance, the free stalls marked, the offer's last date, and whether we can move to the approved MSME rate of 10,000/sqm with the 80% refund if PMS lands after booking; asked for extras, two instalments, booking form and proforma.",
+          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
           "threadId": "1a08fe1dcb5cc62c",
-          "kind": "accept"
+          "to": "iyp_ind@yahoo.co.in"
         }
       ],
-      "note": "one thread covers Indexpo Hyderabad and Mumbai",
-      "lastAt": "2026-09-15T05:21:00Z",
-      "lastDir": "out",
-      "count": 5,
       "negotiation": {
-        "sqm": 12,
-        "quoted_rate": 5000,
-        "quoted_note": "special offer 5,000/sqm + 18% GST to block space now (Bangalore and Hyderabad editions); published tariff was 11,000/sqm and the MSME rate is 10,000/sqm + GST once DC-MSME approves, with an 80% refund subject to approval",
-        "regular_rate": 10000,
-        "msme_rate": 10000,
-        "our_counter_rate": 5000,
         "agreed_rate": null,
-        "ceiling_rate": 6000,
         "band": "below_10k",
+        "ceiling_rate": 6000,
         "includes_free": [],
+        "msme_rate": 10000,
+        "next_step": "Santosh sends the drafted acceptance (draft r5895939586457510887). 5,000/sqm is at our opening ask, so no further bargaining; watch for the PMS approval notice, and compare 5,000 flat against 10,000 with the 80% refund before paying.",
         "optional_extras": [
           "MSME route at 10,000/sqm + GST with 80% PMS refund once approved (approval awaited)"
         ],
+        "our_counter_rate": 5000,
+        "pending_action": "",
+        "quoted_note": "special offer 5,000/sqm + 18% GST to block space now (Bangalore and Hyderabad editions); published tariff was 11,000/sqm and the MSME rate is 10,000/sqm + GST once DC-MSME approves, with an 80% refund subject to approval",
+        "quoted_rate": 5000,
+        "regular_rate": 10000,
+        "rounds": [
+          {
+            "at": "2026-09-14T15:50:38Z",
+            "note": "special offer to block space; MSME rate 10,000 with 80% refund once approved",
+            "rate": 5000,
+            "who": "organiser"
+          },
+          {
+            "at": "2026-09-15T05:21:00Z",
+            "note": "accepted at the opening ask (rules: quote at or under 5,000 -> accept)",
+            "rate": 5000,
+            "who": "us"
+          }
+        ],
+        "sqm": 12,
         "to_get": [
           "whether AI software is an eligible category at the Bengaluru edition (Santosh asked 14 Sep)",
           "stall number on a main aisle near the entrance, free stalls marked",
@@ -239,113 +312,113 @@
           "two instalments",
           "booking form and proforma invoice"
         ],
-        "next_step": "Santosh sends the drafted acceptance (draft r5895939586457510887). 5,000/sqm is at our opening ask, so no further bargaining; watch for the PMS approval notice, and compare 5,000 flat against 10,000 with the 80% refund before paying.",
-        "verdict": "accept",
-        "pending_action": "",
-        "rounds": [
-          {
-            "at": "2026-09-14T15:50:38Z",
-            "who": "organiser",
-            "rate": 5000,
-            "note": "special offer to block space; MSME rate 10,000 with 80% refund once approved"
-          },
-          {
-            "at": "2026-09-15T05:21:00Z",
-            "who": "us",
-            "rate": 5000,
-            "note": "accepted at the opening ask (rules: quote at or under 5,000 -> accept)"
-          }
-        ]
-      }
-    },
-    {
-      "eventId": "india-automation-robotics-2027",
-      "organiser": "Media Day Marketing (Salman, +91 85559 12484)",
-      "email": "iarexpo@mediaday.co.in",
+        "verdict": "accept"
+      },
+      "note": "one thread covers Indexpo Hyderabad and Mumbai",
+      "organiser": "Indore Infoline (Indexpo) — R.K. Agrawal, MD, +91 94250 54216",
       "stage": "negotiating",
       "threadIds": [
-        "1a0970ff1f90f673",
-        "1a09bd99d72e96b2"
-      ],
+        "1a08fe1dcb5cc62c"
+      ]
+    },
+    {
+      "count": 5,
+      "email": "iarexpo@mediaday.co.in",
+      "eventId": "india-automation-robotics-2027",
+      "lastAt": "2026-09-15T05:20:00Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-12T19:19:59Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "exhibitions@mediaday.co.in",
-          "subject": "India Automation & Robotics Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "first enquiry to the address on the Book Your Stall page",
+          "kind": "enquiry",
           "messageId": "1a0970ff1f90f673",
+          "snippet": "first enquiry to the address on the Book Your Stall page",
+          "subject": "India Automation & Robotics Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0970ff1f90f673",
-          "kind": "enquiry"
+          "to": "exhibitions@mediaday.co.in"
         },
         {
           "at": "2026-09-12T19:20:01Z",
           "dir": "bounce",
           "from": "mailer-daemon@googlemail.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Delivery Status Notification (Failure)",
-          "snippet": "Address not found: exhibitions@mediaday.co.in could not be delivered (550 5.1.1)",
+          "kind": "bounce",
           "messageId": "1a0970ff84340831",
+          "snippet": "Address not found: exhibitions@mediaday.co.in could not be delivered (550 5.1.1)",
+          "subject": "Delivery Status Notification (Failure)",
           "threadId": "1a0970ff1f90f673",
-          "kind": "bounce"
+          "to": "souveno30@gmail.com"
         },
         {
           "at": "2026-09-13T17:38:45Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "iarexpo@mediaday.co.in",
-          "subject": "India Automation & Robotics Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "re-sent to iarexpo@ (cc ramsoundalkar@) after the first address bounced",
-          "messageId": "1a09bd99d72e96b2",
-          "threadId": "1a09bd99d72e96b2",
-          "kind": "enquiry",
           "cc": [
             "ramsoundalkar@mediaday.co.in"
-          ]
+          ],
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd99d72e96b2",
+          "snippet": "re-sent to iarexpo@ (cc ramsoundalkar@) after the first address bounced",
+          "subject": "India Automation & Robotics Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a09bd99d72e96b2",
+          "to": "iarexpo@mediaday.co.in"
         },
         {
           "at": "2026-09-14T04:24:13Z",
           "dir": "in",
           "from": "iarexpo@mediaday.co.in",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: India Automation & Robotics Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Shell scheme Indian exhibitors INR 9,500/sqm + 18% GST; 9 sqm = 85,500, less 5% early bird 4,275 = 81,225 + GST = 95,845.50 total. Two 9 sqm stalls offered: D20 and B11. PMS: process initiated with MSME authorities, no official approval yet, will notify. Offers a one-on-one meeting; Stall Options.pdf attached.",
+          "kind": "rate card",
           "messageId": "1a09e292d72d6a35",
+          "snippet": "Shell scheme Indian exhibitors INR 9,500/sqm + 18% GST; 9 sqm = 85,500, less 5% early bird 4,275 = 81,225 + GST = 95,845.50 total. Two 9 sqm stalls offered: D20 and B11. PMS: process initiated with MSME authorities, no official approval yet, will notify. Offers a one-on-one meeting; Stall Options.pdf attached.",
+          "subject": "Re: India Automation & Robotics Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a09bd99d72e96b2",
-          "kind": "rate card"
+          "to": "souveno30@gmail.com"
         },
         {
           "at": "2026-09-15T05:20:00Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "iarexpo@mediaday.co.in",
-          "subject": "Re: India Automation & Robotics Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "DRAFT (not sent, Santosh presses Send): take stall B11 as a corner / main-aisle position in the Industry 4.0 zone; counter at 5,000/sqm for 9 sqm shell (45,000 + GST); asked for fascia, furniture, 5 A point, 2 badges, directory listing, two instalments; asked to be told when PMS approval lands; accepted the Malakpet meeting offer.",
+          "kind": "counter",
           "messageId": "1a0a56fb89959db0",
+          "snippet": "DRAFT (not sent, Santosh presses Send): take stall B11 as a corner / main-aisle position in the Industry 4.0 zone; counter at 5,000/sqm for 9 sqm shell (45,000 + GST); asked for fascia, furniture, 5 A point, 2 badges, directory listing, two instalments; asked to be told when PMS approval lands; accepted the Malakpet meeting offer.",
+          "subject": "Re: India Automation & Robotics Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a09bd99d72e96b2",
-          "kind": "counter"
+          "to": "iarexpo@mediaday.co.in"
         }
       ],
-      "lastAt": "2026-09-15T05:20:00Z",
-      "lastDir": "out",
-      "count": 5,
       "negotiation": {
-        "sqm": 9,
-        "quoted_rate": 9500,
-        "quoted_note": "shell scheme Indian exhibitors 9,500/sqm + 18% GST; 5% early-bird makes it 9,025/sqm (81,225 + GST = 95,845.50 for 9 sqm); validity of the early bird not stated",
-        "regular_rate": 9500,
-        "msme_rate": null,
-        "our_counter_rate": 5000,
         "agreed_rate": null,
-        "ceiling_rate": 6000,
         "band": "below_10k",
+        "ceiling_rate": 6000,
         "includes_free": [
           "shell scheme stall"
         ],
+        "msme_rate": null,
+        "next_step": "Santosh sends the drafted 5,000/sqm counter (draft r6574993549448128029); settle up to 6,000/sqm, escalate above. PMS pending with DC-MSME.",
         "optional_extras": [
           "5% early-bird discount (INR 4,275 on 9 sqm)"
         ],
+        "our_counter_rate": 5000,
+        "pending_action": "",
+        "quoted_note": "shell scheme Indian exhibitors 9,500/sqm + 18% GST; 5% early-bird makes it 9,025/sqm (81,225 + GST = 95,845.50 for 9 sqm); validity of the early bird not stated",
+        "quoted_rate": 9500,
+        "regular_rate": 9500,
+        "rounds": [
+          {
+            "at": "2026-09-14T04:24:13Z",
+            "note": "first quote, 9,025 after 5% early bird; stalls D20 / B11",
+            "rate": 9500,
+            "who": "organiser"
+          },
+          {
+            "at": "2026-09-15T05:20:00Z",
+            "note": "opening counter drafted under the 13 Sep rules (quote under 10k -> open at 5,000)",
+            "rate": 5000,
+            "who": "us"
+          }
+        ],
+        "sqm": 9,
         "to_get": [
           "confirmation B11 is free and its position on the floor plan",
           "fascia, 1 table, 2 chairs, carpet, 2 spotlights",
@@ -356,166 +429,198 @@
           "proforma invoice",
           "PMS approval confirmation with the listing reference"
         ],
-        "next_step": "Santosh sends the drafted 5,000/sqm counter (draft r6574993549448128029); settle up to 6,000/sqm, escalate above. PMS pending with DC-MSME.",
-        "verdict": "counter",
-        "pending_action": "",
-        "rounds": [
-          {
-            "at": "2026-09-14T04:24:13Z",
-            "who": "organiser",
-            "rate": 9500,
-            "note": "first quote, 9,025 after 5% early bird; stalls D20 / B11"
-          },
-          {
-            "at": "2026-09-15T05:20:00Z",
-            "who": "us",
-            "rate": 5000,
-            "note": "opening counter drafted under the 13 Sep rules (quote under 10k -> open at 5,000)"
-          }
-        ]
-      }
-    },
-    {
-      "eventId": "indexpo-mumbai-2027",
-      "organiser": "Indore Infoline (Indexpo) — R.K. Agrawal, MD, +91 94250 54216",
-      "email": "iyp_ind@yahoo.co.in",
+        "verdict": "counter"
+      },
+      "organiser": "Media Day Marketing (Salman, +91 85559 12484)",
       "stage": "negotiating",
       "threadIds": [
-        "1a08fe1dcb5cc62c"
-      ],
+        "1a0970ff1f90f673",
+        "1a09bd99d72e96b2"
+      ]
+    },
+    {
+      "count": 4,
+      "email": "iyp_ind@yahoo.co.in",
+      "eventId": "indexpo-mumbai-2027",
+      "lastAt": "2026-09-14T18:52:38Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-13T17:37:48Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "iyp_ind@yahoo.co.in",
-          "subject": "Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
-          "snippet": "one mail covers both Indexpo editions (12 sqm); rate card, PMS, proforma",
+          "kind": "enquiry",
           "messageId": "1a09bd8c08ebf488",
+          "snippet": "one mail covers both Indexpo editions (12 sqm); rate card, PMS, proforma",
+          "subject": "Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
           "threadId": "1a08fe1dcb5cc62c",
-          "kind": "enquiry"
+          "to": "iyp_ind@yahoo.co.in"
+        },
+        {
+          "at": "2026-09-14T05:58:26Z",
+          "dir": "in",
+          "from": "iyp_ind@yahoo.co.in",
+          "to": "souveno30@gmail.com",
+          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
+          "kind": "reply",
+          "snippet": "R.K. Agrawal (MD, Indore Infoline, +91 94250 54216) replied with the 4-page Indexpo 2027 brochure attached; no rate in the body.",
+          "messageId": "1a09e7f08d2bf459",
+          "threadId": "1a08fe1dcb5cc62c"
         },
         {
           "at": "2026-09-14T15:50:38Z",
           "dir": "in",
           "from": "iyp_ind@yahoo.co.in",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
-          "snippet": "One thread covers the Indexpo editions: special offer 5,000/sqm + 18% GST to block space (organiser named Bangalore and Hyderabad, not Mumbai); MSME PMS approval awaited, 10,000/sqm + GST with 80% refund once approved.",
+          "kind": "rate card",
           "messageId": "1a0a09d114e75a16",
+          "snippet": "One thread covers the Indexpo editions: special offer 5,000/sqm + 18% GST to block space (organiser named Bangalore and Hyderabad, not Mumbai); MSME PMS approval awaited, 10,000/sqm + GST with 80% refund once approved.",
+          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
           "threadId": "1a08fe1dcb5cc62c",
-          "kind": "rate card"
+          "to": "souveno30@gmail.com"
+        },
+        {
+          "at": "2026-09-14T18:52:38Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "iyp_ind@yahoo.co.in",
+          "subject": "Re: Indexpo Hyderabad 2027 and Indexpo Mumbai 2027 — MSME participation, rate card and PMS subsidy",
+          "kind": "question",
+          "snippet": "Santosh asked whether AI software firms can exhibit at the Bengaluru edition (the category is not in the brochure list) and which stalls are allotted to our category.",
+          "messageId": "1a0a143a44caa582",
+          "threadId": "1a08fe1dcb5cc62c"
         }
       ],
-      "note": "one thread covers Indexpo Hyderabad and Mumbai",
-      "lastAt": "2026-09-14T15:50:38Z",
-      "lastDir": "in",
-      "count": 2,
       "negotiation": {
-        "sqm": 9,
-        "quoted_rate": 5000,
-        "quoted_note": "covered by the Indexpo thread; the 5,000/sqm offer was named for Bangalore and Hyderabad — Mumbai not confirmed, ask before assuming",
-        "our_counter_rate": 5000,
         "agreed_rate": null,
-        "ceiling_rate": 6000,
         "band": "below_10k",
-        "to_get": [
-          "confirmation that the 5,000/sqm offer covers the Mumbai edition too"
-        ],
+        "ceiling_rate": 6000,
         "next_step": "Ride the Indexpo Hyderabad thread; confirm whether Mumbai is included in the offer.",
-        "verdict": "accept",
+        "our_counter_rate": 5000,
         "pending_action": "",
+        "quoted_note": "covered by the Indexpo thread; the 5,000/sqm offer was named for Bangalore and Hyderabad — Mumbai not confirmed, ask before assuming",
+        "quoted_rate": 5000,
         "rounds": [
           {
             "at": "2026-09-14T15:50:38Z",
-            "who": "organiser",
+            "note": "offer named for Bangalore and Hyderabad",
             "rate": 5000,
-            "note": "offer named for Bangalore and Hyderabad"
+            "who": "organiser"
           }
-        ]
-      }
-    },
-    {
-      "eventId": "papexpo-2026",
-      "organiser": "PAPEXPO (Kranthika T, Project Manager, +91 63097 91291)",
-      "email": "info@papexpo.in",
+        ],
+        "sqm": 9,
+        "to_get": [
+          "confirmation that the 5,000/sqm offer covers the Mumbai edition too"
+        ],
+        "verdict": "accept"
+      },
+      "note": "one thread covers Indexpo Hyderabad and Mumbai",
+      "organiser": "Indore Infoline (Indexpo) — R.K. Agrawal, MD, +91 94250 54216",
       "stage": "negotiating",
       "threadIds": [
-        "1a0970f7858ae37e"
-      ],
+        "1a08fe1dcb5cc62c"
+      ]
+    },
+    {
+      "count": 5,
+      "email": "info@papexpo.in",
+      "eventId": "papexpo-2026",
+      "lastAt": "2026-09-14T07:31:33Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-12T19:19:28Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "info@papexpo.in",
-          "subject": "PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme, corner / main aisle near the entrance; rate card, PMS, startup pod, booking form + proforma",
+          "kind": "enquiry",
           "messageId": "1a0970f7858ae37e",
+          "snippet": "9 sqm shell scheme, corner / main aisle near the entrance; rate card, PMS, startup pod, booking form + proforma",
+          "subject": "PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0970f7858ae37e",
-          "kind": "enquiry"
+          "to": "info@papexpo.in"
         },
         {
           "at": "2026-09-13T07:15:38Z",
           "dir": "in",
           "from": "info@papexpo.in",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Rate card: built-up stall min 9 sqm ₹6,000/sqm + 18% GST; bare stall min 18 sqm ₹7,500/sqm + GST. Not empanelled with MSME (no PMS). Updated Layout.pdf attached. 1st edition 100+ exhibitors, ~5,000 visitors.",
+          "kind": "rate card",
           "messageId": "1a0999f28d3096ec",
+          "snippet": "Rate card: built-up stall min 9 sqm ₹6,000/sqm + 18% GST; bare stall min 18 sqm ₹7,500/sqm + GST. Not empanelled with MSME (no PMS). Updated Layout.pdf attached. 1st edition 100+ exhibitors, ~5,000 visitors.",
+          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0970f7858ae37e",
-          "kind": "rate card"
+          "to": "souveno30@gmail.com"
         },
         {
           "at": "2026-09-13T18:33:45Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "info@papexpo.in",
-          "subject": "Re: Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Accepted ₹6,000/sqm for 9 sqm built-up (before the 13 Sep bargaining rules); asked for a main-aisle corner in the first row (prefer 1/3/5/7/9/11), fascia with logo, table + 2 chairs + carpet + 2 spotlights, 5 A power, 2 extra badges, directory listing + social post, two instalments, booking form + proforma.",
+          "kind": "accept",
           "messageId": "1a09c0bf72ee42f9",
+          "snippet": "Accepted ₹6,000/sqm for 9 sqm built-up (before the 13 Sep bargaining rules); asked for a main-aisle corner in the first row (prefer 1/3/5/7/9/11), fascia with logo, table + 2 chairs + carpet + 2 spotlights, 5 A power, 2 extra badges, directory listing + social post, two instalments, booking form + proforma.",
+          "subject": "Re: Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0970f7858ae37e",
-          "kind": "accept"
+          "to": "info@papexpo.in"
         },
         {
           "at": "2026-09-13T20:42:12Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "info@papexpo.in",
-          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Counter SENT by Santosh: budget ₹5,000/sqm for 9 sqm built-up (₹45,000 + GST), can confirm today, 50% advance against the proforma, balance before possession; same corner / main-aisle preference (1/3/5/7/9/11) and free extras; asked for the booking form + proforma at ₹5,000.",
+          "kind": "counter",
           "messageId": "1a09c81924993c71",
+          "snippet": "Counter SENT by Santosh: budget ₹5,000/sqm for 9 sqm built-up (₹45,000 + GST), can confirm today, 50% advance against the proforma, balance before possession; same corner / main-aisle preference (1/3/5/7/9/11) and free extras; asked for the booking form + proforma at ₹5,000.",
+          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0970f7858ae37e",
-          "kind": "counter"
+          "to": "info@papexpo.in"
         },
         {
           "at": "2026-09-14T07:31:33Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "info@papexpo.in",
-          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Santosh wrote himself: wants to finalise stall B11 (4 x 3) and asks the decision maker to consider 5k as a first-time exhibitor.",
+          "kind": "counter",
           "messageId": "1a09eedd2e2d2125",
+          "snippet": "Santosh wrote himself: wants to finalise stall B11 (4 x 3) and asks the decision maker to consider 5k as a first-time exhibitor.",
+          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0970f7858ae37e",
-          "kind": "counter"
+          "to": "info@papexpo.in"
         }
       ],
       "negotiation": {
-        "sqm": 9,
-        "quoted_rate": 6000,
-        "quoted_note": "built-up (shell) stall, min 9 sqm, + 18% GST; bare stall min 18 sqm at ₹7,500/sqm",
-        "regular_rate": null,
-        "msme_rate": null,
-        "our_counter_rate": 5000,
         "agreed_rate": null,
-        "ceiling_rate": 6000,
         "band": "below_10k",
+        "ceiling_rate": 6000,
         "includes_free": [
           "Built-up shell stall (walls, fascia, basic lighting) — exact inclusions not stated by the organiser"
         ],
+        "msme_rate": null,
+        "next_step": "No PAPEXPO answer since Santosh's 14 Sep mail naming stall B11 (4x3) at 5,000/sqm. Show opens 1 Oct: phone Kranthika +91 63097 91291 if still silent on 16 Sep. Settle up to 6,000/sqm.",
         "optional_extras": [
           "Bare stall, min 18 sqm at ₹7,500/sqm + GST (skip: too big)"
         ],
+        "our_counter_rate": 5000,
+        "pending_action": "",
+        "quoted_note": "Built-up (shell) ₹6,000/sqm + 18% GST; bare stall min 18 sqm at ₹7,500/sqm. Santosh named stall B11 at 4 m x 3 m = 12 sqm, not 9: at ₹6,000 that is ₹72,000 + GST = ₹84,960 (advance ₹42,480); at ₹5,000 it is ₹60,000 + GST = ₹70,800 (advance ₹35,400).",
+        "quoted_rate": 6000,
+        "regular_rate": null,
+        "rounds": [
+          {
+            "at": "2026-09-13T07:15:38Z",
+            "note": "first quote, built-up min 9 sqm",
+            "rate": 6000,
+            "who": "organiser"
+          },
+          {
+            "at": "2026-09-13T18:33:45Z",
+            "note": "accepted (old rules) + asked for corner, free extras, two instalments, proforma",
+            "rate": 6000,
+            "who": "us"
+          },
+          {
+            "at": "2026-09-13T20:42:12Z",
+            "note": "counter sent by Santosh (13 Sep rules: quote under 10k → open at 5,000)",
+            "rate": 5000,
+            "who": "us"
+          }
+        ],
+        "sqm": 12,
         "to_get": [
           "Written list of what the built-up package includes",
           "Corner / main-aisle stall number marked free on the Updated Layout",
@@ -524,681 +629,675 @@
           "Two instalments: 50% advance, balance before possession",
           "Space-booking form and proforma invoice"
         ],
-        "next_step": "No PAPEXPO answer since Santosh's 14 Sep mail naming stall B11 (4x3) at 5,000/sqm. Show opens 1 Oct: phone Kranthika +91 63097 91291 if still silent on 16 Sep. Settle up to 6,000/sqm.",
         "verdict": "counter",
-        "pending_action": "",
-        "rounds": [
-          {
-            "at": "2026-09-13T07:15:38Z",
-            "who": "organiser",
-            "rate": 6000,
-            "note": "first quote, built-up min 9 sqm"
-          },
-          {
-            "at": "2026-09-13T18:33:45Z",
-            "who": "us",
-            "rate": 6000,
-            "note": "accepted (old rules) + asked for corner, free extras, two instalments, proforma"
-          },
-          {
-            "at": "2026-09-13T20:42:12Z",
-            "who": "us",
-            "rate": 5000,
-            "note": "counter sent by Santosh (13 Sep rules: quote under 10k → open at 5,000)"
-          }
-        ]
+        "chosen_stall": "B11 (4 m x 3 m = 12 sqm) — CHECK: stall B11 was offered by India Automation & Robotics Expo on 14 Sep, and Santosh's \"finalise B11\" mail went to PAPEXPO. Confirm with Kranthika that PAPEXPO's layout really has a B11 before paying."
       },
-      "lastAt": "2026-09-14T07:31:33Z",
-      "lastDir": "out",
-      "count": 5
+      "organiser": "PAPEXPO (Kranthika T, Project Manager, +91 63097 91291)",
+      "stage": "negotiating",
+      "threadIds": [
+        "1a0970f7858ae37e"
+      ]
     },
     {
-      "eventId": "imtex-2027",
-      "organiser": "IMTMA",
-      "email": "info@imtex.in",
-      "stage": "follow-up sent",
-      "threadIds": [
-        "1a0970fedce9c698"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-12T19:19:58Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "info@imtex.in",
-          "subject": "IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma (space application deadline 12 Jan 2027)",
-          "messageId": "1a0970fedce9c698",
-          "threadId": "1a0970fedce9c698",
-          "kind": "enquiry"
-        },
-        {
-          "at": "2026-09-13T20:31:00Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "info@imtex.in",
-          "subject": "Re: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Priority follow-up sent on Santosh's instruction: 12 sqm shell scheme in the Digital Manufacturing pavilion, corner on the aisle from the main entrance; asked this week for the rate card + open-side surcharge + MSME / first-time rate, floor plan with free 12 sqm stalls, PMS status for 2027, space application form + proforma before the 12 Jan 2027 deadline.",
-          "messageId": "1a09c8aacb326776",
-          "threadId": "1a0970fedce9c698",
-          "kind": "nudge"
-        }
-      ],
-      "lastAt": "2026-09-13T20:31:00Z",
-      "lastDir": "out",
       "count": 2,
-      "negotiation": {
-        "sqm": 12,
-        "to_get": [
-          "Rate card for the Digital Manufacturing pavilion (Indian shell scheme) + open-side surcharge",
-          "MSME / startup / first-time-exhibitor rate and its last date",
-          "Floor plan with free 12 sqm stalls marked",
-          "PMS (DC-MSME) status for 2027",
-          "Space application form + proforma before 12 Jan 2027"
-        ],
-        "next_step": "Wait for IMTMA's rate card (follow-up sent 13 Sep); if silent by 17 Sep, phone +91 80 6624 6600. Catalogue estimate ₹15,000/sqm → open at ₹6,000, settle up to ₹8,000, escalate above.",
-        "verdict": null
-      }
-    },
-    {
-      "eventId": "indiasoft-2027",
-      "organiser": "ESC India",
-      "email": "indiasoft@escindia.com",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a09bd9b085b0a09"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-13T17:38:50Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "indiasoft@escindia.com",
-          "subject": "IndiaSoft 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell-scheme stall in the startup / AI zone; rate card, PMS status, startup pod, booking form + proforma asked",
-          "messageId": "1a09bd9b085b0a09",
-          "threadId": "1a09bd9b085b0a09",
-          "kind": "enquiry"
-        }
-      ],
-      "lastAt": "2026-09-13T17:38:50Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "elecrama-2027",
-      "organiser": "IEEMA",
-      "email": "mumbai@ieema.org",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a08fe11ea0ca8d3",
-        "1a097128f53ed7c9"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-11T09:51:30Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "response@elecrama.org",
-          "subject": "ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "12 sqm shell scheme; rate card, PMS status, startup pod, booking form",
-          "messageId": "1a08fe11ea0ca8d3",
-          "threadId": "1a08fe11ea0ca8d3",
-          "kind": "enquiry"
-        },
-        {
-          "at": "2026-09-11T09:51:34Z",
-          "dir": "bounce",
-          "from": "mailer-daemon@googlemail.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Delivery Status Notification (Failure)",
-          "snippet": "Address not found: response@elecrama.org (domain not found) could not be delivered (550 5.1.1)",
-          "messageId": "1a08fe130614814f",
-          "threadId": "1a08fe11ea0ca8d3",
-          "kind": "bounce"
-        },
-        {
-          "at": "2026-09-13T17:38:23Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "mumbai@ieema.org",
-          "subject": "ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "re-sent to the IEEMA Mumbai office; asked them to forward to the ELECRAMA space-booking team (booking.elecrama.com)",
-          "messageId": "1a09bd947ebea715",
-          "threadId": "1a097128f53ed7c9",
-          "kind": "enquiry"
-        }
-      ],
-      "lastAt": "2026-09-13T17:38:23Z",
-      "lastDir": "out",
-      "count": 3
-    },
-    {
-      "eventId": "middle-east-energy-2027",
-      "organiser": "Informa Markets (Middle East Energy)",
-      "email": "info@middleeast-energy.com",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a09711da3f6fe79"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-13T17:37:51Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "info@middleeast-energy.com",
-          "subject": "Middle East Energy 2027 — MSME / startup participation, stall rate card and India pavilion",
-          "snippet": "9-12 sqm stand, India pavilion (EEPC) or corner near the T&D hall; rate card, startup zone, proforma",
-          "messageId": "1a09bd8cda122a91",
-          "threadId": "1a09711da3f6fe79",
-          "kind": "enquiry"
-        }
-      ],
-      "lastAt": "2026-09-13T17:37:51Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "hardware-fair-india-2026",
-      "organiser": "Koelnmesse India",
-      "email": "info@koelnmesse-india.com",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a09711c6d48101f"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-13T17:37:50Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "info@koelnmesse-india.com",
-          "subject": "International Hardware Fair India 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme, corner / main aisle; rate card, PMS, startup pod, proforma",
-          "messageId": "1a09bd8c74d1bae7",
-          "threadId": "1a09711c6d48101f",
-          "kind": "enquiry"
-        }
-      ],
-      "lastAt": "2026-09-13T17:37:50Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "acetech-hyderabad-2027",
-      "organiser": "ABEC / ET ACETECH",
-      "email": "ranjeet.p@abec.asia",
-      "stage": "bounced",
-      "threadIds": [
-        "1a08fe1c7e01e8c6"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-13T17:37:46Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "ranjeet.p@abec.asia",
-          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma",
-          "messageId": "1a09bd8b9546726e",
-          "threadId": "1a08fe1c7e01e8c6",
-          "kind": "enquiry"
-        },
-        {
-          "at": "2026-09-13T17:37:48Z",
-          "dir": "bounce",
-          "from": "mailer-daemon@googlemail.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Delivery Status Notification (Failure)",
-          "snippet": "Address not found: ranjeet.p@abec.asia could not be delivered (550 5.1.1)",
-          "messageId": "1a09bd8be51e5457",
-          "threadId": "1a08fe1c7e01e8c6",
-          "kind": "bounce"
-        }
-      ],
-      "note": "needs a new ABEC contact before a re-send",
-      "lastAt": "2026-09-13T17:37:48Z",
-      "lastDir": "bounce",
-      "count": 2
-    },
-    {
-      "eventId": "imc-2026",
-      "organiser": "India Mobile Congress / ASPIRE",
       "email": "info@indiamobilecongress.com",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a09711846b1d0ff"
-      ],
+      "eventId": "imc-2026",
+      "lastAt": "2026-09-14T05:43:17Z",
+      "lastDir": "in",
       "messages": [
         {
           "at": "2026-09-12T19:21:42Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "info@indiamobilecongress.com",
-          "subject": "India Mobile Congress — ASPIRE startup pod: eligibility, cost and application timeline",
-          "snippet": "visiting 2026; asked ASPIRE pod eligibility, cost and timeline",
+          "kind": "enquiry",
           "messageId": "1a09711846b1d0ff",
+          "snippet": "visiting 2026; asked ASPIRE pod eligibility, cost and timeline",
+          "subject": "India Mobile Congress — ASPIRE startup pod: eligibility, cost and application timeline",
           "threadId": "1a09711846b1d0ff",
-          "kind": "enquiry"
+          "to": "info@indiamobilecongress.com"
+        },
+        {
+          "at": "2026-09-14T05:43:17Z",
+          "dir": "in",
+          "from": "project@indiamobilecongress.com",
+          "to": "souveno30@gmail.com",
+          "subject": "Your startup on the ASPIRE stage at India Mobile Congress 2026",
+          "kind": "invitation",
+          "snippet": "India Mobile Congress (10th edition, 7–10 October 2026, Yashobhoomi, New Delhi; DoT and COAI) invited startups to the ASPIRE stage. Separately Neetu Singh (neetu@tcoe.in) shared IMC_2026_Startup_Pitch_Deck_Template via Google Drive on 15 Sep.",
+          "messageId": "1a09e71242bc84f9",
+          "threadId": "1a09e71242bc84f9"
         }
       ],
-      "lastAt": "2026-09-12T19:21:42Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "startup-mahakumbh-2027",
-      "organiser": "Startup Mahakumbh secretariat",
-      "email": "enquiry@startupmahakumbh.org",
+      "organiser": "India Mobile Congress / ASPIRE",
       "stage": "enquiry sent",
       "threadIds": [
-        "1a0971179e7df3b5"
+        "1a09711846b1d0ff"
+      ]
+    },
+    {
+      "count": 2,
+      "email": "pramitk@eigroup.in",
+      "eventId": "convergence-india-2027",
+      "lastAt": "2026-09-14T05:08:37Z",
+      "lastDir": "in",
+      "messages": [
+        {
+          "at": "2026-09-12T19:21:41Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a097117e2dc27ce",
+          "snippet": "startup pod or 9 sqm in the AI pavilion; rate card, PMS, proforma",
+          "subject": "Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
+          "threadId": "1a097117e2dc27ce",
+          "to": "pramitk@eigroup.in"
+        },
+        {
+          "at": "2026-09-14T05:08:37Z",
+          "dir": "in",
+          "from": "pramitk@eigroup.in",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
+          "kind": "reply",
+          "snippet": "Pramit K forwarded our enquiry to his colleague Tariq (tariqi@eigroup.in), who should send the AI pavilion rate card. No numbers yet.",
+          "messageId": "1a09e514ef12a71f",
+          "threadId": "1a097117e2dc27ce"
+        }
       ],
+      "organiser": "Exhibitions India Group",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a097117e2dc27ce"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "indiasoft@escindia.com",
+      "eventId": "indiasoft-2027",
+      "lastAt": "2026-09-13T17:38:50Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-13T17:38:50Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd9b085b0a09",
+          "snippet": "9 sqm shell-scheme stall in the startup / AI zone; rate card, PMS status, startup pod, booking form + proforma asked",
+          "subject": "IndiaSoft 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a09bd9b085b0a09",
+          "to": "indiasoft@escindia.com"
+        }
+      ],
+      "organiser": "ESC India",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a09bd9b085b0a09"
+      ]
+    },
+    {
+      "count": 3,
+      "email": "mumbai@ieema.org",
+      "eventId": "elecrama-2027",
+      "lastAt": "2026-09-13T17:38:23Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-11T09:51:30Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a08fe11ea0ca8d3",
+          "snippet": "12 sqm shell scheme; rate card, PMS status, startup pod, booking form",
+          "subject": "ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a08fe11ea0ca8d3",
+          "to": "response@elecrama.org"
+        },
+        {
+          "at": "2026-09-11T09:51:34Z",
+          "dir": "bounce",
+          "from": "mailer-daemon@googlemail.com",
+          "kind": "bounce",
+          "messageId": "1a08fe130614814f",
+          "snippet": "Address not found: response@elecrama.org (domain not found) could not be delivered (550 5.1.1)",
+          "subject": "Delivery Status Notification (Failure)",
+          "threadId": "1a08fe11ea0ca8d3",
+          "to": "souveno30@gmail.com"
+        },
+        {
+          "at": "2026-09-13T17:38:23Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd947ebea715",
+          "snippet": "re-sent to the IEEMA Mumbai office; asked them to forward to the ELECRAMA space-booking team (booking.elecrama.com)",
+          "subject": "ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a097128f53ed7c9",
+          "to": "mumbai@ieema.org"
+        }
+      ],
+      "organiser": "IEEMA",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a08fe11ea0ca8d3",
+        "1a097128f53ed7c9"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "info@middleeast-energy.com",
+      "eventId": "middle-east-energy-2027",
+      "lastAt": "2026-09-13T17:37:51Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-13T17:37:51Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd8cda122a91",
+          "snippet": "9-12 sqm stand, India pavilion (EEPC) or corner near the T&D hall; rate card, startup zone, proforma",
+          "subject": "Middle East Energy 2027 — MSME / startup participation, stall rate card and India pavilion",
+          "threadId": "1a09711da3f6fe79",
+          "to": "info@middleeast-energy.com"
+        }
+      ],
+      "organiser": "Informa Markets (Middle East Energy)",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a09711da3f6fe79"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "info@koelnmesse-india.com",
+      "eventId": "hardware-fair-india-2026",
+      "lastAt": "2026-09-13T17:37:50Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-13T17:37:50Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd8c74d1bae7",
+          "snippet": "9 sqm shell scheme, corner / main aisle; rate card, PMS, startup pod, proforma",
+          "subject": "International Hardware Fair India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a09711c6d48101f",
+          "to": "info@koelnmesse-india.com"
+        }
+      ],
+      "organiser": "Koelnmesse India",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a09711c6d48101f"
+      ]
+    },
+    {
+      "count": 2,
+      "email": "ranjeet.p@abec.asia",
+      "eventId": "acetech-hyderabad-2027",
+      "lastAt": "2026-09-13T17:37:48Z",
+      "lastDir": "bounce",
+      "messages": [
+        {
+          "at": "2026-09-13T17:37:46Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd8b9546726e",
+          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma",
+          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a08fe1c7e01e8c6",
+          "to": "ranjeet.p@abec.asia"
+        },
+        {
+          "at": "2026-09-13T17:37:48Z",
+          "dir": "bounce",
+          "from": "mailer-daemon@googlemail.com",
+          "kind": "bounce",
+          "messageId": "1a09bd8be51e5457",
+          "snippet": "Address not found: ranjeet.p@abec.asia could not be delivered (550 5.1.1)",
+          "subject": "Delivery Status Notification (Failure)",
+          "threadId": "1a08fe1c7e01e8c6",
+          "to": "souveno30@gmail.com"
+        }
+      ],
+      "note": "needs a new ABEC contact before a re-send",
+      "organiser": "ABEC / ET ACETECH",
+      "stage": "bounced",
+      "threadIds": [
+        "1a08fe1c7e01e8c6"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "enquiry@startupmahakumbh.org",
+      "eventId": "startup-mahakumbh-2027",
+      "lastAt": "2026-09-12T19:21:39Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-12T19:21:39Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "enquiry@startupmahakumbh.org",
-          "subject": "Startup Mahakumbh 6.0 — subsidised startup pod in the B2B SaaS pavilion, rate card and how to apply",
-          "snippet": "startup pod in the B2B SaaS / AI pavilion; rate card and application",
+          "kind": "enquiry",
           "messageId": "1a0971179e7df3b5",
+          "snippet": "startup pod in the B2B SaaS / AI pavilion; rate card and application",
+          "subject": "Startup Mahakumbh 6.0 — subsidised startup pod in the B2B SaaS pavilion, rate card and how to apply",
           "threadId": "1a0971179e7df3b5",
-          "kind": "enquiry"
+          "to": "enquiry@startupmahakumbh.org"
         }
       ],
-      "lastAt": "2026-09-12T19:21:39Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "tie-global-summit-2026",
-      "organiser": "TiE Global Summit",
-      "email": "exhibit@tieglobalsummit.org",
+      "organiser": "Startup Mahakumbh secretariat",
       "stage": "enquiry sent",
       "threadIds": [
-        "1a09711701eeb60b"
-      ],
+        "1a0971179e7df3b5"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "exhibit@tieglobalsummit.org",
+      "eventId": "tie-global-summit-2026",
+      "lastAt": "2026-09-12T19:21:37Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-12T19:21:37Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "exhibit@tieglobalsummit.org",
-          "subject": "TiE Global Summit 2026 — startup expo pod, rate card and how to apply",
-          "snippet": "startup pod or small stall at the startup expo; rate card and application",
+          "kind": "enquiry",
           "messageId": "1a09711701eeb60b",
+          "snippet": "startup pod or small stall at the startup expo; rate card and application",
+          "subject": "TiE Global Summit 2026 — startup expo pod, rate card and how to apply",
           "threadId": "1a09711701eeb60b",
-          "kind": "enquiry"
+          "to": "exhibit@tieglobalsummit.org"
         }
       ],
-      "lastAt": "2026-09-12T19:21:37Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "intersec-dubai-2027",
-      "organiser": "Messe Frankfurt Middle East",
-      "email": "intersecglobal@uae.messefrankfurt.com",
+      "organiser": "TiE Global Summit",
       "stage": "enquiry sent",
       "threadIds": [
-        "1a097113079e903f"
-      ],
+        "1a09711701eeb60b"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "intersecglobal@uae.messefrankfurt.com",
+      "eventId": "intersec-dubai-2027",
+      "lastAt": "2026-09-12T19:21:21Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-12T19:21:21Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "intersecglobal@uae.messefrankfurt.com",
-          "subject": "Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
-          "snippet": "stand rate card, India pavilion, startup zone",
+          "kind": "enquiry",
           "messageId": "1a097113079e903f",
+          "snippet": "stand rate card, India pavilion, startup zone",
+          "subject": "Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
           "threadId": "1a097113079e903f",
-          "kind": "enquiry"
+          "to": "intersecglobal@uae.messefrankfurt.com"
         }
       ],
-      "lastAt": "2026-09-12T19:21:21Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "fastener-fair-india-2027",
-      "organiser": "RX India",
-      "email": "abhishek.gaurav1@rxglobal.com",
+      "organiser": "Messe Frankfurt Middle East",
       "stage": "enquiry sent",
       "threadIds": [
-        "1a09710b706adb78"
-      ],
+        "1a097113079e903f"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "abhishek.gaurav1@rxglobal.com",
+      "eventId": "fastener-fair-india-2027",
+      "lastAt": "2026-09-12T19:20:50Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-12T19:20:50Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "abhishek.gaurav1@rxglobal.com",
-          "subject": "India Warehousing Show 2027 (and Fastener Fair India 2027) — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "one RX India mail covers both shows; 9 sqm shell scheme, rate card, PMS, proforma",
+          "kind": "enquiry",
           "messageId": "1a09710b706adb78",
+          "snippet": "one RX India mail covers both shows; 9 sqm shell scheme, rate card, PMS, proforma",
+          "subject": "India Warehousing Show 2027 (and Fastener Fair India 2027) — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a09710b706adb78",
-          "kind": "enquiry"
+          "to": "abhishek.gaurav1@rxglobal.com"
         }
       ],
       "note": "one thread covers India Warehousing Show and Fastener Fair India",
-      "lastAt": "2026-09-12T19:20:50Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "eventId": "waremat-2026",
-      "organiser": "Midaas Touch Events",
-      "email": "waremat@midaastouch.in",
+      "organiser": "RX India",
       "stage": "enquiry sent",
       "threadIds": [
-        "1a0970f80320b77e"
-      ],
+        "1a09710b706adb78"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "waremat@midaastouch.in",
+      "eventId": "waremat-2026",
+      "lastAt": "2026-09-12T19:19:30Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-12T19:19:30Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "waremat@midaastouch.in",
-          "subject": "WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme at HITEX; rate card, PMS, proforma",
+          "kind": "enquiry",
           "messageId": "1a0970f80320b77e",
+          "snippet": "9 sqm shell scheme at HITEX; rate card, PMS, proforma",
+          "subject": "WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0970f80320b77e",
-          "kind": "enquiry"
+          "to": "waremat@midaastouch.in"
         }
       ],
-      "lastAt": "2026-09-12T19:19:30Z",
-      "lastDir": "out",
-      "count": 1
+      "organiser": "Midaas Touch Events",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a0970f80320b77e"
+      ]
     },
     {
-      "eventId": "automation-expo-2027",
-      "organiser": "IED Communications (Jyothi Joseph, Project Director, +91 98200 93667)",
+      "count": 2,
       "email": "jyothi@iedcommunications.com",
-      "stage": "rate card received",
-      "threadIds": [
-        "1a08fe166543a617"
-      ],
+      "eventId": "automation-expo-2027",
+      "lastAt": "2026-09-11T10:02:00Z",
+      "lastDir": "in",
       "messages": [
         {
           "at": "2026-09-11T09:51:49Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "jyothi@iedcommunications.com",
-          "subject": "Automation Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme on a main aisle; rate card, PMS, startup pod, proforma",
+          "kind": "enquiry",
           "messageId": "1a08fe166543a617",
+          "snippet": "9 sqm shell scheme on a main aisle; rate card, PMS, startup pod, proforma",
+          "subject": "Automation Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a08fe166543a617",
-          "kind": "enquiry"
+          "to": "jyothi@iedcommunications.com"
         },
         {
           "at": "2026-09-11T10:02:00Z",
           "dir": "in",
           "from": "jyothi8501joseph@gmail.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: Automation Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Brochure, Hall 2 & 3 layout and order form attached. Paperwork only 4 months before the expo, confirmation 30 days prior. Not DPIIT-approved; discounted startup / MSME rate ₹8,000/sqm + 18% GST (regular ₹13,500). Startup pavilion Hall 3, row A from A20.",
+          "kind": "rate card",
           "messageId": "1a08feafc845084b",
+          "snippet": "Brochure, Hall 2 & 3 layout and order form attached. Paperwork only 4 months before the expo, confirmation 30 days prior. Not DPIIT-approved; discounted startup / MSME rate ₹8,000/sqm + 18% GST (regular ₹13,500). Startup pavilion Hall 3, row A from A20.",
+          "subject": "Re: Automation Expo 2027 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a08fe166543a617",
-          "kind": "rate card"
+          "to": "souveno30@gmail.com"
         }
       ],
       "negotiation": {
-        "sqm": 9,
-        "quoted_rate": 8000,
-        "quoted_note": "startup / MSME rate + 18% GST (regular ₹13,500/sqm); paperwork accepted from Feb 2027 (4 months before), confirmation 30 days before",
-        "regular_rate": 13500,
-        "msme_rate": 8000,
-        "our_counter_rate": 5000,
         "agreed_rate": null,
-        "ceiling_rate": 6000,
         "band": "below_10k",
+        "ceiling_rate": 6000,
         "includes_free": [
           "Not stated — brochure attached (Hall 2 & 3 layout, order form)"
         ],
+        "msme_rate": 8000,
+        "next_step": "No rush (show is June 2027, paperwork from Feb 2027): the 00:01 desk counters at ₹5,000/sqm when the organiser follows up, or in Jan 2027",
         "optional_extras": [
           "Startup pavilion in Hall 3, row A from A20 (at the ₹8,000 rate)"
         ],
+        "our_counter_rate": 5000,
+        "pending_action": "counter at ₹5,000/sqm (band below 10k); settle up to ₹6,000",
+        "quoted_note": "startup / MSME rate + 18% GST (regular ₹13,500/sqm); paperwork accepted from Feb 2027 (4 months before), confirmation 30 days before",
+        "quoted_rate": 8000,
+        "regular_rate": 13500,
+        "rounds": [
+          {
+            "at": "2026-09-11T10:02:00Z",
+            "note": "startup / MSME rate; regular ₹13,500",
+            "rate": 8000,
+            "who": "organiser"
+          }
+        ],
+        "sqm": 9,
         "to_get": [
           "What the ₹8,000 rate includes (shell, fascia, power, badges)",
           "Main-aisle corner in Hall 2 or a row-A pod in Hall 3 marked on the layout",
           "Order form + proforma when paperwork opens (Feb 2027)",
           "Two instalments"
         ],
-        "next_step": "No rush (show is June 2027, paperwork from Feb 2027): the 00:01 desk counters at ₹5,000/sqm when the organiser follows up, or in Jan 2027",
-        "verdict": "counter",
-        "pending_action": "counter at ₹5,000/sqm (band below 10k); settle up to ₹6,000",
+        "verdict": "counter"
+      },
+      "organiser": "IED Communications (Jyothi Joseph, Project Director, +91 98200 93667)",
+      "stage": "rate card received",
+      "threadIds": [
+        "1a08fe166543a617"
+      ]
+    },
+    {
+      "count": 2,
+      "email": "engiexpo2015@gmail.com",
+      "eventId": "engiexpo-surat-2027",
+      "lastAt": "2026-09-11T09:52:27Z",
+      "lastDir": "in",
+      "messages": [
+        {
+          "at": "2026-09-11T09:51:10Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a08fe0d04dee26d",
+          "snippet": "one mail for the four EngiExpo editions; rate card, PMS, proforma",
+          "subject": "EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — MSME / startup participation, rate card and PMS approval",
+          "threadId": "1a08fe0d04dee26d",
+          "to": "engiexpo2015@gmail.com"
+        },
+        {
+          "at": "2026-09-11T09:52:27Z",
+          "dir": "in",
+          "from": "engiexpo2015@gmail.com",
+          "kind": "acknowledgement",
+          "messageId": "1a08fe22b3af8db2",
+          "snippet": "\"Received your mail.\" (acknowledgement only, no rate card yet)",
+          "subject": "Re: EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — …",
+          "threadId": "1a08fe0d04dee26d",
+          "to": "souveno30@gmail.com"
+        }
+      ],
+      "negotiation": {
+        "next_step": "Nudge on 18 Sep (7 days) if no rate card arrives",
+        "to_get": [
+          "Rate card and floor plan for each edition",
+          "PMS approval status",
+          "Proforma format"
+        ],
+        "verdict": null
+      },
+      "note": "one thread covers the four EngiExpo editions",
+      "organiser": "2way Advertising (EngiExpo)",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a08fe0d04dee26d"
+      ]
+    },
+    {
+      "count": 2,
+      "email": "engiexpo2015@gmail.com",
+      "eventId": "engiexpo-ahmedabad-2026",
+      "lastAt": "2026-09-11T09:52:27Z",
+      "lastDir": "in",
+      "messages": [
+        {
+          "at": "2026-09-11T09:51:10Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a08fe0d04dee26d",
+          "snippet": "one mail for the four EngiExpo editions; rate card, PMS, proforma",
+          "subject": "EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — MSME / startup participation, rate card and PMS approval",
+          "threadId": "1a08fe0d04dee26d",
+          "to": "engiexpo2015@gmail.com"
+        },
+        {
+          "at": "2026-09-11T09:52:27Z",
+          "dir": "in",
+          "from": "engiexpo2015@gmail.com",
+          "kind": "acknowledgement",
+          "messageId": "1a08fe22b3af8db2",
+          "snippet": "\"Received your mail.\" (acknowledgement only, no rate card yet)",
+          "subject": "Re: EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — …",
+          "threadId": "1a08fe0d04dee26d",
+          "to": "souveno30@gmail.com"
+        }
+      ],
+      "negotiation": {
+        "next_step": "Nudge on 18 Sep (7 days) if no rate card arrives",
+        "to_get": [
+          "Rate card and floor plan for each edition",
+          "PMS approval status",
+          "Proforma format"
+        ],
+        "verdict": null
+      },
+      "note": "one thread covers the four EngiExpo editions",
+      "organiser": "2way Advertising (EngiExpo)",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a08fe0d04dee26d"
+      ]
+    },
+    {
+      "count": 2,
+      "email": "engiexpo2015@gmail.com",
+      "eventId": "engiexpo-pune-2026",
+      "lastAt": "2026-09-11T09:52:27Z",
+      "lastDir": "in",
+      "messages": [
+        {
+          "at": "2026-09-11T09:51:10Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a08fe0d04dee26d",
+          "snippet": "one mail for the four EngiExpo editions; rate card, PMS, proforma",
+          "subject": "EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — MSME / startup participation, rate card and PMS approval",
+          "threadId": "1a08fe0d04dee26d",
+          "to": "engiexpo2015@gmail.com"
+        },
+        {
+          "at": "2026-09-11T09:52:27Z",
+          "dir": "in",
+          "from": "engiexpo2015@gmail.com",
+          "kind": "acknowledgement",
+          "messageId": "1a08fe22b3af8db2",
+          "snippet": "\"Received your mail.\" (acknowledgement only, no rate card yet)",
+          "subject": "Re: EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — …",
+          "threadId": "1a08fe0d04dee26d",
+          "to": "souveno30@gmail.com"
+        }
+      ],
+      "negotiation": {
+        "band": "below_10k",
+        "ceiling_rate": 6000,
+        "next_step": "Desk sends the ₹5,000/sqm counter tonight; then wait for the organiser's answer",
+        "our_counter_rate": 5000,
+        "pending_action": "counter at ₹5,000/sqm requested by Santosh on 2026-09-13 — the 00:01 desk sends it in-thread",
+        "quoted_rate": 8500,
         "rounds": [
           {
-            "at": "2026-09-11T10:02:00Z",
-            "who": "organiser",
-            "rate": 8000,
-            "note": "startup / MSME rate; regular ₹13,500"
+            "at": "2026-09-13T20:47:25.148Z",
+            "note": "counter requested from the dashboard",
+            "rate": 5000,
+            "who": "us (requested)"
           }
-        ]
-      },
-      "lastAt": "2026-09-11T10:02:00Z",
-      "lastDir": "in",
-      "count": 2
-    },
-    {
-      "eventId": "engiexpo-pune-2026",
-      "organiser": "2way Advertising (EngiExpo)",
-      "email": "engiexpo2015@gmail.com",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a08fe0d04dee26d"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-11T09:51:10Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "engiexpo2015@gmail.com",
-          "subject": "EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — MSME / startup participation, rate card and PMS approval",
-          "snippet": "one mail for the four EngiExpo editions; rate card, PMS, proforma",
-          "messageId": "1a08fe0d04dee26d",
-          "threadId": "1a08fe0d04dee26d",
-          "kind": "enquiry"
-        },
-        {
-          "at": "2026-09-11T09:52:27Z",
-          "dir": "in",
-          "from": "engiexpo2015@gmail.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — …",
-          "snippet": "\"Received your mail.\" (acknowledgement only, no rate card yet)",
-          "messageId": "1a08fe22b3af8db2",
-          "threadId": "1a08fe0d04dee26d",
-          "kind": "acknowledgement"
-        }
-      ],
-      "negotiation": {
+        ],
+        "sqm": 9,
         "to_get": [
           "Rate card and floor plan for each edition",
           "PMS approval status",
           "Proforma format"
         ],
-        "next_step": "Nudge on 18 Sep (7 days) if no rate card arrives",
-        "verdict": null
+        "verdict": "counter"
       },
       "note": "one thread covers the four EngiExpo editions",
-      "lastAt": "2026-09-11T09:52:27Z",
-      "lastDir": "in",
-      "count": 2
-    },
-    {
-      "eventId": "engiexpo-ahmedabad-2026",
       "organiser": "2way Advertising (EngiExpo)",
-      "email": "engiexpo2015@gmail.com",
-      "stage": "enquiry sent",
+      "stage": "negotiating",
       "threadIds": [
         "1a08fe0d04dee26d"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-11T09:51:10Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "engiexpo2015@gmail.com",
-          "subject": "EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — MSME / startup participation, rate card and PMS approval",
-          "snippet": "one mail for the four EngiExpo editions; rate card, PMS, proforma",
-          "messageId": "1a08fe0d04dee26d",
-          "threadId": "1a08fe0d04dee26d",
-          "kind": "enquiry"
-        },
-        {
-          "at": "2026-09-11T09:52:27Z",
-          "dir": "in",
-          "from": "engiexpo2015@gmail.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — …",
-          "snippet": "\"Received your mail.\" (acknowledgement only, no rate card yet)",
-          "messageId": "1a08fe22b3af8db2",
-          "threadId": "1a08fe0d04dee26d",
-          "kind": "acknowledgement"
-        }
-      ],
-      "negotiation": {
-        "to_get": [
-          "Rate card and floor plan for each edition",
-          "PMS approval status",
-          "Proforma format"
-        ],
-        "next_step": "Nudge on 18 Sep (7 days) if no rate card arrives",
-        "verdict": null
-      },
-      "note": "one thread covers the four EngiExpo editions",
-      "lastAt": "2026-09-11T09:52:27Z",
-      "lastDir": "in",
-      "count": 2
+      ]
     },
     {
-      "eventId": "engiexpo-surat-2027",
-      "organiser": "2way Advertising (EngiExpo)",
+      "count": 2,
       "email": "engiexpo2015@gmail.com",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a08fe0d04dee26d"
-      ],
-      "messages": [
-        {
-          "at": "2026-09-11T09:51:10Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "engiexpo2015@gmail.com",
-          "subject": "EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — MSME / startup participation, rate card and PMS approval",
-          "snippet": "one mail for the four EngiExpo editions; rate card, PMS, proforma",
-          "messageId": "1a08fe0d04dee26d",
-          "threadId": "1a08fe0d04dee26d",
-          "kind": "enquiry"
-        },
-        {
-          "at": "2026-09-11T09:52:27Z",
-          "dir": "in",
-          "from": "engiexpo2015@gmail.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — …",
-          "snippet": "\"Received your mail.\" (acknowledgement only, no rate card yet)",
-          "messageId": "1a08fe22b3af8db2",
-          "threadId": "1a08fe0d04dee26d",
-          "kind": "acknowledgement"
-        }
-      ],
-      "negotiation": {
-        "to_get": [
-          "Rate card and floor plan for each edition",
-          "PMS approval status",
-          "Proforma format"
-        ],
-        "next_step": "Nudge on 18 Sep (7 days) if no rate card arrives",
-        "verdict": null
-      },
-      "note": "one thread covers the four EngiExpo editions",
-      "lastAt": "2026-09-11T09:52:27Z",
-      "lastDir": "in",
-      "count": 2
-    },
-    {
       "eventId": "engiexpo-jaipur-2027",
-      "organiser": "2way Advertising (EngiExpo)",
-      "email": "engiexpo2015@gmail.com",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a08fe0d04dee26d"
-      ],
+      "lastAt": "2026-09-11T09:52:27Z",
+      "lastDir": "in",
       "messages": [
         {
           "at": "2026-09-11T09:51:10Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "engiexpo2015@gmail.com",
-          "subject": "EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — MSME / startup participation, rate card and PMS approval",
-          "snippet": "one mail for the four EngiExpo editions; rate card, PMS, proforma",
+          "kind": "enquiry",
           "messageId": "1a08fe0d04dee26d",
+          "snippet": "one mail for the four EngiExpo editions; rate card, PMS, proforma",
+          "subject": "EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — MSME / startup participation, rate card and PMS approval",
           "threadId": "1a08fe0d04dee26d",
-          "kind": "enquiry"
+          "to": "engiexpo2015@gmail.com"
         },
         {
           "at": "2026-09-11T09:52:27Z",
           "dir": "in",
           "from": "engiexpo2015@gmail.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Re: EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — …",
-          "snippet": "\"Received your mail.\" (acknowledgement only, no rate card yet)",
+          "kind": "acknowledgement",
           "messageId": "1a08fe22b3af8db2",
+          "snippet": "\"Received your mail.\" (acknowledgement only, no rate card yet)",
+          "subject": "Re: EngiExpo Pune 2026, Ahmedabad 2026, Surat 2027, Jaipur 2027 — …",
           "threadId": "1a08fe0d04dee26d",
-          "kind": "acknowledgement"
+          "to": "souveno30@gmail.com"
         }
       ],
       "negotiation": {
+        "next_step": "Nudge on 18 Sep (7 days) if no rate card arrives",
         "to_get": [
           "Rate card and floor plan for each edition",
           "PMS approval status",
           "Proforma format"
         ],
-        "next_step": "Nudge on 18 Sep (7 days) if no rate card arrives",
         "verdict": null
       },
       "note": "one thread covers the four EngiExpo editions",
-      "lastAt": "2026-09-11T09:52:27Z",
-      "lastDir": "in",
-      "count": 2
-    },
-    {
-      "eventId": "plastivision-2027",
-      "organiser": "AIPMA",
-      "email": "sales@plastivision.org",
+      "organiser": "2way Advertising (EngiExpo)",
       "stage": "enquiry sent",
       "threadIds": [
-        "1a08fe0b965d53b4"
-      ],
+        "1a08fe0d04dee26d"
+      ]
+    },
+    {
+      "count": 1,
+      "email": "sales@plastivision.org",
+      "eventId": "plastivision-2027",
+      "lastAt": "2026-09-11T09:51:04Z",
+      "lastDir": "out",
       "messages": [
         {
           "at": "2026-09-11T09:51:04Z",
           "dir": "out",
           "from": "souveno30@gmail.com",
-          "to": "sales@plastivision.org",
-          "subject": "Plastivision India 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "12 sqm shell scheme; rate card, PMS (not on the DC-MSME list per Santosh), MSME corner, proforma",
+          "kind": "enquiry",
           "messageId": "1a08fe0b965d53b4",
+          "snippet": "12 sqm shell scheme; rate card, PMS (not on the DC-MSME list per Santosh), MSME corner, proforma",
+          "subject": "Plastivision India 2027 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a08fe0b965d53b4",
-          "kind": "enquiry"
+          "to": "sales@plastivision.org"
         }
       ],
-      "lastAt": "2026-09-11T09:51:04Z",
-      "lastDir": "out",
-      "count": 1
+      "organiser": "AIPMA",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a08fe0b965d53b4"
+      ]
     },
     {
-      "eventId": "ifsec-india-2026",
-      "organiser": "Informa Markets India",
+      "count": 0,
       "email": "prashant.jain@informa.com",
-      "stage": "draft waiting for Santosh",
-      "threadIds": [],
+      "eventId": "ifsec-india-2026",
       "messages": [],
       "note": "Gmail draft to prashant.jain@informa.com (cc sanjay.khandelwal@informa.com) is blocked from sending by the permission checker on 12 and 13 Sep: Santosh presses Send",
-      "count": 0
+      "organiser": "Informa Markets India",
+      "stage": "draft waiting for Santosh",
+      "threadIds": []
     }
   ]
 }
