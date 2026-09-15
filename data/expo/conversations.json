@@ -118,6 +118,53 @@
     },
     {
       "count": 3,
+      "email": "pramitk@eigroup.in",
+      "eventId": "convergence-india-2027",
+      "lastAt": "2026-09-15T05:23:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-12T19:21:41Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a097117e2dc27ce",
+          "snippet": "startup pod or 9 sqm in the AI pavilion; rate card, PMS, proforma",
+          "subject": "Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
+          "threadId": "1a097117e2dc27ce",
+          "to": "pramitk@eigroup.in"
+        },
+        {
+          "at": "2026-09-14T05:08:37Z",
+          "dir": "in",
+          "from": "pramitk@eigroup.in",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
+          "kind": "reply",
+          "snippet": "Pramit K forwarded our enquiry to his colleague Tariq (tariqi@eigroup.in), who should send the AI pavilion rate card. No numbers yet.",
+          "messageId": "1a09e514ef12a71f",
+          "threadId": "1a097117e2dc27ce"
+        },
+        {
+          "at": "2026-09-15T05:23:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "tariqi@eigroup.in",
+          "subject": "Re: Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
+          "snippet": "DRAFT (not sent, Santosh presses Send): restated the five asks to Tariq — rate card and plan for a startup pod or 9 sqm AI-pavilion stall, early-bird / MSME / startup rates with last dates, PMS listing status, the startup / DPIIT pod package and eligibility, booking form and proforma.",
+          "messageId": "1a0a570480392d04",
+          "threadId": "1a097117e2dc27ce",
+          "kind": "nudge"
+        }
+      ],
+      "organiser": "Exhibitions India Group",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a097117e2dc27ce"
+      ]
+    },
+    {
+      "count": 3,
       "email": "abhishek.gaurav1@rxglobal.com",
       "eventId": "india-warehousing-show-2027",
       "lastAt": "2026-09-15T05:22:00Z",
@@ -672,42 +719,6 @@
       "stage": "enquiry sent",
       "threadIds": [
         "1a09711846b1d0ff"
-      ]
-    },
-    {
-      "count": 2,
-      "email": "pramitk@eigroup.in",
-      "eventId": "convergence-india-2027",
-      "lastAt": "2026-09-14T05:08:37Z",
-      "lastDir": "in",
-      "messages": [
-        {
-          "at": "2026-09-12T19:21:41Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a097117e2dc27ce",
-          "snippet": "startup pod or 9 sqm in the AI pavilion; rate card, PMS, proforma",
-          "subject": "Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
-          "threadId": "1a097117e2dc27ce",
-          "to": "pramitk@eigroup.in"
-        },
-        {
-          "at": "2026-09-14T05:08:37Z",
-          "dir": "in",
-          "from": "pramitk@eigroup.in",
-          "to": "souveno30@gmail.com",
-          "subject": "RE: Convergence India 2027 — MSME / startup participation, AI pavilion pod, rate card and PMS approval",
-          "kind": "reply",
-          "snippet": "Pramit K forwarded our enquiry to his colleague Tariq (tariqi@eigroup.in), who should send the AI pavilion rate card. No numbers yet.",
-          "messageId": "1a09e514ef12a71f",
-          "threadId": "1a097117e2dc27ce"
-        }
-      ],
-      "organiser": "Exhibitions India Group",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a097117e2dc27ce"
       ]
     },
     {
