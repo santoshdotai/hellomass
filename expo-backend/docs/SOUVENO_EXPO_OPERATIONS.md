@@ -284,3 +284,4 @@ Santosh handles every organiser conversation himself once it starts. The routine
 * The moment an organiser replies, that thread is Santosh's. No desk sends or drafts anything into it again — no counter, no acceptance, no question.
 * The 00:01 desk still reads every reply, works out the price position under the bargaining rules, records it in the Conversations tab and mails the brief to santoshdotai@gmail.com with suggested wording. It never writes to the organiser.
 * The Bargain button on the dashboard produces a suggested counter for Santosh to send; it does not queue a mail.
+* The rule covers organisers only. Briefs and summaries to santoshdotai@gmail.com are still sent every time.
