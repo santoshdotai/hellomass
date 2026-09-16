@@ -1,6 +1,32 @@
 {
   "items": [
     {
+      "eventId": "gulfood-manufacturing-2026",
+      "organiser": "Gulfood Manufacturing commercial team (inD Events FZE / DWTC)",
+      "email": "gfm@dwtc.com",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a0ab4b7c34f2507"
+      ],
+      "note": "first address found on 16 Sep: the Get in touch block on gulfoodmanufacturing.com lists Commercial Team gfm@dwtc.com; show opens 3 Nov so this is a late-availability enquiry",
+      "messages": [
+        {
+          "at": "2026-09-16T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "gfm@dwtc.com",
+          "subject": "Gulfood Manufacturing 2026 — MSME / startup participation, stand rate card and India pavilion",
+          "snippet": "9 sqm shell scheme, India pavilion or Packaging & Processing hall, corner or main aisle; rate card + floor plan with free stands, late-booking / startup rates and payment terms, India pavilion coordinator, startup zone, booking form and proforma",
+          "messageId": "1a0ab4b7c34f2507",
+          "threadId": "1a0ab4b7c34f2507",
+          "kind": "enquiry"
+        }
+      ],
+      "lastAt": "2026-09-16T17:45:00Z",
+      "lastDir": "out",
+      "count": 1
+    },
+    {
       "count": 6,
       "email": "prasant@imtma.in",
       "eventId": "imtex-2027",
