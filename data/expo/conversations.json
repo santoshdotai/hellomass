@@ -1,6 +1,32 @@
 {
   "items": [
     {
+      "eventId": "telangana-rising-2026",
+      "organiser": "T-Hub (showcase pods) / Govt. of Telangana",
+      "email": "events@t-hub.co",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a0b0727ef4c4e5e"
+      ],
+      "note": "the summit publishes no exhibitor address (app helpdesk only), so the pod request goes through T-Hub, whose official contact page lists events@t-hub.co and valuepartners@t-hub.co",
+      "messages": [
+        {
+          "at": "2026-09-17T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "events@t-hub.co (cc valuepartners@t-hub.co)",
+          "subject": "Telangana Rising Global Summit 2026 — startup showcase pod through T-Hub",
+          "snippet": "asks whether T-Hub is curating a startup showcase at the 7-9 Dec summit, how a Hyderabad startup applies, eligibility and last date, whether incubation is a precondition, any fee and proforma, and the TGIC contact if the showcase sits elsewhere",
+          "messageId": "1a0b0727ef4c4e5e",
+          "threadId": "1a0b0727ef4c4e5e",
+          "kind": "enquiry"
+        }
+      ],
+      "lastAt": "2026-09-17T17:45:00Z",
+      "lastDir": "out",
+      "count": 1
+    },
+    {
       "eventId": "gulfood-manufacturing-2026",
       "organiser": "Gulfood Manufacturing commercial team (inD Events FZE / DWTC)",
       "email": "gfm@dwtc.com",
