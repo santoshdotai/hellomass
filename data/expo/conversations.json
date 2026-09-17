@@ -1,6 +1,104 @@
 {
   "items": [
     {
+      "count": 4,
+      "email": "info@indiamobilecongress.com",
+      "eventId": "imc-2026",
+      "lastAt": "2026-09-17T18:02:12Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-12T19:21:42Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09711846b1d0ff",
+          "snippet": "visiting 2026; asked ASPIRE pod eligibility, cost and timeline",
+          "subject": "India Mobile Congress — ASPIRE startup pod: eligibility, cost and application timeline",
+          "threadId": "1a09711846b1d0ff",
+          "to": "info@indiamobilecongress.com"
+        },
+        {
+          "at": "2026-09-14T05:43:17Z",
+          "dir": "in",
+          "from": "project@indiamobilecongress.com",
+          "to": "souveno30@gmail.com",
+          "subject": "Your startup on the ASPIRE stage at India Mobile Congress 2026",
+          "kind": "invitation",
+          "snippet": "India Mobile Congress (10th edition, 7–10 October 2026, Yashobhoomi, New Delhi; DoT and COAI) invited startups to the ASPIRE stage. Separately Neetu Singh (neetu@tcoe.in) shared IMC_2026_Startup_Pitch_Deck_Template via Google Drive on 15 Sep.",
+          "messageId": "1a09e71242bc84f9",
+          "threadId": "1a09e71242bc84f9"
+        },
+        {
+          "at": "2026-09-15T07:56:29Z",
+          "dir": "in",
+          "from": "neetu@tcoe.in",
+          "to": "souveno30@gmail.com",
+          "subject": "Presentation shared with you: IMC_2026_Startup_Pitch_Deck_Template - 9th August.pptx",
+          "snippet": "Neetu Singh (TCoE, the IMC startup track) shared the ASPIRE pitch-deck template over Google Drive — the format for the Aspire Live Pitch. Follows the 14 Sep ASPIRE invitation; no deadline named in either mail.",
+          "messageId": "1a0a41143a7eb423",
+          "threadId": "1a0a41143a7eb423",
+          "kind": "documents"
+        },
+        {
+          "at": "2026-09-17T18:02:12Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "project@indiamobilecongress.com",
+          "subject": "Re: Your startup on the ASPIRE stage at India Mobile Congress 2026",
+          "snippet": "Santosh submitted the ASPIRE participation form WITH payment details for Souveno AI Solutions and is chasing confirmation, which had not arrived.",
+          "messageId": "1a0b08884b4b8a29",
+          "threadId": "1a09e71242bc84f9",
+          "kind": "reply"
+        }
+      ],
+      "organiser": "India Mobile Congress / ASPIRE (DoT + COAI; TCoE runs the startup track)",
+      "stage": "applied — awaiting confirmation",
+      "threadIds": [
+        "1a09711846b1d0ff"
+      ],
+      "negotiation": {
+        "sqm": 3.2,
+        "quoted_rate": 750,
+        "quoted_note": "ASPIRE startup pod, about 3.2 sqm, subsidised participation fee Rs 2,400 inclusive of GST (~Rs 750/sqm) — fully refunded if the application is not selected",
+        "our_counter_rate": null,
+        "agreed_rate": null,
+        "ceiling_rate": 6000,
+        "band": "below_10k",
+        "includes_free": [
+          "ready-to-use pod in the ASPIRE Pavilion",
+          "fascia branding",
+          "Wi-Fi",
+          "exhibitor badges",
+          "listing in the IMC 2026 exhibitor e-directory",
+          "entry to the Aspire Live Pitch shortlist and the Investor Reverse Pitch",
+          "curated 1:1 investor and mentor meetings",
+          "entry to Startup World Cup - India",
+          "masterclasses, Open API Hackathon and AI for Good"
+        ],
+        "optional_extras": [],
+        "to_get": [
+          "submit the ASPIRE participation form (Google Form link in the 14 Sep mail)",
+          "the pitch deck, using the template TCoE shared on 15 Sep",
+          "the application deadline and the selection date — neither mail states them",
+          "whether the pod includes a screen or only fascia branding",
+          "confirmation of what the Rs 2,400 covers for all four days"
+        ],
+        "next_step": "Applied: form and payment details submitted on 17 Sep, no acknowledgement from IMC yet. The fee is 2,400 inclusive and refundable if not selected, so the money is not the risk — the risk is silence with the show on 7-10 October. If nothing comes back by 21 Sep, chase project@indiamobilecongress.com and Neetu Singh at TCoE. If the pod is granted, IMC turns from a visit into an exhibit and the travel plan changes.",
+        "verdict": "accept",
+        "pending_action": "IMC to confirm the pod",
+        "suggested_reply": "(Not a mail to the organiser — this is the application Santosh submits himself.)\n\nASPIRE participation form: https://docs.google.com/forms/d/e/1FAIpQLSc8vGtmS_Di_zI00mQZZVlfcwqVTLZ1B0Q1kBEuOY3tWSk-wA/viewform\nPitch deck template shared by Neetu Singh (neetu@tcoe.in) on 15 Sep: IMC_2026_Startup_Pitch_Deck_Template - 9th August.pptx\n\nFacts for the form: Souveno AI Solutions, Hyderabad, Udyam-registered micro enterprise, GSTIN 36BDNPP2011D2ZV, founder Santosh Padmaa, +91 86393 32232, souveno30@gmail.com, https://souveno.ai. Products: a WhatsApp AI quote desk for manufacturers and distributors, and Vision AI for attendance, stock and vehicle counting.\n\nIf a reply to the IMC team is wanted alongside the form, the substance is: we are applying for an ASPIRE pod, we accept the Rs 2,400 participation fee, and we would like to know the application deadline, when selection is announced, and whether the pod includes a screen or only fascia branding.",
+        "rounds": [
+          {
+            "at": "2026-09-14T05:43:17Z",
+            "who": "organiser",
+            "rate": 750,
+            "note": "ASPIRE pod ~3.2 sqm at Rs 2,400 incl. GST, refundable if not selected"
+          }
+        ]
+      }
+    },
+    {
       "eventId": "telangana-rising-2026",
       "organiser": "T-Hub (showcase pods) / Govt. of Telangana",
       "email": "events@t-hub.co",
@@ -25,6 +123,436 @@
       "lastAt": "2026-09-17T17:45:00Z",
       "lastDir": "out",
       "count": 1
+    },
+    {
+      "count": 7,
+      "email": "vaishali.jain@ind-group.com",
+      "eventId": "ifsec-india-2026",
+      "messages": [
+        {
+          "at": "2026-09-14T18:00:24Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "prashant.jain@informa.com (cc sanjay.khandelwal@informa.com)",
+          "subject": "IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "9 sqm shell scheme in the video-analytics / AI zone, corner or main aisle; rate card + floor plan, MSME/startup/early-bird rates, PMS approval, startup pod, booking form and proforma",
+          "messageId": "1a0a113ca4386e42",
+          "threadId": "1a09712891845ec5",
+          "kind": "enquiry"
+        },
+        {
+          "at": "2026-09-16T05:25:00Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "After a phone call: two Startup Zone booths in Hall 4. S03 (3x2 = 6 sqm, 1 side open) at 21,500/sqm and S08 (3.5x2 = 7 sqm, 2 sides open) at 22,000/sqm, each less a 5% discount, PLUS a fixed www.ifsecmarket.com charge of 27,500. All-in: S03 = 1,77,059, S08 = 2,05,084 including 18% GST. Floor layout and booking form attached; 4 sqm was being checked internally.",
+          "messageId": "1a0aa16dc745a9e0",
+          "threadId": "1a09712891845ec5",
+          "kind": "rate card"
+        },
+        {
+          "at": "2026-09-16T12:15:06Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "vaishali.jain@ind-group.com",
+          "subject": "Re: IFSEC India 2026",
+          "snippet": "Santosh asked whether a 4 sqm pod is still possible, said he would otherwise take the 7 sqm, and asked for an additional startup discount.",
+          "messageId": "1a0aa2467c905ad5",
+          "threadId": "1a09712891845ec5",
+          "kind": "counter"
+        },
+        {
+          "at": "2026-09-16T13:04:26Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026",
+          "snippet": "No 4 sqm booths in the Startup Zone; they could try to fit 4 sqm in Hall 5 between booths C30 and D29 instead (outside the startup zone, no price given).",
+          "messageId": "1a0aa51b9fc04a6f",
+          "threadId": "1a09712891845ec5",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-16T13:09:49Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "vaishali.jain@ind-group.com",
+          "subject": "Re: IFSEC India 2026",
+          "snippet": "Santosh: 'We would go ahead with S08 startup booth.'",
+          "messageId": "1a0aa567c0aa5a54",
+          "threadId": "1a09712891845ec5",
+          "kind": "accept"
+        },
+        {
+          "at": "2026-09-16T13:22:43Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026",
+          "snippet": "'Perfect!' — asked for the signed and stamped booking form plus company details to confirm S08. No answer on a further discount, and nothing yet on MSME / PMS.",
+          "messageId": "1a0aa62c7e17923a",
+          "threadId": "1a09712891845ec5",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-17T14:17:23Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "vaishali.jain@ind-group.com",
+          "subject": "Re: IFSEC India 2026",
+          "snippet": "Santosh asked whether payment must go with the form and whether the price is final or a little more startup discount is possible; he will act once she answers. Nothing signed or paid yet.",
+          "messageId": "1a0afbabb4638dea",
+          "threadId": "1a09712891845ec5",
+          "kind": "counter"
+        }
+      ],
+      "note": "cc sanjay.khandelwal@informa.com; the send was blocked by the permission checker on 12 and 13 Sep and went through on 14 Sep",
+      "organiser": "Informa Markets India (Vaishali Jain, Project Manager, Security Portfolio, +91 99838 71404)",
+      "stage": "negotiating",
+      "threadIds": [
+        "1a09712891845ec5"
+      ],
+      "lastAt": "2026-09-17T14:17:23Z",
+      "lastDir": "out",
+      "negotiation": {
+        "sqm": 7,
+        "quoted_rate": 20900,
+        "quoted_note": "Startup Zone Hall 4. S08 (3.5x2 = 7 sqm, 2 sides open): 22,000/sqm less 5% = 20,900/sqm effective, space 1,46,300, plus a FIXED ifsecmarket.com charge of 27,500 = 1,73,800 + 18% GST = 2,05,084. Alternative S03 (6 sqm, 1 side open): 20,425/sqm effective, all-in 1,77,059. The 27,500 listing fee does not scale with size, so all-in per sqm is nearly identical: 29,510 for S03 against 29,298 for S08 — S08 is the better value of the two, and it has a second open side.",
+        "regular_rate": 22000,
+        "our_counter_rate": 6000,
+        "agreed_rate": null,
+        "ceiling_rate": 8000,
+        "band": "above_13k",
+        "includes_free": [
+          "shell scheme booth",
+          "www.ifsecmarket.com listing (charged at 27,500, not optional as presented)"
+        ],
+        "optional_extras": [
+          "S03, 6 sqm 1 side open, all-in 1,77,059",
+          "4 sqm in Hall 5 between C30 and D29, outside the Startup Zone, not priced"
+        ],
+        "to_get": [
+          "whether IFSEC India 2026 is on the DC-MSME PMS list or has an MSME pavilion — at 2,05,084 a PMS claim is the single biggest lever",
+          "whether the 27,500 ifsecmarket charge can be waived or reduced for a first-time startup",
+          "any further startup / first-time / early-payment discount",
+          "what the shell scheme includes and the badge count",
+          "whether payment must accompany the signed booking form"
+        ],
+        "next_step": "Santosh has verbally taken S08 and asked Vaishali for a further discount; nothing is signed or paid. The rules say a quote above 13,000/sqm opens at 6,000 and escalates — this is 20,900/sqm, about 2.6 times our 8,000 ceiling, so it is his call, not the desk's. Before he signs, two questions are worth real money: the PMS listing status (a claim could recover up to about 1.2 lakh at this size) and whether the fixed 27,500 listing fee can be cut.",
+        "verdict": "escalate",
+        "pending_action": "Santosh: waiting on Vaishali's answer on discount and payment terms",
+        "suggested_reply": "(Santosh is mid-thread with Vaishali and has asked about a further startup discount, so this is only the wording for the open points.)\n\nDear Vaishali,\n\nThank you for the options and the booking form. S08 in the Startup Zone is the one we want.\n\nBefore we sign and pay, three things:\n\n1. Is IFSEC India 2026 on the DC-MSME approved list for the Procurement and Marketing Support scheme, or does it have an MSME pavilion? We are a Udyam-registered micro enterprise and the claim has to be filed 30 days before the show, so this materially changes what participation costs us.\n2. The www.ifsecmarket.com charge of Rs 27,500 is the same whether we take 6 or 7 sqm. Is it optional, or can it be waived or reduced for a first-time startup exhibitor? On a 7 sqm booth it is about Rs 3,900/sqm on top of the space rate.\n3. On the rate itself: Rs 22,000/sqm less 5% is well above what we have budgeted for a first show. If there is a startup-zone rate, an early-payment rate, or any further discount for a first-time exhibitor, please apply it.\n\nCould you also confirm what the shell scheme includes: fascia name board, table and chairs, carpet, spotlights, power point and how many exhibitor badges.\n\nRegards,\nSantosh Padmaa",
+        "rounds": [
+          {
+            "at": "2026-09-16T05:25:00Z",
+            "who": "organiser",
+            "rate": 20900,
+            "note": "S08 at 22,000/sqm less 5%, plus 27,500 fixed listing; all-in 2,05,084"
+          },
+          {
+            "at": "2026-09-16T13:09:49Z",
+            "who": "us",
+            "rate": 20900,
+            "note": "Santosh chose S08 verbally"
+          },
+          {
+            "at": "2026-09-17T14:17:23Z",
+            "who": "us",
+            "rate": 20900,
+            "note": "Santosh asked for a further startup discount; answer awaited"
+          }
+        ]
+      }
+    },
+    {
+      "email": "Abhas@nasscom.in",
+      "organiser": "Nasscom (Abhas Aggarwal, +91 83605 45467; Mukesh cc)",
+      "stage": "selection process — deck to send",
+      "threadIds": [
+        "1a0a11492480834f"
+      ],
+      "note": "no separate Emerge showcase address exists; events@nasscom.in is Nasscom's published address for NTLF startup slots and special startup pricing",
+      "messages": [
+        {
+          "at": "2026-09-14T18:01:15Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "events@nasscom.in",
+          "subject": "Nasscom Technology & Leadership Forum 2027 — startup showcase slot, eligibility and pricing",
+          "snippet": "startup showcase slot for NTLF 2027 (24-25 Feb, Mumbai): options and what each includes, special startup pricing, eligibility and last date, whether membership is required, proforma format",
+          "messageId": "1a0a11492480834f",
+          "threadId": "1a0a11492480834f",
+          "kind": "enquiry"
+        },
+        {
+          "at": "2026-09-17T13:25:43Z",
+          "dir": "in",
+          "from": "Abhas@nasscom.in",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: Nasscom Technology & Leadership Forum 2027 — startup showcase slot, eligibility and pricing",
+          "snippet": "NTLF 2027 is the 35th edition, 24-25 February 2027 at Fairmont, Mumbai. Startup showcase has a full selection process with multiple criteria; they want our product / company deck to evaluate us. They also offered a Teams call to discuss sponsorship and delegate participation, and proposed 2-4pm the next day. No prices given.",
+          "messageId": "1a0af8b727826f3a",
+          "threadId": "1a0a11492480834f",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-17T14:14:27Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "Abhas@nasscom.in",
+          "subject": "Re: Nasscom Technology & Leadership Forum 2027",
+          "snippet": "Santosh agreed to the call, any time between 2pm and 4pm. The deck has not been sent yet.",
+          "messageId": "1a0afb8042bf79e7",
+          "threadId": "1a0a11492480834f",
+          "kind": "reply"
+        }
+      ],
+      "lastAt": "2026-09-17T14:14:27Z",
+      "lastDir": "out",
+      "count": 3,
+      "eventId": "ntlf-2027",
+      "negotiation": {
+        "to_get": [
+          "send the product / company deck to Abhas — it gates the showcase selection",
+          "the showcase pricing and what a slot includes, which no mail has stated yet",
+          "whether Nasscom membership is a precondition, and the micro-enterprise fee",
+          "the application form and last date"
+        ],
+        "next_step": "Call agreed for 2-4pm on 18 Sep with Abhas Aggarwal, and the deck still has to go across. No numbers have been quoted, so there is nothing to bargain yet. Worth using the call to ask for the startup showcase price and whether membership is required.",
+        "verdict": "",
+        "pending_action": "Santosh: take the 18 Sep call and send the company deck",
+        "rounds": []
+      }
+    },
+    {
+      "count": 8,
+      "email": "prasant@imtma.in",
+      "eventId": "imtex-2027",
+      "lastAt": "2026-09-17T14:13:16Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-12T19:19:58Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a0970fedce9c698",
+          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma (space application deadline 12 Jan 2027)",
+          "subject": "IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a0970fedce9c698",
+          "to": "info@imtex.in"
+        },
+        {
+          "at": "2026-09-13T20:31:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "nudge",
+          "messageId": "1a09c8aacb326776",
+          "snippet": "Priority follow-up sent on Santosh's instruction: 12 sqm shell scheme in the Digital Manufacturing pavilion, corner on the aisle from the main entrance; asked this week for the rate card + open-side surcharge + MSME / first-time rate, floor plan with free 12 sqm stalls, PMS status for 2027, space application form + proforma before the 12 Jan 2027 deadline.",
+          "subject": "Re: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a0970fedce9c698",
+          "to": "info@imtex.in"
+        },
+        {
+          "at": "2026-09-15T13:23:14Z",
+          "dir": "in",
+          "from": "prasant@imtma.in",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "kind": "rate card",
+          "snippet": "BOOKINGS CLOSED: registration deadline was 30 June 2026 and the show is over booked. Guidelines (G&A) and the Digital Manufacturing 2027 application form attached. Minimum 12 sqm shell (30 sqm for raw space). Main focus is metal-cutting machines; only products listed in the guidelines may be displayed. Send an MSME / Udyam / SSI / factory-licence certificate showing manufacturing activity in India, otherwise the rate follows the origin of the exhibit. No pre-layout; layout circulated to registered exhibitors after 30 Sep 2026 and exhibitors may NOT choose their stall. Send the filled application form; advance will be asked subject to availability.",
+          "messageId": "1a0a53cbaaa29e0e",
+          "threadId": "1a0970fedce9c698"
+        },
+        {
+          "at": "2026-09-15T13:31:44Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "prasant@imtma.in",
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "kind": "question",
+          "snippet": "Santosh asked directly: the mail says you are fully booked but also asks for our details — which is it?",
+          "messageId": "1a0a5443199465e7",
+          "threadId": "1a0970fedce9c698"
+        },
+        {
+          "at": "2026-09-15T13:33:43Z",
+          "dir": "in",
+          "from": "prasant@imtma.in",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "kind": "reply",
+          "snippet": "\"We can consider your application, subject to any cancellation of participation.\" — i.e. we go on the waitlist and get space only if an exhibitor cancels.",
+          "messageId": "1a0a54611d7dc992",
+          "threadId": "1a0970fedce9c698"
+        },
+        {
+          "at": "2026-09-15T14:04:57Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "prasant@imtma.in",
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
+          "kind": "documents",
+          "snippet": "Santosh sent the Udyam certificate (NEWUDYAM.pdf) so the Indian MSME rate applies. Application form still to be filled and returned.",
+          "messageId": "1a0a5629fd430fdf",
+          "threadId": "1a0970fedce9c698"
+        },
+        {
+          "at": "2026-09-17T14:04:09Z",
+          "dir": "in",
+          "from": "prasant@imtma.in",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing",
+          "snippet": "IMTMA confirmed formally: registration closed 30 June 2026, they are overbooked, and Souveno is now ON THE WAITLIST. They will get back to us if space frees up.",
+          "messageId": "1a0afaea22852b12",
+          "threadId": "1a0970fedce9c698",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-17T14:13:16Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "prasant@imtma.in",
+          "subject": "Re: IMTEX 2027",
+          "snippet": "Santosh acknowledged and will wait for an update.",
+          "messageId": "1a0afb6f0c339ae1",
+          "threadId": "1a0970fedce9c698",
+          "kind": "reply"
+        }
+      ],
+      "negotiation": {
+        "next_step": "Formally waitlisted as of 17 Sep — IMTMA will come back only if an exhibitor cancels, and Santosh has acknowledged. Nothing to do but hold; the layout goes to registered exhibitors after 30 Sep, so any opening would come after that. If space appears in the 10,000-13,000 band the rule opens at 6,000 and settles up to 8,000.",
+        "sqm": 12,
+        "to_get": [
+          "Fill and return the Digital Manufacturing 2027 application form attached to the 15 Sep mail",
+          "The per-sqm rate from the G&A PDF for a 12 sqm Indian shell stall",
+          "Written confirmation of our place on the cancellation waitlist",
+          "Whether Souveno's AI products are on the eligible-products list (the show's focus is metal-cutting machines)",
+          "PMS (DC-MSME) status for the 2027 edition"
+        ],
+        "verdict": "blocked",
+        "quoted_rate": null,
+        "quoted_note": "No rate in the mail — the numbers are in the attached IMTEX 2027 G&A (Final).pdf, which the agent cannot read. Catalogue estimate ₹15,000/sqm; published snippets suggest ₹10,900–12,200/sqm for an Indian shell stall plus a 20/30/50% open-side surcharge. Minimum 12 sqm shell, 30 sqm for raw space.",
+        "includes_free": [
+          "Not stated — shell-scheme inclusions are in the G&A PDF"
+        ],
+        "optional_extras": [
+          "Raw space, minimum 30 sqm (too big for us)",
+          "Open-side surcharge 20 / 30 / 50% for corner and island stalls"
+        ],
+        "pending_action": "Santosh: return the filled Digital Manufacturing 2027 application form (Udyam certificate already sent 15 Sep)",
+        "rounds": [
+          {
+            "at": "2026-09-15T13:33:43Z",
+            "who": "organiser",
+            "rate": null,
+            "note": "over booked; application considered only against a cancellation"
+          },
+          {
+            "at": "2026-09-15T13:33:43Z",
+            "who": "organiser",
+            "rate": null,
+            "note": "over booked; application considered only against a cancellation"
+          }
+        ]
+      },
+      "organiser": "IMTMA (Prasant Panda, Joint Director – Trade Fairs, +91 91640 08830)",
+      "stage": "waitlisted — application to send",
+      "threadIds": [
+        "1a0970fedce9c698"
+      ]
+    },
+    {
+      "count": 4,
+      "email": "seemakakkar@escindia.com",
+      "eventId": "indiasoft-2027",
+      "lastAt": "2026-09-17T08:23:41Z",
+      "lastDir": "in",
+      "messages": [
+        {
+          "at": "2026-09-13T17:38:50Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd9b085b0a09",
+          "snippet": "9 sqm shell-scheme stall in the startup / AI zone; rate card, PMS status, startup pod, booking form + proforma asked",
+          "subject": "IndiaSoft 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a09bd9b085b0a09",
+          "to": "indiasoft@escindia.com"
+        },
+        {
+          "at": "2026-09-14T04:13:35Z",
+          "dir": "in",
+          "from": "seemakakkar@escindia.com",
+          "to": "souveno30@gmail.com",
+          "subject": "Souveno AI- INDIASOFT 2027",
+          "snippet": "ESC invited us to IndiaSoft 2027 (23-25 March 2027, New Delhi), with the event flyer and the pitch that ESC facilitates access to incentive schemes and financial assistance for exporters and SMEs. No rate in the mail body.",
+          "messageId": "1a09e1f881702193",
+          "threadId": "1a09e1f881702193",
+          "kind": "invitation"
+        },
+        {
+          "at": "2026-09-17T08:04:51Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "seemakakkar@escindia.com",
+          "subject": "Re: Souveno AI- INDIASOFT 2027",
+          "snippet": "Santosh: 'Kindly confirm D4-23 9 sq m. Let me know the further steps to continue.'",
+          "messageId": "1a0ae65a5b66c0cd",
+          "threadId": "1a09e1f881702193",
+          "kind": "accept"
+        },
+        {
+          "at": "2026-09-17T08:23:41Z",
+          "dir": "in",
+          "from": "seemakakkar@escindia.com",
+          "to": "souveno30@gmail.com",
+          "subject": "Re: Souveno AI- INDIASOFT 2027",
+          "snippet": "ESC blocked BOOTH D4-23, 9 sqm, and attached the proforma invoice (Souveno AI - 2027 - Advance Payment.pdf) plus the Exhibitor Confirmation Form 2027. They ask for the token payment URGENTLY with the signed form; accounts@escindia.com now cc'd. Rate not stated in the body — the published tariff is 13,500/sqm + 18% GST, which would be 1,43,370 for 9 sqm.",
+          "messageId": "1a0ae7776239f784",
+          "threadId": "1a09e1f881702193",
+          "kind": "proforma"
+        }
+      ],
+      "organiser": "ESC India (Seema Kakkar, Regional Officer, +91 84476 36440)",
+      "stage": "proforma received",
+      "threadIds": [
+        "1a09bd9b085b0a09"
+      ],
+      "negotiation": {
+        "sqm": 9,
+        "quoted_rate": 13500,
+        "quoted_note": "Booth D4-23, 9 sqm, blocked on 17 Sep with a proforma for a token advance. The PI figure is in a PDF the desk cannot open; on the published tariff of 13,500/sqm + 18% GST a 9 sqm booth is 1,21,500 + 21,870 = 1,43,370.",
+        "regular_rate": 13500,
+        "our_counter_rate": 6000,
+        "agreed_rate": null,
+        "ceiling_rate": 8000,
+        "band": "above_13k",
+        "includes_free": [
+          "9 sqm shell booth D4-23"
+        ],
+        "optional_extras": [],
+        "to_get": [
+          "the exact figures on the proforma, and the token amount",
+          "which ESC incentive applies to a Udyam micro enterprise — Market Access Initiative, ESC member rate or a subsidised SME booth",
+          "whether IndiaSoft 2027 is on the DC-MSME PMS list",
+          "what the shell scheme includes and the badge count",
+          "whether ESC membership lowers the rate, and the membership fee"
+        ],
+        "next_step": "Booth blocked and ESC wants the token payment urgently. At 13,500/sqm this is above the 8,000/sqm ceiling, so the price is Santosh's call. The lever here is ESC itself: their own mail offers access to export incentives, so ask which scheme applies before paying rather than after. Santosh also needs to return the Exhibitor Confirmation Form.",
+        "verdict": "escalate",
+        "pending_action": "Santosh: token payment and the signed confirmation form, once the incentive question is answered",
+        "suggested_reply": "(Booth D4-23 is blocked and ESC has asked for the token payment urgently, so this is the wording for the open points.)\n\nDear Seema ji,\n\nThank you for blocking booth D4-23 (9 sqm) and for the proforma.\n\nTwo things before we remit:\n\n1. ESC's mail mentions that the council facilitates access to incentive schemes and financial assistance for exporters and SMEs. Which of those applies to a Udyam-registered micro enterprise exhibiting at IndiaSoft 2027 - the Market Access Initiative, an ESC member rate, or a subsidised SME booth? We would like to file whatever is available before we pay, not after.\n2. Is IndiaSoft 2027 on the DC-MSME approved list for the Procurement and Marketing Support scheme?\n\nCould you also confirm the booth rate per sqm on the proforma, what the shell scheme includes (fascia, table, chairs, carpet, spotlights, power point, badges), and whether ESC membership changes the rate. If membership is worth taking for the discount alone, please send the membership form and fee for a micro enterprise.\n\nRegards,\nSantosh Padmaa",
+        "rounds": [
+          {
+            "at": "2026-09-17T08:23:41Z",
+            "who": "organiser",
+            "rate": 13500,
+            "note": "booth D4-23 blocked, proforma issued, token payment requested urgently"
+          }
+        ]
+      }
     },
     {
       "eventId": "gulfood-manufacturing-2026",
@@ -313,209 +841,6 @@
       ]
     },
     {
-      "count": 6,
-      "email": "prasant@imtma.in",
-      "eventId": "imtex-2027",
-      "lastAt": "2026-09-15T14:04:57Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-12T19:19:58Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a0970fedce9c698",
-          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma (space application deadline 12 Jan 2027)",
-          "subject": "IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a0970fedce9c698",
-          "to": "info@imtex.in"
-        },
-        {
-          "at": "2026-09-13T20:31:00Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "nudge",
-          "messageId": "1a09c8aacb326776",
-          "snippet": "Priority follow-up sent on Santosh's instruction: 12 sqm shell scheme in the Digital Manufacturing pavilion, corner on the aisle from the main entrance; asked this week for the rate card + open-side surcharge + MSME / first-time rate, floor plan with free 12 sqm stalls, PMS status for 2027, space application form + proforma before the 12 Jan 2027 deadline.",
-          "subject": "Re: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a0970fedce9c698",
-          "to": "info@imtex.in"
-        },
-        {
-          "at": "2026-09-15T13:23:14Z",
-          "dir": "in",
-          "from": "prasant@imtma.in",
-          "to": "souveno30@gmail.com",
-          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "kind": "rate card",
-          "snippet": "BOOKINGS CLOSED: registration deadline was 30 June 2026 and the show is over booked. Guidelines (G&A) and the Digital Manufacturing 2027 application form attached. Minimum 12 sqm shell (30 sqm for raw space). Main focus is metal-cutting machines; only products listed in the guidelines may be displayed. Send an MSME / Udyam / SSI / factory-licence certificate showing manufacturing activity in India, otherwise the rate follows the origin of the exhibit. No pre-layout; layout circulated to registered exhibitors after 30 Sep 2026 and exhibitors may NOT choose their stall. Send the filled application form; advance will be asked subject to availability.",
-          "messageId": "1a0a53cbaaa29e0e",
-          "threadId": "1a0970fedce9c698"
-        },
-        {
-          "at": "2026-09-15T13:31:44Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "prasant@imtma.in",
-          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "kind": "question",
-          "snippet": "Santosh asked directly: the mail says you are fully booked but also asks for our details — which is it?",
-          "messageId": "1a0a5443199465e7",
-          "threadId": "1a0970fedce9c698"
-        },
-        {
-          "at": "2026-09-15T13:33:43Z",
-          "dir": "in",
-          "from": "prasant@imtma.in",
-          "to": "souveno30@gmail.com",
-          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "kind": "reply",
-          "snippet": "\"We can consider your application, subject to any cancellation of participation.\" — i.e. we go on the waitlist and get space only if an exhibitor cancels.",
-          "messageId": "1a0a54611d7dc992",
-          "threadId": "1a0970fedce9c698"
-        },
-        {
-          "at": "2026-09-15T14:04:57Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "prasant@imtma.in",
-          "subject": "RE: IMTEX 2027 + Tooltech + Digital Manufacturing — MSME / startup participation, stall rate card and PMS approval",
-          "kind": "documents",
-          "snippet": "Santosh sent the Udyam certificate (NEWUDYAM.pdf) so the Indian MSME rate applies. Application form still to be filled and returned.",
-          "messageId": "1a0a5629fd430fdf",
-          "threadId": "1a0970fedce9c698"
-        }
-      ],
-      "negotiation": {
-        "next_step": "Bookings are CLOSED (deadline was 30 June 2026) and IMTMA will only consider us if an exhibitor cancels. Send the filled application form to prasant@imtma.in; pay nothing until they confirm space. We cannot choose the stall — the layout goes out after 30 Sep. No bargaining room while waitlisted; if space opens at ₹10,000–13,000/sqm the rule opens at ₹6,000 and settles up to ₹8,000.",
-        "sqm": 12,
-        "to_get": [
-          "Fill and return the Digital Manufacturing 2027 application form attached to the 15 Sep mail",
-          "The per-sqm rate from the G&A PDF for a 12 sqm Indian shell stall",
-          "Written confirmation of our place on the cancellation waitlist",
-          "Whether Souveno's AI products are on the eligible-products list (the show's focus is metal-cutting machines)",
-          "PMS (DC-MSME) status for the 2027 edition"
-        ],
-        "verdict": "blocked",
-        "quoted_rate": null,
-        "quoted_note": "No rate in the mail — the numbers are in the attached IMTEX 2027 G&A (Final).pdf, which the agent cannot read. Catalogue estimate ₹15,000/sqm; published snippets suggest ₹10,900–12,200/sqm for an Indian shell stall plus a 20/30/50% open-side surcharge. Minimum 12 sqm shell, 30 sqm for raw space.",
-        "includes_free": [
-          "Not stated — shell-scheme inclusions are in the G&A PDF"
-        ],
-        "optional_extras": [
-          "Raw space, minimum 30 sqm (too big for us)",
-          "Open-side surcharge 20 / 30 / 50% for corner and island stalls"
-        ],
-        "pending_action": "Santosh: return the filled Digital Manufacturing 2027 application form (Udyam certificate already sent 15 Sep)",
-        "rounds": [
-          {
-            "at": "2026-09-15T13:33:43Z",
-            "who": "organiser",
-            "rate": null,
-            "note": "over booked; application considered only against a cancellation"
-          },
-          {
-            "at": "2026-09-15T13:33:43Z",
-            "who": "organiser",
-            "rate": null,
-            "note": "over booked; application considered only against a cancellation"
-          }
-        ]
-      },
-      "organiser": "IMTMA (Prasant Panda, Joint Director – Trade Fairs, +91 91640 08830)",
-      "stage": "waitlisted — application to send",
-      "threadIds": [
-        "1a0970fedce9c698"
-      ]
-    },
-    {
-      "count": 3,
-      "email": "info@indiamobilecongress.com",
-      "eventId": "imc-2026",
-      "lastAt": "2026-09-15T07:56:29Z",
-      "lastDir": "in",
-      "messages": [
-        {
-          "at": "2026-09-12T19:21:42Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a09711846b1d0ff",
-          "snippet": "visiting 2026; asked ASPIRE pod eligibility, cost and timeline",
-          "subject": "India Mobile Congress — ASPIRE startup pod: eligibility, cost and application timeline",
-          "threadId": "1a09711846b1d0ff",
-          "to": "info@indiamobilecongress.com"
-        },
-        {
-          "at": "2026-09-14T05:43:17Z",
-          "dir": "in",
-          "from": "project@indiamobilecongress.com",
-          "to": "souveno30@gmail.com",
-          "subject": "Your startup on the ASPIRE stage at India Mobile Congress 2026",
-          "kind": "invitation",
-          "snippet": "India Mobile Congress (10th edition, 7–10 October 2026, Yashobhoomi, New Delhi; DoT and COAI) invited startups to the ASPIRE stage. Separately Neetu Singh (neetu@tcoe.in) shared IMC_2026_Startup_Pitch_Deck_Template via Google Drive on 15 Sep.",
-          "messageId": "1a09e71242bc84f9",
-          "threadId": "1a09e71242bc84f9"
-        },
-        {
-          "at": "2026-09-15T07:56:29Z",
-          "dir": "in",
-          "from": "neetu@tcoe.in",
-          "to": "souveno30@gmail.com",
-          "subject": "Presentation shared with you: IMC_2026_Startup_Pitch_Deck_Template - 9th August.pptx",
-          "snippet": "Neetu Singh (TCoE, the IMC startup track) shared the ASPIRE pitch-deck template over Google Drive — the format for the Aspire Live Pitch. Follows the 14 Sep ASPIRE invitation; no deadline named in either mail.",
-          "messageId": "1a0a41143a7eb423",
-          "threadId": "1a0a41143a7eb423",
-          "kind": "documents"
-        }
-      ],
-      "organiser": "India Mobile Congress / ASPIRE (DoT + COAI; TCoE runs the startup track)",
-      "stage": "invited — application to send",
-      "threadIds": [
-        "1a09711846b1d0ff"
-      ],
-      "negotiation": {
-        "sqm": 3.2,
-        "quoted_rate": 750,
-        "quoted_note": "ASPIRE startup pod, about 3.2 sqm, subsidised participation fee Rs 2,400 inclusive of GST (~Rs 750/sqm) — fully refunded if the application is not selected",
-        "our_counter_rate": null,
-        "agreed_rate": null,
-        "ceiling_rate": 6000,
-        "band": "below_10k",
-        "includes_free": [
-          "ready-to-use pod in the ASPIRE Pavilion",
-          "fascia branding",
-          "Wi-Fi",
-          "exhibitor badges",
-          "listing in the IMC 2026 exhibitor e-directory",
-          "entry to the Aspire Live Pitch shortlist and the Investor Reverse Pitch",
-          "curated 1:1 investor and mentor meetings",
-          "entry to Startup World Cup - India",
-          "masterclasses, Open API Hackathon and AI for Good"
-        ],
-        "optional_extras": [],
-        "to_get": [
-          "submit the ASPIRE participation form (Google Form link in the 14 Sep mail)",
-          "the pitch deck, using the template TCoE shared on 15 Sep",
-          "the application deadline and the selection date — neither mail states them",
-          "whether the pod includes a screen or only fascia branding",
-          "confirmation of what the Rs 2,400 covers for all four days"
-        ],
-        "next_step": "URGENT — the show is 7-10 October 2026, about three weeks away, pods are limited and selection is application-based. Santosh submits the ASPIRE form himself and sends the deck. At Rs 2,400 inclusive, refunded if not selected, there is nothing to bargain and no downside to applying. The catalogue still has IMC as a visit-only show: if the pod comes through, it becomes an exhibit and the travel plan needs a second look.",
-        "verdict": "accept",
-        "pending_action": "",
-        "suggested_reply": "(Not a mail to the organiser — this is the application Santosh submits himself.)\n\nASPIRE participation form: https://docs.google.com/forms/d/e/1FAIpQLSc8vGtmS_Di_zI00mQZZVlfcwqVTLZ1B0Q1kBEuOY3tWSk-wA/viewform\nPitch deck template shared by Neetu Singh (neetu@tcoe.in) on 15 Sep: IMC_2026_Startup_Pitch_Deck_Template - 9th August.pptx\n\nFacts for the form: Souveno AI Solutions, Hyderabad, Udyam-registered micro enterprise, GSTIN 36BDNPP2011D2ZV, founder Santosh Padmaa, +91 86393 32232, souveno30@gmail.com, https://souveno.ai. Products: a WhatsApp AI quote desk for manufacturers and distributors, and Vision AI for attendance, stock and vehicle counting.\n\nIf a reply to the IMC team is wanted alongside the form, the substance is: we are applying for an ASPIRE pod, we accept the Rs 2,400 participation fee, and we would like to know the application deadline, when selection is announced, and whether the pod includes a screen or only fascia branding.",
-        "rounds": [
-          {
-            "at": "2026-09-14T05:43:17Z",
-            "who": "organiser",
-            "rate": 750,
-            "note": "ASPIRE pod ~3.2 sqm at Rs 2,400 incl. GST, refundable if not selected"
-          }
-        ]
-      }
-    },
-    {
       "count": 3,
       "email": "pramitk@eigroup.in",
       "eventId": "convergence-india-2027",
@@ -764,32 +1089,6 @@
       ]
     },
     {
-      "email": "events@nasscom.in",
-      "organiser": "Nasscom",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a0a11492480834f"
-      ],
-      "note": "no separate Emerge showcase address exists; events@nasscom.in is Nasscom's published address for NTLF startup slots and special startup pricing",
-      "messages": [
-        {
-          "at": "2026-09-14T18:01:15Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "events@nasscom.in",
-          "subject": "Nasscom Technology & Leadership Forum 2027 — startup showcase slot, eligibility and pricing",
-          "snippet": "startup showcase slot for NTLF 2027 (24-25 Feb, Mumbai): options and what each includes, special startup pricing, eligibility and last date, whether membership is required, proforma format",
-          "messageId": "1a0a11492480834f",
-          "threadId": "1a0a11492480834f",
-          "kind": "enquiry"
-        }
-      ],
-      "lastAt": "2026-09-14T18:01:15Z",
-      "lastDir": "out",
-      "count": 1,
-      "eventId": "ntlf-2027"
-    },
-    {
       "count": 3,
       "email": "marketing@abec.asia",
       "eventId": "acetech-hyderabad-2027",
@@ -837,32 +1136,6 @@
         "1a08fe1c7e01e8c6",
         "1a0a11431e2316cc"
       ]
-    },
-    {
-      "count": 1,
-      "email": "prashant.jain@informa.com",
-      "eventId": "ifsec-india-2026",
-      "messages": [
-        {
-          "at": "2026-09-14T18:00:24Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "prashant.jain@informa.com (cc sanjay.khandelwal@informa.com)",
-          "subject": "IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme in the video-analytics / AI zone, corner or main aisle; rate card + floor plan, MSME/startup/early-bird rates, PMS approval, startup pod, booking form and proforma",
-          "messageId": "1a0a113ca4386e42",
-          "threadId": "1a09712891845ec5",
-          "kind": "enquiry"
-        }
-      ],
-      "note": "cc sanjay.khandelwal@informa.com; the send was blocked by the permission checker on 12 and 13 Sep and went through on 14 Sep",
-      "organiser": "Informa Markets India",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a09712891845ec5"
-      ],
-      "lastAt": "2026-09-14T18:00:24Z",
-      "lastDir": "out"
     },
     {
       "count": 5,
@@ -980,31 +1253,6 @@
       "stage": "negotiating",
       "threadIds": [
         "1a0970f7858ae37e"
-      ]
-    },
-    {
-      "count": 1,
-      "email": "indiasoft@escindia.com",
-      "eventId": "indiasoft-2027",
-      "lastAt": "2026-09-13T17:38:50Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-13T17:38:50Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a09bd9b085b0a09",
-          "snippet": "9 sqm shell-scheme stall in the startup / AI zone; rate card, PMS status, startup pod, booking form + proforma asked",
-          "subject": "IndiaSoft 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a09bd9b085b0a09",
-          "to": "indiasoft@escindia.com"
-        }
-      ],
-      "organiser": "ESC India",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a09bd9b085b0a09"
       ]
     },
     {

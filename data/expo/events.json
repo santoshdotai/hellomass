@@ -2848,10 +2848,11 @@
       "why": "Every CCTV dealer and security system integrator in India walks IFSEC: they already own the cameras in factories, warehouses and sites. Souveno Vision AI rides on their installs; this is the channel-partner show for Vision AI, not a quote-desk show.",
       "stall": {
         "recommend": "exhibit 9 sqm in the video-analytics / AI zone; Vision AI on the cameras every integrator on this floor installs",
-        "hall_hint": "Bharat Mandapam: video analytics / AI zone nearest the main entrance",
-        "suggested_sqm": 9,
+        "hall_hint": "Hall 4 Startup Zone. Organiser offer: S08 = 3.5 x 2 m, 7 sqm, two sides open (chosen); S03 = 3 x 2 m, 6 sqm, one side open. No 4 sqm booth in the Startup Zone; a 4 sqm option in Hall 5 between C30 and D29 was offered but not priced",
+        "suggested_sqm": 7,
         "shell_rate_inr_sqm": 11000,
-        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
+        "rate_status": "Informa Markets India rate card by phone + e-mail 16 Sep 2026 (Vaishali Jain, Project Manager, +91 99838 71404): Startup Zone Hall 4 — S03 (6 sqm, 1 side open) ₹21,500/sqm and S08 (7 sqm, 2 sides open) ₹22,000/sqm, each less 5%, PLUS a fixed www.ifsecmarket.com charge of ₹27,500. All-in S03 ₹1,77,059, S08 ₹2,05,084 incl. 18% GST. Santosh verbally took S08 on 16 Sep and on 17 Sep asked for a further startup discount and whether payment must accompany the signed booking form — nothing signed or paid yet. Our ceiling for this band is ₹8,000/sqm"
       },
       "travel": {
         "airport": "DEL",
@@ -2896,8 +2897,8 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://ifsecindia.com/BookYourSpace.aspx"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 3–5 Dec 2026, Halls 4GF & 5GF Bharat Mandapam confirmed. BookYourSpace page says 'early-bird stand booking secures premium hall locations' but gives no date or rate. Draft to prashant.jain@informa.com waiting in Gmail.",
+        "last_checked": "2026-09-18",
+        "notes": "18 Sep 2026: IFSEC India 2026 is the largest live commitment — S08 all-in ₹2,05,084. Two unanswered questions are worth real money before signing: (1) is IFSEC India 2026 on the DC-MSME PMS list or does it have an MSME pavilion (at this size a PMS claim could recover up to roughly ₹1.2 L), and (2) can the fixed ₹27,500 ifsecmarket.com listing charge be waived or cut for a first-time startup. Note the listing fee does not scale with booth size, so all-in per sqm is nearly the same for both booths: ₹29,510 for S03 against ₹29,298 for S08. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 3–5 Dec 2026, Halls 4GF & 5GF Bharat Mandapam confirmed. BookYourSpace page says 'early-bird stand booking secures premium hall locations' but gives no date or rate. Draft to prashant.jain@informa.com waiting in Gmail.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
       },
@@ -3840,7 +3841,8 @@
         "recommend": "Nasscom Emerge startup slot if selected; otherwise skip",
         "hall_hint": "Emerge showcase",
         "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 0
+        "shell_rate_inr_sqm": 0,
+        "rate_status": "Nasscom reply 17 Sep 2026 (Abhas Aggarwal, +91 83605 45467): NTLF 2027 is the 35th edition, 24-25 February 2027 at Fairmont, Mumbai. The startup showcase runs a full selection process on multiple criteria and they want our product / company deck to evaluate us; a Teams call was agreed for 2-4pm on 18 Sep to discuss showcase, sponsorship and delegate options. No prices quoted yet"
       },
       "travel": {
         "airport": "BOM",
@@ -3891,7 +3893,7 @@
           "https://www.instagram.com/reel/DYoRrWsq3xq/",
           "https://www.nasscom.in/ntlf/"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-18",
         "notes": "nasscom's own Instagram reel (#NTLF27) announces 'Mumbai 24–25 February 2027' — matches the catalogue dates; nasscom.in/ntlf still shows the 2026 edition and the venue is not yet named (Fairmont Mumbai in 2026). Dates treated as published; venue to confirm."
       },
       "sectors": [
@@ -3950,10 +3952,10 @@
       "why": "The one AI-circuit show worth a stall: ESC's own exhibition, foreign buyer delegations (Africa, Middle East, ASEAN distributors and system integrators), and it runs the same days as Convergence India next door. ESC membership + MAI can subsidise the stall; this is also the fastest way into the ESC ecosystem for Gulf pavilions later.",
       "stall": {
         "recommend": "exhibit — 9 sqm shell in the startup / AI zone; visit Convergence India in the same complex",
-        "hall_hint": "AI & startup pavilion, near the buyer-seller meeting lounge",
+        "hall_hint": "Booth D4-23 (9 sqm), blocked by ESC on request — position on the plan not yet seen",
         "suggested_sqm": 9,
         "shell_rate_inr_sqm": 13500,
-        "rate_status": "published tariff (indiasoft.org participation-details, search snippet): ₹13,500/sqm shell + 18% GST, min 9 sqm"
+        "rate_status": "ESC blocked BOOTH D4-23, 9 sqm, on 17 Sep 2026 (Seema Kakkar, Regional Officer, +91 84476 36440) and issued a proforma for a token advance with the Exhibitor Confirmation Form 2027; accounts@escindia.com cc'd, payment requested urgently. Rate not stated in the mail body — published tariff ₹13,500/sqm + 18% GST, i.e. ₹1,43,370 for 9 sqm. Above our ₹8,000/sqm ceiling, so the price is Santosh's call"
       },
       "travel": {
         "airport": "DEL",
@@ -4015,8 +4017,8 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://indiasoft.org/participation-details/"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "ESC members get subsidised space; PMS applies only if listed by DC-MSME (check). Startup pods for DPIIT startups. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | indiasoft.org participation-details (search snippet): Indian exhibitors shell ₹13,500/sqm (min 9 sqm), raw ₹13,000/sqm (min 18 sqm), + 18% GST; international raw US$340/sqm; registration open since Jul 2026; no early-bird published. ESC-member / startup-pod terms not visible. 23–25 Mar 2027 Bharat Mandapam confirmed.",
+        "last_checked": "2026-09-18",
+        "notes": "18 Sep 2026: booth D4-23 blocked and a token payment requested urgently. ESC's own invitation says the council facilitates access to incentive schemes and financial assistance for exporters and SMEs, so ask which applies to a Udyam micro enterprise (Market Access Initiative, ESC member rate or a subsidised SME booth) BEFORE paying, and whether IndiaSoft 2027 is on the DC-MSME PMS list. | ESC members get subsidised space; PMS applies only if listed by DC-MSME (check). Startup pods for DPIIT startups. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | indiasoft.org participation-details (search snippet): Indian exhibitors shell ₹13,500/sqm (min 9 sqm), raw ₹13,000/sqm (min 18 sqm), + 18% GST; international raw US$340/sqm; registration open since Jul 2026; no early-bird published. ESC-member / startup-pod terms not visible. 23–25 Mar 2027 Bharat Mandapam confirmed.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
       },
