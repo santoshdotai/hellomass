@@ -38,10 +38,10 @@
       "note": "first nudge sent 18 Sep, 7 days after the 11 Sep enquiry, no reply of any kind in the thread; next nudge no earlier than 25 Sep and it is the last one"
     },
     {
-      "count": 4,
+      "count": 8,
       "email": "info@indiamobilecongress.com",
       "eventId": "imc-2026",
-      "lastAt": "2026-09-17T18:02:12Z",
+      "lastAt": "2026-09-18T09:03:15Z",
       "lastDir": "out",
       "messages": [
         {
@@ -87,10 +87,54 @@
           "messageId": "1a0b08884b4b8a29",
           "threadId": "1a09e71242bc84f9",
           "kind": "reply"
+        },
+        {
+          "at": "2026-09-18T05:22:30Z",
+          "dir": "in",
+          "from": "project@indiamobilecongress.com",
+          "to": "souveno30@gmail.com",
+          "subject": "Re: Your startup on the ASPIRE stage at India Mobile Congress 2026",
+          "snippet": "IMC asked for the payment invoice or receipt.",
+          "messageId": "1a0b2f791ff56c2c",
+          "threadId": "1a09e71242bc84f9",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-18T05:37:11Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "project@indiamobilecongress.com",
+          "subject": "Re: Your startup on the ASPIRE stage",
+          "snippet": "Santosh sent the payment screenshot and confirmed the Google form was submitted.",
+          "messageId": "1a0b304cf4e51afa",
+          "threadId": "1a09e71242bc84f9",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-18T07:49:00Z",
+          "dir": "in",
+          "from": "project@indiamobilecongress.com",
+          "to": "souveno30@gmail.com",
+          "subject": "Re: Your startup on the ASPIRE stage",
+          "snippet": "CATEGORY MISMATCH: the registration form was submitted under the MSME category but the payment was made for the Startup category. IMC asked us to resubmit the form under Startup and pay for that category; the amount already paid under MSME will be refunded. TCoE leadership now cc'd.",
+          "messageId": "1a0b37daf0596d3f",
+          "threadId": "1a09e71242bc84f9",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-18T09:03:15Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "project@indiamobilecongress.com",
+          "subject": "Re: Your startup on the ASPIRE stage",
+          "snippet": "Santosh resubmitted under Startup and paid again, and is waiting for the refund of the first payment and for an update.",
+          "messageId": "1a0b3c1789c069fd",
+          "threadId": "1a09e71242bc84f9",
+          "kind": "reply"
         }
       ],
       "organiser": "India Mobile Congress / ASPIRE (DoT + COAI; TCoE runs the startup track)",
-      "stage": "applied — awaiting confirmation",
+      "stage": "applied — refund owed, confirmation awaited",
       "threadIds": [
         "1a09711846b1d0ff"
       ],
@@ -115,16 +159,14 @@
         ],
         "optional_extras": [],
         "to_get": [
-          "submit the ASPIRE participation form (Google Form link in the 14 Sep mail)",
-          "the pitch deck, using the template TCoE shared on 15 Sep",
-          "the application deadline and the selection date — neither mail states them",
-          "whether the pod includes a screen or only fascia branding",
-          "confirmation of what the Rs 2,400 covers for all four days"
+          "confirmation that the Startup-category application and payment are in order and the pod is allotted",
+          "the refund of the first payment made under the MSME category — amount and credit date",
+          "the pod number and what it includes (screen or fascia only)"
         ],
-        "next_step": "Applied: form and payment details submitted on 17 Sep, no acknowledgement from IMC yet. The fee is 2,400 inclusive and refundable if not selected, so the money is not the risk — the risk is silence with the show on 7-10 October. If nothing comes back by 21 Sep, chase project@indiamobilecongress.com and Neetu Singh at TCoE. If the pod is granted, IMC turns from a visit into an exhibit and the travel plan changes.",
+        "next_step": "PAID TWICE: the form went in under MSME while the payment was made under Startup, so IMC asked for a resubmission under Startup with a fresh payment and promised to refund the first one. Santosh has done both, so a refund is now owed and there is still no confirmation that the pod is allotted. The show is 7-10 October. Chase both the confirmation and the refund on 21 Sep if nothing lands; TCoE leadership (ceo@tcoe.in, neetu@tcoe.in, anurag@tcoe.in) is already on the thread.",
         "verdict": "accept",
-        "pending_action": "IMC to confirm the pod",
-        "suggested_reply": "(Not a mail to the organiser — this is the application Santosh submits himself.)\n\nASPIRE participation form: https://docs.google.com/forms/d/e/1FAIpQLSc8vGtmS_Di_zI00mQZZVlfcwqVTLZ1B0Q1kBEuOY3tWSk-wA/viewform\nPitch deck template shared by Neetu Singh (neetu@tcoe.in) on 15 Sep: IMC_2026_Startup_Pitch_Deck_Template - 9th August.pptx\n\nFacts for the form: Souveno AI Solutions, Hyderabad, Udyam-registered micro enterprise, GSTIN 36BDNPP2011D2ZV, founder Santosh Padmaa, +91 86393 32232, souveno30@gmail.com, https://souveno.ai. Products: a WhatsApp AI quote desk for manufacturers and distributors, and Vision AI for attendance, stock and vehicle counting.\n\nIf a reply to the IMC team is wanted alongside the form, the substance is: we are applying for an ASPIRE pod, we accept the Rs 2,400 participation fee, and we would like to know the application deadline, when selection is announced, and whether the pod includes a screen or only fascia branding.",
+        "pending_action": "IMC to confirm the pod and refund the duplicate MSME-category payment",
+        "suggested_reply": "(Both payments are made and the refund is owed to us, so this is a short chaser.)\n\nHello,\n\nResubmitted under the Startup category as asked, and the payment for it is done; the receipt went across on 18 September.\n\nTwo things please:\n1. Confirmation that the Startup-category application and payment are now in order, and that the ASPIRE pod is allotted. The show is on 7 October and we have had no confirmation yet.\n2. The refund of the earlier payment made under the MSME category, as your mail of 18 September promised. Please confirm the amount and when it will be credited.\n\nRegards,\nSantosh Padmaa\nSouveno AI Solutions",
         "rounds": [
           {
             "at": "2026-09-14T05:43:17Z",
@@ -136,33 +178,7 @@
       }
     },
     {
-      "eventId": "telangana-rising-2026",
-      "organiser": "T-Hub (showcase pods) / Govt. of Telangana",
-      "email": "events@t-hub.co",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a0b0727ef4c4e5e"
-      ],
-      "note": "the summit publishes no exhibitor address (app helpdesk only), so the pod request goes through T-Hub, whose official contact page lists events@t-hub.co and valuepartners@t-hub.co",
-      "messages": [
-        {
-          "at": "2026-09-17T17:45:00Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "events@t-hub.co (cc valuepartners@t-hub.co)",
-          "subject": "Telangana Rising Global Summit 2026 — startup showcase pod through T-Hub",
-          "snippet": "asks whether T-Hub is curating a startup showcase at the 7-9 Dec summit, how a Hyderabad startup applies, eligibility and last date, whether incubation is a precondition, any fee and proforma, and the TGIC contact if the showcase sits elsewhere",
-          "messageId": "1a0b0727ef4c4e5e",
-          "threadId": "1a0b0727ef4c4e5e",
-          "kind": "enquiry"
-        }
-      ],
-      "lastAt": "2026-09-17T17:45:00Z",
-      "lastDir": "out",
-      "count": 1
-    },
-    {
-      "count": 7,
+      "count": 9,
       "email": "vaishali.jain@ind-group.com",
       "eventId": "ifsec-india-2026",
       "messages": [
@@ -242,15 +258,37 @@
           "messageId": "1a0afbabb4638dea",
           "threadId": "1a09712891845ec5",
           "kind": "counter"
+        },
+        {
+          "at": "2026-09-18T06:18:22Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "Discount REFUSED: 'There is no further discount possible and this is the best rate.' The advance can go with the signed form, and Informa raises the PI once the signed and stamped booking form is received.",
+          "messageId": "1a0b32aab874513e",
+          "threadId": "1a09712891845ec5",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-18T06:24:33Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "vaishali.jain@ind-group.com",
+          "subject": "Re: IFSEC India 2026",
+          "snippet": "Santosh accepted: 'That's fine, not a problem at all. Will do the needful today so you can raise a PI.' So S08 is taken at 2,05,084 all-in, with the signed form and advance going the same day.",
+          "messageId": "1a0b3302fa737806",
+          "threadId": "1a09712891845ec5",
+          "kind": "accept"
         }
       ],
       "note": "cc sanjay.khandelwal@informa.com; the send was blocked by the permission checker on 12 and 13 Sep and went through on 14 Sep",
       "organiser": "Informa Markets India (Vaishali Jain, Project Manager, Security Portfolio, +91 99838 71404)",
-      "stage": "negotiating",
+      "stage": "confirmed by Santosh — payment due",
       "threadIds": [
         "1a09712891845ec5"
       ],
-      "lastAt": "2026-09-17T14:17:23Z",
+      "lastAt": "2026-09-18T06:24:33Z",
       "lastDir": "out",
       "negotiation": {
         "sqm": 7,
@@ -258,7 +296,7 @@
         "quoted_note": "Startup Zone Hall 4. S08 (3.5x2 = 7 sqm, 2 sides open): 22,000/sqm less 5% = 20,900/sqm effective, space 1,46,300, plus a FIXED ifsecmarket.com charge of 27,500 = 1,73,800 + 18% GST = 2,05,084. Alternative S03 (6 sqm, 1 side open): 20,425/sqm effective, all-in 1,77,059. The 27,500 listing fee does not scale with size, so all-in per sqm is nearly identical: 29,510 for S03 against 29,298 for S08 — S08 is the better value of the two, and it has a second open side.",
         "regular_rate": 22000,
         "our_counter_rate": 6000,
-        "agreed_rate": null,
+        "agreed_rate": 20900,
         "ceiling_rate": 8000,
         "band": "above_13k",
         "includes_free": [
@@ -270,16 +308,14 @@
           "4 sqm in Hall 5 between C30 and D29, outside the Startup Zone, not priced"
         ],
         "to_get": [
-          "whether IFSEC India 2026 is on the DC-MSME PMS list or has an MSME pavilion — at 2,05,084 a PMS claim is the single biggest lever",
-          "whether the 27,500 ifsecmarket charge can be waived or reduced for a first-time startup",
-          "any further startup / first-time / early-payment discount",
-          "what the shell scheme includes and the badge count",
-          "whether payment must accompany the signed booking form"
+          "whether IFSEC India 2026 is on the DC-MSME PMS list, or has an MSME pavilion — STILL UNASKED and worth about 1.2 lakh at this booth size; the claim must be filed 30 days before the show, so by early November for a 3-5 December show",
+          "the PI, which Informa raises once the signed and stamped form is in",
+          "what the shell scheme includes and the badge count for S08"
         ],
-        "next_step": "Santosh has verbally taken S08 and asked Vaishali for a further discount; nothing is signed or paid. The rules say a quote above 13,000/sqm opens at 6,000 and escalates — this is 20,900/sqm, about 2.6 times our 8,000 ceiling, so it is his call, not the desk's. Before he signs, two questions are worth real money: the PMS listing status (a claim could recover up to about 1.2 lakh at this size) and whether the fixed 27,500 listing fee can be cut.",
-        "verdict": "escalate",
-        "pending_action": "Santosh: waiting on Vaishali's answer on discount and payment terms",
-        "suggested_reply": "(Santosh is mid-thread with Vaishali and has asked about a further startup discount, so this is only the wording for the open points.)\n\nDear Vaishali,\n\nThank you for the options and the booking form. S08 in the Startup Zone is the one we want.\n\nBefore we sign and pay, three things:\n\n1. Is IFSEC India 2026 on the DC-MSME approved list for the Procurement and Marketing Support scheme, or does it have an MSME pavilion? We are a Udyam-registered micro enterprise and the claim has to be filed 30 days before the show, so this materially changes what participation costs us.\n2. The www.ifsecmarket.com charge of Rs 27,500 is the same whether we take 6 or 7 sqm. Is it optional, or can it be waived or reduced for a first-time startup exhibitor? On a 7 sqm booth it is about Rs 3,900/sqm on top of the space rate.\n3. On the rate itself: Rs 22,000/sqm less 5% is well above what we have budgeted for a first show. If there is a startup-zone rate, an early-payment rate, or any further discount for a first-time exhibitor, please apply it.\n\nCould you also confirm what the shell scheme includes: fascia name board, table and chairs, carpet, spotlights, power point and how many exhibitor badges.\n\nRegards,\nSantosh Padmaa",
+        "next_step": "CLOSED ON PRICE: Informa refused any further discount on 18 Sep and Santosh accepted the same morning, so S08 goes ahead at 2,05,084 all-in with the signed form and advance sent that day; the PI follows. The discount is gone, but the PMS question has still never been put to Informa and it does not depend on the booking — at this size a successful claim is worth roughly 1.2 lakh, against the 7,700 the 5% discount saved. Ask it now, in writing, while the paperwork is in flight.",
+        "verdict": "accept",
+        "pending_action": "Santosh: send the signed and stamped booking form plus the advance; ask the PMS question in the same mail",
+        "suggested_reply": "(Santosh has accepted the rate and is sending the signed form today, so only one question is still worth asking — and it is worth far more than the discount that was refused.)\n\nDear Vaishali,\n\nThe signed and stamped booking form follows today, and the advance with it.\n\nOne thing we still need in writing, and it does not change the booking: is IFSEC India 2026 on the DC-MSME approved list for the Procurement and Marketing Support scheme, or does the show have an MSME pavilion? We are a Udyam-registered micro enterprise, and the claim has to be filed 30 days before the show, so for a December show that means early November. If the show is listed, please send the listing reference; if it is not, please say so plainly so we stop counting on it.\n\nCould you also confirm what the shell scheme includes — fascia name board, table and chairs, carpet, spotlights, power point — and how many exhibitor badges come with S08.\n\nRegards,\nSantosh Padmaa",
         "rounds": [
           {
             "at": "2026-09-16T05:25:00Z",
@@ -298,9 +334,47 @@
             "who": "us",
             "rate": 20900,
             "note": "Santosh asked for a further startup discount; answer awaited"
+          },
+          {
+            "at": "2026-09-18T06:18:22Z",
+            "who": "organiser",
+            "rate": 20900,
+            "note": "no further discount, best rate; advance can accompany the form"
+          },
+          {
+            "at": "2026-09-18T06:24:33Z",
+            "who": "us",
+            "rate": 20900,
+            "note": "Santosh accepted and committed to sending the form and advance the same day"
           }
         ]
       }
+    },
+    {
+      "eventId": "telangana-rising-2026",
+      "organiser": "T-Hub (showcase pods) / Govt. of Telangana",
+      "email": "events@t-hub.co",
+      "stage": "enquiry sent",
+      "threadIds": [
+        "1a0b0727ef4c4e5e"
+      ],
+      "note": "the summit publishes no exhibitor address (app helpdesk only), so the pod request goes through T-Hub, whose official contact page lists events@t-hub.co and valuepartners@t-hub.co",
+      "messages": [
+        {
+          "at": "2026-09-17T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "events@t-hub.co (cc valuepartners@t-hub.co)",
+          "subject": "Telangana Rising Global Summit 2026 — startup showcase pod through T-Hub",
+          "snippet": "asks whether T-Hub is curating a startup showcase at the 7-9 Dec summit, how a Hyderabad startup applies, eligibility and last date, whether incubation is a precondition, any fee and proforma, and the TGIC contact if the showcase sits elsewhere",
+          "messageId": "1a0b0727ef4c4e5e",
+          "threadId": "1a0b0727ef4c4e5e",
+          "kind": "enquiry"
+        }
+      ],
+      "lastAt": "2026-09-17T17:45:00Z",
+      "lastDir": "out",
+      "count": 1
     },
     {
       "email": "Abhas@nasscom.in",
