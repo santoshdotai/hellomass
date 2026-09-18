@@ -1,6 +1,43 @@
 {
   "items": [
     {
+      "count": 2,
+      "email": "sales@plastivision.org",
+      "eventId": "plastivision-2027",
+      "lastAt": "2026-09-18T17:45:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-11T09:51:04Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a08fe0b965d53b4",
+          "snippet": "12 sqm shell scheme; rate card, PMS (not on the DC-MSME list per Santosh), MSME corner, proforma",
+          "subject": "Plastivision India 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a08fe0b965d53b4",
+          "to": "sales@plastivision.org"
+        },
+        {
+          "at": "2026-09-18T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "sales@plastivision.org",
+          "subject": "Re: Plastivision India 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "first nudge into silence: repeats the 12 sqm corner request and the four asks (rate card + floor plan with free stalls, early-bird/MSME/startup rates and last dates, PMS approval or MSME pavilion, booking form and proforma), and offers to follow a portal or another colleague",
+          "messageId": "1a0b59852d21cae9",
+          "threadId": "1a08fe0b965d53b4",
+          "kind": "nudge"
+        }
+      ],
+      "organiser": "AIPMA",
+      "stage": "nudged",
+      "threadIds": [
+        "1a08fe0b965d53b4"
+      ],
+      "note": "first nudge sent 18 Sep, 7 days after the 11 Sep enquiry, no reply of any kind in the thread; next nudge no earlier than 25 Sep and it is the last one"
+    },
+    {
       "count": 4,
       "email": "info@indiamobilecongress.com",
       "eventId": "imc-2026",
@@ -1745,31 +1782,6 @@
       "stage": "enquiry sent",
       "threadIds": [
         "1a08fe0d04dee26d"
-      ]
-    },
-    {
-      "count": 1,
-      "email": "sales@plastivision.org",
-      "eventId": "plastivision-2027",
-      "lastAt": "2026-09-11T09:51:04Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-11T09:51:04Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a08fe0b965d53b4",
-          "snippet": "12 sqm shell scheme; rate card, PMS (not on the DC-MSME list per Santosh), MSME corner, proforma",
-          "subject": "Plastivision India 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a08fe0b965d53b4",
-          "to": "sales@plastivision.org"
-        }
-      ],
-      "organiser": "AIPMA",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a08fe0b965d53b4"
       ]
     }
   ]
