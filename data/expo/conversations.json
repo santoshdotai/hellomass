@@ -2,6 +2,154 @@
   "items": [
     {
       "count": 2,
+      "email": "enquiry@startupmahakumbh.org",
+      "eventId": "startup-mahakumbh-2027",
+      "lastAt": "2026-09-19T17:45:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-12T19:21:39Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a0971179e7df3b5",
+          "snippet": "startup pod in the B2B SaaS / AI pavilion; rate card and application",
+          "subject": "Startup Mahakumbh 6.0 — subsidised startup pod in the B2B SaaS pavilion, rate card and how to apply",
+          "threadId": "1a0971179e7df3b5",
+          "to": "enquiry@startupmahakumbh.org"
+        },
+        {
+          "at": "2026-09-19T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "enquiry@startupmahakumbh.org",
+          "subject": "Re: Startup Mahakumbh 6.0 — subsidised startup pod in the B2B SaaS pavilion, rate card and how to apply",
+          "snippet": "first nudge into silence: pod rate card and floor plan, eligibility for a subsidised pod and how to apply, application window; asks for the opening date if 2027 applications are not open yet",
+          "messageId": "1a0babe82e321f2a",
+          "threadId": "1a0971179e7df3b5",
+          "kind": "nudge"
+        }
+      ],
+      "organiser": "Startup Mahakumbh secretariat (ASSOCHAM)",
+      "stage": "nudged",
+      "threadIds": [
+        "1a0971179e7df3b5"
+      ],
+      "note": "first nudge sent 19 Sep, 7 days after the 12 Sep enquiry; Gmail thread verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 26 Sep."
+    },
+    {
+      "count": 2,
+      "email": "exhibit@tieglobalsummit.org",
+      "eventId": "tie-global-summit-2026",
+      "lastAt": "2026-09-19T17:45:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-12T19:21:37Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09711701eeb60b",
+          "snippet": "startup pod or small stall at the startup expo; rate card and application",
+          "subject": "TiE Global Summit 2026 — startup expo pod, rate card and how to apply",
+          "threadId": "1a09711701eeb60b",
+          "to": "exhibit@tieglobalsummit.org"
+        },
+        {
+          "at": "2026-09-19T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "exhibit@tieglobalsummit.org",
+          "subject": "Re: TiE Global Summit 2026 — startup expo pod, rate card and how to apply",
+          "snippet": "first nudge into silence: pod rate card and floor plan, subsidised pod for TiE members or DPIIT startups and how to apply, booking form and proforma; offers to approach TiE Hyderabad if pods are allocated by the local chapter",
+          "messageId": "1a0babeac71880d4",
+          "threadId": "1a09711701eeb60b",
+          "kind": "nudge"
+        }
+      ],
+      "organiser": "TiE Global Summit (TiE Indore)",
+      "stage": "nudged",
+      "threadIds": [
+        "1a09711701eeb60b"
+      ],
+      "note": "first nudge sent 19 Sep, 7 days after the 12 Sep enquiry; Gmail thread verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 26 Sep."
+    },
+    {
+      "count": 2,
+      "email": "intersecglobal@uae.messefrankfurt.com",
+      "eventId": "intersec-dubai-2027",
+      "lastAt": "2026-09-19T17:45:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-12T19:21:21Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a097113079e903f",
+          "snippet": "stand rate card, India pavilion, startup zone",
+          "subject": "Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
+          "threadId": "1a097113079e903f",
+          "to": "intersecglobal@uae.messefrankfurt.com"
+        },
+        {
+          "at": "2026-09-19T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "intersecglobal@uae.messefrankfurt.com",
+          "subject": "Re: Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
+          "snippet": "first nudge into silence: January show so India paperwork is time-critical; asks how the India pavilion is organised and its coordinator, the booking form and proforma, and offers to write to the India representative instead",
+          "messageId": "1a0babe9a12a4397",
+          "threadId": "1a097113079e903f",
+          "kind": "nudge"
+        }
+      ],
+      "organiser": "Messe Frankfurt Middle East",
+      "stage": "nudged",
+      "threadIds": [
+        "1a097113079e903f"
+      ],
+      "note": "first nudge sent 19 Sep, 7 days after the 12 Sep enquiry; Gmail thread verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 26 Sep."
+    },
+    {
+      "count": 2,
+      "email": "waremat@midaastouch.in",
+      "eventId": "waremat-2026",
+      "lastAt": "2026-09-19T17:45:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-12T19:19:30Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a0970f80320b77e",
+          "snippet": "9 sqm shell scheme at HITEX; rate card, PMS, proforma",
+          "subject": "WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a0970f80320b77e",
+          "to": "waremat@midaastouch.in"
+        },
+        {
+          "at": "2026-09-19T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "waremat@midaastouch.in",
+          "subject": "Re: WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "first nudge into silence: show opens 8 Oct so asks whether 9 sqm is still available, rate card and floor plan with free stalls, booking form and proforma, and says a plain no is just as useful",
+          "messageId": "1a0babe6d399e2cb",
+          "threadId": "1a0970f80320b77e",
+          "kind": "nudge"
+        }
+      ],
+      "organiser": "Midaas Touch Events and Trade Fairs",
+      "stage": "nudged",
+      "threadIds": [
+        "1a0970f80320b77e"
+      ],
+      "note": "first nudge sent 19 Sep, 7 days after the 12 Sep enquiry; Gmail thread verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 26 Sep."
+    },
+    {
+      "count": 2,
       "email": "sales@plastivision.org",
       "eventId": "plastivision-2027",
       "lastAt": "2026-09-18T17:45:00Z",
@@ -1494,81 +1642,6 @@
     },
     {
       "count": 1,
-      "email": "enquiry@startupmahakumbh.org",
-      "eventId": "startup-mahakumbh-2027",
-      "lastAt": "2026-09-12T19:21:39Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-12T19:21:39Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a0971179e7df3b5",
-          "snippet": "startup pod in the B2B SaaS / AI pavilion; rate card and application",
-          "subject": "Startup Mahakumbh 6.0 — subsidised startup pod in the B2B SaaS pavilion, rate card and how to apply",
-          "threadId": "1a0971179e7df3b5",
-          "to": "enquiry@startupmahakumbh.org"
-        }
-      ],
-      "organiser": "Startup Mahakumbh secretariat",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a0971179e7df3b5"
-      ]
-    },
-    {
-      "count": 1,
-      "email": "exhibit@tieglobalsummit.org",
-      "eventId": "tie-global-summit-2026",
-      "lastAt": "2026-09-12T19:21:37Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-12T19:21:37Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a09711701eeb60b",
-          "snippet": "startup pod or small stall at the startup expo; rate card and application",
-          "subject": "TiE Global Summit 2026 — startup expo pod, rate card and how to apply",
-          "threadId": "1a09711701eeb60b",
-          "to": "exhibit@tieglobalsummit.org"
-        }
-      ],
-      "organiser": "TiE Global Summit",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a09711701eeb60b"
-      ]
-    },
-    {
-      "count": 1,
-      "email": "intersecglobal@uae.messefrankfurt.com",
-      "eventId": "intersec-dubai-2027",
-      "lastAt": "2026-09-12T19:21:21Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-12T19:21:21Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a097113079e903f",
-          "snippet": "stand rate card, India pavilion, startup zone",
-          "subject": "Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
-          "threadId": "1a097113079e903f",
-          "to": "intersecglobal@uae.messefrankfurt.com"
-        }
-      ],
-      "organiser": "Messe Frankfurt Middle East",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a097113079e903f"
-      ]
-    },
-    {
-      "count": 1,
       "email": "abhishek.gaurav1@rxglobal.com",
       "eventId": "fastener-fair-india-2027",
       "lastAt": "2026-09-12T19:20:50Z",
@@ -1586,36 +1659,11 @@
           "to": "abhishek.gaurav1@rxglobal.com"
         }
       ],
-      "note": "one thread covers India Warehousing Show and Fastener Fair India",
+      "note": "NOT nudged. The 12 Sep mail covers both RX India shows, and RX India replied on 15 and 16 Sep (on new threads 1a0a33c059b04308 and 1a0a8b3bb25705c6, recorded under india-warehousing-show-2027), after which Santosh confirmed the IWS stall. Same organiser, so under the first-contact rule this desk sends nothing more; the Fastener Fair rate still has to be asked for inside Santosh's live RX India thread.",
       "organiser": "RX India",
-      "stage": "enquiry sent",
+      "stage": "organiser replied — Santosh's thread",
       "threadIds": [
         "1a09710b706adb78"
-      ]
-    },
-    {
-      "count": 1,
-      "email": "waremat@midaastouch.in",
-      "eventId": "waremat-2026",
-      "lastAt": "2026-09-12T19:19:30Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-12T19:19:30Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a0970f80320b77e",
-          "snippet": "9 sqm shell scheme at HITEX; rate card, PMS, proforma",
-          "subject": "WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a0970f80320b77e",
-          "to": "waremat@midaastouch.in"
-        }
-      ],
-      "organiser": "Midaas Touch Events",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a0970f80320b77e"
       ]
     },
     {
