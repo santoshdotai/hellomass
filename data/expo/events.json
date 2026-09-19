@@ -198,7 +198,7 @@
       "why": "Packaging converters and paper traders quote on WhatsApp all day (size x material x qty). Home city, zero travel cost.",
       "stall": {
         "recommend": "exhibit: stall B11, 12 sqm built-up, reserved — pay ₹70,800 and return the signed space application form (show opens 1 Oct)",
-        "hall_hint": "Stall B11 (4 m x 3 m) reserved by the organiser on 14 Sep 2026; layout attached to that mail (Santosh to open it). Organiser flyer says Hall 2.",
+        "hall_hint": "Stall B11 (4 m x 3 m) reserved 14 Sep 2026. Hall stated three ways by the organiser (Instagram: Hall 2; Facebook video: Hall 3; site footer: Hall 4) — read the Updated Layout PDF from the 13/14 Sep mails.",
         "suggested_sqm": 12,
         "shell_rate_inr_sqm": 5000,
         "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
@@ -227,10 +227,12 @@
         "sources": [
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://papexpo.in/book-a-stall/",
-          "https://hitex.co.in/events/pap-expo-2026/index.html"
+          "https://hitex.co.in/events/pap-expo-2026/index.html",
+          "https://papexpo.in/exhibiting-exhibitors/",
+          "https://www.instagram.com/reel/Dawvp3soOd5/"
         ],
         "last_checked": "2026-09-19",
-        "notes": "14 Sep 2026: organiser (info@papexpo.in) confirmed in writing on 13 Sep that PAPEXPO 2026 is NOT empanelled with MSME, so no PMS claim; pms_listed = no. Rate card: built-up ₹6,000/sqm + 18% GST (min 9 sqm) = ₹54,000 + GST ₹9,720 = ₹63,720 for 9 sqm; bare ₹7,500/sqm (min 18 sqm); no early-bird or startup rate, no last date given (show opens 1 Oct). Stall number awaited: asked for a main-aisle corner near the entrance. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | papexpo.in Book-a-Stall (search snippet) lists only bare-space packages 'with promotional coverage': 24 sqm ₹6 L, 36 sqm ₹8 L, 48 sqm ₹10 L, 60 sqm ₹12 L, all + 18% GST (≈₹25,000/sqm) — no 9 sqm shell option shown, so the ₹8,000/sqm estimate is unsupported; wait for the reply to the 12 Sep enquiry (info@papexpo.in) or call +91 63097 91291. Organiser flyer places the show in HITEX Hall 2. No early-bird published. | 19 Sep 2026 (3-day follow-up): the 14 Sep organiser mail reserving STALL B11 (12 sqm built-up at Santosh's ₹5,000/sqm counter, ₹70,800 incl. GST, full payment + signed form requested, bank details in the mail) had not been picked up by the desks — approval and plan corrected today. PAPEXPO confirmed on 13 Sep that it is not MSME (PMS) empanelled, so no reimbursement applies (pms_listed stays 'no').",
+        "notes": "14 Sep 2026: organiser (info@papexpo.in) confirmed in writing on 13 Sep that PAPEXPO 2026 is NOT empanelled with MSME, so no PMS claim; pms_listed = no. Rate card: built-up ₹6,000/sqm + 18% GST (min 9 sqm) = ₹54,000 + GST ₹9,720 = ₹63,720 for 9 sqm; bare ₹7,500/sqm (min 18 sqm); no early-bird or startup rate, no last date given (show opens 1 Oct). Stall number awaited: asked for a main-aisle corner near the entrance. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | papexpo.in Book-a-Stall (search snippet) lists only bare-space packages 'with promotional coverage': 24 sqm ₹6 L, 36 sqm ₹8 L, 48 sqm ₹10 L, 60 sqm ₹12 L, all + 18% GST (≈₹25,000/sqm) — no 9 sqm shell option shown, so the ₹8,000/sqm estimate is unsupported; wait for the reply to the 12 Sep enquiry (info@papexpo.in) or call +91 63097 91291. Organiser flyer places the show in HITEX Hall 2. No early-bird published. | 19 Sep 2026 (3-day follow-up): the 14 Sep organiser mail reserving STALL B11 (12 sqm built-up at Santosh's ₹5,000/sqm counter, ₹70,800 incl. GST, full payment + signed form requested, bank details in the mail) had not been picked up by the desks — approval and plan corrected today. PAPEXPO confirmed on 13 Sep that it is not MSME (PMS) empanelled, so no reimbursement applies (pms_listed stays 'no'). | 19 Sep 2026: HALL CONFLICT in organiser material: Instagram welcome posts say Hall 2, the Facebook invitation video says Hall 3, the papexpo.in footer still says Hall 4 (2025 leftover) — confirm from the Updated Layout PDF received 13 Sep before printing anything. Organiser social claims 200+ exhibitors; exhibitor list page: papexpo.in/exhibiting-exhibitors/. No early-bird; rate card unchanged.",
         "pms_listed": "no",
         "pms_list_checked": "2026-09-14"
       },
@@ -320,7 +322,7 @@
           "https://waremat.in/",
           "https://hitex.co.in/events/upcoming.html"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 8th edition 8–10 Oct 2026 confirmed (waremat.in brochure, hitex.co.in). No rate card or early-bird in any snippet; 2026 e-brochure PDF (waremat.in/WAREMATBrochureCHN&HYD2026.pdf) could not be read. Enquiry sent 12 Sep to waremat@midaastouch.in.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -367,7 +369,7 @@
       ],
       "expected": {
         "visitors": 13000,
-        "exhibitors": 320
+        "exhibitors": 170
       },
       "score": {
         "icp_fit": 36,
@@ -443,10 +445,11 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://eepcindia.com/event/2026/international-hardware-fair/",
           "https://www.koelnmesse-india.com/",
-          "https://hardwarefair-india.com/exhibitor-list.html"
+          "https://hardwarefair-india.com/exhibitor-list.html",
+          "https://www.aninews.in/news/business/international-hardware-fair-india-2026-to-bring-the-tools-and-hardware-industry-together-from-23821125-october-in-new-delhi20260917172911/"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 23–25 Oct 2026, Bharat Mandapam confirmed (organiser; tradeindia's 9–11 Dec listing is stale). Organiser says participation charges are sent by the sales team on request — no tariff or early-bird published. EEPC India is organising an India pavilion at IHF India 2026 (first-come-first-served; partial MAI refund if Govt approval comes through) — Souveno is not an EEPC member, so ask Koelnmesse India for the direct rate (draft waiting in Gmail). Exhibitor list: hardwarefair-india.com/exhibitor-list.html (130 exhibitors, Halls 2 & 3).",
+        "last_checked": "2026-09-19",
+        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 23–25 Oct 2026, Bharat Mandapam confirmed (organiser; tradeindia's 9–11 Dec listing is stale). Organiser says participation charges are sent by the sales team on request — no tariff or early-bird published. EEPC India is organising an India pavilion at IHF India 2026 (first-come-first-served; partial MAI refund if Govt approval comes through) — Souveno is not an EEPC member, so ask Koelnmesse India for the direct rate (draft waiting in Gmail). Exhibitor list: hardwarefair-india.com/exhibitor-list.html (130 exhibitors, Halls 2 & 3). | 19 Sep 2026: 17 Sep 2026 ANI/PTI press release re-confirms 23-25 Oct at Bharat Mandapam with 170+ exhibitors from 30+ countries, organised by Koelnmesse 'in association with FIEO' — FIEO is a new possible pavilion / MAI route to ask about besides EEPC. No tariff or early-bird published; no PMS claim. Exhibitor list: hardwarefair-india.com/exhibitor-list.html.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
       },
@@ -553,10 +556,11 @@
         "scheme_overrides": {},
         "sources": [
           "https://www.bengalurutechsummit.com/future-makers.php",
-          "https://www.bengalurutechsummit.com/startup.php"
+          "https://www.bengalurutechsummit.com/startup.php",
+          "https://www.bengalurutechsummit.com/exhibitor-list.php"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "Karnataka startup pavilion pods are subsidised for DPIIT startups; Telangana startups usually go via T-Hub delegation. | 17–19 Nov 2026 BIEC confirmed. Startup Pavilion (350+ startups) with booth or POD; POD tariff (future-makers.php#startup-tariff) applies to startups under 7 years old, + 18% GST, amount not visible in the snippet — DPIIT not stated as a condition, so a Souveno POD may be possible; check the page."
+        "last_checked": "2026-09-19",
+        "notes": "Karnataka startup pavilion pods are subsidised for DPIIT startups; Telangana startups usually go via T-Hub delegation. | 17–19 Nov 2026 BIEC confirmed. Startup Pavilion (350+ startups) with booth or POD; POD tariff (future-makers.php#startup-tariff) applies to startups under 7 years old, + 18% GST, amount not visible in the snippet — DPIIT not stated as a condition, so a Souveno POD may be possible; check the page. | 19 Sep 2026: site now claims 1,600+ exhibitors; exhibitor list at bengalurutechsummit.com/exhibitor-list.php; startup POD booking open (exhibitor payment form live), tariff amount still not visible, no DPIIT condition stated."
       },
       "sectors": [
         "ai",
@@ -674,7 +678,7 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://engiexpo.com/ExhibitionDetail"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | Dates confirmed on engiexpo.com schedule; site says 'early booking essential' but publishes no deadline or tariff (stalls 9–108 sqm shell/bare). Organiser acknowledged the 11 Sep enquiry ('Received your mail') — rate card still awaited.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -773,10 +777,11 @@
         "early_bird_note": "",
         "scheme_overrides": {},
         "sources": [
-          "https://www.dwtc.com/en/events/the-big-5-2026/"
+          "https://www.dwtc.com/en/events/the-big-5-2026/",
+          "https://exhibitors.big5global.com/Big-5-Global-2026/Exhibitor"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "23–26 Nov 2026 DWTC confirmed; India listed among country pavilions (EEPC India historically under MAI, indiaatbig5.com); visit only."
+        "last_checked": "2026-09-19",
+        "notes": "23–26 Nov 2026 DWTC confirmed; India listed among country pavilions (EEPC India historically under MAI, indiaatbig5.com); visit only. | 19 Sep 2026: exhibitor directory live: exhibitors.big5global.com/Big-5-Global-2026/Exhibitor."
       },
       "sectors": [
         "construction"
@@ -873,10 +878,11 @@
         "sources": [
           "https://digiflow.ae/technology/gitex-global-dubai/",
           "https://event.expandnorthstar.com/book-a-stand-2026",
-          "https://www.escindia.in/upcoming-events/gitex-global/"
+          "https://www.escindia.in/upcoming-events/gitex-global/",
+          "https://exhibitors.gitex.com/"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "India pavilion via ESC India / STPI; Expand North Star startup pods are subsidised for accelerator-backed startups. | Summit 7 Dec 2026 at DWTC; exhibition 8–11 Dec 2026 at Dubai Exhibition Centre, Expo City; Expand North Star 8–10 Dec co-located (startup/investor pass free; stand enquiry via event.expandnorthstar.com/book-a-stand-2026; pod pricing not published). ESC India runs the India pavilion (needs ESC membership)."
+        "last_checked": "2026-09-19",
+        "notes": "India pavilion via ESC India / STPI; Expand North Star startup pods are subsidised for accelerator-backed startups. | Summit 7 Dec 2026 at DWTC; exhibition 8–11 Dec 2026 at Dubai Exhibition Centre, Expo City; Expand North Star 8–10 Dec co-located (startup/investor pass free; stand enquiry via event.expandnorthstar.com/book-a-stand-2026; pod pricing not published). ESC India runs the India pavilion (needs ESC membership). | 19 Sep 2026: exhibitor directory live at exhibitors.gitex.com; Expand North Star at Dubai Harbour; ESC India still lists GITEX 2026 with no pavilion circular or rate."
       },
       "sectors": [
         "ai",
@@ -994,7 +1000,7 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://engiexpo.com/ExhibitionDetail"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | Dates confirmed on engiexpo.com schedule; site says 'early booking essential' but publishes no deadline or tariff (stalls 9–108 sqm shell/bare). Organiser acknowledged the 11 Sep enquiry ('Received your mail') — rate card still awaited.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -1081,10 +1087,11 @@
         "early_bird_note": "",
         "scheme_overrides": {},
         "sources": [
-          "https://www.labelsandlabeling.com/news/associations-events-awards/gulf-print-pack-announces-2027-dates"
+          "https://www.labelsandlabeling.com/news/associations-events-awards/gulf-print-pack-announces-2027-dates",
+          "https://www.gulfprintpack.com/exhibitor-list"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "15th edition 12–14 Jan 2027 DWTC Hall 7 confirmed; no tariff published (GulfPrintPackCS@Informa.com); visit only."
+        "last_checked": "2026-09-19",
+        "notes": "15th edition 12–14 Jan 2027 DWTC Hall 7 confirmed; no tariff published (GulfPrintPackCS@Informa.com); visit only. | 19 Sep 2026: exhibitor list and exhibitor manual pages now live on gulfprintpack.com."
       },
       "sectors": [
         "printing",
@@ -1205,7 +1212,7 @@
           "https://www.plastivision.org/msme-corner.php",
           "https://www.aipma.net/npe/"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "AIPMA offers member rates; AIPMA membership (₹ few thousand/yr) usually pays for itself on the stall discount. Ask for the 'Plastivision 2027 space booking form' and member tariff. | 11 Sep 2026: Santosh checked my.msme.gov.in — Plastivision India 2027 is NOT in the PMS Trade Fairs Domestic list, so no PMS reimbursement can be counted on. Ask AIPMA (plastivision.org/msme-subsidy.php, MSME desk) whether they have applied for DC-MSME approval / run an MSME pavilion for 2027; re-check the list every 3 days. | 13 Sep 2026: list re-check not possible from the sandbox (portal blocked); 'no' from Santosh's 11 Sep check stands. plastivision.org/msme-corner.php says AIPMA 'assists in securing MSME subsidy' and offers a special stall discount for MSMEs; plastivision.org/msme-subsidy.php carries a 'List of exhibitors [who] availed MSME subsidy' (Devikrupa Industries, Dollplast Machinery, Easy Plastics, Ekdant Plastics ... all Gujarat) — i.e. earlier editions were PMS-approved, so ask AIPMA (info@plastivision.org, 93727 84091) whether the 2027 approval has been applied for. No MSME pavilion is named for 2027 (pavilions listed: medical plastics, automation & robotics, recycling, solar, household). The 'up to ₹5 lakh under MAI' line on aipma.net/npe refers to AIPMA's NPE 2027 India pavilion abroad, not Plastivision.",
         "pms_listed": "no",
         "pms_list_checked": "2026-09-11"
@@ -1289,7 +1296,7 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://10times.com/et-acetech"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 22–24 Jan 2027 HITEX confirmed (10times, tradeindia). No tariff or early-bird published (an aggregator mentions 'minimum budget ₹3 lakh onwards' per stall). Draft to ranjeet.p@abec.asia waiting in Gmail.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -1394,7 +1401,7 @@
           "https://www.imtex.in/index.php?page=msme",
           "https://www.imtex.in/assets/files/IMTEX_2027_G&A.pdf"
         ],
-        "last_checked": "2026-09-16",
+        "last_checked": "2026-09-19",
         "notes": "16 Sep 2026: IMTMA confirmed bookings are closed (deadline 30 June 2026, over booked) and we are effectively waitlisted against cancellations; application form still to be returned to prasant@imtma.in. They did not answer the PMS question. Udyam certificate sent 15 Sep, so the Indian MSME rate applies rather than the origin-of-exhibit rate. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | imtex.in has an MSME page (index.php?page=msme) recording that IMTEX/Tooltech/Digital Manufacturing 2023 were PMS-approved; nothing seen yet for 2027 — ask IMTMA (enquiry sent 12 Sep). IMTEX 2027 G&A (search snippet): space application deadline 12 Jan 2027, 12:00; tariff snippets conflict (₹12,200/sqm or ₹10,900/sqm Indian; US$365/sqm foreign shell); minimums IMTEX 15 sqm shell / Tooltech 12 sqm shell / 30 sqm raw; open-side surcharge 20/30/50%. Read the PDF before quoting.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -1509,7 +1516,7 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://engiexpo.com/ExhibitionDetail"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | Dates confirmed on engiexpo.com schedule; site says 'early booking essential' but publishes no deadline or tariff (stalls 9–108 sqm shell/bare). Organiser acknowledged the 11 Sep enquiry ('Received your mail') — rate card still awaited.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -1629,10 +1636,12 @@
         "sources": [
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://booking.elecrama.com/",
-          "https://elecrama.com/exhibitors/"
+          "https://elecrama.com/exhibitors/",
+          "https://booking.elecrama.com/pdf/Stall_Booking_FAQ.pdf",
+          "https://elecrama.com/exhibitors-list/"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "IEEMA (organiser) runs an Indian MSME pavilion in some editions; ask response@elecrama.org whether a subsidised MSME/startup pod exists for 2027. Space booking guidance from the agent: book by October 2026. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 20–24 Feb 2027, India Expo Mart confirmed. Stall bookings open on booking.elecrama.com (Indian / international exhibitor categories); no tariff or early-bird visible. 'Electraverse Sparks' startup programme applications for ELECRAMA 2027 are open on elecrama.com — apply there for a startup slot. response@elecrama.org bounced on 11 Sep; the re-send draft to mumbai@ieema.org is waiting in Gmail.",
+        "last_checked": "2026-09-19",
+        "notes": "IEEMA (organiser) runs an Indian MSME pavilion in some editions; ask response@elecrama.org whether a subsidised MSME/startup pod exists for 2027. Space booking guidance from the agent: book by October 2026. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 20–24 Feb 2027, India Expo Mart confirmed. Stall bookings open on booking.elecrama.com (Indian / international exhibitor categories); no tariff or early-bird visible. 'Electraverse Sparks' startup programme applications for ELECRAMA 2027 are open on elecrama.com — apply there for a startup slot. response@elecrama.org bounced on 11 Sep; the re-send draft to mumbai@ieema.org is waiting in Gmail. | 19 Sep 2026: booking.elecrama.com now hosts an 'ELECRAMA 2027 Stall Booking Process' FAQ PDF (area bands, stall selection, Silver/Gold/Platinum categories) — read it for slabs and any deadline; per-sqm rate not visible in snippets. 1,100+ exhibitors, 10 country pavilions; exhibitor list at elecrama.com/exhibitors-list/. Electraverse Sparks startup applications still open.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
       },
@@ -1709,7 +1718,7 @@
         "sources": [
           "https://www.tradeindia.com/tradeshows/152849/india-pharma-expo-2027.html"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "11–13 Mar 2027 HITEX (Elets) confirmed; visit only."
       },
       "sectors": [
@@ -1797,7 +1806,7 @@
           "https://startupmahakumbh.co.in/expo",
           "https://startupmahakumbh.org/Exhibition.php"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "DPIIT-recognised startups can apply for a subsidised pod in the B2B/Deeptech pavilion; slots open ~Dec 2026. | CAUTION: startupmahakumbh.co.in ('6.0', 12–14 Mar 2027, New Delhi; previous '5.0' 9–10 Oct 2025) appears to be a different organiser from the DPIIT/ASSOCHAM Startup Mahakumbh at startupmahakumbh.org (3–5 Apr 2025) — the enquiry of 12 Sep went to enquiry@startupmahakumbh.org; check which event the catalogue dates belong to before paying for a pod. Pods in 11 thematic pavilions (AI/Deeptech, B2B & Precision Manufacturing); DPIIT discount not mentioned; pricing not published."
       },
       "sectors": [
@@ -1894,7 +1903,7 @@
           "https://www.convergenceindia.org/start-up-india-pavilion.aspx",
           "https://www.convergenceindia.org/space-booking.aspx"
         ],
-        "last_checked": "2026-09-15",
+        "last_checked": "2026-09-19",
         "notes": "AI Bharat Expo startup pods are subsidised for DPIIT startups; ask the organiser (Exhibitions India Group). | 34th edition 23–25 Mar 2027 Bharat Mandapam confirmed. Startup Hub expo and a 'Startup India Pavilion & Conclave' pod registration form exist (start-up-india-pavilion.aspx); charges not visible; enquiry sent 12 Sep."
       },
       "sectors": [
@@ -1993,7 +2002,7 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://www.biec.in/Calendar_event/2k26/india-automation-robotics-warehouse-logistics-material-handling-it-cyber-security-expo.php"
         ],
-        "last_checked": "2026-09-17",
+        "last_checked": "2026-09-19",
         "notes": "17 Sep 2026: proforma PI0025 issued for stall B7 with 50% advance requested; PMS approval still only 'process initiated', no confirmation. | 15 Sep 2026: organiser says the DC-MSME PMS process has been initiated for this edition but there is no official approval yet; they will share the listing reference when it lands (pms_listed stays unknown). Rate card: ₹9,500/sqm + 18% GST shell, 5% early-bird discount currently applicable (validity not stated). Stalls offered: D20, B11. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 9–11 Apr 2027 BIEC confirmed. No tariff/early-bird published. exhibitions@mediaday.co.in bounced 12 Sep — no published exhibitor-sales address yet; use the Book Your Stall form.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-15"
@@ -2109,7 +2118,7 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://www.fastenerfairindia.com/en-gb/for-exhibitors.html"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 22–24 Apr 2027 BEC confirmed (22–23 Apr 10–18h, 24 Apr 10–17h). No tariff/early-bird published; covered by the RX India enquiry of 12 Sep.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -2220,8 +2229,8 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://automationindiaexpo.com/"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 11 Sep 2026 reply from Jyothi Joseph (IED Communications): MSME/startup offer ₹8,000/sqm + 18% GST vs regular ₹13,500/sqm; 'we are not approved by DPIT' (read: no DPIIT/PMS tie-up — verify PMS separately); startup pavilion Hall 3, A row from A20; paperwork accepted only 4 months before the expo (from ~2 Feb 2027), confirmation 30 days prior; brochure, Hall 2/3 layout and order form attached (Gmail thread 1a08fe166543a617). Organiser site confirms 2–5 Jun 2027, Halls 2,3,4 & 6 BEC (a cantonfair.net listing showing 22–25 Jul 2027 is wrong).",
+        "last_checked": "2026-09-19",
+        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 11 Sep 2026 reply from Jyothi Joseph (IED Communications): MSME/startup offer ₹8,000/sqm + 18% GST vs regular ₹13,500/sqm; 'we are not approved by DPIT' (read: no DPIIT/PMS tie-up — verify PMS separately); startup pavilion Hall 3, A row from A20; paperwork accepted only 4 months before the expo (from ~2 Feb 2027), confirmation 30 days prior; brochure, Hall 2/3 layout and order form attached (Gmail thread 1a08fe166543a617). Organiser site confirms 2–5 Jun 2027, Halls 2,3,4 & 6 BEC (a cantonfair.net listing showing 22–25 Jul 2027 is wrong). | 19 Sep 2026: organiser socials re-confirm 2-5 Jun 2027 (the '22-25 July' line on the site's visit page is stray).",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
       },
@@ -2302,7 +2311,7 @@
           "https://indexpo.co.in/mumbai-expo/",
           "https://10times.com/indexpo-mumbai"
         ],
-        "last_checked": "2026-09-15",
+        "last_checked": "2026-09-19",
         "notes": "15 Sep 2026: the organiser's special ₹5,000/sqm offer named Bangalore and Hyderabad only; confirm whether the Mumbai edition is included before pricing it. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | Organiser and IEIA posts say 'Indexpo Mumbai is approved by MSME under PMS 5A' (edition year unclear) — verify the 3–5 Jun 2027 edition on the DC-MSME list before counting on it. Published shell rate in the 10times/indexpo brochure snippet: ₹11,000/sqm + GST (octonorm booth, carpet, table, 2 chairs, 3 spots); file estimate was ₹9,000.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-15"
@@ -2404,7 +2413,7 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://engiexpo.com/ExhibitionDetail"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | Dates confirmed on engiexpo.com schedule; site says 'early booking essential' but publishes no deadline or tariff (stalls 9–108 sqm shell/bare). Organiser acknowledged the 11 Sep enquiry ('Received your mail') — rate card still awaited.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -2416,21 +2425,21 @@
     {
       "id": "indexpo-hyderabad-2027",
       "name": "Indexpo Hyderabad 2027 (Industrial & Engineering Expo)",
-      "edition": "2027 (annual; 2026 edition was 4-6 Sep)",
+      "edition": "11th year — 61st edition (organiser site, Sep 2026)",
       "category": "Industrial engineering, machine tools",
       "icp": [
         "A",
         "E"
       ],
-      "start": "2027-09-03",
-      "end": "2027-09-05",
+      "start": "2027-09-17",
+      "end": "2027-09-19",
       "city": "Hyderabad",
       "venue": "HITEX Exhibition Centre",
       "venue_area": "Madhapur",
       "organiser": "Indore Infoline",
       "website": "https://indexpo.co.in/",
       "mode": "exhibit",
-      "tentative": true,
+      "tentative": false,
       "footfall_history": [
         {
           "year": 2026,
@@ -2469,7 +2478,9 @@
         "hotels": []
       },
       "sources": [
-        "https://indexpo.co.in/hyderabad-expo-2026/"
+        "https://indexpo.co.in/hyderabad-expo-2026/",
+        "https://indexpo.co.in/",
+        "https://10times.com/indexpo-hyderabad"
       ],
       "exhibitor_contact": {
         "email": "iyp_ind@yahoo.co.in",
@@ -2489,10 +2500,11 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://indexpo.co.in/hyderabad-expo-2026/",
           "https://www.tradeindia.com/tradeshows/155727/industrial-engineering-expo-indexpo-2027.html",
-          "https://10times.com/indexpo-hyderabad"
+          "https://10times.com/indexpo-hyderabad",
+          "https://indexpo.co.in/"
         ],
-        "last_checked": "2026-09-15",
-        "notes": "15 Sep 2026: organiser confirms DC-MSME PMS approval for the Hyderabad and Bangalore editions is AWAITED (Raipur too); he will notify. Two routes offered: block now at the special ₹5,000/sqm + GST, or the MSME rate ₹10,000/sqm + GST once approved with an 80% refund. The desk asked in writing whether we can move to the MSME route if approval lands after we block at ₹5,000, and for the offer's last date. Santosh separately asked (14 Sep) whether AI software is an eligible category at the Bengaluru edition. | Home show; PMS + Telangana reimbursements apply. Agent will confirm the 2027 dates with Indore Infoline. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | The 4–6 Sep 2026 edition was PMS-approved (organiser: 'subsidy up to 80% or up to ₹1.25 lakh; 100% for SC/ST/women'); approval is per edition, so 2027 must be re-confirmed. Dates still unconfirmed: tradeindia lists 17–19 Sep 2027 at HITEX ('approved by the Ministry of MSME under the PMS scheme'), 10times lists 4–6 Sep 2027 — keep tentative. 2026 rate ₹9,000/sqm + GST shell.",
+        "last_checked": "2026-09-19",
+        "notes": "15 Sep 2026: organiser confirms DC-MSME PMS approval for the Hyderabad and Bangalore editions is AWAITED (Raipur too); he will notify. Two routes offered: block now at the special ₹5,000/sqm + GST, or the MSME rate ₹10,000/sqm + GST once approved with an 80% refund. The desk asked in writing whether we can move to the MSME route if approval lands after we block at ₹5,000, and for the offer's last date. Santosh separately asked (14 Sep) whether AI software is an eligible category at the Bengaluru edition. | Home show; PMS + Telangana reimbursements apply. Agent will confirm the 2027 dates with Indore Infoline. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | The 4–6 Sep 2026 edition was PMS-approved (organiser: 'subsidy up to 80% or up to ₹1.25 lakh; 100% for SC/ST/women'); approval is per edition, so 2027 must be re-confirmed. Dates still unconfirmed: tradeindia lists 17–19 Sep 2027 at HITEX ('approved by the Ministry of MSME under the PMS scheme'), 10times lists 4–6 Sep 2027 — keep tentative. 2026 rate ₹9,000/sqm + GST shell. | 19 Sep 2026: DATES PUBLISHED by the organiser: indexpo.co.in now shows 17-18-19 September 2027 at HITEX ('11th year - 61st edition'); 10times agrees (Fri 17 - Sun 19 Sep). Catalogue moved from the 3-5 Sep placeholder and the tentative flag cleared (tradeindia's 16-18 Sep and exhibition.org.in's 4-6 Sep are stale). No published last date for the ₹5,000/sqm offer; PMS approval for 2027 still 'awaited' per the organiser's 15 Sep mail.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-15"
       },
@@ -2591,10 +2603,11 @@
         "early_bird_note": "",
         "scheme_overrides": {},
         "sources": [
-          "https://10times.com/gulfood-manufacturing"
+          "https://10times.com/gulfood-manufacturing",
+          "https://exhibitors.gulfoodmanufacturing.com/gulfood-manufacturing-2026/Exhibitors"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "3–5 Nov 2026 DWTC confirmed; no tariff/early-bird published (marketing gfmmarketing@dwtc.com); no India pavilion organiser found for this show (APEDA's pavilion is at Gulfood in Feb, a different show). MSME IC scheme: no call covering Nov 2026 events is visible, so no reimbursement route."
+        "last_checked": "2026-09-19",
+        "notes": "3–5 Nov 2026 DWTC confirmed; no tariff/early-bird published (marketing gfmmarketing@dwtc.com); no India pavilion organiser found for this show (APEDA's pavilion is at Gulfood in Feb, a different show). MSME IC scheme: no call covering Nov 2026 events is visible, so no reimbursement route. | 19 Sep 2026: exhibitor directory live: exhibitors.gulfoodmanufacturing.com/gulfood-manufacturing-2026/Exhibitors. gfm@dwtc.com (asked 16 Sep) has not replied."
       },
       "sectors": [
         "food",
@@ -2700,7 +2713,7 @@
           "https://eepcindia.com/event/2026/middle-east-energy/",
           "https://www.middleeast-energy.com/en/exhibit/why-exhibit.html"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "India pavilion is organised by EEPC India / IEEMA in past editions with MAI-supported stall rates; joining the pavilion is the cheapest route and doubles as the IC/MAI delegation. | 11–13 May 2027 at Dubai Exhibition Centre, Expo City (venue moved from DWTC). EEPC India ran the India pavilion at MEE 2026 (9 sqm booth package); the 2027 EEPC circular is not out yet. Draft to info@middleeast-energy.com waiting in Gmail."
       },
       "sectors": [
@@ -2793,10 +2806,11 @@
         "early_bird_note": "",
         "scheme_overrides": {},
         "sources": [
-          "https://www.big5constructsaudi.com/event-info/"
+          "https://www.big5constructsaudi.com/event-info/",
+          "https://www.german-pavilion.com/en/big-5-saudi-formerly-big-5-construct-saudi-2027"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "India pavilion normally via FIEO/EEPC; only relevant if Souveno decides to exhibit. | 19–22 Apr 2027 Riyadh Front confirmed; from 2027 the PMV/heavy-machinery sections move to the new bauma SAUDI ARABIA (Riyadh, Apr 2027) and Big 5 Saudi focuses on materials/design/fit-out; no India pavilion found."
+        "last_checked": "2026-09-19",
+        "notes": "India pavilion normally via FIEO/EEPC; only relevant if Souveno decides to exhibit. | 19–22 Apr 2027 Riyadh Front confirmed; from 2027 the PMV/heavy-machinery sections move to the new bauma SAUDI ARABIA (Riyadh, Apr 2027) and Big 5 Saudi focuses on materials/design/fit-out; no India pavilion found. | 19 Sep 2026: sources conflict: German Pavilion (official partner) lists 19-22 Apr 2027 Riyadh Front (matches catalogue); a stand builder lists 22-25 Feb 2027 — the organiser runs two focused events in 2027, so the Feb date is probably the other one. Keep 19-22 Apr, tentative."
       },
       "sectors": [
         "construction"
@@ -2895,10 +2909,11 @@
         "scheme_overrides": {},
         "sources": [
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
-          "https://ifsecindia.com/BookYourSpace.aspx"
+          "https://ifsecindia.com/BookYourSpace.aspx",
+          "https://ifsecindia.com/exhibitor-list"
         ],
         "last_checked": "2026-09-19",
-        "notes": "19 Sep 2026: price is now closed at ₹2,05,084 for S08 — Informa refused a further discount and Santosh accepted on 18 Sep, with the signed form and advance going the same day. The DC-MSME PMS question has still never been put to Informa; it does not depend on the booking and at this size a claim is worth roughly ₹1.2 L against the ₹7,700 the 5% discount saved. Filing deadline is 30 days before the show, so early November for 3-5 December. | 18 Sep 2026: IFSEC India 2026 is the largest live commitment — S08 all-in ₹2,05,084. Two unanswered questions are worth real money before signing: (1) is IFSEC India 2026 on the DC-MSME PMS list or does it have an MSME pavilion (at this size a PMS claim could recover up to roughly ₹1.2 L), and (2) can the fixed ₹27,500 ifsecmarket.com listing charge be waived or cut for a first-time startup. Note the listing fee does not scale with booth size, so all-in per sqm is nearly the same for both booths: ₹29,510 for S03 against ₹29,298 for S08. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 3–5 Dec 2026, Halls 4GF & 5GF Bharat Mandapam confirmed. BookYourSpace page says 'early-bird stand booking secures premium hall locations' but gives no date or rate. Draft to prashant.jain@informa.com waiting in Gmail.",
+        "notes": "19 Sep 2026: price is now closed at ₹2,05,084 for S08 — Informa refused a further discount and Santosh accepted on 18 Sep, with the signed form and advance going the same day. The DC-MSME PMS question has still never been put to Informa; it does not depend on the booking and at this size a claim is worth roughly ₹1.2 L against the ₹7,700 the 5% discount saved. Filing deadline is 30 days before the show, so early November for 3-5 December. | 18 Sep 2026: IFSEC India 2026 is the largest live commitment — S08 all-in ₹2,05,084. Two unanswered questions are worth real money before signing: (1) is IFSEC India 2026 on the DC-MSME PMS list or does it have an MSME pavilion (at this size a PMS claim could recover up to roughly ₹1.2 L), and (2) can the fixed ₹27,500 ifsecmarket.com listing charge be waived or cut for a first-time startup. Note the listing fee does not scale with booth size, so all-in per sqm is nearly the same for both booths: ₹29,510 for S03 against ₹29,298 for S08. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 3–5 Dec 2026, Halls 4GF & 5GF Bharat Mandapam confirmed. BookYourSpace page says 'early-bird stand booking secures premium hall locations' but gives no date or rate. Draft to prashant.jain@informa.com waiting in Gmail. | 19 Sep 2026: exhibitor list now live at ifsecindia.com/exhibitor-list (Halls 4GF & 5GF); no MSME/startup pavilion or PMS claim on the site — the PMS question to Informa is still open.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
       },
@@ -3007,7 +3022,7 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://www.indiawarehousingshow.com/en-gb/exhibitors.html"
         ],
-        "last_checked": "2026-09-17",
+        "last_checked": "2026-09-19",
         "notes": "17 Sep 2026: Santosh confirmed participation in IWLS 2026 (Mumbai, 22-24 Oct 2026) on the RX thread and said payment and the signed form follow by end of the next day. TWO THINGS TO SETTLE: (1) the booked show is not in this catalogue — this entry is the June 2027 Delhi edition, so IWLS 2026 needs its own record with travel and budget; (2) 22-24 Oct clashes with International Hardware Fair India 2026 in New Delhi on 23-25 Oct, which is also an exhibit. RX has still not answered on MSME / PMS listing, has not given the Fastener Fair India 2027 contact, and has not sent the 2027 Delhi rate card. | 15 Sep 2026: RX answered with an IWLS 2026 (Mumbai) package, not the 2027 Delhi edition asked for; no MSME / PMS answer and no Fastener Fair India 2027 contact yet. Package ≈ ₹15,250/sqm all-in, roughly double our ₹8,000/sqm ceiling for this band — escalate if they will not unbundle. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 24–26 Jun 2027 Yashobhoomi confirmed (20,000 sqm, 350+ exhibitors). No tariff/early-bird published; other RX sales contacts: saurabh.singh@, isha.chaudhary@, mohit.sabharwal@rxglobal.com.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
@@ -3106,7 +3121,7 @@
           "https://www.bsia.co.uk/intersec-dubai/",
           "https://www.newsonair.gov.in/itpo-showcases-indias-growing-prominence-in-global-security-safety-sector"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "12–14 Jan 2027 DWTC confirmed. Organiser publishes no rate; third-party quotes: raw space from USD 565/sqm (stand builder), UK pavilion USD 810/sqm + 5% VAT. ITPO ran an India pavilion at Intersec 2025 (9 companies); 2027 India pavilion not confirmed. Enquiry sent 12 Sep."
       },
       "sectors": [
@@ -3213,10 +3228,11 @@
         "scheme_overrides": {},
         "sources": [
           "https://imc.tcoe.in/",
-          "https://www.indiamobilecongress.com/aspire"
+          "https://www.indiamobilecongress.com/aspire",
+          "https://www.indiamobilecongress.com/resources/exhibitor-directory"
         ],
         "last_checked": "2026-09-19",
-        "notes": "19 Sep 2026: ASPIRE application paid TWICE — the form went in under the MSME category while the payment was made under Startup, so IMC asked for a resubmission under Startup with a fresh payment and promised to refund the first. Santosh did both on 18 Sep; a refund is owed and the pod is still not confirmed, with the show on 7-10 Oct. | 16 Sep 2026: IMC 2026 (7-10 Oct, Yashobhoomi, New Delhi) invited us to the ASPIRE startup pavilion — a ~3.2 sqm pod at Rs 2,400 incl. GST, fully refundable if not selected. The catalogue still carries IMC as visit-only; if the pod is granted it becomes an exhibit and the travel plan changes. Application form and deck are Santosh's to submit. | 7–10 Oct 2026 Yashobhoomi confirmed. ASPIRE startup/MSME pod applications closed 20 Aug 2026 (pods ~3.2 sqm, participant pays a fraction, balance under DoT TDIP) — 2026 is visit-only as planned; the 12 Sep enquiry asked about the 2027 cycle. Visitor passes open since 4 Sep."
+        "notes": "19 Sep 2026: ASPIRE application paid TWICE — the form went in under the MSME category while the payment was made under Startup, so IMC asked for a resubmission under Startup with a fresh payment and promised to refund the first. Santosh did both on 18 Sep; a refund is owed and the pod is still not confirmed, with the show on 7-10 Oct. | 16 Sep 2026: IMC 2026 (7-10 Oct, Yashobhoomi, New Delhi) invited us to the ASPIRE startup pavilion — a ~3.2 sqm pod at Rs 2,400 incl. GST, fully refundable if not selected. The catalogue still carries IMC as visit-only; if the pod is granted it becomes an exhibit and the travel plan changes. Application form and deck are Santosh's to submit. | 7–10 Oct 2026 Yashobhoomi confirmed. ASPIRE startup/MSME pod applications closed 20 Aug 2026 (pods ~3.2 sqm, participant pays a fraction, balance under DoT TDIP) — 2026 is visit-only as planned; the 12 Sep enquiry asked about the 2027 cycle. Visitor passes open since 4 Sep. | 19 Sep 2026: exhibitor directory live at indiamobilecongress.com/resources/exhibitor-directory; no new ASPIRE announcement."
       },
       "sectors": [
         "ai",
@@ -3323,7 +3339,7 @@
         "sources": [
           "https://events.yourstory.com/techsparks-2026"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13–15 Oct 2026, Taj Yeshwantpur confirmed; Tech30 showcase (30 startups); no paid pod offer seen; tickets via events.yourstory.com/techsparks-2026."
       },
       "sectors": [
@@ -3420,7 +3436,7 @@
         "sources": [
           "https://aiml.events/events/global-ai-show-abu-dhabi-2026"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "27–28 Oct 2026 Abu Dhabi (aiml.events); skip list."
       },
       "sectors": [
@@ -3511,7 +3527,7 @@
         "sources": [
           "https://worldaiexpo.io/prices-packages/"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "Venue now published: Millennium Airport Hotel, Dubai; expo 17–18 Nov + summit 19 Nov 2026; delegate early-bird ended 18 Jul 2026; startup pods 1–2 sqm. Skip list."
       },
       "sectors": [
@@ -3523,7 +3539,7 @@
     },
     {
       "id": "telangana-rising-2026",
-      "name": "Telangana Rising Global Summit 2026",
+      "name": "Telangana Rising Global Summit 2026 (Invest Telangana Global Summit 2026)",
       "edition": "State investment summit — AI, GCCs, future city",
       "category": "Investors, government, GCC heads, AI policy",
       "icp": [
@@ -3532,12 +3548,12 @@
       "start": "2026-12-07",
       "end": "2026-12-09",
       "city": "Hyderabad",
-      "venue": "Bharat Future City / HICC (to be confirmed)",
+      "venue": "Bharat Future City (official)",
       "venue_area": "Hyderabad",
       "organiser": "Govt. of Telangana",
       "website": "https://www.telangana.gov.in/",
       "mode": "visit",
-      "tentative": true,
+      "tentative": false,
       "footfall_history": [
         {
           "year": 2025,
@@ -3569,7 +3585,8 @@
       "travel": {},
       "sources": [
         "https://pccrealty.in/telangana-global-investment-summit-2026-future-city-hyderabad/",
-        "https://www.thehansindia.com/telangana/telangana-cabinet-approves-hosting-rising-global-summit-in-december-1109541"
+        "https://www.thehansindia.com/telangana/telangana-cabinet-approves-hosting-rising-global-summit-in-december-1109541",
+        "https://www.telangana.gov.in/news/press-releases/2026/09/honble-chief-minister-sri-a-revanth-reddy-invited-honble-union-defence-minister-sri-rajnath-singh-to-attend-the-invest-telangana-global-summit-2026-and-inaugurate-defence-expo-2026/"
       ],
       "icp_vision": [
         "S",
@@ -3582,10 +3599,12 @@
         "scheme_overrides": {},
         "sources": [
           "https://www.thehansindia.com/telangana/telangana-cabinet-approves-hosting-rising-global-summit-in-december-1109541",
-          "https://www.deccanchronicle.com/southern-states/telangana/telangana-rising-global-summit-to-be-an-annual-investment-promotion-event-at-future-city-1963599"
+          "https://www.deccanchronicle.com/southern-states/telangana/telangana-rising-global-summit-to-be-an-annual-investment-promotion-event-at-future-city-1963599",
+          "https://www.telangana.gov.in/news/press-releases/2026/09/honble-chief-minister-sri-a-revanth-reddy-invited-honble-union-defence-minister-sri-rajnath-singh-to-attend-the-invest-telangana-global-summit-2026-and-inaugurate-defence-expo-2026/",
+          "https://www.linkedin.com/posts/telangana-rising_investtelangana-telanganarising-globalsummit2026-activity-7505897190192590850-lsb_"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "Free showcase pods usually go through T-Hub / T-AIM; DPIIT not required for state programmes. | Cabinet-approved dates per press and the state's own social posts: Telangana Rising Global Summit 2.0, 7–9 Dec 2026, Bharat Future City, theme 'Invest Telangana' (file moved from 8–9 to 7–9 Dec). Still tentative until an official telangana.gov.in / TGIIC page appears; no showcase-pod address published (use t-hub.co/contact-us)."
+        "last_checked": "2026-09-19",
+        "notes": "Free showcase pods usually go through T-Hub / T-AIM; DPIIT not required for state programmes. | Cabinet-approved dates per press and the state's own social posts: Telangana Rising Global Summit 2.0, 7–9 Dec 2026, Bharat Future City, theme 'Invest Telangana' (file moved from 8–9 to 7–9 Dec). Still tentative until an official telangana.gov.in / TGIIC page appears; no showcase-pod address published (use t-hub.co/contact-us). | 19 Sep 2026: now on an official telangana.gov.in press release as 'Invest Telangana Global Summit-2026', 7-9 Dec 2026, Bharat Future City, with a Raksha/Defence Expo-2026 (industrial exhibition, air show, DPSUs) alongside; the Future City master plan is to be unveiled there. Tentative flag cleared, venue fixed. Still no registration or showcase-pod page (delegates get links by e-mail as in 2025); the T-Hub route (events@t-hub.co, asked 17 Sep) remains the only pod lead."
       },
       "sectors": [
         "ai"
@@ -3691,7 +3710,7 @@
         "sources": [
           "https://events.tie.org/TiEGlobalSummit2026"
         ],
-        "last_checked": "2026-09-13",
+        "last_checked": "2026-09-19",
         "notes": "13–15 Dec 2026 Indore confirmed (200+ exhibitors, 500+ startups); pod pricing not published; enquiry sent 12 Sep."
       },
       "sectors": [
@@ -3786,10 +3805,11 @@
         "scheme_overrides": {},
         "sources": [
           "https://saasboomi.org/event_categories/annual/",
-          "https://annual.aiboomi.org/"
+          "https://annual.aiboomi.org/",
+          "https://www.linkedin.com/showcase/aiboomihq/"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "2027 dates NOT published: saasboomi.org / annual.aiboomi.org still show Annual '26 (18–20 Mar 2026, Chennai). Note SaaSBoomi is rebranding to AIBoomi; the Feb 2027 placeholder stays tentative."
+        "last_checked": "2026-09-19",
+        "notes": "2027 dates NOT published: saasboomi.org / annual.aiboomi.org still show Annual '26 (18–20 Mar 2026, Chennai). Note SaaSBoomi is rebranding to AIBoomi; the Feb 2027 placeholder stays tentative. | 19 Sep 2026: still no 2027 dates: annual.aiboomi.org / saasboomi.org show only Annual '26 (18-20 Mar 2026); AIBoomi's LinkedIn says only 'see you at AIBoomi Annual '27'. Placeholder stays tentative."
       },
       "sectors": [
         "ai"
@@ -3893,7 +3913,7 @@
           "https://www.instagram.com/reel/DYoRrWsq3xq/",
           "https://www.nasscom.in/ntlf/"
         ],
-        "last_checked": "2026-09-18",
+        "last_checked": "2026-09-19",
         "notes": "nasscom's own Instagram reel (#NTLF27) announces 'Mumbai 24–25 February 2027' — matches the catalogue dates; nasscom.in/ntlf still shows the 2026 edition and the venue is not yet named (Fairmont Mumbai in 2026). Dates treated as published; venue to confirm."
       },
       "sectors": [
@@ -4011,14 +4031,17 @@
       "subsidy": {
         "status": "to_verify",
         "early_bird_deadline": null,
-        "early_bird_note": "No early-bird; published shell tariff ₹13,500/sqm + 18% GST (min 9 sqm)",
+        "early_bird_note": "No early-bird; shell ₹13,500/sqm + 18% GST (min 9 sqm). ESC startup POD package USD 1,500 + 18% GST incl. pod + 3 nights hotel (eligibility to confirm).",
         "scheme_overrides": {},
         "sources": [
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
-          "https://indiasoft.org/participation-details/"
+          "https://indiasoft.org/participation-details/",
+          "https://icc-tca.org.tw/en/2026/07/%F0%9F%9A%80-indiasoft-2027-27th-edition-international-ict-exhibition-conferences-exhibitor-registration-now-openofficial-website-announcement/",
+          "https://www.batoi.com/resources/events/event/indiasoft-2027",
+          "https://indiasoft.org/exhibiting-companies/"
         ],
-        "last_checked": "2026-09-18",
-        "notes": "18 Sep 2026: booth D4-23 blocked and a token payment requested urgently. ESC's own invitation says the council facilitates access to incentive schemes and financial assistance for exporters and SMEs, so ask which applies to a Udyam micro enterprise (Market Access Initiative, ESC member rate or a subsidised SME booth) BEFORE paying, and whether IndiaSoft 2027 is on the DC-MSME PMS list. | ESC members get subsidised space; PMS applies only if listed by DC-MSME (check). Startup pods for DPIIT startups. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | indiasoft.org participation-details (search snippet): Indian exhibitors shell ₹13,500/sqm (min 9 sqm), raw ₹13,000/sqm (min 18 sqm), + 18% GST; international raw US$340/sqm; registration open since Jul 2026; no early-bird published. ESC-member / startup-pod terms not visible. 23–25 Mar 2027 Bharat Mandapam confirmed.",
+        "last_checked": "2026-09-19",
+        "notes": "18 Sep 2026: booth D4-23 blocked and a token payment requested urgently. ESC's own invitation says the council facilitates access to incentive schemes and financial assistance for exporters and SMEs, so ask which applies to a Udyam micro enterprise (Market Access Initiative, ESC member rate or a subsidised SME booth) BEFORE paying, and whether IndiaSoft 2027 is on the DC-MSME PMS list. | ESC members get subsidised space; PMS applies only if listed by DC-MSME (check). Startup pods for DPIIT startups. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | indiasoft.org participation-details (search snippet): Indian exhibitors shell ₹13,500/sqm (min 9 sqm), raw ₹13,000/sqm (min 18 sqm), + 18% GST; international raw US$340/sqm; registration open since Jul 2026; no early-bird published. ESC-member / startup-pod terms not visible. 23–25 Mar 2027 Bharat Mandapam confirmed. | 19 Sep 2026: ESC publishes a STARTUP POD package for IndiaSoft 2027: USD 1,500 + 18% GST including a pod booth and 3 nights' hotel (ESC announcement relayed by ICC Taiwan, Jul 2026; batoi.com) — roughly ₹1.5 lakh all-in with hotel against ₹1,43,370 for the 9 sqm D4-23 booth without hotel. Ask Seema Kakkar (ESC) whether a Udyam micro enterprise qualifies for the pod BEFORE paying the D4-23 token. Exhibiting companies list: indiasoft.org/exhibiting-companies/. Still no PMS claim.",
         "pms_listed": "unknown",
         "pms_list_checked": "2026-09-13"
       },
@@ -4047,7 +4070,7 @@
       "start": "2027-09-07",
       "end": "2027-09-09",
       "city": "Riyadh",
-      "venue": "King Abdulaziz International Conference Center",
+      "venue": "King Abdulaziz International Conference Center (KAICC), Riyadh",
       "venue_area": "Riyadh",
       "organiser": "SDAIA",
       "website": "https://globalaisummit.org/",
@@ -4116,10 +4139,11 @@
         "early_bird_note": "",
         "scheme_overrides": {},
         "sources": [
-          "https://www.arabnews.com/node/2653674/saudi-arabia"
+          "https://www.arabnews.com/node/2653674/saudi-arabia",
+          "https://www.arabnews.com/node/2653674/amp"
         ],
-        "last_checked": "2026-09-13",
-        "notes": "DATES CHANGED: SDAIA rescheduled the 4th Global AI Summit from 15–17 Sep 2026 to 7–9 Sep 2027, Riyadh (Arab News / SPA); catalogue moved from 14–16 Sep 2027 and corrected to the 4th edition. Venue (KAICC) not confirmed. Skip list."
+        "last_checked": "2026-09-19",
+        "notes": "DATES CHANGED: SDAIA rescheduled the 4th Global AI Summit from 15–17 Sep 2026 to 7–9 Sep 2027, Riyadh (Arab News / SPA); catalogue moved from 14–16 Sep 2027 and corrected to the 4th edition. Venue (KAICC) not confirmed. Skip list. | 19 Sep 2026: venue now reported as KAICC Riyadh (Arab News, Saudi listings) for 7-9 Sep 2027; skip list."
       },
       "sectors": [
         "ai"
