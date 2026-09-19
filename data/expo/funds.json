@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "prepared_on": "2026-09-13",
+    "prepared_on": "2026-09-19",
     "company": {
       "legal_name": "Souveno AI Solutions",
       "gstin": "36BDNPP2011D2ZV",
@@ -54,7 +54,7 @@
         "grant",
         "priority"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "dpiit",
@@ -79,7 +79,7 @@
       "tags": [
         "prerequisite"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "meity-samridh",
@@ -106,7 +106,7 @@
         "cash",
         "accelerator"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://msh.meity.gov.in/schemes/samridh",
         "https://apacnewsnetwork.com/2026/02/meitys-samridh-programme-accelerates-373-startups-disburses-rs-93-75-cr/"
@@ -127,7 +127,7 @@
       "rolling": true,
       "link": "https://itic.iith.ac.in/meity-tide.html",
       "status": "to_verify",
-      "notes": "13 Sep 2026: iTIC IIT-H: EiR stipend up to ₹4 lakh (idea/PoC) or grant up to ₹7 lakh (prototype) with 1-year pre-incubation; 'Apply for Support' page is open (itic.iith.ac.in/apply.html, contact@itic.iith.ac.in, 040-2301 6169); confirm a proprietorship can be an incubatee before applying.",
+      "notes": "13 Sep 2026: iTIC IIT-H: EiR stipend up to ₹4 lakh (idea/PoC) or grant up to ₹7 lakh (prototype) with 1-year pre-incubation; 'Apply for Support' page is open (itic.iith.ac.in/apply.html, contact@itic.iith.ac.in, 040-2301 6169); confirm a proprietorship can be an incubatee before applying. | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "prototype plan",
         "DPIIT preferred"
@@ -137,7 +137,7 @@
         "grant",
         "hyderabad"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://itic.iith.ac.in/meity-tide.html",
         "https://itic.iith.ac.in/apply.html"
@@ -158,7 +158,7 @@
       "rolling": true,
       "link": "https://nidhi-prayas.org/",
       "status": "to_verify",
-      "notes": "Frame the application around the Vision AI edge device. | 13 Sep 2026: PRAYAS 2.0 guidelines 2026: up to ₹20 lakh via a PRAYAS Centre, ₹40 lakh via an Advance PRAYAS Centre; individual innovators are eligible (so the proprietor can apply as innovator) for hardware/deep-tech prototypes — frame around the Vision AI edge box; centres were re-selected May–Jun 2026, innovator calls come from each centre.",
+      "notes": "Frame the application around the Vision AI edge device. | 13 Sep 2026: PRAYAS 2.0 guidelines 2026: up to ₹20 lakh via a PRAYAS Centre, ₹40 lakh via an Advance PRAYAS Centre; individual innovators are eligible (so the proprietor can apply as innovator) for hardware/deep-tech prototypes — frame around the Vision AI edge box; centres were re-selected May–Jun 2026, innovator calls come from each centre. | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "prototype plan",
         "PRAYAS centre"
@@ -168,7 +168,7 @@
         "grant",
         "vision_ai"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://nidhi-prayas.org/documents/dst-nidhi-prayas-2.0-program-guidelines-2026.pdf"
       ]
@@ -195,7 +195,7 @@
       "tags": [
         "cash"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.nstedb.com/NIDHI-Seed-Support-Program-Guidelines.pdf"
       ]
@@ -215,7 +215,7 @@
       "rolling": true,
       "link": "https://innovative.msme.gov.in/",
       "status": "confirmed",
-      "notes": "13 Sep 2026: scheme active (guidelines updated May 2026); any Udyam-registered MSME via a Host Institute — incubation up to ₹15 lakh per idea, IPR 75%, design 50–75%. Portal innovative.msme.gov.in blocked from the sandbox; dashboard shows 'applied' on 11 Sep.",
+      "notes": "13 Sep 2026: scheme active (guidelines updated May 2026); any Udyam-registered MSME via a Host Institute — incubation up to ₹15 lakh per idea, IPR 75%, design 50–75%. Portal innovative.msme.gov.in blocked from the sandbox; dashboard shows 'applied' on 11 Sep. | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "Udyam",
         "host institute"
@@ -224,7 +224,7 @@
         "grant",
         "ipr"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://innovative.msme.gov.in/Documents/MSME_InnovativeFAQ.pdf"
       ]
@@ -240,11 +240,11 @@
       "who": "Udyam-registered MSE exhibiting at a domestic fair; apply 30 days before",
       "why_fit": "Already wired into every exhibit show's subsidy box; apply per show.",
       "fit": 5,
-      "deadline": null,
+      "deadline": "2026-09-25",
       "rolling": true,
       "link": "https://my.msme.gov.in/mymsme/reg/COM_Matu.aspx",
       "status": "confirmed",
-      "notes": "Per-show apply-by dates are on each event card. | 13 Sep 2026: PMS ceiling verified from the revised (2021) guidelines as reproduced by Vikaspedia, Stonemart, UP MSME 1-Connect and the Scribd copy of the DC-MSME OM: 80% of space rent (100% for SC/ST/women/NER/PH/aspirational-district units), ceiling ₹1.50 lakh per enterprise per event in Metro/A-class cities, ₹1.00 lakh B-class, ₹0.80 lakh other cities, max 2 events per FY; support computed for up to 9 sqm (min stall 12 sqm per the UP page). The ₹30,000 + ₹15,000 figures are the superseded 2016 MATU text. The ministry PDF itself is a scanned image (no text) and the portal is blocked from the sandbox. ni-msme says pre-approval applications go through PRISM 90 days before the fair — reconcile with the 30-day rule.",
+      "notes": "Per-show apply-by dates are on each event card. | 13 Sep 2026: PMS ceiling verified from the revised (2021) guidelines as reproduced by Vikaspedia, Stonemart, UP MSME 1-Connect and the Scribd copy of the DC-MSME OM: 80% of space rent (100% for SC/ST/women/NER/PH/aspirational-district units), ceiling ₹1.50 lakh per enterprise per event in Metro/A-class cities, ₹1.00 lakh B-class, ₹0.80 lakh other cities, max 2 events per FY; support computed for up to 9 sqm (min stall 12 sqm per the UP page). The ₹30,000 + ₹15,000 figures are the superseded 2016 MATU text. The ministry PDF itself is a scanned image (no text) and the portal is blocked from the sandbox. ni-msme says pre-approval applications go through PRISM 90 days before the fair — reconcile with the 30-day rule. | 19 Sep 2026: PMS HAS MOVED TO A NEW PORTAL — pms.dcmsme.gov.in (MY MSME notice: 'in view of the temporary extension of the PMS Scheme, organizers may submit proposals for Trade Fairs/Exhibitions from October 2026 onwards through the new PMS Portal'). Approved fairs are listed per event at pms.dcmsme.gov.in/view-all-event (MSE sign-in with the Udyam number + mobile), so check each fair there instead of waiting for a list. OPEN NOW: IITF-2026 MSME Pavilion (Bharat Mandapam, 14-27 Nov 2026, B2B days 14-18 Nov) — MSE applications extended to 25 Sep 2026, only Udyam valid as on 31 Aug 2026 (no changes after that date), no fee at application, subsidised stall rent collected only on allotment (dcmsme.gov.in IITF-FAQ.pdf). Two more approved events visible on the portal: a printing/packaging/labelling fair 23-25 Oct 2026 (apply by 13 Oct; name truncated, possibly South Print & Pack Expo Bengaluru) and a building/construction fair 10-13 Dec 2026 (apply by 30 Nov). None of Souveno's planned fairs shows an approval snippet yet; MATECIA 2027 states it is PMS-approved (not in the plan).",
       "needs": [
         "Udyam",
         "stall invoice"
@@ -253,13 +253,18 @@
         "subsidy",
         "expo"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://en.vikaspedia.in/viewcontent/schemesall/schemes-for-entrepreneurs/procurement-and-marketing-support/procurement-marketing-support-to-msmes?lgn=en",
         "https://www.stonemart-india.in/pms-scheme",
         "https://msme1connect.up.gov.in/Home/SchemesList/32",
         "https://www.scribd.com/document/743420419/OM-PMS-Scheme-Guidelines",
-        "https://www.nimsme.gov.in/about-scheme/procurement-and-marketing-support-pms-scheme"
+        "https://www.nimsme.gov.in/about-scheme/procurement-and-marketing-support-pms-scheme",
+        "https://pms.dcmsme.gov.in/",
+        "https://pms.dcmsme.gov.in/view-all-event",
+        "https://pms.dcmsme.gov.in/mse-login",
+        "https://dcmsme.gov.in/CLCS_TUS_Scheme/PMS/s/IITF-FAQ.pdf",
+        "https://my.msme.gov.in/mymsme/reg/COM_Matu.aspx"
       ]
     },
     {
@@ -277,7 +282,7 @@
       "rolling": true,
       "link": "https://www.ic.msme.gov.in/",
       "status": "to_verify",
-      "notes": "Next call for Oct 2026 – Mar 2027 events awaited. | 13 Sep 2026: only the call for events 1 Jun–30 Sep 2026 (closed 5 May 2026, 17:30) is visible; no call for Oct 2026–Mar 2027 events found on any indexed page; ic.msme.gov.in blocked from the sandbox. Only associations apply — Souveno joins a delegation.",
+      "notes": "Next call for Oct 2026 – Mar 2027 events awaited. | 13 Sep 2026: only the call for events 1 Jun–30 Sep 2026 (closed 5 May 2026, 17:30) is visible; no call for Oct 2026–Mar 2027 events found on any indexed page; ic.msme.gov.in blocked from the sandbox. Only associations apply — Souveno joins a delegation. | 19 Sep 2026: unchanged — ic.msme.gov.in still shows only the Jun-Sep 2026 call (closed 5 May 2026); nothing for Oct 2026-Mar 2027.",
       "needs": [
         "association membership"
       ],
@@ -286,7 +291,7 @@
         "expo",
         "gulf"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.nimsme.gov.in/about-scheme/international-cooperation-ic-scheme"
       ]
@@ -314,7 +319,7 @@
       "tags": [
         "debt"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "mudra",
@@ -338,7 +343,7 @@
       "tags": [
         "debt"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "t-hub",
@@ -355,7 +360,7 @@
       "rolling": true,
       "link": "https://t-hub.co/",
       "status": "confirmed",
-      "notes": "13 Sep 2026: Lab32 Cohort 13 (100-day market-readiness programme, paid) accepts rolling applications; reply in 7–10 working days then pitch. Dashboard shows 'applied' on 11 Sep.",
+      "notes": "13 Sep 2026: Lab32 Cohort 13 (100-day market-readiness programme, paid) accepts rolling applications; reply in 7–10 working days then pitch. Dashboard shows 'applied' on 11 Sep. | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "application",
         "pitch"
@@ -365,7 +370,7 @@
         "hyderabad",
         "priority"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://programs.t-hub.co/lab-32-market-readiness-program/"
       ]
@@ -385,7 +390,7 @@
       "rolling": true,
       "link": "https://ai.telangana.gov.in/revv-up/",
       "status": "to_verify",
-      "notes": "Cohorts open roughly yearly; the agent watches for the next call. | 13 Sep 2026: no 2026 cohort call found (only cohorts 1–3, 2021–22, are indexed); ai.telangana.gov.in unreachable. Keep watching; dashboard shows 'applied' on 11 Sep.",
+      "notes": "Cohorts open roughly yearly; the agent watches for the next call. | 13 Sep 2026: no 2026 cohort call found (only cohorts 1–3, 2021–22, are indexed); ai.telangana.gov.in unreachable. Keep watching; dashboard shows 'applied' on 11 Sep. | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "application"
       ],
@@ -395,7 +400,7 @@
         "priority",
         "vision_ai"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://ai.telangana.gov.in/revv-up/"
       ]
@@ -415,14 +420,14 @@
       "rolling": true,
       "link": "https://www.startupgrantsindia.com/state/telangana",
       "status": "to_verify",
-      "notes": "13 Sep 2026: T-Fund ₹25 lakh–₹1 cr via equity/equity-linked instruments (company structure implied); T-Spark grants (TSIC) funded 155 startups since Sep 2024; no 2026 call date found.",
+      "notes": "13 Sep 2026: T-Fund ₹25 lakh–₹1 cr via equity/equity-linked instruments (company structure implied); T-Spark grants (TSIC) funded 155 startups since Sep 2024; no 2026 call date found. | 19 Sep 2026: T-Spark tiers (TSIC): prototype up to ₹5 lakh, pilot up to ₹10 lakh, seed up to ₹15 lakh; no 2026 call date found.",
       "needs": [
         "T-Hub link"
       ],
       "tags": [
         "cash"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://startup.telangana.gov.in/funding-incentives/",
         "https://startup.telangana.gov.in/grants/"
@@ -443,14 +448,14 @@
       "rolling": true,
       "link": "https://ipass.telangana.gov.in/",
       "status": "to_verify",
-      "notes": "13 Sep 2026: current TSIC challenges target social sectors; Startup Telangana lists up to 30% reimbursement of international trade-show marketing expenses (verify on TS-iPASS, portal blocked from the sandbox).",
+      "notes": "13 Sep 2026: current TSIC challenges target social sectors; Startup Telangana lists up to 30% reimbursement of international trade-show marketing expenses (verify on TS-iPASS, portal blocked from the sandbox). | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "TS-iPASS"
       ],
       "tags": [
         "subsidy"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.teamtsic.telangana.gov.in/"
       ]
@@ -470,7 +475,7 @@
       "rolling": true,
       "link": "https://cie.iiit.ac.in/",
       "status": "to_verify",
-      "notes": "13 Sep 2026: Avishkar Venture Studio Summer 2026 cohort (5 of 110+, seed up to ₹10 lakh) started 31 Jul 2026 — closed; next cohort not announced; general CIE incubation page unreadable.",
+      "notes": "13 Sep 2026: Avishkar Venture Studio Summer 2026 cohort (5 of 110+, seed up to ₹10 lakh) started 31 Jul 2026 — closed; next cohort not announced; general CIE incubation page unreadable. | 19 Sep 2026: Avishkar eligibility text says 'registered in India' (entity type not specified); Summer 2026 cohort closed.",
       "needs": [
         "application"
       ],
@@ -479,9 +484,10 @@
         "hyderabad",
         "vision_ai"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
-        "https://www.iiit.ac.in/cie-at-iiit-hyderabad-selects-five-deep-tech-startups-for-avishkar-venture-studio-summer-cohort-2026-2/"
+        "https://www.iiit.ac.in/cie-at-iiit-hyderabad-selects-five-deep-tech-startups-for-avishkar-venture-studio-summer-cohort-2026-2/",
+        "https://cie.iiit.ac.in/avishkar/"
       ]
     },
     {
@@ -499,13 +505,13 @@
       "rolling": true,
       "link": "https://itic.iith.ac.in/",
       "status": "to_verify",
-      "notes": "13 Sep 2026: apply page live (itic.iith.ac.in/apply.html): EiR ₹4 lakh / TIDE grant ₹7 lakh; entity rule not read.",
+      "notes": "13 Sep 2026: apply page live (itic.iith.ac.in/apply.html): EiR ₹4 lakh / TIDE grant ₹7 lakh; entity rule not read. | 19 Sep 2026: eligibility text: Indian citizen, one full-time co-founder, PoC/prototype; grant calls 'invited at national level through advertisements'; entity rule still not stated.",
       "needs": [],
       "tags": [
         "incubator",
         "hyderabad"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://itic.iith.ac.in/apply.html"
       ]
@@ -525,7 +531,7 @@
       "rolling": true,
       "link": "https://startup.google.com/programs/accelerator/india/",
       "status": "confirmed",
-      "notes": "Next call usually opens early in the year. | 13 Sep 2026: GFSA India AI-First 2026 cohort closed 19 Apr 2026 (ran Jun–Sep, demo day Oct); 2027 call not published — dashboard 'applied' 11 Sep will be for the next cycle.",
+      "notes": "Next call usually opens early in the year. | 13 Sep 2026: GFSA India AI-First 2026 cohort closed 19 Apr 2026 (ran Jun–Sep, demo day Oct); 2027 call not published — dashboard 'applied' 11 Sep will be for the next cycle. | 19 Sep 2026: AI-first cohort benefit now stated as up to $350k Google Cloud credits over 2 years; 2027 call not published.",
       "needs": [
         "application",
         "demo video"
@@ -534,7 +540,7 @@
         "accelerator",
         "credits"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://startup.google.com/programs/accelerator/ai-first/india/"
       ]
@@ -559,7 +565,7 @@
       "tags": [
         "credits"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "aws-activate",
@@ -581,7 +587,7 @@
       "tags": [
         "credits"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "nvidia-inception",
@@ -604,7 +610,7 @@
         "credits",
         "vision_ai"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "anthropic-startups",
@@ -626,7 +632,7 @@
       "tags": [
         "credits"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "nasscom-10k",
@@ -643,15 +649,16 @@
       "rolling": true,
       "link": "https://10000startups.com/",
       "status": "confirmed",
-      "notes": "13 Sep 2026: nasscom membership ₹10,000 + 18% GST/yr for startups with IT revenue ≤ ₹2 cr (DeepTech Club for 10,000 Startups members). Note: the GITEX India pavilion is run by ESC India, not nasscom.",
+      "notes": "13 Sep 2026: nasscom membership ₹10,000 + 18% GST/yr for startups with IT revenue ≤ ₹2 cr (DeepTech Club for 10,000 Startups members). Note: the GITEX India pavilion is run by ESC India, not nasscom. | 19 Sep 2026: DeepTech Club Launchpad (virtual incubation) reviews applications monthly on a rolling basis, onboarding on the 10th of the following month.",
       "needs": [],
       "tags": [
         "pavilions",
         "network"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
-        "https://www.nasscom.in/membership"
+        "https://www.nasscom.in/membership",
+        "https://www.startupgrantsindia.com/nasscom-deeptech-club-launchpad-incubation-program-417"
       ]
     },
     {
@@ -669,12 +676,12 @@
       "rolling": true,
       "link": "https://business.whatsapp.com/",
       "status": "to_verify",
-      "notes": "13 Sep 2026: the only current Meta programme is 'Meta Startup School' (3-month, 200 startups/cohort, first cohort 1 Sep 2026, aimed at consumer brands scaling on Meta ads) — no WhatsApp Business credits programme found; dashboard 'applied' 11 Sep.",
+      "notes": "13 Sep 2026: the only current Meta programme is 'Meta Startup School' (3-month, 200 startups/cohort, first cohort 1 Sep 2026, aimed at consumer brands scaling on Meta ads) — no WhatsApp Business credits programme found; dashboard 'applied' 11 Sep. | 19 Sep 2026: re-checked, no change.",
       "needs": [],
       "tags": [
         "programme"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://about.fb.com/news/2026/08/launching-meta-startup-school-to-accelerate-growth-for-early-stage-startups/"
       ]
@@ -694,12 +701,12 @@
       "rolling": true,
       "link": "https://www.cisco.com/c/en_in/about/csr/launchpad.html",
       "status": "to_verify",
-      "notes": "13 Sep 2026: programme looks dormant (Startup India page says Cohort 7 'accepting applications' but the last activity indexed is the Cohort 6 virtual graduation).",
+      "notes": "13 Sep 2026: programme looks dormant (Startup India page says Cohort 7 'accepting applications' but the last activity indexed is the Cohort 6 virtual graduation). | 19 Sep 2026: re-checked, no change.",
       "needs": [],
       "tags": [
         "accelerator"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://startups.cisco.com/c/programs.html"
       ]
@@ -719,12 +726,12 @@
       "rolling": true,
       "link": "https://www.jiogennext.com/",
       "status": "confirmed",
-      "notes": "13 Sep 2026: continuous intake, equity-free, apply any time at jiogennext.com (MAP 2025 ran a 90-day PoC track for 21 deep-tech startups).",
+      "notes": "13 Sep 2026: continuous intake, equity-free, apply any time at jiogennext.com (MAP 2025 ran a 90-day PoC track for 21 deep-tech startups). | 19 Sep 2026: re-checked, no change.",
       "needs": [],
       "tags": [
         "accelerator"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.jiogennext.com/faq"
       ]
@@ -752,7 +759,7 @@
       "tags": [
         "equity"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "peakxv-surge",
@@ -777,7 +784,7 @@
         "equity",
         "accelerator"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "startup-mahakumbh",
@@ -794,14 +801,14 @@
       "rolling": true,
       "link": "https://startupmahakumbh.co.in/",
       "status": "to_verify",
-      "notes": "13 Sep 2026: 12–14 Mar 2027 New Delhi per the organiser's LinkedIn; pod pricing not published; see the organiser-mismatch caution on the event card.",
+      "notes": "13 Sep 2026: 12–14 Mar 2027 New Delhi per the organiser's LinkedIn; pod pricing not published; see the organiser-mismatch caution on the event card. | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "DPIIT"
       ],
       "tags": [
         "expo"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.linkedin.com/company/startup-mahakumbh"
       ]
@@ -821,7 +828,7 @@
       "rolling": true,
       "link": "https://www.hub71.com/program/access-programme/apply",
       "status": "to_verify",
-      "notes": "Cohorts twice a year; the agent watches the next call. | 13 Sep 2026: Access Programme: Cohort 20 deadline 21 Aug 2026 passed (programme Feb 2027); Cohort 21 deadline 'February 2027' (day not published), review by Apr 2027, programme Sep 2027; applications never close and roll to the next cohort; requires relocating to Abu Dhabi.",
+      "notes": "Cohorts twice a year; the agent watches the next call. | 13 Sep 2026: Access Programme: Cohort 20 deadline 21 Aug 2026 passed (programme Feb 2027); Cohort 21 deadline 'February 2027' (day not published), review by Apr 2027, programme Sep 2027; applications never close and roll to the next cohort; requires relocating to Abu Dhabi. | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "deck",
         "traction",
@@ -832,7 +839,7 @@
         "cash",
         "priority"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.hub71.com/program/access-programme/apply",
         "https://www.hub71.com/faqs"
@@ -853,7 +860,7 @@
       "rolling": true,
       "link": "https://dubaiaicampus.com/",
       "status": "confirmed",
-      "notes": "13 Sep 2026: DIFC AI licence USD 1,500/yr (vs ~USD 12,000 standard), 50% off Dubai AI Campus coworking, discounted visas — rolling, but needs a DIFC entity.",
+      "notes": "13 Sep 2026: DIFC AI licence USD 1,500/yr (vs ~USD 12,000 standard), 50% off Dubai AI Campus coworking, discounted visas — rolling, but needs a DIFC entity. | 19 Sep 2026: price conflict: a third-party guide (Aug 2026) quotes the AI licence at 'indicative AED 5,500/yr for early-stage startups' vs the USD 1,500/yr on difc.com — verify with DIFC before relying on either.",
       "needs": [
         "UAE entity"
       ],
@@ -861,10 +868,11 @@
         "gulf",
         "licence"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.difc.com/business/establish-a-business/ai-licence",
-        "https://dubaiaicampus.com/license"
+        "https://dubaiaicampus.com/license",
+        "https://www.angelindubai.com/post/dubai-ai-tech-startup-business-guide-2026"
       ]
     },
     {
@@ -882,12 +890,12 @@
       "rolling": true,
       "link": "https://infive.ae/",
       "status": "confirmed",
-      "notes": "13 Sep 2026: licence AED 1,000/yr during incubation (max 3 yrs), AED 15,000/yr after; FZ-LLC via Dubai Development Authority; team must be Dubai-based once approved; apply any time.",
+      "notes": "13 Sep 2026: licence AED 1,000/yr during incubation (max 3 yrs), AED 15,000/yr after; FZ-LLC via Dubai Development Authority; team must be Dubai-based once approved; apply any time. | 19 Sep 2026: re-checked, no change.",
       "needs": [],
       "tags": [
         "gulf"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://infive.ae/faqs/",
         "https://infive.ae/business-setup/"
@@ -908,13 +916,13 @@
       "rolling": true,
       "link": "https://misk.org.sa/en/programs/misk-accelerator/",
       "status": "to_verify",
-      "notes": "13 Sep 2026: Cohort 11 applications ran 15 Dec 2024–27 Feb 2025; no cohort 12 call found (12-week zero-equity, no funding).",
+      "notes": "13 Sep 2026: Cohort 11 applications ran 15 Dec 2024–27 Feb 2025; no cohort 12 call found (12-week zero-equity, no funding). | 19 Sep 2026: re-checked, no change.",
       "needs": [],
       "tags": [
         "gulf",
         "accelerator"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://misk.org.sa/en/programs/misk-accelerator/"
       ]
@@ -939,7 +947,7 @@
       "tags": [
         "gulf"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://flat6labs.com/program/riyadh-seed-program-page/"
       ]
@@ -959,7 +967,7 @@
       "rolling": true,
       "link": "https://startupqatar.qa/en/investment-program",
       "status": "confirmed",
-      "notes": "13 Sep 2026: Startup Qatar Investment Program: START up to US$1.1M, GROW (≥3 yrs) up to US$5.5M in milestone tranches, plus licence waivers/visas/space; rolling via QDB; requires Qatar registration.",
+      "notes": "13 Sep 2026: Startup Qatar Investment Program: START up to US$1.1M, GROW (≥3 yrs) up to US$5.5M in milestone tranches, plus licence waivers/visas/space; rolling via QDB; requires Qatar registration. | 19 Sep 2026: related route: QDB Pre-Accelerator 2026 (up to US$75,000 for 6% equity, 8 weeks 5 Oct-25 Nov 2026, incorporated startups with an MVP) closed 5 Sep 2026 — watch for 2027. Investment Program unchanged.",
       "needs": [
         "Qatar entity"
       ],
@@ -967,9 +975,10 @@
         "gulf",
         "cash"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
-        "https://www.qdb.qa/Financing-And-Funding/Equity-And-Investment/Startup-Qatar-Investment-Program"
+        "https://www.qdb.qa/Financing-And-Funding/Equity-And-Investment/Startup-Qatar-Investment-Program",
+        "https://arabfounders.net/en/qdb-pre-accelerator-program-2026-applications-open/"
       ]
     },
     {
@@ -987,7 +996,7 @@
       "rolling": true,
       "link": "https://www.expandnorthstar.com/",
       "status": "to_verify",
-      "notes": "13 Sep 2026: ENS 8–10 Dec 2026 at Dubai Exhibition Centre, Expo City; pod pricing not published (new Founder's Pass = one-day pod); Startup India route needs DPIIT, ESC India pavilion route needs ESC membership.",
+      "notes": "13 Sep 2026: ENS 8–10 Dec 2026 at Dubai Exhibition Centre, Expo City; pod pricing not published (new Founder's Pass = one-day pod); Startup India route needs DPIIT, ESC India pavilion route needs ESC membership. | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "NASSCOM / Startup India"
       ],
@@ -995,7 +1004,7 @@
         "gulf",
         "expo"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://expandnorthstar.com/"
       ]
@@ -1024,7 +1033,7 @@
         "equity",
         "accelerator"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "techstars",
@@ -1048,7 +1057,7 @@
         "accelerator",
         "gulf"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "500global",
@@ -1071,7 +1080,7 @@
         "equity",
         "gulf"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "plugandplay",
@@ -1088,13 +1097,13 @@
       "rolling": true,
       "link": "https://www.plugandplaytechcenter.com/",
       "status": "to_verify",
-      "notes": "13 Sep 2026: zero-equity, zero-fee 12-week vertical batches (Enterprise & AI, Supply Chain & Logistics); Hyderabad centre; no Hyderabad 2026 deadline published.",
+      "notes": "13 Sep 2026: zero-equity, zero-fee 12-week vertical batches (Enterprise & AI, Supply Chain & Logistics); Hyderabad centre; no Hyderabad 2026 deadline published. | 19 Sep 2026: re-checked, no change.",
       "needs": [],
       "tags": [
         "accelerator",
         "gulf"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.startupgrantsindia.com/providers/plug-and-play-tech-center"
       ]
@@ -1119,7 +1128,7 @@
       "tags": [
         "credits"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "web-summit-india-pavilion",
@@ -1144,7 +1153,7 @@
         "expo",
         "gulf"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://qatar.websummit.com/"
       ]
@@ -1164,12 +1173,12 @@
       "rolling": true,
       "link": "https://www.itpo.gov.in/india-pavilion-vivatech-2026",
       "status": "to_verify",
-      "notes": "13 Sep 2026: ITPO India Pavilion confirmed for VivaTech 2026 only; 2027 (16–19 Jun 2027, Paris Expo) pavilion not announced.",
+      "notes": "13 Sep 2026: ITPO India Pavilion confirmed for VivaTech 2026 only; 2027 (16–19 Jun 2027, Paris Expo) pavilion not announced. | 19 Sep 2026: re-checked, no change.",
       "needs": [],
       "tags": [
         "expo"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://www.itpo.gov.in/india-pavilion-vivatech-2026",
         "https://dealroom.co/events/vivatech-2027/"
@@ -1190,7 +1199,7 @@
       "rolling": false,
       "link": "https://onegiantleap.com/",
       "status": "to_verify",
-      "notes": "Apply through ESC India / NASSCOM about 4 months before. | 13 Sep 2026: LEAP 2027 confirmed 12–15 Apr 2027, RECC Malham, Riyadh; ESC India lists LEAP on its events page; no 2027 pavilion booking deadline published (LEAP 2026 had been moved to 31 Aug–3 Sep 2026).",
+      "notes": "Apply through ESC India / NASSCOM about 4 months before. | 13 Sep 2026: LEAP 2027 confirmed 12–15 Apr 2027, RECC Malham, Riyadh; ESC India lists LEAP on its events page; no 2027 pavilion booking deadline published (LEAP 2026 had been moved to 31 Aug–3 Sep 2026). | 19 Sep 2026: re-checked, no change.",
       "needs": [
         "ESC/NASSCOM"
       ],
@@ -1199,7 +1208,7 @@
         "expo",
         "priority"
       ],
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "sources": [
         "https://onegiantleap.com/",
         "https://escindia.in/blog/event/leap"
@@ -1227,7 +1236,7 @@
       "tags": [
         "grant"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     },
     {
       "id": "enterprise-sg",
@@ -1251,7 +1260,7 @@
       "tags": [
         "grant"
       ],
-      "last_checked": "2026-09-13"
+      "last_checked": "2026-09-19"
     }
   ]
 }
