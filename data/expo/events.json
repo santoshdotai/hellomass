@@ -197,12 +197,12 @@
       },
       "why": "Packaging converters and paper traders quote on WhatsApp all day (size x material x qty). Home city, zero travel cost.",
       "stall": {
-        "recommend": "exhibit 9 sqm shell in the packaging-machinery hall (URGENT: show opens 1 Oct — call HITEX/organiser today; late-booking rates apply)",
-        "hall_hint": "HITEX (organiser flyer says Hall 2; Updated Layout.pdf received 13 Sep — Santosh to open it); corner on the main aisle from the entrance, first row, on the row leading to the converting-machinery demos",
-        "suggested_sqm": 9,
-        "shell_rate_inr_sqm": 6000,
+        "recommend": "exhibit: stall B11, 12 sqm built-up, reserved — pay ₹70,800 and return the signed space application form (show opens 1 Oct)",
+        "hall_hint": "Stall B11 (4 m x 3 m) reserved by the organiser on 14 Sep 2026; layout attached to that mail (Santosh to open it). Organiser flyer says Hall 2.",
+        "suggested_sqm": 12,
+        "shell_rate_inr_sqm": 5000,
         "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
-        "rate_status": "organiser rate card by e-mail 13 Sep 2026 (Kranthika T, Project Manager, +91 63097 91291): built-up stall min 9 sqm ₹6,000/sqm + 18% GST; bare stall min 18 sqm ₹7,500/sqm + GST; no early-bird / MSME / startup rate; desk accepted ₹6,000/sqm on 14 Sep and asked for a main-aisle corner near the entrance (prefer 1/3/5/7/9/11), free extras, two instalments and the proforma"
+        "rate_status": "organiser invoice 14 Sep 2026 (Kranthika T, Project Manager, +91 63097 91291): Stall B11, 12 sqm (4 m x 3 m) built-up reserved for Souveno at ₹5,000/sqm = ₹60,000 + 18% GST = ₹70,800, full payment requested with the signed and stamped space application form (layout + form attached, Gmail message 1a09f2053fe22f0a). Santosh replied 'will do the needful tomorrow'; no payment or receipt seen in Gmail up to 19 Sep."
       },
       "travel": {
         "airport": null,
@@ -229,8 +229,8 @@
           "https://papexpo.in/book-a-stall/",
           "https://hitex.co.in/events/pap-expo-2026/index.html"
         ],
-        "last_checked": "2026-09-14",
-        "notes": "14 Sep 2026: organiser (info@papexpo.in) confirmed in writing on 13 Sep that PAPEXPO 2026 is NOT empanelled with MSME, so no PMS claim; pms_listed = no. Rate card: built-up ₹6,000/sqm + 18% GST (min 9 sqm) = ₹54,000 + GST ₹9,720 = ₹63,720 for 9 sqm; bare ₹7,500/sqm (min 18 sqm); no early-bird or startup rate, no last date given (show opens 1 Oct). Stall number awaited: asked for a main-aisle corner near the entrance. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | papexpo.in Book-a-Stall (search snippet) lists only bare-space packages 'with promotional coverage': 24 sqm ₹6 L, 36 sqm ₹8 L, 48 sqm ₹10 L, 60 sqm ₹12 L, all + 18% GST (≈₹25,000/sqm) — no 9 sqm shell option shown, so the ₹8,000/sqm estimate is unsupported; wait for the reply to the 12 Sep enquiry (info@papexpo.in) or call +91 63097 91291. Organiser flyer places the show in HITEX Hall 2. No early-bird published.",
+        "last_checked": "2026-09-19",
+        "notes": "14 Sep 2026: organiser (info@papexpo.in) confirmed in writing on 13 Sep that PAPEXPO 2026 is NOT empanelled with MSME, so no PMS claim; pms_listed = no. Rate card: built-up ₹6,000/sqm + 18% GST (min 9 sqm) = ₹54,000 + GST ₹9,720 = ₹63,720 for 9 sqm; bare ₹7,500/sqm (min 18 sqm); no early-bird or startup rate, no last date given (show opens 1 Oct). Stall number awaited: asked for a main-aisle corner near the entrance. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | papexpo.in Book-a-Stall (search snippet) lists only bare-space packages 'with promotional coverage': 24 sqm ₹6 L, 36 sqm ₹8 L, 48 sqm ₹10 L, 60 sqm ₹12 L, all + 18% GST (≈₹25,000/sqm) — no 9 sqm shell option shown, so the ₹8,000/sqm estimate is unsupported; wait for the reply to the 12 Sep enquiry (info@papexpo.in) or call +91 63097 91291. Organiser flyer places the show in HITEX Hall 2. No early-bird published. | 19 Sep 2026 (3-day follow-up): the 14 Sep organiser mail reserving STALL B11 (12 sqm built-up at Santosh's ₹5,000/sqm counter, ₹70,800 incl. GST, full payment + signed form requested, bank details in the mail) had not been picked up by the desks — approval and plan corrected today. PAPEXPO confirmed on 13 Sep that it is not MSME (PMS) empanelled, so no reimbursement applies (pms_listed stays 'no').",
         "pms_listed": "no",
         "pms_list_checked": "2026-09-14"
       },

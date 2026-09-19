@@ -1249,10 +1249,10 @@
       ]
     },
     {
-      "count": 5,
+      "count": 7,
       "email": "info@papexpo.in",
       "eventId": "papexpo-2026",
-      "lastAt": "2026-09-14T07:31:33Z",
+      "lastAt": "2026-09-14T14:03:12Z",
       "lastDir": "out",
       "messages": [
         {
@@ -1309,22 +1309,44 @@
           "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
           "threadId": "1a0970f7858ae37e",
           "to": "info@papexpo.in"
+        },
+        {
+          "at": "2026-09-14T08:54:48Z",
+          "dir": "in",
+          "from": "info@papexpo.in",
+          "to": "souveno30@gmail.com",
+          "kind": "proforma",
+          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "messageId": "1a09f2053fe22f0a",
+          "threadId": "1a0970f7858ae37e",
+          "snippet": "Stall B11 reserved for M/s Souveno AI Solutions: 12 sqm (4 m x 3 m) built-up at ₹5,000/sqm = ₹60,000 + 18% GST ₹10,800 = ₹70,800. 'Request you to expedite the payment towards stall booking' (full amount, no advance split); layout and space application form attached — return signed with company stamp; pay Papyrus Expo LLP by IMPS/NEFT/RTGS (ICICI Tilak Road, details in the mail)."
+        },
+        {
+          "at": "2026-09-14T14:03:12Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "info@papexpo.in",
+          "kind": "acknowledge",
+          "subject": "Re: PAPEXPO 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "messageId": "1a0a03aa49ed0f92",
+          "threadId": "1a0970f7858ae37e",
+          "snippet": "Santosh: 'Sure, will do the needful tomorrow' (payment + form). No payment confirmation seen in Gmail up to 19 Sep."
         }
       ],
       "negotiation": {
-        "agreed_rate": null,
+        "agreed_rate": 5000,
         "band": "below_10k",
         "ceiling_rate": 6000,
         "includes_free": [
           "Built-up shell stall (walls, fascia, basic lighting) — exact inclusions not stated by the organiser"
         ],
         "msme_rate": null,
-        "next_step": "No PAPEXPO answer since Santosh's 14 Sep mail naming stall B11 (4x3) at 5,000/sqm. Show opens 1 Oct: phone Kranthika +91 63097 91291 if still silent on 16 Sep. Settle up to 6,000/sqm.",
+        "next_step": "Pay ₹70,800 to Papyrus Expo LLP from the Souveno current account and e-mail the signed, stamped space application form; then ask for the receipt and the stall-possession date (show opens 1 Oct).",
         "optional_extras": [
           "Bare stall, min 18 sqm at ₹7,500/sqm + GST (skip: too big)"
         ],
         "our_counter_rate": 5000,
-        "pending_action": "",
+        "pending_action": "Santosh: payment + signed form (organiser asked on 14 Sep to expedite)",
         "quoted_note": "Built-up (shell) ₹6,000/sqm + 18% GST; bare stall min 18 sqm at ₹7,500/sqm. Santosh named stall B11 at 4 m x 3 m = 12 sqm, not 9: at ₹6,000 that is ₹72,000 + GST = ₹84,960 (advance ₹42,480); at ₹5,000 it is ₹60,000 + GST = ₹70,800 (advance ₹35,400).",
         "quoted_rate": 6000,
         "regular_rate": null,
@@ -1346,6 +1368,12 @@
             "note": "counter sent by Santosh (13 Sep rules: quote under 10k → open at 5,000)",
             "rate": 5000,
             "who": "us"
+          },
+          {
+            "at": "2026-09-14T08:54:48Z",
+            "who": "organiser",
+            "rate": 5000,
+            "note": "accepted the ₹5,000/sqm counter; reserved B11 12 sqm; ₹70,800 incl. GST; full payment requested"
           }
         ],
         "sqm": 12,
@@ -1357,11 +1385,11 @@
           "Two instalments: 50% advance, balance before possession",
           "Space-booking form and proforma invoice"
         ],
-        "verdict": "counter",
+        "verdict": "accept",
         "chosen_stall": "B11 (4 m x 3 m = 12 sqm) — CHECK: stall B11 was offered by India Automation & Robotics Expo on 14 Sep, and Santosh's \"finalise B11\" mail went to PAPEXPO. Confirm with Kranthika that PAPEXPO's layout really has a B11 before paying."
       },
       "organiser": "PAPEXPO (Kranthika T, Project Manager, +91 63097 91291)",
-      "stage": "negotiating",
+      "stage": "proforma received — payment due",
       "threadIds": [
         "1a0970f7858ae37e"
       ]
