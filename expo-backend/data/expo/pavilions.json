@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "prepared_on": "2026-09-13",
+    "prepared_on": "2026-09-19",
     "note": "Indian pavilions abroad are run by Export Promotion Councils (EEPC, ESC, IEEMA, ACMA, Plastindia, FIEO, TEPC, Pharmexcil, ELCINA), ITPO, NASSCOM and Startup India / MeitY. Stalls inside a pavilion cost a fraction of a direct booking and carry MAI / IC subsidy. Priority 1 = apply this month; 5 = parked. Dates marked 'to verify' are re-checked by the 3-day routine.",
     "how_to_apply": "1) Join the EPC (ESC India for software/AI: escindia.in; EEPC for engineering) — 12 months' membership unlocks MAI airfare reimbursement. 2) Watch the EPC circular for each fair (usually 4–6 months before). 3) Apply with the space form + 50% advance from the current account; keep invoices for the MAI/IC claim within 30 days after."
   },
@@ -20,9 +20,9 @@
       "support": "MAI via ESC India (2/3 of stall + airfare) after 12 months' membership; NASSCOM pod",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 12–15 Apr 2027, RECC Malham, Riyadh (600+ exhibitors) confirmed; ESC India runs a LEAP event page; 2027 pavilion circular / booking deadline not published.",
+      "notes": "13 Sep 2026: 12–15 Apr 2027, RECC Malham, Riyadh (600+ exhibitors) confirmed; ESC India runs a LEAP event page; 2027 pavilion circular / booking deadline not published. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://onegiantleap.com/",
         "https://escindia.in/blog/event/leap"
@@ -43,9 +43,9 @@
       "support": "MAI via ESC; Startup India pod",
       "status": "to_verify",
       "event_id": "gitex-global-2026",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: GITEX Global 7–11 Dec 2026 (summit 7 Dec DWTC, exhibition 8–11 Dec Dubai Exhibition Centre, Expo City); ENS 8–10 Dec. ESC India pavilion (100+ companies) is the India route (an ESC page snippet showing 9–13 Nov is stale).",
+      "notes": "13 Sep 2026: GITEX Global 7–11 Dec 2026 (summit 7 Dec DWTC, exhibition 8–11 Dec Dubai Exhibition Centre, Expo City); ENS 8–10 Dec. ESC India pavilion (100+ companies) is the India route (an ESC page snippet showing 9–13 Nov is stale). | 19 Sep 2026: ESC India pavilion (100 companies) expected; no 2026 circular or charges indexed; ESC page still shows stale 9-13 Nov dates, gitex.com says 7-11 Dec.",
       "sources": [
         "https://www.gitex.com/gitex-global-2026",
         "https://www.escindia.in/upcoming-events/gitex-global/"
@@ -66,9 +66,9 @@
       "support": "MAI via EEPC/CAPEXIL",
       "status": "to_verify",
       "event_id": "big5-global-2026",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 23–26 Nov 2026 DWTC; India listed among the country pavilions; EEPC/CAPEXIL circular and rates not found.",
+      "notes": "13 Sep 2026: 23–26 Nov 2026 DWTC; India listed among the country pavilions; EEPC/CAPEXIL circular and rates not found. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://www.dwtc.com/en/events/the-big-5-2026/"
       ]
@@ -88,9 +88,9 @@
       "support": "MAI via EEPC; IC scheme via IEEMA delegation",
       "status": "to_verify",
       "event_id": "middle-east-energy-2027",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 11–13 May 2027 at Dubai Exhibition Centre, Expo City (venue change); EEPC India ran the 2026 India Pavilion (14–16 Mar 2026, DWTC); 2027 circular not published.",
+      "notes": "13 Sep 2026: 11–13 May 2027 at Dubai Exhibition Centre, Expo City (venue change); EEPC India ran the 2026 India Pavilion (14–16 Mar 2026, DWTC); 2027 circular not published. | 19 Sep 2026: EEPC's 2027 event pages so far cover GIFA/METEC, WHX Dubai, Aquaflame, India Cycle Show — no MEE 2027 circular yet.",
       "sources": [
         "https://eepcindia.com/event/2026/middle-east-energy/"
       ]
@@ -110,9 +110,9 @@
       "support": "MAI via ESC if pavilion exists",
       "status": "to_verify",
       "event_id": "intersec-dubai-2027",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 12–14 Jan 2027 DWTC; 2026 had 1,180 exhibitors and 10 country pavilions; no India pavilion organiser (ESC/EEPC/ITPO) found for 2027.",
+      "notes": "13 Sep 2026: 12–14 Jan 2027 DWTC; 2026 had 1,180 exhibitors and 10 country pavilions; no India pavilion organiser (ESC/EEPC/ITPO) found for 2027. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://www.zawya.com/en/press-release/events-and-conferences/intersec-2026-sets-new-global-benchmark-for-security-safety-and-fire-protection-in-dubai-cxmv6m3c"
       ]
@@ -132,9 +132,9 @@
       "support": "IC scheme via association delegation",
       "status": "to_verify",
       "event_id": "gulfood-manufacturing-2026",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 3–5 Nov 2026 DWTC (2,500+ exhibitors); no India pavilion organiser found (APEDA's pavilion is at Gulfood, Jan/Feb).",
+      "notes": "13 Sep 2026: 3–5 Nov 2026 DWTC (2,500+ exhibitors); no India pavilion organiser found (APEDA's pavilion is at Gulfood, Jan/Feb). | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://gulfoodmanufacturing.com/"
       ]
@@ -152,14 +152,16 @@
       "priority": 2,
       "link": "https://automechanika-dubai.ae.messefrankfurt.com/",
       "support": "MAI via ACMA/EEPC",
-      "status": "to_verify",
+      "status": "confirmed",
       "event_id": null,
-      "last_checked": "2026-09-13",
-      "deadline": null,
-      "notes": "13 Sep 2026: 10–12 Nov 2026 at Dubai Exhibition Centre; the India Pavilion is organised by EEPC India (eepcindia-at-automechanika-dubai.com), rate 'subject to Government sanction'; booking deadline not read.",
+      "last_checked": "2026-09-19",
+      "deadline": "2026-09-30",
+      "notes": "13 Sep 2026: 10–12 Nov 2026 at Dubai Exhibition Centre; the India Pavilion is organised by EEPC India (eepcindia-at-automechanika-dubai.com), rate 'subject to Government sanction'; booking deadline not read. | 19 Sep 2026: EEPC India circular (June 2026): India Pavilion at Automechanika Dubai 10-12 Nov 2026 — online application form latest by 30 September 2026 via app.eepcindia.com/ems; INR 42,000 per sqm (9 sqm booth) + other services INR 23,000 per sqm; airfare/MAI support 'subject to Government sanction'. Requires EEPC membership, which Souveno does not hold; the show is not in the plan.",
       "sources": [
-        "https://eepcindia-at-automechanika-dubai.com/"
-      ]
+        "https://eepcindia-at-automechanika-dubai.com/",
+        "https://upload.eepcindia.com/eepc-download/eepc_files_18062026_074903.pdf"
+      ],
+      "amount": "INR 42,000/sqm (9 sqm booth) + INR 23,000/sqm services; MAI airfare subject to sanction"
     },
     {
       "id": "big5-saudi-2027",
@@ -176,9 +178,9 @@
       "support": "MAI via EEPC",
       "status": "to_verify",
       "event_id": "big5-saudi-2027",
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 19–22 Apr 2027 Riyadh Front (a different week from LEAP 12–15 Apr); PMV segment moves to bauma Saudi Arabia; no India pavilion found.",
+      "notes": "13 Sep 2026: 19–22 Apr 2027 Riyadh Front (a different week from LEAP 12–15 Apr); PMV segment moves to bauma Saudi Arabia; no India pavilion found. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://www.big5constructsaudi.com/event-info/"
       ]
@@ -198,9 +200,9 @@
       "support": "MAI via EEPC",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 5–8 Apr 2027; EEPC India ran the 2026 India Pavilion (eepchannover.in); 2027 circular not published.",
+      "notes": "13 Sep 2026: 5–8 Apr 2027; EEPC India ran the 2026 India Pavilion (eepchannover.in); 2027 circular not published. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://eepchannover.in/"
       ]
@@ -220,9 +222,9 @@
       "support": "MAI via EEPC",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 6–8 Apr 2027 Messe Stuttgart (88 Indian exhibitors listed in 2025); no EEPC pavilion circular found.",
+      "notes": "13 Sep 2026: 6–8 Apr 2027 Messe Stuttgart (88 Indian exhibitors listed in 2025); no EEPC pavilion circular found. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://www.tradefairdates.com/Fastener-Fair-Global-M3229/Stuttgart.html"
       ]
@@ -242,9 +244,9 @@
       "support": "MAI via Plastindia",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 18–25 Oct 2028 Düsseldorf; Plastindia Foundation's own show is a K-Alliance event; no India pavilion at K found.",
+      "notes": "13 Sep 2026: 18–25 Oct 2028 Düsseldorf; Plastindia Foundation's own show is a K-Alliance event; no India pavilion at K found. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://www.k-online.com/"
       ]
@@ -264,9 +266,9 @@
       "support": "Startup India pod",
       "status": "not_eligible_yet",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 31 Jan–3 Feb 2027 DECC Doha; Startup India ran a DPIIT-only call for 2026; 2027 call not found — not eligible as a proprietorship.",
+      "notes": "13 Sep 2026: 31 Jan–3 Feb 2027 DECC Doha; Startup India ran a DPIIT-only call for 2026; 2027 call not found — not eligible as a proprietorship. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://qatar.websummit.com/"
       ]
@@ -286,9 +288,9 @@
       "support": "ITPO pod",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 16–19 Jun 2027 Paris Expo; ITPO India Pavilion confirmed for 2026 only.",
+      "notes": "13 Sep 2026: 16–19 Jun 2027 Paris Expo; ITPO India Pavilion confirmed for 2026 only. | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://dealroom.co/events/vivatech-2027/"
       ]
@@ -308,12 +310,14 @@
       "support": "MAI via TEPC",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 1–4 Mar 2027 Fira Gran Via; TEPC ran the DoT-funded Bharat Pavilion at MWC 2026 via a circular dated 16 Dec 2025 — expect the 2027 circular around Dec 2026.",
+      "notes": "13 Sep 2026: 1–4 Mar 2027 Fira Gran Via; TEPC ran the DoT-funded Bharat Pavilion at MWC 2026 via a circular dated 16 Dec 2025 — expect the 2027 circular around Dec 2026. | 19 Sep 2026: TEPC lists MWC 2027 on its site; 2027 circular not yet out. 2026 Bharat Pavilion rates (circular 16 Dec 2025): Rs 90,000-2,05,000 per sqm by package; airfare reimbursed up to Rs 70,000 for exporters under Rs 50 cr.",
       "sources": [
-        "https://www.telecomepc.in/Home/content/Upcoming-Event/Upcoming-Events"
-      ]
+        "https://www.telecomepc.in/Home/content/Upcoming-Event/Upcoming-Events",
+        "https://www.telecomepc.in/Home/viewEvent?psm_id=RGRINU9MaS9EdEtjd25CYnpORmJYQT09"
+      ],
+      "amount": "2026 TEPC rates: Rs 90,000-2,05,000/sqm by package; airfare up to Rs 70,000 (exporters < Rs 50 cr)"
     },
     {
       "id": "ciie-2026",
@@ -330,9 +334,9 @@
       "support": "MAI via FIEO",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 9th CIIE 5–10 Nov 2026 NECC Shanghai; only the 2018 FIEO India pavilion is documented; standard booth US$3,000–15,000 (third-party guide).",
+      "notes": "13 Sep 2026: 9th CIIE 5–10 Nov 2026 NECC Shanghai; only the 2018 FIEO India pavilion is documented; standard booth US$3,000–15,000 (third-party guide). | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://chinaguide.in/trade-fairs/ciie-shanghai/"
       ]
@@ -350,14 +354,16 @@
       "priority": 4,
       "link": "https://www.arabhealthonline.com/",
       "support": "MAI via Pharmexcil",
-      "status": "to_verify",
+      "status": "confirmed",
       "event_id": null,
-      "last_checked": "2026-09-13",
-      "deadline": null,
-      "notes": "13 Sep 2026: now 'WHX Dubai' (formerly Arab Health): 25–28 Jan 2027 across Dubai Exhibition Centre and DWTC; Pharmexcil ran the India Pavilion at WHX 2026 (9–12 Feb 2026); 2027 circular not published.",
+      "last_checked": "2026-09-19",
+      "deadline": "2026-10-30",
+      "notes": "13 Sep 2026: now 'WHX Dubai' (formerly Arab Health): 25–28 Jan 2027 across Dubai Exhibition Centre and DWTC; Pharmexcil ran the India Pavilion at WHX 2026 (9–12 Feb 2026); 2027 circular not published. | 19 Sep 2026: EEPC India (in addition to Pharmexcil) runs an India Pavilion at WHX Dubai 25-28 Jan 2027 — application form latest by 30 October 2026; other service charges INR 40,000 per sqm (space rate not read; the 2026 edition was INR 1,20,000/sqm built-up). Pharmexcil's 2027 circular is still not out. Needs EEPC membership; healthcare show, low fit.",
       "sources": [
-        "https://www.worldhealthexpo.com/events/healthcare/dubai/"
-      ]
+        "https://www.worldhealthexpo.com/events/healthcare/dubai/",
+        "https://eepcindia.com/event/2027/world-health-expo/"
+      ],
+      "amount": "EEPC pavilion: services INR 40,000/sqm + space (2026: INR 1,20,000/sqm built-up)"
     },
     {
       "id": "electronica-2026",
@@ -374,9 +380,9 @@
       "support": "MAI via ELCINA",
       "status": "to_verify",
       "event_id": null,
-      "last_checked": "2026-09-13",
+      "last_checked": "2026-09-19",
       "deadline": null,
-      "notes": "13 Sep 2026: 10–13 Nov 2026 Messe München; no ELCINA India pavilion circular found (ELCINA's activity is at electronica India, Bengaluru).",
+      "notes": "13 Sep 2026: 10–13 Nov 2026 Messe München; no ELCINA India pavilion circular found (ELCINA's activity is at electronica India, Bengaluru). | 19 Sep 2026: re-checked, no change.",
       "sources": [
         "https://electronica.de/en/trade-fair/"
       ]
