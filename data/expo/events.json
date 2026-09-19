@@ -248,8 +248,13 @@
         "how": "email or Book-a-Stall form on papexpo.in",
         "source": "https://papexpo.in/contact/ (organiser desk 2026-09-12)"
       },
-      "competitors": [],
-      "competitors_note": "checked 13 Sep 2026 against the organiser's 2026 exhibitor announcements (15 confirmed exhibitors): no WhatsApp-automation / CRM / video-analytics vendor; Vizen Solutions (pulp & paper automation integrator) is a possible Vision AI channel partner, not a competitor"
+      "competitors": [
+        {
+          "name": "Vyapar (SME billing / inventory / invoicing app)",
+          "stall": "D11"
+        }
+      ],
+      "competitors_note": "checked 19 Sep 2026: the organiser welcomed Vyapar (billing/invoicing app) at stall D11 on 10 Sep — direct overlap with the quote-to-cash desk, two rows from Souveno's B11; no video-analytics vendor. Vizen Solutions (pulp & paper automation) is a channel-partner prospect."
     },
     {
       "id": "waremat-2026",
@@ -341,7 +346,7 @@
         "source": "https://waremat.in/contact/ (organiser desk 2026-09-12)"
       },
       "competitors": [],
-      "competitors_note": "checked 13 Sep 2026: no Hyderabad 2026 exhibitor list published yet; from the Chennai July 2026 edition, SCMCUBE Technologies (supply-chain software), RSPM Infotech and AIOTY Labs are the software/AI names to watch if they repeat"
+      "competitors_note": "checked 19 Sep 2026: still no Hyderabad list; none of the three confirmed 8th-edition exhibitors (Nilkamal MH, SFS Equipments, Dura Tech) competes. Watch if they appear: Synecx AI Labs, SCMCUBE, RSPM Infotech, AIOTY Labs (all Chennai-edition names). TOPACK, AUTOROBOT, COSLOG and WS-AUTX share HITEX Hall 3."
     },
     {
       "id": "hardware-fair-india-2026",
@@ -468,7 +473,7 @@
         "source": "https://hardwarefair-india.com/contact.php (organiser desk 2026-09-12)"
       },
       "competitors": [],
-      "competitors_note": "checked 13 Sep 2026 against hardwarefair-india.com/exhibitor-list.html (130 exhibitors): no WhatsApp-automation / CRM / video-analytics vendor; Reflexions Digital (B-33, Hall 2) is a branding agency and Sourcing Industrial (D-14) a B2B sourcing platform"
+      "competitors_note": "checked 19 Sep 2026 against the exhibitor-list snapshot (116 names) and the 17 Sep press release (21 named exhibitors): no WhatsApp-automation / CRM / video-analytics vendor. Software/service exhibitors to glance at: Reflexions Digital (B-33 H2, branding), Projections Strategy LLP (B-30A H2), Beco Technology Corporation (B-17 H2)."
     },
     {
       "id": "bts-2026",
@@ -2635,7 +2640,18 @@
         "org": "Gulfood Manufacturing commercial team (inD Events FZE / DWTC)",
         "how": "email (Commercial Team, published under Get in touch on gulfoodmanufacturing.com; gfmmarketing@dwtc.com is marketing & partnerships) or the Book Your Stand form https://event.gulfoodmanufacturing.com/book-stand-gfm",
         "source": "https://gulfoodmanufacturing.com/ (organiser desk 2026-09-16)"
-      }
+      },
+      "competitors": [
+        {
+          "name": "Addverb Technologies (Indian warehouse robotics + WMS)",
+          "stall": null
+        },
+        {
+          "name": "Delta Systems / ACME (supply-chain automation — check what software they show)",
+          "stall": null
+        }
+      ],
+      "competitors_note": "checked 19 Sep 2026 from the organiser's exhibitor release and portal: Addverb (Indian warehouse robotics + WMS) is the nearest overlap on the Vision AI side; no WhatsApp/CRM vendor named. 20 targets written to the dashboard (Indian OEMs and packaging/processing majors with India plants)."
     },
     {
       "id": "middle-east-energy-2027",
