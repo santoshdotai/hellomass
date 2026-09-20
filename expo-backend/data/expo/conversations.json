@@ -1,6 +1,102 @@
 {
   "items": [
     {
+      "count": 4,
+      "email": "mumbai@ieema.org",
+      "eventId": "elecrama-2027",
+      "lastAt": "2026-09-20T17:45:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-11T09:51:30Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a08fe11ea0ca8d3",
+          "snippet": "12 sqm shell scheme; rate card, PMS status, startup pod, booking form",
+          "subject": "ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a08fe11ea0ca8d3",
+          "to": "response@elecrama.org"
+        },
+        {
+          "at": "2026-09-11T09:51:34Z",
+          "dir": "bounce",
+          "from": "mailer-daemon@googlemail.com",
+          "kind": "bounce",
+          "messageId": "1a08fe130614814f",
+          "snippet": "Address not found: response@elecrama.org (domain not found) could not be delivered (550 5.1.1)",
+          "subject": "Delivery Status Notification (Failure)",
+          "threadId": "1a08fe11ea0ca8d3",
+          "to": "souveno30@gmail.com"
+        },
+        {
+          "at": "2026-09-13T17:38:23Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd947ebea715",
+          "snippet": "re-sent to the IEEMA Mumbai office; asked them to forward to the ELECRAMA space-booking team (booking.elecrama.com)",
+          "subject": "ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a097128f53ed7c9",
+          "to": "mumbai@ieema.org"
+        },
+        {
+          "at": "2026-09-20T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "mumbai@ieema.org",
+          "subject": "Re: ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "first nudge into silence: 12 sqm corner, rate card + floor plan with free stalls, non-member/early-bird/MSME rates and last dates, PMS approval or MSME pavilion, booking route and proforma; also tells IEEMA that response@elecrama.org on their own site bounces (domain does not resolve) and offers to use booking.elecrama.com",
+          "messageId": "1a0bfe4f0f74ca6c",
+          "threadId": "1a097128f53ed7c9",
+          "kind": "nudge"
+        }
+      ],
+      "organiser": "IEEMA (Mumbai office)",
+      "stage": "nudged",
+      "threadIds": [
+        "1a097128f53ed7c9"
+      ],
+      "note": "first nudge sent 20 Sep, 7 days after the 13 Sep enquiry; Gmail thread opened and verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 27 Sep."
+    },
+    {
+      "count": 2,
+      "email": "info@koelnmesse-india.com",
+      "eventId": "hardware-fair-india-2026",
+      "lastAt": "2026-09-20T17:45:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-13T17:37:50Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd8c74d1bae7",
+          "snippet": "9 sqm shell scheme, corner / main aisle; rate card, PMS, startup pod, proforma",
+          "subject": "International Hardware Fair India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a09711c6d48101f",
+          "to": "info@koelnmesse-india.com"
+        },
+        {
+          "at": "2026-09-20T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "info@koelnmesse-india.com",
+          "subject": "Re: International Hardware Fair India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "first nudge into silence: show is ~5 weeks away, asks for the rate card and floor plan with free stalls, booking form and proforma, says quote the standard rate if MSME/first-time rates have closed, and asks to be pointed at the sales colleague",
+          "messageId": "1a0bfe4da8ed9b12",
+          "threadId": "1a09711c6d48101f",
+          "kind": "nudge"
+        }
+      ],
+      "organiser": "Koelnmesse India",
+      "stage": "nudged",
+      "threadIds": [
+        "1a09711c6d48101f"
+      ],
+      "note": "first nudge sent 20 Sep, 7 days after the 13 Sep enquiry; Gmail thread opened and verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 27 Sep."
+    },
+    {
       "count": 2,
       "email": "enquiry@startupmahakumbh.org",
       "eventId": "startup-mahakumbh-2027",
@@ -1543,59 +1639,11 @@
       ]
     },
     {
-      "count": 3,
-      "email": "mumbai@ieema.org",
-      "eventId": "elecrama-2027",
-      "lastAt": "2026-09-13T17:38:23Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-11T09:51:30Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a08fe11ea0ca8d3",
-          "snippet": "12 sqm shell scheme; rate card, PMS status, startup pod, booking form",
-          "subject": "ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a08fe11ea0ca8d3",
-          "to": "response@elecrama.org"
-        },
-        {
-          "at": "2026-09-11T09:51:34Z",
-          "dir": "bounce",
-          "from": "mailer-daemon@googlemail.com",
-          "kind": "bounce",
-          "messageId": "1a08fe130614814f",
-          "snippet": "Address not found: response@elecrama.org (domain not found) could not be delivered (550 5.1.1)",
-          "subject": "Delivery Status Notification (Failure)",
-          "threadId": "1a08fe11ea0ca8d3",
-          "to": "souveno30@gmail.com"
-        },
-        {
-          "at": "2026-09-13T17:38:23Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a09bd947ebea715",
-          "snippet": "re-sent to the IEEMA Mumbai office; asked them to forward to the ELECRAMA space-booking team (booking.elecrama.com)",
-          "subject": "ELECRAMA 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a097128f53ed7c9",
-          "to": "mumbai@ieema.org"
-        }
-      ],
-      "organiser": "IEEMA",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a08fe11ea0ca8d3",
-        "1a097128f53ed7c9"
-      ]
-    },
-    {
-      "count": 1,
+      "count": 2,
       "email": "info@middleeast-energy.com",
       "eventId": "middle-east-energy-2027",
-      "lastAt": "2026-09-13T17:37:51Z",
-      "lastDir": "out",
+      "lastAt": "2026-09-14T04:35:57Z",
+      "lastDir": "in",
       "messages": [
         {
           "at": "2026-09-13T17:37:51Z",
@@ -1607,38 +1655,25 @@
           "subject": "Middle East Energy 2027 — MSME / startup participation, stall rate card and India pavilion",
           "threadId": "1a09711da3f6fe79",
           "to": "info@middleeast-energy.com"
+        },
+        {
+          "at": "2026-09-14T04:35:57Z",
+          "dir": "in",
+          "from": "kanwal.haider@ind-group.com",
+          "to": "souveno30@gmail.com (cc sunny.joshi.in@ind-group.com, ajay.lal@ind-group.com, marianne.eguia@ind-group.com)",
+          "subject": "RE: Middle East Energy 2027 — MSME / startup participation, stall rate card and India pavilion",
+          "snippet": "thanks for your email; connecting you to our colleagues based in India, Sunny Joshi and Ajay Lal, who will take this forward — no rate card, floor plan or India pavilion detail yet",
+          "messageId": "1a09e337461ed400",
+          "threadId": "1a09711da3f6fe79",
+          "kind": "handover"
         }
       ],
       "organiser": "Informa Markets (Middle East Energy)",
-      "stage": "enquiry sent",
+      "stage": "organiser replied — handed to India team",
       "threadIds": [
         "1a09711da3f6fe79"
-      ]
-    },
-    {
-      "count": 1,
-      "email": "info@koelnmesse-india.com",
-      "eventId": "hardware-fair-india-2026",
-      "lastAt": "2026-09-13T17:37:50Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-13T17:37:50Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a09bd8c74d1bae7",
-          "snippet": "9 sqm shell scheme, corner / main aisle; rate card, PMS, startup pod, proforma",
-          "subject": "International Hardware Fair India 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a09711c6d48101f",
-          "to": "info@koelnmesse-india.com"
-        }
       ],
-      "organiser": "Koelnmesse India",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a09711c6d48101f"
-      ]
+      "note": "NOT nudged. Informa replied on 14 Sep in the same thread: Kanwal Haider handed us to the India team, Sunny Joshi (sunny.joshi.in@ind-group.com) and Ajay Lal (ajay.lal@ind-group.com), cc Marianne Eguia. The desk had never recorded that reply, so the stage read 'enquiry sent' for six days. Under the first-contact rule the thread is Santosh's: no rate card has arrived yet and the India team has not written, so a chase from him is what moves it."
     },
     {
       "count": 1,
