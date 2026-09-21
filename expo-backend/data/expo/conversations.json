@@ -2,6 +2,66 @@
   "items": [
     {
       "count": 4,
+      "email": "marketing@abec.asia",
+      "eventId": "acetech-hyderabad-2027",
+      "lastAt": "2026-09-21T17:45:00Z",
+      "lastDir": "out",
+      "messages": [
+        {
+          "at": "2026-09-13T17:37:46Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a09bd8b9546726e",
+          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma",
+          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a08fe1c7e01e8c6",
+          "to": "ranjeet.p@abec.asia"
+        },
+        {
+          "at": "2026-09-13T17:37:48Z",
+          "dir": "bounce",
+          "from": "mailer-daemon@googlemail.com",
+          "kind": "bounce",
+          "messageId": "1a09bd8be51e5457",
+          "snippet": "Address not found: ranjeet.p@abec.asia could not be delivered (550 5.1.1)",
+          "subject": "Delivery Status Notification (Failure)",
+          "threadId": "1a08fe1c7e01e8c6",
+          "to": "souveno30@gmail.com"
+        },
+        {
+          "at": "2026-09-14T18:00:50Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "marketing@abec.asia",
+          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "9 sqm shell scheme, corner or main aisle; rate card + floor plan, MSME/startup/early-bird rates, PMS approval, startup pod, booking form and proforma (re-send after the ranjeet.p bounce)",
+          "messageId": "1a0a11431e2316cc",
+          "threadId": "1a0a11431e2316cc",
+          "kind": "enquiry"
+        },
+        {
+          "at": "2026-09-21T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "marketing@abec.asia",
+          "subject": "Re: ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "first nudge into silence: 9 sqm corner, rate card + floor plan with free stalls, early-bird/MSME/startup rates and last dates, PMS approval, booking form and proforma; notes that the widely listed ranjeet.p@abec.asia bounces and offers an in-person meeting since both sides are in Hyderabad",
+          "messageId": "1a0c50b2aa667703",
+          "threadId": "1a0a11431e2316cc",
+          "kind": "nudge"
+        }
+      ],
+      "note": "first nudge sent 21 Sep, 7 days after the 14 Sep re-send; Gmail thread opened and verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 28 Sep, then phone ABEC on +91 86570 32669.",
+      "organiser": "ABEC / ET ACETECH",
+      "stage": "nudged",
+      "threadIds": [
+        "1a08fe1c7e01e8c6",
+        "1a0a11431e2316cc"
+      ]
+    },
+    {
+      "count": 4,
       "email": "mumbai@ieema.org",
       "eventId": "elecrama-2027",
       "lastAt": "2026-09-20T17:45:00Z",
@@ -1441,55 +1501,6 @@
       "stage": "negotiating",
       "threadIds": [
         "1a08fe1dcb5cc62c"
-      ]
-    },
-    {
-      "count": 3,
-      "email": "marketing@abec.asia",
-      "eventId": "acetech-hyderabad-2027",
-      "lastAt": "2026-09-14T18:00:50Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-13T17:37:46Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a09bd8b9546726e",
-          "snippet": "9 sqm shell scheme; rate card, PMS, startup pod, proforma",
-          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a08fe1c7e01e8c6",
-          "to": "ranjeet.p@abec.asia"
-        },
-        {
-          "at": "2026-09-13T17:37:48Z",
-          "dir": "bounce",
-          "from": "mailer-daemon@googlemail.com",
-          "kind": "bounce",
-          "messageId": "1a09bd8be51e5457",
-          "snippet": "Address not found: ranjeet.p@abec.asia could not be delivered (550 5.1.1)",
-          "subject": "Delivery Status Notification (Failure)",
-          "threadId": "1a08fe1c7e01e8c6",
-          "to": "souveno30@gmail.com"
-        },
-        {
-          "at": "2026-09-14T18:00:50Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "marketing@abec.asia",
-          "subject": "ACETECH Hyderabad 2027 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme, corner or main aisle; rate card + floor plan, MSME/startup/early-bird rates, PMS approval, startup pod, booking form and proforma (re-send after the ranjeet.p bounce)",
-          "messageId": "1a0a11431e2316cc",
-          "threadId": "1a0a11431e2316cc",
-          "kind": "enquiry"
-        }
-      ],
-      "note": "ranjeet.p@abec.asia bounced 13 Sep; re-sent 14 Sep to marketing@abec.asia, the space-booking address on acetechexpo.com/contact-us (+91 86570 32669)",
-      "organiser": "ABEC / ET ACETECH",
-      "stage": "enquiry sent",
-      "threadIds": [
-        "1a08fe1c7e01e8c6",
-        "1a0a11431e2316cc"
       ]
     },
     {
