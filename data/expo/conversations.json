@@ -61,6 +61,277 @@
       ]
     },
     {
+      "count": 10,
+      "email": "vaishali.jain@ind-group.com",
+      "eventId": "ifsec-india-2026",
+      "messages": [
+        {
+          "at": "2026-09-14T18:00:24Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "prashant.jain@informa.com (cc sanjay.khandelwal@informa.com)",
+          "subject": "IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "9 sqm shell scheme in the video-analytics / AI zone, corner or main aisle; rate card + floor plan, MSME/startup/early-bird rates, PMS approval, startup pod, booking form and proforma",
+          "messageId": "1a0a113ca4386e42",
+          "threadId": "1a09712891845ec5",
+          "kind": "enquiry"
+        },
+        {
+          "at": "2026-09-16T05:25:00Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "After a phone call: two Startup Zone booths in Hall 4. S03 (3x2 = 6 sqm, 1 side open) at 21,500/sqm and S08 (3.5x2 = 7 sqm, 2 sides open) at 22,000/sqm, each less a 5% discount, PLUS a fixed www.ifsecmarket.com charge of 27,500. All-in: S03 = 1,77,059, S08 = 2,05,084 including 18% GST. Floor layout and booking form attached; 4 sqm was being checked internally.",
+          "messageId": "1a0aa16dc745a9e0",
+          "threadId": "1a09712891845ec5",
+          "kind": "rate card"
+        },
+        {
+          "at": "2026-09-16T12:15:06Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "vaishali.jain@ind-group.com",
+          "subject": "Re: IFSEC India 2026",
+          "snippet": "Santosh asked whether a 4 sqm pod is still possible, said he would otherwise take the 7 sqm, and asked for an additional startup discount.",
+          "messageId": "1a0aa2467c905ad5",
+          "threadId": "1a09712891845ec5",
+          "kind": "counter"
+        },
+        {
+          "at": "2026-09-16T13:04:26Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026",
+          "snippet": "No 4 sqm booths in the Startup Zone; they could try to fit 4 sqm in Hall 5 between booths C30 and D29 instead (outside the startup zone, no price given).",
+          "messageId": "1a0aa51b9fc04a6f",
+          "threadId": "1a09712891845ec5",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-16T13:09:49Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "vaishali.jain@ind-group.com",
+          "subject": "Re: IFSEC India 2026",
+          "snippet": "Santosh: 'We would go ahead with S08 startup booth.'",
+          "messageId": "1a0aa567c0aa5a54",
+          "threadId": "1a09712891845ec5",
+          "kind": "accept"
+        },
+        {
+          "at": "2026-09-16T13:22:43Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026",
+          "snippet": "'Perfect!' — asked for the signed and stamped booking form plus company details to confirm S08. No answer on a further discount, and nothing yet on MSME / PMS.",
+          "messageId": "1a0aa62c7e17923a",
+          "threadId": "1a09712891845ec5",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-17T14:17:23Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "vaishali.jain@ind-group.com",
+          "subject": "Re: IFSEC India 2026",
+          "snippet": "Santosh asked whether payment must go with the form and whether the price is final or a little more startup discount is possible; he will act once she answers. Nothing signed or paid yet.",
+          "messageId": "1a0afbabb4638dea",
+          "threadId": "1a09712891845ec5",
+          "kind": "counter"
+        },
+        {
+          "at": "2026-09-18T06:18:22Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "Discount REFUSED: 'There is no further discount possible and this is the best rate.' The advance can go with the signed form, and Informa raises the PI once the signed and stamped booking form is received.",
+          "messageId": "1a0b32aab874513e",
+          "threadId": "1a09712891845ec5",
+          "kind": "reply"
+        },
+        {
+          "at": "2026-09-18T06:24:33Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "vaishali.jain@ind-group.com",
+          "subject": "Re: IFSEC India 2026",
+          "snippet": "Santosh accepted: 'That's fine, not a problem at all. Will do the needful today so you can raise a PI.' So S08 is taken at 2,05,084 all-in, with the signed form and advance going the same day.",
+          "messageId": "1a0b3302fa737806",
+          "threadId": "1a09712891845ec5",
+          "kind": "accept"
+        },
+        {
+          "at": "2026-09-21T10:49:50Z",
+          "dir": "in",
+          "from": "vaishali.jain@ind-group.com",
+          "to": "souveno30@gmail.com",
+          "subject": "RE: IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "Chase: 'Awaiting the signed and stamped copy of the contract form towards your confirmation. Please share it at your earliest convenience.' Santosh said on 18 Sep the form and advance would go that day; three days on, Informa has not received them.",
+          "messageId": "1a0c39685e9794cb",
+          "threadId": "1a09712891845ec5",
+          "kind": "nudge"
+        }
+      ],
+      "note": "cc sanjay.khandelwal@informa.com; the send was blocked by the permission checker on 12 and 13 Sep and went through on 14 Sep",
+      "organiser": "Informa Markets India (Vaishali Jain, Project Manager, Security Portfolio, +91 99838 71404)",
+      "stage": "confirmed by Santosh — payment due",
+      "threadIds": [
+        "1a09712891845ec5"
+      ],
+      "lastAt": "2026-09-21T10:49:50Z",
+      "lastDir": "in",
+      "negotiation": {
+        "sqm": 7,
+        "quoted_rate": 20900,
+        "quoted_note": "Startup Zone Hall 4. S08 (3.5x2 = 7 sqm, 2 sides open): 22,000/sqm less 5% = 20,900/sqm effective, space 1,46,300, plus a FIXED ifsecmarket.com charge of 27,500 = 1,73,800 + 18% GST = 2,05,084. Alternative S03 (6 sqm, 1 side open): 20,425/sqm effective, all-in 1,77,059. The 27,500 listing fee does not scale with size, so all-in per sqm is nearly identical: 29,510 for S03 against 29,298 for S08 — S08 is the better value of the two, and it has a second open side.",
+        "regular_rate": 22000,
+        "our_counter_rate": 6000,
+        "agreed_rate": 20900,
+        "ceiling_rate": 8000,
+        "band": "above_13k",
+        "includes_free": [
+          "shell scheme booth",
+          "www.ifsecmarket.com listing (charged at 27,500, not optional as presented)"
+        ],
+        "optional_extras": [
+          "S03, 6 sqm 1 side open, all-in 1,77,059",
+          "4 sqm in Hall 5 between C30 and D29, outside the Startup Zone, not priced"
+        ],
+        "to_get": [
+          "whether IFSEC India 2026 is on the DC-MSME PMS list, or has an MSME pavilion — STILL UNASKED and worth about 1.2 lakh at this booth size; the claim must be filed 30 days before the show, so by early November for a 3-5 December show",
+          "the PI, which Informa raises once the signed and stamped form is in",
+          "what the shell scheme includes and the badge count for S08"
+        ],
+        "next_step": "Informa chased on 21 Sep for the signed and stamped contract form — Santosh said on 18 Sep it would go that day and it has not. S08 is not held until the form and advance arrive, so the booth is exposed while this sits. Send the form, and put the PMS question in the same mail: it has still never been asked, and at 2,05,084 it is worth about 1.2 lakh.",
+        "verdict": "accept",
+        "pending_action": "Santosh: signed and stamped contract form plus advance to Informa; ask the PMS question with it",
+        "suggested_reply": "(Vaishali is now chasing the signed contract form. This is the acknowledgement, and it carries the PMS question that has still never been asked.)\n\nDear Vaishali,\n\nThe signed and stamped contract form is on its way, with the advance.\n\nOne question alongside it, which does not affect the booking: is IFSEC India 2026 on the DC-MSME approved list for the Procurement and Marketing Support scheme, or does the show have an MSME pavilion? We are a Udyam-registered micro enterprise and the claim has to be filed 30 days before the show, so early November for a 3 to 5 December show. If the show is listed, please send the listing reference; if it is not, a plain no is just as useful.\n\nPlease also confirm what the shell scheme includes and how many exhibitor badges come with S08.\n\nRegards,\nSantosh Padmaa",
+        "rounds": [
+          {
+            "at": "2026-09-16T05:25:00Z",
+            "who": "organiser",
+            "rate": 20900,
+            "note": "S08 at 22,000/sqm less 5%, plus 27,500 fixed listing; all-in 2,05,084"
+          },
+          {
+            "at": "2026-09-16T13:09:49Z",
+            "who": "us",
+            "rate": 20900,
+            "note": "Santosh chose S08 verbally"
+          },
+          {
+            "at": "2026-09-17T14:17:23Z",
+            "who": "us",
+            "rate": 20900,
+            "note": "Santosh asked for a further startup discount; answer awaited"
+          },
+          {
+            "at": "2026-09-18T06:18:22Z",
+            "who": "organiser",
+            "rate": 20900,
+            "note": "no further discount, best rate; advance can accompany the form"
+          },
+          {
+            "at": "2026-09-18T06:24:33Z",
+            "who": "us",
+            "rate": 20900,
+            "note": "Santosh accepted and committed to sending the form and advance the same day"
+          }
+        ]
+      }
+    },
+    {
+      "count": 3,
+      "email": "waremat@midaastouch.in",
+      "eventId": "waremat-2026",
+      "lastAt": "2026-09-21T10:19:05Z",
+      "lastDir": "in",
+      "messages": [
+        {
+          "at": "2026-09-12T19:19:30Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a0970f80320b77e",
+          "snippet": "9 sqm shell scheme at HITEX; rate card, PMS, proforma",
+          "subject": "WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "threadId": "1a0970f80320b77e",
+          "to": "waremat@midaastouch.in"
+        },
+        {
+          "at": "2026-09-19T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "waremat@midaastouch.in",
+          "subject": "Re: WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "first nudge into silence: show opens 8 Oct so asks whether 9 sqm is still available, rate card and floor plan with free stalls, booking form and proforma, and says a plain no is just as useful",
+          "messageId": "1a0babe6d399e2cb",
+          "threadId": "1a0970f80320b77e",
+          "kind": "nudge"
+        },
+        {
+          "at": "2026-09-21T10:19:05Z",
+          "dir": "in",
+          "from": "waremat@midaastouch.in",
+          "to": "souveno30@gmail.com",
+          "subject": "Re: WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
+          "snippet": "Answered our nudge with the full rate card. List tariff 11,000/sqm shell, 10,500/sqm bare. MSME PACKAGE: 9 sqm shell booth INR 90,270 ALL INCLUSIVE, with an 80% MSME claim of 72,216 for general category (100% = 90,270 for women / SC / ST), plus up to 25,000 contingency for travel, printing and material transport against GST bills — overall eligibility 97,216 or 1,15,270 with the contingency. Eligible for service industry and manufacturers under micro and small, not traders or medium. LAST DATE FOR THE SCHEME APPLICATION: 26 SEPTEMBER 2026. To avail: signed and sealed booking contract form with 50% advance, Udyog Aadhar, payment receipt. Two new pavilions this edition: WS-AUTX warehouse automation and COSLOG cold chain. Show 8-10 Oct, HITEX Hyderabad; accounts and five colleagues cc'd.",
+          "messageId": "1a0c37a1acbf98e2",
+          "threadId": "1a0970f80320b77e",
+          "kind": "rate card"
+        }
+      ],
+      "organiser": "Midaas Touch Events and Trade Fairs (WAREMAT)",
+      "stage": "rate card received — MSME scheme closes 26 Sep",
+      "threadIds": [
+        "1a0970f80320b77e"
+      ],
+      "note": "first nudge sent 19 Sep, 7 days after the 12 Sep enquiry; Gmail thread verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 26 Sep.",
+      "negotiation": {
+        "sqm": 9,
+        "quoted_rate": 8500,
+        "quoted_note": "MSME package: 9 sqm shell for INR 90,270 all inclusive of taxes = 76,500 ex-GST, i.e. 8,500/sqm ex-GST or 10,030/sqm all-in. List tariff is 11,000/sqm shell (99,000 + GST = 1,16,820 for 9 sqm), so the MSME package already carries about a 23% discount before any claim.",
+        "regular_rate": 11000,
+        "msme_rate": 8500,
+        "our_counter_rate": 5000,
+        "agreed_rate": null,
+        "ceiling_rate": 6000,
+        "band": "below_10k",
+        "includes_free": [
+          "9 sqm shell scheme booth",
+          "WS-AUTX warehouse automation pavilion available this edition"
+        ],
+        "optional_extras": [
+          "bare scheme at 10,500/sqm",
+          "COSLOG cold chain pavilion",
+          "WAREMAT Coimbatore, 10-12 June 2027, same organiser"
+        ],
+        "to_get": [
+          "stall number and a corner or main-aisle position in WS-AUTX, marked on the plan",
+          "the document list for the subsidy file and where it goes",
+          "bank details on the booking contract form",
+          "what the shell scheme includes and the badge count",
+          "whether the 80% claim is computed on the full 90,270 or on the pre-GST rent, and when the refund lands after the show"
+        ],
+        "next_step": "MOST TIME-CRITICAL ITEM ON THE DESK. WAREMAT is MSME-empanelled — the thing every other organiser has failed to give us — and the scheme application closes on 26 SEPTEMBER, five days out. Package is 90,270 all inclusive with an 80% claim of 72,216, so NET about 18,054, or 2,006/sqm, in our home city with no travel. To hold it: signed contract form, 50% advance of 45,135, Udyam certificate and the payment receipt. Worth putting beside the IWLS 2026 commitment: same warehousing audience, 22-24 Oct in Mumbai, 1,18,303 plus flights and hotel, against this at 18,054 net on 8-10 Oct at HITEX. The rules would open at 5,000/sqm, but bargaining below an already-discounted MSME package with a five-day deadline risks the slot for about 30,000 of upside before the claim; the subsidy is worth four times more than the haggle.",
+        "verdict": "accept",
+        "pending_action": "Santosh: decide by 24 Sep so the form, advance and Udyam reach the organiser before 26 Sep",
+        "suggested_reply": "(WAREMAT is MSME-empanelled and the scheme application closes on 26 September, so this is the reply that has to go first.)\n\nDear Midaas Touch team,\n\nThank you for the rate card and, in particular, for the MSME details.\n\nWe want the 9 sqm shell-scheme booth at INR 90,270 all inclusive, under the MSME package, and we would like to be in the WS-AUTX warehouse automation pavilion. Please reserve a corner or main-aisle position within about 30 m of the entrance, and mark it on the floor plan.\n\nTo move before your 26 September deadline, please confirm:\n1. That the booth is held for us and which stall number it is.\n2. The exact documents you need from us for the subsidy file, and to whom they go. We are a Udyam-registered micro enterprise in the service category, and our Udyam certificate is ready to send.\n3. The bank details on your booking contract form, so the 50% advance goes out against the signed form.\n4. What the shell scheme includes: fascia name board, table and chairs, carpet, spotlights, a power point and how many exhibitor badges.\n5. Whether the 80% claim is calculated on the full INR 90,270 or on the pre-GST stall rent, and when the refund is normally received after the show.\n\nWe are Hyderabad-based, so we can come to your office with the signed form if that is faster.\n\nRegards,\nSantosh Padmaa\nFounder & CEO, Souveno AI Solutions\nGSTIN 36BDNPP2011D2ZV · Udyam-registered micro enterprise · +91 86393 32232",
+        "rounds": [
+          {
+            "at": "2026-09-21T10:19:05Z",
+            "who": "organiser",
+            "rate": 8500,
+            "note": "MSME package 90,270 all-in for 9 sqm, 80% claim 72,216, scheme closes 26 Sep"
+          }
+        ]
+      }
+    },
+    {
       "count": 4,
       "email": "mumbai@ieema.org",
       "eventId": "elecrama-2027",
@@ -269,43 +540,6 @@
     },
     {
       "count": 2,
-      "email": "waremat@midaastouch.in",
-      "eventId": "waremat-2026",
-      "lastAt": "2026-09-19T17:45:00Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-12T19:19:30Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a0970f80320b77e",
-          "snippet": "9 sqm shell scheme at HITEX; rate card, PMS, proforma",
-          "subject": "WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "threadId": "1a0970f80320b77e",
-          "to": "waremat@midaastouch.in"
-        },
-        {
-          "at": "2026-09-19T17:45:00Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "waremat@midaastouch.in",
-          "subject": "Re: WAREMAT Expo 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "first nudge into silence: show opens 8 Oct so asks whether 9 sqm is still available, rate card and floor plan with free stalls, booking form and proforma, and says a plain no is just as useful",
-          "messageId": "1a0babe6d399e2cb",
-          "threadId": "1a0970f80320b77e",
-          "kind": "nudge"
-        }
-      ],
-      "organiser": "Midaas Touch Events and Trade Fairs",
-      "stage": "nudged",
-      "threadIds": [
-        "1a0970f80320b77e"
-      ],
-      "note": "first nudge sent 19 Sep, 7 days after the 12 Sep enquiry; Gmail thread verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 26 Sep."
-    },
-    {
-      "count": 2,
       "email": "sales@plastivision.org",
       "eventId": "plastivision-2027",
       "lastAt": "2026-09-18T17:45:00Z",
@@ -477,179 +711,6 @@
             "who": "organiser",
             "rate": 750,
             "note": "ASPIRE pod ~3.2 sqm at Rs 2,400 incl. GST, refundable if not selected"
-          }
-        ]
-      }
-    },
-    {
-      "count": 9,
-      "email": "vaishali.jain@ind-group.com",
-      "eventId": "ifsec-india-2026",
-      "messages": [
-        {
-          "at": "2026-09-14T18:00:24Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "prashant.jain@informa.com (cc sanjay.khandelwal@informa.com)",
-          "subject": "IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "9 sqm shell scheme in the video-analytics / AI zone, corner or main aisle; rate card + floor plan, MSME/startup/early-bird rates, PMS approval, startup pod, booking form and proforma",
-          "messageId": "1a0a113ca4386e42",
-          "threadId": "1a09712891845ec5",
-          "kind": "enquiry"
-        },
-        {
-          "at": "2026-09-16T05:25:00Z",
-          "dir": "in",
-          "from": "vaishali.jain@ind-group.com",
-          "to": "souveno30@gmail.com",
-          "subject": "RE: IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "After a phone call: two Startup Zone booths in Hall 4. S03 (3x2 = 6 sqm, 1 side open) at 21,500/sqm and S08 (3.5x2 = 7 sqm, 2 sides open) at 22,000/sqm, each less a 5% discount, PLUS a fixed www.ifsecmarket.com charge of 27,500. All-in: S03 = 1,77,059, S08 = 2,05,084 including 18% GST. Floor layout and booking form attached; 4 sqm was being checked internally.",
-          "messageId": "1a0aa16dc745a9e0",
-          "threadId": "1a09712891845ec5",
-          "kind": "rate card"
-        },
-        {
-          "at": "2026-09-16T12:15:06Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "vaishali.jain@ind-group.com",
-          "subject": "Re: IFSEC India 2026",
-          "snippet": "Santosh asked whether a 4 sqm pod is still possible, said he would otherwise take the 7 sqm, and asked for an additional startup discount.",
-          "messageId": "1a0aa2467c905ad5",
-          "threadId": "1a09712891845ec5",
-          "kind": "counter"
-        },
-        {
-          "at": "2026-09-16T13:04:26Z",
-          "dir": "in",
-          "from": "vaishali.jain@ind-group.com",
-          "to": "souveno30@gmail.com",
-          "subject": "RE: IFSEC India 2026",
-          "snippet": "No 4 sqm booths in the Startup Zone; they could try to fit 4 sqm in Hall 5 between booths C30 and D29 instead (outside the startup zone, no price given).",
-          "messageId": "1a0aa51b9fc04a6f",
-          "threadId": "1a09712891845ec5",
-          "kind": "reply"
-        },
-        {
-          "at": "2026-09-16T13:09:49Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "vaishali.jain@ind-group.com",
-          "subject": "Re: IFSEC India 2026",
-          "snippet": "Santosh: 'We would go ahead with S08 startup booth.'",
-          "messageId": "1a0aa567c0aa5a54",
-          "threadId": "1a09712891845ec5",
-          "kind": "accept"
-        },
-        {
-          "at": "2026-09-16T13:22:43Z",
-          "dir": "in",
-          "from": "vaishali.jain@ind-group.com",
-          "to": "souveno30@gmail.com",
-          "subject": "RE: IFSEC India 2026",
-          "snippet": "'Perfect!' — asked for the signed and stamped booking form plus company details to confirm S08. No answer on a further discount, and nothing yet on MSME / PMS.",
-          "messageId": "1a0aa62c7e17923a",
-          "threadId": "1a09712891845ec5",
-          "kind": "reply"
-        },
-        {
-          "at": "2026-09-17T14:17:23Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "vaishali.jain@ind-group.com",
-          "subject": "Re: IFSEC India 2026",
-          "snippet": "Santosh asked whether payment must go with the form and whether the price is final or a little more startup discount is possible; he will act once she answers. Nothing signed or paid yet.",
-          "messageId": "1a0afbabb4638dea",
-          "threadId": "1a09712891845ec5",
-          "kind": "counter"
-        },
-        {
-          "at": "2026-09-18T06:18:22Z",
-          "dir": "in",
-          "from": "vaishali.jain@ind-group.com",
-          "to": "souveno30@gmail.com",
-          "subject": "RE: IFSEC India 2026 — MSME / startup participation, stall rate card and PMS approval",
-          "snippet": "Discount REFUSED: 'There is no further discount possible and this is the best rate.' The advance can go with the signed form, and Informa raises the PI once the signed and stamped booking form is received.",
-          "messageId": "1a0b32aab874513e",
-          "threadId": "1a09712891845ec5",
-          "kind": "reply"
-        },
-        {
-          "at": "2026-09-18T06:24:33Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "vaishali.jain@ind-group.com",
-          "subject": "Re: IFSEC India 2026",
-          "snippet": "Santosh accepted: 'That's fine, not a problem at all. Will do the needful today so you can raise a PI.' So S08 is taken at 2,05,084 all-in, with the signed form and advance going the same day.",
-          "messageId": "1a0b3302fa737806",
-          "threadId": "1a09712891845ec5",
-          "kind": "accept"
-        }
-      ],
-      "note": "cc sanjay.khandelwal@informa.com; the send was blocked by the permission checker on 12 and 13 Sep and went through on 14 Sep",
-      "organiser": "Informa Markets India (Vaishali Jain, Project Manager, Security Portfolio, +91 99838 71404)",
-      "stage": "confirmed by Santosh — payment due",
-      "threadIds": [
-        "1a09712891845ec5"
-      ],
-      "lastAt": "2026-09-18T06:24:33Z",
-      "lastDir": "out",
-      "negotiation": {
-        "sqm": 7,
-        "quoted_rate": 20900,
-        "quoted_note": "Startup Zone Hall 4. S08 (3.5x2 = 7 sqm, 2 sides open): 22,000/sqm less 5% = 20,900/sqm effective, space 1,46,300, plus a FIXED ifsecmarket.com charge of 27,500 = 1,73,800 + 18% GST = 2,05,084. Alternative S03 (6 sqm, 1 side open): 20,425/sqm effective, all-in 1,77,059. The 27,500 listing fee does not scale with size, so all-in per sqm is nearly identical: 29,510 for S03 against 29,298 for S08 — S08 is the better value of the two, and it has a second open side.",
-        "regular_rate": 22000,
-        "our_counter_rate": 6000,
-        "agreed_rate": 20900,
-        "ceiling_rate": 8000,
-        "band": "above_13k",
-        "includes_free": [
-          "shell scheme booth",
-          "www.ifsecmarket.com listing (charged at 27,500, not optional as presented)"
-        ],
-        "optional_extras": [
-          "S03, 6 sqm 1 side open, all-in 1,77,059",
-          "4 sqm in Hall 5 between C30 and D29, outside the Startup Zone, not priced"
-        ],
-        "to_get": [
-          "whether IFSEC India 2026 is on the DC-MSME PMS list, or has an MSME pavilion — STILL UNASKED and worth about 1.2 lakh at this booth size; the claim must be filed 30 days before the show, so by early November for a 3-5 December show",
-          "the PI, which Informa raises once the signed and stamped form is in",
-          "what the shell scheme includes and the badge count for S08"
-        ],
-        "next_step": "CLOSED ON PRICE: Informa refused any further discount on 18 Sep and Santosh accepted the same morning, so S08 goes ahead at 2,05,084 all-in with the signed form and advance sent that day; the PI follows. The discount is gone, but the PMS question has still never been put to Informa and it does not depend on the booking — at this size a successful claim is worth roughly 1.2 lakh, against the 7,700 the 5% discount saved. Ask it now, in writing, while the paperwork is in flight.",
-        "verdict": "accept",
-        "pending_action": "Santosh: send the signed and stamped booking form plus the advance; ask the PMS question in the same mail",
-        "suggested_reply": "(Santosh has accepted the rate and is sending the signed form today, so only one question is still worth asking — and it is worth far more than the discount that was refused.)\n\nDear Vaishali,\n\nThe signed and stamped booking form follows today, and the advance with it.\n\nOne thing we still need in writing, and it does not change the booking: is IFSEC India 2026 on the DC-MSME approved list for the Procurement and Marketing Support scheme, or does the show have an MSME pavilion? We are a Udyam-registered micro enterprise, and the claim has to be filed 30 days before the show, so for a December show that means early November. If the show is listed, please send the listing reference; if it is not, please say so plainly so we stop counting on it.\n\nCould you also confirm what the shell scheme includes — fascia name board, table and chairs, carpet, spotlights, power point — and how many exhibitor badges come with S08.\n\nRegards,\nSantosh Padmaa",
-        "rounds": [
-          {
-            "at": "2026-09-16T05:25:00Z",
-            "who": "organiser",
-            "rate": 20900,
-            "note": "S08 at 22,000/sqm less 5%, plus 27,500 fixed listing; all-in 2,05,084"
-          },
-          {
-            "at": "2026-09-16T13:09:49Z",
-            "who": "us",
-            "rate": 20900,
-            "note": "Santosh chose S08 verbally"
-          },
-          {
-            "at": "2026-09-17T14:17:23Z",
-            "who": "us",
-            "rate": 20900,
-            "note": "Santosh asked for a further startup discount; answer awaited"
-          },
-          {
-            "at": "2026-09-18T06:18:22Z",
-            "who": "organiser",
-            "rate": 20900,
-            "note": "no further discount, best rate; advance can accompany the form"
-          },
-          {
-            "at": "2026-09-18T06:24:33Z",
-            "who": "us",
-            "rate": 20900,
-            "note": "Santosh accepted and committed to sending the form and advance the same day"
           }
         ]
       }

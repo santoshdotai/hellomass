@@ -298,10 +298,11 @@
       "why": "Distributors and 3PL owners with stock-aware quoting pain. Cheap half-day visit.",
       "stall": {
         "recommend": "exhibit 9 sqm with a live gate-camera / stock-count demo on a screen (URGENT: show opens 8 Oct — book this week)",
-        "hall_hint": "Warehouse-automation row nearest the entrance; ask for a corner",
+        "hall_hint": "HITEX; ask for the new WS-AUTX warehouse-automation pavilion, corner or main aisle within 30 m of the entrance (COSLOG cold-chain pavilion also new this edition)",
         "suggested_sqm": 9,
         "shell_rate_inr_sqm": 8500,
-        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
+        "rate_status": "organiser rate card by e-mail 21 Sep 2026 (Midaas Touch, waremat@midaastouch.in, accounts cc'd): list tariff ₹11,000/sqm shell and ₹10,500/sqm bare; MSME PACKAGE for a 9 sqm shell booth ₹90,270 ALL INCLUSIVE (₹76,500 ex-GST, ₹8,500/sqm), with an 80% MSME claim of ₹72,216 for general category (100% for women / SC / ST) plus up to ₹25,000 contingency — net about ₹18,054. Scheme application closes 26 SEPTEMBER 2026; to avail, signed and sealed booking contract form with 50% advance (₹45,135), Udyog Aadhar and the payment receipt"
       },
       "travel": {
         "airport": null,
@@ -319,7 +320,7 @@
         "L"
       ],
       "subsidy": {
-        "status": "to_verify",
+        "status": "confirmed",
         "early_bird_deadline": null,
         "early_bird_note": "",
         "scheme_overrides": {},
@@ -329,10 +330,10 @@
           "https://hitex.co.in/events/upcoming.html",
           "https://pms.dcmsme.gov.in/view-all-event"
         ],
-        "last_checked": "2026-09-19",
-        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 8th edition 8–10 Oct 2026 confirmed (waremat.in brochure, hitex.co.in). No rate card or early-bird in any snippet; 2026 e-brochure PDF (waremat.in/WAREMATBrochureCHN&HYD2026.pdf) could not be read. Enquiry sent 12 Sep to waremat@midaastouch.in. | 19 Sep 2026: PMS now runs on pms.dcmsme.gov.in — approved fairs from Oct 2026 appear per event under 'View All Events' (Udyam sign-in). No approval snippet found for this fair; pms_listed unchanged. Santosh: sign in and check the event list.",
-        "pms_listed": "unknown",
-        "pms_list_checked": "2026-09-19"
+        "last_checked": "2026-09-22",
+        "notes": "22 Sep 2026: WAREMAT is MSME-empanelled — the organiser sets out the claim themselves: 80% of the ₹90,270 package = ₹72,216 for general category, 100% for women / SC / ST, plus up to ₹25,000 contingency against GST bills for travel, printing and material transport, so overall eligibility ₹97,216. Eligible for service industry and manufacturers under micro and small; traders and medium enterprises are not. APPLICATION CLOSES 26 SEP 2026 and needs the signed contract form, 50% advance, Udyam certificate and payment receipt. Ask whether the 80% is computed on the full ₹90,270 or the pre-GST rent. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 8th edition 8–10 Oct 2026 confirmed (waremat.in brochure, hitex.co.in). No rate card or early-bird in any snippet; 2026 e-brochure PDF (waremat.in/WAREMATBrochureCHN&HYD2026.pdf) could not be read. Enquiry sent 12 Sep to waremat@midaastouch.in. | 19 Sep 2026: PMS now runs on pms.dcmsme.gov.in — approved fairs from Oct 2026 appear per event under 'View All Events' (Udyam sign-in). No approval snippet found for this fair; pms_listed unchanged. Santosh: sign in and check the event list.",
+        "pms_listed": "yes",
+        "pms_list_checked": "2026-09-22"
       },
       "sectors": [
         "logistics",
