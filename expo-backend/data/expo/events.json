@@ -328,12 +328,13 @@
           "https://my.msme.gov.in/MyMsme/Reg/COM_Fair.aspx",
           "https://waremat.in/",
           "https://hitex.co.in/events/upcoming.html",
-          "https://pms.dcmsme.gov.in/view-all-event"
+          "https://pms.dcmsme.gov.in/view-all-event",
+          "https://pms.dcmsme.gov.in/"
         ],
-        "last_checked": "2026-09-22",
-        "notes": "22 Sep 2026: WAREMAT is MSME-empanelled — the organiser sets out the claim themselves: 80% of the ₹90,270 package = ₹72,216 for general category, 100% for women / SC / ST, plus up to ₹25,000 contingency against GST bills for travel, printing and material transport, so overall eligibility ₹97,216. Eligible for service industry and manufacturers under micro and small; traders and medium enterprises are not. APPLICATION CLOSES 26 SEP 2026 and needs the signed contract form, 50% advance, Udyam certificate and payment receipt. Ask whether the 80% is computed on the full ₹90,270 or the pre-GST rent. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 8th edition 8–10 Oct 2026 confirmed (waremat.in brochure, hitex.co.in). No rate card or early-bird in any snippet; 2026 e-brochure PDF (waremat.in/WAREMATBrochureCHN&HYD2026.pdf) could not be read. Enquiry sent 12 Sep to waremat@midaastouch.in. | 19 Sep 2026: PMS now runs on pms.dcmsme.gov.in — approved fairs from Oct 2026 appear per event under 'View All Events' (Udyam sign-in). No approval snippet found for this fair; pms_listed unchanged. Santosh: sign in and check the event list.",
+        "last_checked": "2026-09-25",
+        "notes": "22 Sep 2026: WAREMAT is MSME-empanelled — the organiser sets out the claim themselves: 80% of the ₹90,270 package = ₹72,216 for general category, 100% for women / SC / ST, plus up to ₹25,000 contingency against GST bills for travel, printing and material transport, so overall eligibility ₹97,216. Eligible for service industry and manufacturers under micro and small; traders and medium enterprises are not. APPLICATION CLOSES 26 SEP 2026 and needs the signed contract form, 50% advance, Udyam certificate and payment receipt. Ask whether the 80% is computed on the full ₹90,270 or the pre-GST rent. | 13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | 8th edition 8–10 Oct 2026 confirmed (waremat.in brochure, hitex.co.in). No rate card or early-bird in any snippet; 2026 e-brochure PDF (waremat.in/WAREMATBrochureCHN&HYD2026.pdf) could not be read. Enquiry sent 12 Sep to waremat@midaastouch.in. | 19 Sep 2026: PMS now runs on pms.dcmsme.gov.in — approved fairs from Oct 2026 appear per event under 'View All Events' (Udyam sign-in). No approval snippet found for this fair; pms_listed unchanged. Santosh: sign in and check the event list. | 25 Sep 2026: CONFIRMED ON THE DC-MSME PORTAL ITSELF: 'waremat warehousing and material handling, HITEX Exhibition Centre, 08/10/2026 - 10/10/2026' appears under Events on pms.dcmsme.gov.in (read by the agent on 25 Sep 2026), so pms_listed = yes is no longer only the organiser's claim. The organiser's MSME package (₹90,270 all-in, 80% claim ₹72,216, application closes 26 SEP) stands; the dashboard approval waremat-2026--stall_advance (₹45,135 advance) is still 'proposed' and its own deadline of 24 Sep has passed — tomorrow is the last day.",
         "pms_listed": "yes",
-        "pms_list_checked": "2026-09-22"
+        "pms_list_checked": "2026-09-25"
       },
       "sectors": [
         "logistics",
@@ -519,7 +520,8 @@
         "recommend": "do not exhibit; 1-day delegate pass",
         "hall_hint": "Startup pavilion for partner hunting",
         "suggested_sqm": 0,
-        "shell_rate_inr_sqm": 14000
+        "shell_rate_inr_sqm": 14000,
+        "pms_portal_offer": "9 sqm at ₹12,980/sqm = ₹1,16,820 (PMS portal, apply by 7 Nov 2026)"
       },
       "travel": {
         "airport": "BLR",
@@ -566,10 +568,13 @@
         "sources": [
           "https://www.bengalurutechsummit.com/future-makers.php",
           "https://www.bengalurutechsummit.com/startup.php",
-          "https://www.bengalurutechsummit.com/exhibitor-list.php"
+          "https://www.bengalurutechsummit.com/exhibitor-list.php",
+          "https://pms.dcmsme.gov.in/view-all-event"
         ],
-        "last_checked": "2026-09-19",
-        "notes": "Karnataka startup pavilion pods are subsidised for DPIIT startups; Telangana startups usually go via T-Hub delegation. | 17–19 Nov 2026 BIEC confirmed. Startup Pavilion (350+ startups) with booth or POD; POD tariff (future-makers.php#startup-tariff) applies to startups under 7 years old, + 18% GST, amount not visible in the snippet — DPIIT not stated as a condition, so a Souveno POD may be possible; check the page. | 19 Sep 2026: site now claims 1,600+ exhibitors; exhibitor list at bengalurutechsummit.com/exhibitor-list.php; startup POD booking open (exhibitor payment form live), tariff amount still not visible, no DPIIT condition stated."
+        "last_checked": "2026-09-25",
+        "notes": "Karnataka startup pavilion pods are subsidised for DPIIT startups; Telangana startups usually go via T-Hub delegation. | 17–19 Nov 2026 BIEC confirmed. Startup Pavilion (350+ startups) with booth or POD; POD tariff (future-makers.php#startup-tariff) applies to startups under 7 years old, + 18% GST, amount not visible in the snippet — DPIIT not stated as a condition, so a Souveno POD may be possible; check the page. | 19 Sep 2026: site now claims 1,600+ exhibitors; exhibitor list at bengalurutechsummit.com/exhibitor-list.php; startup POD booking open (exhibitor payment form live), tariff amount still not visible, no DPIIT condition stated. | 25 Sep 2026: ON THE DC-MSME PMS PORTAL: 'Bengaluru Tech Summit, Bangalore International Exhibition Centre, 17/11/2026 - 19/11/2026' (organiser MM Activ Sci Tech Communications, sector Others; IT Deeptech, Frontier Tech, Data/Cybersecurity...) — approval date 16/09/2026, MSE application closing 07/11/2026, 9 sqm stall at ₹12,980/sqm = ₹1,16,820 (portal figures). The catalogue has BTS as VISIT ONLY; with PMS (80% of rent, metro cap ₹1.5 lakh) a 9 sqm PMS stall would net roughly ₹23,000 plus GST treatment to confirm — a candidate to flip to exhibit. Apply via MSE sign-in on the portal; contact number on the portal 92465 77114.",
+        "pms_listed": "yes",
+        "pms_list_checked": "2026-09-25"
       },
       "sectors": [
         "ai",
@@ -944,7 +949,8 @@
         "recommend": "exhibit: 9-12 sqm corner on the main aisle",
         "hall_hint": "Open-ground layout: choose the row between the entrance gate and the food court; avoid the far end near generators",
         "suggested_sqm": 12,
-        "shell_rate_inr_sqm": 8000
+        "shell_rate_inr_sqm": 8000,
+        "pms_portal_offer": "9 sqm at ₹11,210/sqm = ₹1,00,890 (PMS portal, apply by 9 Dec 2026)"
       },
       "travel": {
         "airport": "AMD",
@@ -1011,10 +1017,10 @@
           "https://engiexpo.com/ExhibitionDetail",
           "https://pms.dcmsme.gov.in/view-all-event"
         ],
-        "last_checked": "2026-09-19",
-        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | Dates confirmed on engiexpo.com schedule; site says 'early booking essential' but publishes no deadline or tariff (stalls 9–108 sqm shell/bare). Organiser acknowledged the 11 Sep enquiry ('Received your mail') — rate card still awaited. | 19 Sep 2026: PMS now runs on pms.dcmsme.gov.in — approved fairs from Oct 2026 appear per event under 'View All Events' (Udyam sign-in). No approval snippet found for this fair; pms_listed unchanged. Santosh: sign in and check the event list.",
-        "pms_listed": "unknown",
-        "pms_list_checked": "2026-09-19"
+        "last_checked": "2026-09-25",
+        "notes": "13 Sep 2026: the agent could not read the DC-MSME Trade Fairs Domestic list (my.msme.gov.in and dcmsme.gov.in are blocked from the agent sandbox); pms_listed left 'unknown'. Santosh: open the list with the Udyam login and tick yes/no. | Dates confirmed on engiexpo.com schedule; site says 'early booking essential' but publishes no deadline or tariff (stalls 9–108 sqm shell/bare). Organiser acknowledged the 11 Sep enquiry ('Received your mail') — rate card still awaited. | 19 Sep 2026: PMS now runs on pms.dcmsme.gov.in — approved fairs from Oct 2026 appear per event under 'View All Events' (Udyam sign-in). No approval snippet found for this fair; pms_listed unchanged. Santosh: sign in and check the event list. | 25 Sep 2026: ON THE DC-MSME PMS PORTAL: 'ENGI EXPO 2026, GMDC Ground, Helmet Circle, Ahmedabad, 19/12/2026 - 21/12/2026' (organiser 2 Way Advertising, sector Machine Tools) — approval 16/09/2026, MSE application closing 09/12/2026, 9 sqm at ₹11,210/sqm = ₹1,00,890 (portal figures; the catalogue estimate was ₹8,000/sqm). Apply on the portal by 9 Dec; contact 96877 44488.",
+        "pms_listed": "yes",
+        "pms_list_checked": "2026-09-25"
       },
       "sectors": [
         "engineering",
