@@ -203,7 +203,8 @@
         "shell_rate_inr_sqm": 5000,
         "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
         "rate_status": "organiser invoice 14 Sep 2026 (Kranthika T, Project Manager, +91 63097 91291): Stall B11, 12 sqm (4 m x 3 m) built-up reserved for Souveno at ₹5,000/sqm = ₹60,000 + 18% GST = ₹70,800, full payment requested with the signed and stamped space application form (layout + form attached, Gmail message 1a09f2053fe22f0a). Santosh replied 'will do the needful tomorrow'; no payment or receipt seen in Gmail up to 19 Sep.",
-        "exhibitor_list_url": "https://papexpo.in/exhibitor-profile-2026/"
+        "exhibitor_list_url": "https://papexpo.in/exhibitor-profile-2026/",
+        "hall_note_25sep": "STILL UNRESOLVED, leaning Hall 2. Organiser text posts say Hall 2: the 20 Sep Instagram/LinkedIn 'getting closer' post ('01-03 October 2026, Hall No. 2, HITEX'), the Sri Ayyappan Gold-Sponsor post ('Hall No. 2, HITEX') and the early-bird flyer ('HALL NO 2 HITEX EXHIBITION CENTER'). The organiser's invitation-reel template (reshared by partners on 21 Sep) and the Aug welcome reels for Radha Raman a"
       },
       "travel": {
         "airport": null,
@@ -257,7 +258,7 @@
           "stall": "D11"
         }
       ],
-      "competitors_note": "checked 19 Sep 2026: the organiser welcomed Vyapar (billing/invoicing app) at stall D11 on 10 Sep — direct overlap with the quote-to-cash desk, two rows from Souveno's B11; no video-analytics vendor. Vizen Solutions (pulp & paper automation) is a channel-partner prospect."
+      "competitors_note": "checked 19 Sep 2026: the organiser welcomed Vyapar (billing/invoicing app) at stall D11 on 10 Sep — direct overlap with the quote-to-cash desk, two rows from Souveno's B11; no video-analytics vendor. Vizen Solutions (pulp & paper automation) is a channel-partner prospect. | 25 Sep 2026: Still no machine-readable 2026 list; 'exhibiting-exhibitors' is unchanged 2025 data and 'exhibitor-profile-2026' still shows logos only. No new exhibitor welcomes were posted between 19 and 25 Sep (the only new organiser posts are the 18 Sep 'loading' and 20 Sep 'getting closer / 100+ exhibitors' graphics). Changes: Classic Papers now has stall B5; the 2026 sponsor block names Jani Sales (Diamond)"
     },
     {
       "id": "waremat-2026",
@@ -305,7 +306,8 @@
         "suggested_sqm": 9,
         "shell_rate_inr_sqm": 8500,
         "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
-        "rate_status": "organiser rate card by e-mail 21 Sep 2026 (Midaas Touch, waremat@midaastouch.in, accounts cc'd): list tariff ₹11,000/sqm shell and ₹10,500/sqm bare; MSME PACKAGE for a 9 sqm shell booth ₹90,270 ALL INCLUSIVE (₹76,500 ex-GST, ₹8,500/sqm), with an 80% MSME claim of ₹72,216 for general category (100% for women / SC / ST) plus up to ₹25,000 contingency — net about ₹18,054. Scheme application closes 26 SEPTEMBER 2026; to avail, signed and sealed booking contract form with 50% advance (₹45,135), Udyog Aadhar and the payment receipt"
+        "rate_status": "organiser rate card by e-mail 21 Sep 2026 (Midaas Touch, waremat@midaastouch.in, accounts cc'd): list tariff ₹11,000/sqm shell and ₹10,500/sqm bare; MSME PACKAGE for a 9 sqm shell booth ₹90,270 ALL INCLUSIVE (₹76,500 ex-GST, ₹8,500/sqm), with an 80% MSME claim of ₹72,216 for general category (100% for women / SC / ST) plus up to ₹25,000 contingency — net about ₹18,054. Scheme application closes 26 SEPTEMBER 2026; to avail, signed and sealed booking contract form with 50% advance (₹45,135), Udyog Aadhar and the payment receipt",
+        "hall_note_25sep": "Hall 3, HITEX, confirmed on every organiser post, the IEIA calendar repost and hitex.co.in. One hall for WAREMAT + TOPACK + AUTOROBOT + COSLOG + WS-AUTX."
       },
       "travel": {
         "airport": null,
@@ -353,8 +355,29 @@
         "how": "email (space booking) or Book Your Space on waremat.in",
         "source": "https://waremat.in/contact/ (organiser desk 2026-09-12)"
       },
-      "competitors": [],
-      "competitors_note": "checked 19 Sep 2026: still no Hyderabad list; none of the three confirmed 8th-edition exhibitors (Nilkamal MH, SFS Equipments, Dura Tech) competes. Watch if they appear: Synecx AI Labs, SCMCUBE, RSPM Infotech, AIOTY Labs (all Chennai-edition names). TOPACK, AUTOROBOT, COSLOG and WS-AUTX share HITEX Hall 3."
+      "competitors": [
+        {
+          "name": "Treewalker Unified Automation (warehouse automation 'powered by Software, AI & Robotics'; organiser welcome 21 Sep)",
+          "stall": "08"
+        },
+        {
+          "name": "TekClover (WMS/ERP; tagged @tekclover in the 24 Sep 15-days-to-go post)",
+          "stall": null
+        },
+        {
+          "name": "RSPM Infotech (tagged @rspminfotech in the 24 Sep post)",
+          "stall": null
+        },
+        {
+          "name": "Vikbot / Clofus Innovations (AI-robotics; tagged @vikbot_clofus_innovations in the 24 Sep post)",
+          "stall": null
+        },
+        {
+          "name": "Synecx AI Labs, SCMCUBE Technologies, AIOTY Labs (watch; no Hyderabad-edition post yet)",
+          "stall": null
+        }
+      ],
+      "competitors_note": "checked 19 Sep 2026: still no Hyderabad list; none of the three confirmed 8th-edition exhibitors (Nilkamal MH, SFS Equipments, Dura Tech) competes. Watch if they appear: Synecx AI Labs, SCMCUBE, RSPM Infotech, AIOTY Labs (all Chennai-edition names). TOPACK, AUTOROBOT, COSLOG and WS-AUTX share HITEX Hall 3. | 25 Sep 2026: No official exhibitor list or floor plan yet (waremat.in still '270+ exhibitors'; brochure form-gated). Organiser welcomes now give 10 named Hyderabad stands: Nilkamal 32 and 01, SFS 34, Dura Tech 50, Acme Safety Wears 25, Safewell 25, Sri Vintec 28, Treewalker 08, Kishore Infratech 08A, Brayan 44, Mount Roofing 39; supporting associations TCCI (Stall 59) and Andhra Chamber of Commerce (Stall 11),"
     },
     {
       "id": "hardware-fair-india-2026",
@@ -401,7 +424,8 @@
         "hall_hint": "Halls 2 & 3 (2026 exhibitor list); corner near the Taparia (E-30, Hall 3) / Groz (D-01, Hall 2) anchors",
         "suggested_sqm": 9,
         "shell_rate_inr_sqm": 12000,
-        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
+        "hall_note_25sep": "Bharat Mandapam (Pragati Maidan), Halls 2 and 3 as per the official table."
       },
       "travel": {
         "airport": "DEL",
@@ -482,7 +506,7 @@
         "source": "https://hardwarefair-india.com/contact.php (organiser desk 2026-09-12)"
       },
       "competitors": [],
-      "competitors_note": "checked 19 Sep 2026 against the exhibitor-list snapshot (116 names) and the 17 Sep press release (21 named exhibitors): no WhatsApp-automation / CRM / video-analytics vendor. Software/service exhibitors to glance at: Reflexions Digital (B-33 H2, branding), Projections Strategy LLP (B-30A H2), Beco Technology Corporation (B-17 H2)."
+      "competitors_note": "checked 19 Sep 2026 against the exhibitor-list snapshot (116 names) and the 17 Sep press release (21 named exhibitors): no WhatsApp-automation / CRM / video-analytics vendor. Software/service exhibitors to glance at: Reflexions Digital (B-33 H2, branding), Projections Strategy LLP (B-30A H2), Beco Technology Corporation (B-17 H2). | 25 Sep 2026: LIVE AND COMPLETE: 128 exhibitors (Hall 2 = 74, Hall 3 = 54). All 30 existing rows match booth and hall (Inder Industries appears as 'Inder Indutries', A-08, Hall 2). Groz D-01 Hall 2 is confirmed. Watchlist changes: Shiv Forgings B-29/3 and Mech Choice B-01/2 promoted; Dayton B-28/2, Electrospark E-01/3, Vidhi A-05/2, Superspeed Polymers B-05/2, Ajanta Ceramic B-34-A/2, Mansarover E-27/2, Falcon "
     },
     {
       "id": "bts-2026",
@@ -2622,7 +2646,8 @@
         "hall_hint": "Za'abeel Halls (packaging & processing); India pavilion if a pod is free",
         "suggested_sqm": 9,
         "shell_rate_inr_sqm": 43000,
-        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled."
+        "decision_note": "Set to EXHIBIT on 11 Sep 2026 on Santosh's instruction: exhibit wherever Souveno has business (quote desk or Vision AI); staffing is handled.",
+        "hall_note_25sep": "Machinery in Halls 1-4 / Za'abeel / Sheikh Saeed; ingredients in Sheikh Rashid and Maktoum; Indian food processors cluster in Sheikh Rashid Hall (R- stands)."
       },
       "travel": {
         "airport": "DXB",
@@ -2695,7 +2720,7 @@
           "stall": null
         }
       ],
-      "competitors_note": "checked 19 Sep 2026 from the organiser's exhibitor release and portal: Addverb (Indian warehouse robotics + WMS) is the nearest overlap on the Vision AI side; no WhatsApp/CRM vendor named. 20 targets written to the dashboard (Indian OEMs and packaging/processing majors with India plants)."
+      "competitors_note": "checked 19 Sep 2026 from the organiser's exhibitor release and portal: Addverb (Indian warehouse robotics + WMS) is the nearest overlap on the Vision AI side; no WhatsApp/CRM vendor named. 20 targets written to the dashboard (Indian OEMs and packaging/processing majors with India plants). | 25 Sep 2026: Portal live but only the first page is readable without a browser session: Indian entries visible so far are A Innovative S1-A4, Aarkay R-D50, AB Mauri Cochin Spices R-B16, Accelerated Freeze Drying R-B19 (corrected), Ace Packaging CC1-60. Stands filled for Husky (C4-3 Hall 4), Heat and Control (D3-4 Hall 3) and Sidel (A3-4 Hall 3); Krones B1-4 Hall 1 and Ishida C3-4 Hall 3 reconfirmed; PFM, Asept"
     },
     {
       "id": "middle-east-energy-2027",
