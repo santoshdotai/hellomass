@@ -179,9 +179,9 @@ def for_event(ev: dict[str, Any], today: date | None = None) -> dict[str, Any]:
             if listed == "yes":
                 status, listing = "confirmed", {"state": "listed", "checked": checked, "note": f"On the DC-MSME approved list (checked {checked})."}
             elif listed == "no":
-                status, listing = "fair_not_listed", {"state": "not_listed", "checked": checked, "note": f"Scheme rules confirmed, but this fair is NOT on the Trade Fairs Domestic list on my.msme.gov.in (checked {checked}). Nothing can be claimed unless the organiser gets it approved or it appears in a later list update."}
+                status, listing = "fair_not_listed", {"state": "not_listed", "checked": checked, "note": f"Scheme rules confirmed, but this fair is NOT on the DC-MSME approved list at pms.dcmsme.gov.in (checked {checked}). Nothing can be claimed unless the organiser gets it approved and it appears on the portal — re-checked every run."}
             else:
-                status, listing = "check_list", {"state": "unknown", "checked": checked, "note": "Scheme rules confirmed; whether this fair is on the DC-MSME approved list has not been checked yet — look it up on my.msme.gov.in before counting on the money."}
+                status, listing = "check_list", {"state": "unknown", "checked": checked, "note": "Scheme rules confirmed; whether this fair is on the DC-MSME approved list has not been checked yet — look it up on pms.dcmsme.gov.in before counting on the money."}
         schemes.append({
             "key": key, "name": base["name"], "who": base["who"], "benefit": base["benefit"], "apply_rule": base["apply_rule"],
             "link": base["link"], "status": status, "listing": listing, "apply_by": apply_by, "claim_by": claim_by,

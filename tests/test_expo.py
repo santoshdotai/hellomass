@@ -381,9 +381,12 @@ def test_mode_toggle_travellers_and_subsidies(client):
     one = client.get("/api/expo/subsidies/elecrama-2027").json()
     pms = next(s for s in one["schemes"] if s["key"] == "pms")
     # scheme rules are confirmed, but a fair only qualifies once it is on the DC-MSME approved list
-    assert pms["apply_by"] == "2027-01-21" and pms["status"] == "check_list" and pms["listing"]["state"] == "unknown" and one["early_bird"]["deadline"] is None
+    # (pms.dcmsme.gov.in read on 25 Sep 2026: ELECRAMA 2027 not listed; the portal carries nothing beyond Dec 2026)
+    assert pms["apply_by"] == "2027-01-21" and pms["status"] == "fair_not_listed" and pms["listing"]["state"] == "not_listed" and one["early_bird"]["deadline"] is None
     ev = client.get("/api/expo/events/elecrama-2027").json()
-    assert ev["subsidy_info"]["headline"].startswith("Possible money back") and ev["subsidy_info"]["estimated_refund_inr"][0] == 0
+    assert ev["subsidy_info"]["headline"].startswith("PMS not claimable") and ev["subsidy_info"]["estimated_refund_inr"][0] == 0
+    wm = client.get("/api/expo/subsidies/waremat-2026").json()  # on the DC-MSME portal list, 25 Sep 2026
+    assert next(s for s in wm["schemes"] if s["key"] == "pms")["status"] == "confirmed" and wm["estimated_refund_inr"][0] > 0
     pv = client.get("/api/expo/subsidies/plastivision-2027").json()  # checked on my.msme.gov.in 11 Sep 2026: not listed
     pv_pms = next(s for s in pv["schemes"] if s["key"] == "pms")
     assert pv_pms["status"] == "fair_not_listed" and pv["headline"].startswith("PMS not claimable") and pv["estimated_refund_inr"][0] == 0
