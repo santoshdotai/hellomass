@@ -4,8 +4,9 @@
 everything still unsent, ordered by show date. If a show is not listed
 here, nothing is waiting for it.
 
-Last rewritten: **23:00 IST, 26 September 2026** — fourth consecutive night
-with no Gmail. Six mails waiting, three of them final nudges.
+Last rewritten: **23:00 IST, 27 September 2026** — fifth consecutive night
+with no Gmail. Eight mails waiting, five of them final nudges. Hardware Fair
+India is the new one that matters: its show opens in under four weeks.
 
 ## Before you send any of these
 
@@ -24,7 +25,40 @@ add the message to the conversation as `kind: "nudge"`.
 
 ---
 
-## 1. Gulfood Manufacturing 2026 — 10 days silent, show opens 3 Nov
+## 1. International Hardware Fair India 2026 — second and FINAL nudge, show 23 Oct
+
+**Send this one first.** The show is under four weeks away, and a 9 sqm shell
+stall cannot realistically be arranged much later than the next few days.
+Thread `1a09711c6d48101f`. First nudge went 20 September; the enquiry 13
+September. After this the desk stops: the fallback is the director's address
+`s.malik@koelnmesse-india.com` or +91 22 6204 4800.
+
+    To:      info@koelnmesse-india.com
+    Subject: Re: International Hardware Fair India 2026 — MSME / startup
+             participation, stall rate card and PMS approval
+
+Dear Koelnmesse India team,
+
+This is my last mail on this, and then I will stop filling your inbox.
+
+We hoped to take a 9 sqm shell-scheme stall at International Hardware Fair
+India 2026 (23 to 25 October, Bharat Mandapam). Two mails since 13 September
+have gone unanswered, and with the show under four weeks away I assume the
+floor is either full or closed to new exhibitors.
+
+If that is the case, simply saying so would let us stop planning around it
+and aim at the 2027 edition instead. If space does remain, we can still move
+quickly on the standard rate.
+
+Regards,
+Santosh Padmaa
+Founder & CEO, Souveno AI Solutions (Souveno AI)
+GSTIN 36BDNPP2011D2ZV · Hyderabad · +91 86393 32232 · souveno30@gmail.com
+https://souveno.ai
+
+---
+
+## 2. Gulfood Manufacturing 2026 — 11 days silent, show opens 3 Nov
 
 Send this one first: it decides whether the Gulfood flights are worth
 booking. Thread `1a0ab4b7c34f2507`. First nudge.
@@ -57,7 +91,7 @@ https://souveno.ai
 
 ---
 
-## 2. Telangana Rising Global Summit 2026 — 9 days silent, summit 7 Dec
+## 3. Telangana Rising Global Summit 2026 — 10 days silent, summit 7 Dec
 
 Thread `1a0b0727ef4c4e5e`. First nudge.
 
@@ -90,7 +124,7 @@ https://souveno.ai
 
 ---
 
-## 3. TiE Global Summit 2026 — second and FINAL nudge, summit 13 Dec
+## 4. TiE Global Summit 2026 — second and FINAL nudge, summit 13 Dec
 
 Thread `1a09711701eeb60b`. First nudge went 19 September. After this the
 desk writes to this address no more; the fallback is TiE Hyderabad, since a
@@ -121,7 +155,7 @@ https://souveno.ai
 
 ---
 
-## 4. Intersec Dubai 2027 — second and FINAL nudge, show 12 Jan
+## 5. Intersec Dubai 2027 — second and FINAL nudge, show 12 Jan
 
 Thread `1a097113079e903f`. First nudge went 19 September. The January date
 is what makes this one worth chasing: the India-side paperwork needs lead
@@ -154,7 +188,7 @@ https://souveno.ai
 
 ---
 
-## 5. Plastivision India 2027 — second and FINAL nudge, show 21 Jan
+## 6. Plastivision India 2027 — second and FINAL nudge, show 21 Jan
 
 Thread `1a08fe0b965d53b4`. Held since 25 September. After this the route is
 the phone: **+91 22 6777 8853** or **+91 93215 67920**.
@@ -183,7 +217,42 @@ https://souveno.ai
 
 ---
 
-## 6. Startup Mahakumbh 6.0 — second and FINAL nudge, show 12 Mar 2027
+## 7. ELECRAMA 2027 — second and FINAL nudge, show 20 Feb
+
+Thread `1a097128f53ed7c9`. First nudge went 20 September; the original mail
+to the address on elecrama.com bounced, and the re-send to the IEEMA Mumbai
+office on 13 September has gone unanswered too. After this the desk stops:
+the fallback is the booking portal `booking.elecrama.com` or
++91 22 2493 0532.
+
+    To:      mumbai@ieema.org
+    Subject: Re: ELECRAMA 2027 — MSME / startup participation, stall rate
+             card and PMS approval
+
+Dear IEEMA team,
+
+This is my last mail on this, and then I will stop filling your inbox.
+
+We would like a 12 sqm shell-scheme stall at ELECRAMA 2027 (20 to 24
+February, India Expo Mart). Our first mail went to response@elecrama.org,
+the address published on elecrama.com, and bounced because that domain does
+not resolve; two mails to this office since 13 September have gone
+unanswered.
+
+If new exhibitors are meant to go through booking.elecrama.com, or through a
+colleague, telling me which would be enough and I will take it from there.
+You may also want that bouncing address corrected on the site, since anyone
+else writing in will hit the same wall.
+
+Regards,
+Santosh Padmaa
+Founder & CEO, Souveno AI Solutions (Souveno AI)
+GSTIN 36BDNPP2011D2ZV · Hyderabad · +91 86393 32232 · souveno30@gmail.com
+https://souveno.ai
+
+---
+
+## 8. Startup Mahakumbh 6.0 — second and FINAL nudge, show 12 Mar 2027
 
 Thread `1a0971179e7df3b5`. First nudge went 19 September. Least urgent of
 the six. After this the desk stops; secretariat@startupmahakumbh.org is the
@@ -214,6 +283,8 @@ https://souveno.ai
 
 ## Not yet due
 
-Hardware Fair India reaches its second nudge on 27 Sep, ELECRAMA on 27 Sep,
-ACETECH on 28 Sep. Nineteen threads are live and Santosh's. TechSparks has
-no usable address; GITEX stays skipped. No first contact is outstanding.
+ACETECH reaches its second nudge on 28 Sep and is the last one outstanding;
+after that every quiet organiser has had its two nudges and the desk has
+nothing left to send. Nineteen threads are live and Santosh's. TechSparks
+has no usable address; GITEX stays skipped. No first contact is
+outstanding.
