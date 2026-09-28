@@ -4,9 +4,15 @@
 everything still unsent, ordered by show date. If a show is not listed
 here, nothing is waiting for it.
 
-Last rewritten: **23:00 IST, 27 September 2026** — fifth consecutive night
-with no Gmail. Eight mails waiting, five of them final nudges. Hardware Fair
-India is the new one that matters: its show opens in under four weeks.
+Last rewritten: **23:00 IST, 28 September 2026** — sixth consecutive night
+with no Gmail. **Nine mails waiting, and the desk is now out of moves.**
+
+ACETECH took its second nudge tonight, which was the last one owed to
+anyone. Every organiser who has stayed quiet has now had its two permitted
+nudges written, every organiser who replied belongs to Santosh, and no first
+contact is outstanding. So from tomorrow this desk will fire, find nothing
+it is allowed to do, and add nothing to this file. The campaign does not
+resume until Gmail is reachable and these nine go out.
 
 ## Before you send any of these
 
@@ -58,7 +64,7 @@ https://souveno.ai
 
 ---
 
-## 2. Gulfood Manufacturing 2026 — 11 days silent, show opens 3 Nov
+## 2. Gulfood Manufacturing 2026 — 12 days silent, show opens 3 Nov
 
 Send this one first: it decides whether the Gulfood flights are worth
 booking. Thread `1a0ab4b7c34f2507`. First nudge.
@@ -91,7 +97,7 @@ https://souveno.ai
 
 ---
 
-## 3. Telangana Rising Global Summit 2026 — 10 days silent, summit 7 Dec
+## 3. Telangana Rising Global Summit 2026 — 11 days silent, summit 7 Dec
 
 Thread `1a0b0727ef4c4e5e`. First nudge.
 
@@ -217,7 +223,39 @@ https://souveno.ai
 
 ---
 
-## 7. ELECRAMA 2027 — second and FINAL nudge, show 20 Feb
+## 7. ACETECH Hyderabad 2027 — second and FINAL nudge, show 22 Jan
+
+Thread `1a0a11431e2316cc`. First nudge went 21 September; the re-send after
+the ranjeet.p bounce went 14 September. Both unanswered. After this the desk
+stops: the fallback is +91 86570 32669, and ABEC's office is in reach of a
+visit.
+
+    To:      marketing@abec.asia
+    Subject: Re: ACETECH Hyderabad 2027 — MSME / startup participation,
+             stall rate card and PMS approval
+
+Dear ABEC team,
+
+This is my last mail on this, and then I will stop filling your inbox.
+
+We would like a 9 sqm shell-scheme stall at ACETECH Hyderabad 2027 (22 to 24
+January, HITEX). Two mails since 14 September have gone unanswered, and the
+address listed for ACETECH on the show directories, ranjeet.p@abec.asia,
+bounces as unknown.
+
+Since the show is in our own city, the simplest thing may be a short
+meeting. If you tell me who handles Hyderabad space bookings and when suits,
+I will come to you. A phone number would do just as well.
+
+Regards,
+Santosh Padmaa
+Founder & CEO, Souveno AI Solutions (Souveno AI)
+GSTIN 36BDNPP2011D2ZV · Hyderabad · +91 86393 32232 · souveno30@gmail.com
+https://souveno.ai
+
+---
+
+## 8. ELECRAMA 2027 — second and FINAL nudge, show 20 Feb
 
 Thread `1a097128f53ed7c9`. First nudge went 20 September; the original mail
 to the address on elecrama.com bounced, and the re-send to the IEEMA Mumbai
@@ -252,7 +290,7 @@ https://souveno.ai
 
 ---
 
-## 8. Startup Mahakumbh 6.0 — second and FINAL nudge, show 12 Mar 2027
+## 9. Startup Mahakumbh 6.0 — second and FINAL nudge, show 12 Mar 2027
 
 Thread `1a0971179e7df3b5`. First nudge went 19 September. Least urgent of
 the six. After this the desk stops; secretariat@startupmahakumbh.org is the
@@ -281,10 +319,15 @@ https://souveno.ai
 
 ---
 
-## Not yet due
+## Nothing further is due — ever, under the current rules
 
-ACETECH reaches its second nudge on 28 Sep and is the last one outstanding;
-after that every quiet organiser has had its two nudges and the desk has
-nothing left to send. Nineteen threads are live and Santosh's. TechSparks
-has no usable address; GITEX stays skipped. No first contact is
-outstanding.
+There is no tenth mail coming. The two-nudge limit is now spent on every
+quiet organiser, so this file stops growing here.
+
+Two shows sit outside it: TechSparks, which has no usable address and whose
+Tech30 booth route closed on 24 August, and GITEX, which the plan says to
+skip. Nineteen threads are live and belong to Santosh.
+
+Two of the nine are worth sending even if the rest wait. Hardware Fair India
+opens on 23 October and Gulfood Manufacturing on 3 November; both of those
+answers decide whether travel already approved is worth booking.
