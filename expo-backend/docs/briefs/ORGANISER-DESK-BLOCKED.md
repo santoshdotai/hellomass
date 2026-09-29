@@ -1,7 +1,7 @@
 # Organiser desk — blocked status (one file, kept current)
 
-**Last rewritten: 00:01 IST, 29 September 2026 — seventh consecutive
-night with no Gmail.**
+**Last rewritten: 00:01 IST, 30 September 2026 — eighth consecutive night
+with no Gmail.**
 
 This replaces the per-night copies `2026-09-23-organiser-desk.md` through
 `2026-09-27-organiser-desk.md`, which said the same thing five times. Those
@@ -12,11 +12,11 @@ one-line-per-firing audit trail continues in `routine-log.md`.
 ## State
 
 Gmail has answered "needs you to sign in again" on every attempt since
-**22 September 18:31 UTC** — seven nights, both this desk and the 23:00 desk,
+**22 September 18:31 UTC** — eight nights, both this desk and the 23:00 desk,
 plus three extra retries on the first night. A non-interactive session
 cannot run the OAuth flow.
 
-**No organiser mail has been read for eight days.** Nineteen threads are
+**No organiser mail has been read for nine days.** Nineteen threads are
 live. Nothing in the repo, the db or the dashboard is broken; only the
 mailbox link. The desks can compute and record but cannot see or speak.
 
@@ -32,11 +32,11 @@ Rs 2,05,084 all-in) is not held until the signed and stamped contract form
 and the advance both arrive. Informa chased on 21 September; the form was
 promised on the 18th. The DC-MSME PMS question, worth about Rs 1.2 lakh,
 has never been asked — one line in the same mail. The form was promised
-on 18 September, eleven days ago. This item has **no external deadline**,
+on 18 September, twelve days ago. This item has **no external deadline**,
 which is exactly why it keeps slipping while dated items get attention.
 
 **2. Gulfood Manufacturing 2026.** Silent since the 16 September enquiry,
-thirteen days;
+fourteen days;
 show opens **3 November**, so the answer gates the flights. Draft ready in
 `PENDING-OUTBOX.md`.
 
@@ -58,7 +58,7 @@ decision, not this approval. The desk has stopped raising it.
 
 Re-authorise Gmail at https://claude.ai/customize/connectors. That may not
 be sufficient on its own: connectors are bound when a session starts and
-these desks fire into a long-running session, which would explain seven
+these desks fire into a long-running session, which would explain eight
 identical nights. The durable fix is a fresh session per firing, which
 cannot be done with `update_trigger` — it would mean recreating the
 Routines and losing their run history — so it remains the user's call. The
