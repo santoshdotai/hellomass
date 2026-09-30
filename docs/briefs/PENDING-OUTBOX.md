@@ -4,17 +4,20 @@
 everything still unsent, ordered by show date. If a show is not listed
 here, nothing is waiting for it.
 
-Last rewritten: **23:00 IST, 28 September 2026.** Last checked: **23:00 IST,
-29 September 2026** — seventh consecutive night with no Gmail. **Nine mails
-waiting, unchanged, and the desk is out of moves.**
+Last rewritten: **23:00 IST, 28 September 2026** — nine mails, and the desk
+out of moves. ACETECH took its second nudge that night, the last one owed to
+anyone: every quiet organiser now has both permitted nudges written, every
+organiser who replied belongs to Santosh, and no first contact is
+outstanding. The campaign does not resume until Gmail is reachable and these
+nine go out.
 
-ACETECH took its second nudge on the 28th, the last one owed to anyone.
-Every organiser who has stayed quiet has now had its two permitted nudges
-written, every organiser who replied belongs to Santosh, and no first
-contact is outstanding. The 29 September firing found nothing it was
-permitted to do and added nothing here, as forecast; later firings will do
-the same. From here the desk only keeps the counts below honest. The
-campaign does not resume until Gmail is reachable and these nine go out.
+**This file is finished, and it no longer carries a date stamp.** Nightly
+firings were bumping "N days silent" counts and nothing else, which is churn
+in the git history and tells a reader less than the dates themselves. Every
+item below now states the date its enquiry and any nudge went out; count the
+silence from those against today. The per-firing audit trail lives in
+`routine-log.md`, where it belongs. Nothing here changes again until Gmail
+returns or an organiser's situation does.
 
 ## Before you send any of these
 
@@ -66,7 +69,7 @@ https://souveno.ai
 
 ---
 
-## 2. Gulfood Manufacturing 2026 — 13 days silent, show opens 3 Nov
+## 2. Gulfood Manufacturing 2026 — silent since the 16 Sep enquiry, show opens 3 Nov
 
 Send this one first: it decides whether the Gulfood flights are worth
 booking. Thread `1a0ab4b7c34f2507`. First nudge.
@@ -99,7 +102,7 @@ https://souveno.ai
 
 ---
 
-## 3. Telangana Rising Global Summit 2026 — 12 days silent, summit 7 Dec
+## 3. Telangana Rising Global Summit 2026 — silent since the 17 Sep enquiry, summit 7 Dec
 
 Thread `1a0b0727ef4c4e5e`. First nudge.
 
@@ -331,8 +334,7 @@ Tech30 booth route closed on 24 August, and GITEX, which the plan says to
 skip. Nineteen threads are live and belong to Santosh.
 
 Two of the nine are worth sending even if the rest wait. Hardware Fair India
-opens on 23 October — twenty-four days from this check — and Gulfood
-Manufacturing on 3 November; both of those answers decide whether travel
-already approved is worth booking. Hardware Fair is the one with a floor
-that can actually fill up; past a point its mail stops being a nudge and
-becomes a question about next year.
+opens on 23 October and Gulfood Manufacturing on 3 November; both of those
+answers decide whether travel already approved is worth booking. Hardware
+Fair is the one with a floor that can actually fill up; past a point its
+mail stops being a nudge and becomes a question about next year.
