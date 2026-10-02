@@ -1,6 +1,6 @@
 # Organiser desk — blocked status (one file, kept current)
 
-**Last rewritten: 00:01 IST, 2 October 2026 — tenth consecutive night
+**Last rewritten: 00:01 IST, 3 October 2026 — eleventh consecutive night
 with no Gmail.**
 
 This replaces the per-night copies `2026-09-23-organiser-desk.md` through
@@ -12,11 +12,11 @@ one-line-per-firing audit trail continues in `routine-log.md`.
 ## State
 
 Gmail has answered "needs you to sign in again" on every attempt since
-**22 September 18:31 UTC** — ten nights, both this desk and the 23:00 desk,
+**22 September 18:31 UTC** — eleven nights, both this desk and the 23:00 desk,
 plus three extra retries on the first night. A non-interactive session
 cannot run the OAuth flow.
 
-**No organiser mail has been read for eleven days.** Nineteen threads are
+**No organiser mail has been read for twelve days.** Nineteen threads are
 live. Nothing in the repo, the db or the dashboard is broken; only the
 mailbox link. The desks can compute and record but cannot see or speak.
 
@@ -32,11 +32,11 @@ Rs 2,05,084 all-in) is not held until the signed and stamped contract form
 and the advance both arrive. Informa chased on 21 September; the form was
 promised on the 18th. The DC-MSME PMS question, worth about Rs 1.2 lakh,
 has never been asked — one line in the same mail. The form was promised
-on 18 September, fourteen days ago. This item has **no external deadline**,
+on 18 September, fifteen days ago. This item has **no external deadline**,
 which is exactly why it keeps slipping while dated items get attention.
 
 **2. Gulfood Manufacturing 2026.** Silent since the 16 September enquiry,
-sixteen days;
+seventeen days;
 show opens **3 November**, so the answer gates the flights. Draft ready in
 `PENDING-OUTBOX.md`.
 
@@ -58,7 +58,7 @@ decision, not this approval. The desk has stopped raising it.
 
 Re-authorise Gmail at https://claude.ai/customize/connectors. That may not
 be sufficient on its own: connectors are bound when a session starts and
-these desks fire into a long-running session, which would explain ten
+these desks fire into a long-running session, which would explain eleven
 identical nights. The durable fix is a fresh session per firing, which
 cannot be done with `update_trigger` — it would mean recreating the
 Routines and losing their run history — so it remains the user's call. The
