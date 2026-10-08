@@ -4,12 +4,19 @@
 everything still unsent, ordered by show date. If a show is not listed
 here, nothing is waiting for it.
 
-Last rewritten: **23:00 IST, 28 September 2026** — nine mails, and the desk
-out of moves. ACETECH took its second nudge that night, the last one owed to
-anyone: every quiet organiser now has both permitted nudges written, every
-organiser who replied belongs to Santosh, and no first contact is
-outstanding. The campaign does not resume until Gmail is reachable and these
-nine go out.
+Last rewritten: **23:00 IST, 8 October 2026** — **eight mails.** Every quiet
+organiser has both permitted nudges written, every organiser who replied
+belongs to Santosh, and no first contact is outstanding. The campaign does
+not resume until Gmail is reachable and these eight go out.
+
+**Intersec Dubai 2027 came off this list on 8 October, unsent.** Messe
+Frankfurt booked a Teams call themselves — "Participation at Intersec Global
+2027", from prabin.prabhakaran@uae.messefrankfurt.com for 15:30 IST that day,
+seen on the souveno30 calendar, not in the mailbox. An organiser who makes
+contact owns the thread under the 15 September rule, so the final nudge was
+withdrawn rather than sent and `plans/intersec-dubai-2027` now reads
+"organiser replied — Santosh's thread". Whatever was offered needs one line
+from Santosh to be recorded.
 
 **This file is finished, and it no longer carries a date stamp.** Nightly
 firings were bumping "N days silent" counts and nothing else, which is churn
@@ -166,40 +173,7 @@ https://souveno.ai
 
 ---
 
-## 5. Intersec Dubai 2027 — second and FINAL nudge, show 12 Jan
-
-Thread `1a097113079e903f`. First nudge went 19 September. The January date
-is what makes this one worth chasing: the India-side paperwork needs lead
-time. After this the desk stops; the fallback is the Enquire-to-Exhibit form
-or +971 4 389 4500.
-
-    To:      intersecglobal@uae.messefrankfurt.com
-    Subject: Re: Intersec Dubai 2027 — MSME / startup participation, stand
-             rate card and India pavilion
-
-Dear Messe Frankfurt Middle East team,
-
-This is my last mail on this, and then I will stop filling your inbox.
-
-We are a Hyderabad AI startup and registered Indian MSME hoping for a 9 sqm
-stand at Intersec Dubai 2027 (12 to 14 January), in the India pavilion or
-the Commercial Security hall. Two mails since 12 September have gone
-unanswered.
-
-With the show in January our Indian paperwork needs lead time, so if the
-India pavilion is handled by your India representative or by a coordinating
-body, telling me who to write to would be enough and I will take it from
-there.
-
-Regards,
-Santosh Padmaa
-Founder & CEO, Souveno AI Solutions (Souveno AI)
-GSTIN 36BDNPP2011D2ZV · Hyderabad · +91 86393 32232 · souveno30@gmail.com
-https://souveno.ai
-
----
-
-## 6. Plastivision India 2027 — second and FINAL nudge, show 21 Jan
+## 5. Plastivision India 2027 — second and FINAL nudge, show 21 Jan
 
 Thread `1a08fe0b965d53b4`. Held since 25 September. After this the route is
 the phone: **+91 22 6777 8853** or **+91 93215 67920**.
@@ -228,7 +202,7 @@ https://souveno.ai
 
 ---
 
-## 7. ACETECH Hyderabad 2027 — second and FINAL nudge, show 22 Jan
+## 6. ACETECH Hyderabad 2027 — second and FINAL nudge, show 22 Jan
 
 Thread `1a0a11431e2316cc`. First nudge went 21 September; the re-send after
 the ranjeet.p bounce went 14 September. Both unanswered. After this the desk
@@ -260,7 +234,7 @@ https://souveno.ai
 
 ---
 
-## 8. ELECRAMA 2027 — second and FINAL nudge, show 20 Feb
+## 7. ELECRAMA 2027 — second and FINAL nudge, show 20 Feb
 
 Thread `1a097128f53ed7c9`. First nudge went 20 September; the original mail
 to the address on elecrama.com bounced, and the re-send to the IEEMA Mumbai
@@ -295,7 +269,7 @@ https://souveno.ai
 
 ---
 
-## 9. Startup Mahakumbh 6.0 — second and FINAL nudge, show 12 Mar 2027
+## 8. Startup Mahakumbh 6.0 — second and FINAL nudge, show 12 Mar 2027
 
 Thread `1a0971179e7df3b5`. First nudge went 19 September. Least urgent of
 the six. After this the desk stops; secretariat@startupmahakumbh.org is the
@@ -326,14 +300,15 @@ https://souveno.ai
 
 ## Nothing further is due — ever, under the current rules
 
-There is no tenth mail coming. The two-nudge limit is now spent on every
+There is no ninth mail coming. The two-nudge limit is now spent on every
 quiet organiser, so this file stops growing here.
 
-Two shows sit outside it: TechSparks, which has no usable address and whose
-Tech30 booth route closed on 24 August, and GITEX, which the plan says to
-skip. Nineteen threads are live and belong to Santosh.
+Three shows sit outside it: TechSparks, which has no usable address and
+whose Tech30 booth route closed on 24 August; GITEX, which the plan says to
+skip; and Intersec, withdrawn on 8 October because the organiser came to us.
+Twenty threads are live and belong to Santosh.
 
-Two of the nine are worth sending even if the rest wait. Hardware Fair India
+Two of the eight are worth sending even if the rest wait. Hardware Fair India
 opens on 23 October and Gulfood Manufacturing on 3 November; both of those
 answers decide whether travel already approved is worth booking. Hardware
 Fair is the one with a floor that can actually fill up; past a point its

@@ -1,6 +1,55 @@
 {
   "items": [
     {
+      "count": 3,
+      "email": "intersecglobal@uae.messefrankfurt.com",
+      "eventId": "intersec-dubai-2027",
+      "lastAt": "2026-10-08T05:30:52Z",
+      "lastDir": "in",
+      "messages": [
+        {
+          "at": "2026-09-12T19:21:21Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "kind": "enquiry",
+          "messageId": "1a097113079e903f",
+          "snippet": "stand rate card, India pavilion, startup zone",
+          "subject": "Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
+          "threadId": "1a097113079e903f",
+          "to": "intersecglobal@uae.messefrankfurt.com"
+        },
+        {
+          "at": "2026-09-19T17:45:00Z",
+          "dir": "out",
+          "from": "souveno30@gmail.com",
+          "to": "intersecglobal@uae.messefrankfurt.com",
+          "subject": "Re: Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
+          "snippet": "first nudge into silence: January show so India paperwork is time-critical; asks how the India pavilion is organised and its coordinator, the booking form and proforma, and offers to write to the India representative instead",
+          "messageId": "1a0babe9a12a4397",
+          "threadId": "1a097113079e903f",
+          "kind": "nudge"
+        },
+        {
+          "at": "2026-10-08T05:30:52Z",
+          "dir": "in",
+          "channel": "calendar",
+          "from": "prabin.prabhakaran@uae.messefrankfurt.com",
+          "to": "souveno30@gmail.com",
+          "subject": "Participation at Intersec Global 2027",
+          "snippet": "NOT AN EMAIL — a Microsoft Teams calendar invitation from Prabin Prabhakaran (Messe Frankfurt Middle East) for 8 Oct 15:30-16:00 IST, read off the souveno30 calendar, not the mailbox. First organiser-side movement since 22 Sep. souveno30 still 'needsAction', so whether the call happened is unknown. Under the 15 Sep standing rule this thread is Santosh's: the desk's held final nudge is withdrawn, not sent.",
+          "messageId": "cal:intersec-global-2027-20261008T1530IST",
+          "threadId": "1a097113079e903f",
+          "kind": "calendar-invite"
+        }
+      ],
+      "organiser": "Messe Frankfurt Middle East",
+      "stage": "organiser replied — Santosh's thread",
+      "threadIds": [
+        "1a097113079e903f"
+      ],
+      "note": "8 Oct 2026: organiser-side contact confirmed firsthand on the souveno30 calendar (Teams invite 'Participation at Intersec Global 2027', organiser prabin.prabhakaran@uae.messefrankfurt.com, created 08 Oct 05:30Z). The desk has NOT read the Gmail thread since 22 Sep, so there may be organiser mail too. Second nudge withdrawn from PENDING-OUTBOX.md; no routine writes to this thread again."
+    },
+    {
       "count": 4,
       "email": "marketing@abec.asia",
       "eventId": "acetech-hyderabad-2027",
@@ -498,43 +547,6 @@
       "stage": "nudged",
       "threadIds": [
         "1a09711701eeb60b"
-      ],
-      "note": "first nudge sent 19 Sep, 7 days after the 12 Sep enquiry; Gmail thread verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 26 Sep."
-    },
-    {
-      "count": 2,
-      "email": "intersecglobal@uae.messefrankfurt.com",
-      "eventId": "intersec-dubai-2027",
-      "lastAt": "2026-09-19T17:45:00Z",
-      "lastDir": "out",
-      "messages": [
-        {
-          "at": "2026-09-12T19:21:21Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "kind": "enquiry",
-          "messageId": "1a097113079e903f",
-          "snippet": "stand rate card, India pavilion, startup zone",
-          "subject": "Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
-          "threadId": "1a097113079e903f",
-          "to": "intersecglobal@uae.messefrankfurt.com"
-        },
-        {
-          "at": "2026-09-19T17:45:00Z",
-          "dir": "out",
-          "from": "souveno30@gmail.com",
-          "to": "intersecglobal@uae.messefrankfurt.com",
-          "subject": "Re: Intersec Dubai 2027 — MSME / startup participation, stand rate card and India pavilion",
-          "snippet": "first nudge into silence: January show so India paperwork is time-critical; asks how the India pavilion is organised and its coordinator, the booking form and proforma, and offers to write to the India representative instead",
-          "messageId": "1a0babe9a12a4397",
-          "threadId": "1a097113079e903f",
-          "kind": "nudge"
-        }
-      ],
-      "organiser": "Messe Frankfurt Middle East",
-      "stage": "nudged",
-      "threadIds": [
-        "1a097113079e903f"
       ],
       "note": "first nudge sent 19 Sep, 7 days after the 12 Sep enquiry; Gmail thread verified to hold one message with no reply and no bounce. Second and final nudge no earlier than 26 Sep."
     },
